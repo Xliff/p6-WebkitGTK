@@ -11,12 +11,12 @@ sub jsc_context_check_syntax (
   JSCContext $context,
   Str $code,
   gssize $length,
-  JSCCheckSyntaxMode $mode,
+  guint $mode,                    # JSCCheckSyntaxMode $mode,
   Str $uri,
   guint $line_number,
   CArray[Pointer[JSCException]] $exception
 )
-  returns JSCCheckSyntaxResult
+  returns uint32 # JSCCheckSyntaxResult
   is native(jsc)
   is export
   { * }

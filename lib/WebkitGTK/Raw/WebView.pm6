@@ -364,7 +364,7 @@ sub webkit_web_view_run_javascript (
   WebKitWebView $web_view,
   Str $script,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)

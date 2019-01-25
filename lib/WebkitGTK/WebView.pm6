@@ -11,7 +11,13 @@ use GTK::Container;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebView;
 
+use WebkitGTK::Roles::Signals::WebView;
+
+use WebkitGTK::JavascriptResult;
+
 class WebkitGTK::WebView is GTK::Container {
+  also does WebkitGTK::Roles::Signals::WebView;
+
   has WebKitWebView $!wkv;
 
   submethod BUILD (:$view) {
@@ -56,6 +62,162 @@ class WebkitGTK::WebView is GTK::Container {
     );
   }
 
+  # Is originally:
+  # WebKitWebView, WebKitAuthenticationRequest, gpointer --> gboolean
+  # method authenticate {
+  #   self.connect-authenticate($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, gpointer --> void
+  method close {
+    self.connect($!wkv, 'close');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
+  # method context-menu {
+  #   self.connect-context-menu($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, gpointer --> void
+  method context-menu-dismissed {
+    self.connect($!wkv, 'context-menu-dismissed');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitNavigationAction, gpointer --> GtkWidget
+  # method create {
+  #   self.connect-nav-rWidget($!wkv, 'create');
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitPolicyDecision, WebKitPolicyDecisionType, gpointer
+  # method decide-policy {
+  #   self.connect-decide-policy($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, gpointer --> gboolean
+  method enter-fullscreen {
+    self.connect-rbool($!wkv, 'enter-fullscreen');
+  }
+
+  # Is originally:
+  # WebKitWebView, uint (WebKitInsecureContentEvent), gpointer --> void
+  method insecure-content-detected {
+    self.connect-uint($!wkv, 'insecure-content-detected');
+  }
+
+  # Is originally:
+  # WebKitWebView, gpointer --> gboolean
+  method leave-fullscreen {
+    self.connect-rbool($!wkv, 'leave-fullscreen');
+  }
+
+  # Is originally:
+  # WebKitWebView, guint (WebKitLoadEvent), gpointer
+  method load-changed {
+    self.connect-uint($!wkv, 'load-changed');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitLoadEvent, gchar, GError, gpointer --> gboolean
+  # method load-failed {
+  #   self.connect-load-event($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, gchar, GTlsCertificate, GTlsCertificateFlags, gpointer --> gboolean
+  method load-failed-with-tls-errors {
+    self.connect($!wkv, 'load-failed-with-tls-errors');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
+  # method mouse-target-changed {
+  #   self.connect-mouse-target($!wkv, 'mouse-target-changed');
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
+  # method permission-request {
+  #   self.connect-permission-request($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
+  # method print {
+  #   self.connect-print($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, gpointer --> void
+  method ready-to-show {
+    self.connect($!wkv, 'ready-to-show');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
+  # method resource-load-started {
+  #   self.connect-resource-load-started($!wkv);
+  # }
+
+  # Is originally:
+  # # WebKitWebView, gpointer --> void
+  method run-as-modal {
+    self.connect($!wkv, 'run-as-modal');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
+  # method run-color-chooser {
+  #   self.connect-color-chooser($!wkv, 'run-color-chooser');
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitFileChooserRequest, gpointer --> gboolean
+  # method run-file-chooser {
+  #   self.connect-file-chooser($!wkv, 'run-file-chooser');
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
+  # method script-dialog {
+  #   self.connect-dialog($!wkv, 'script-dialog');
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitNotification, gpointer --> gboolean
+  # method show-notification {
+  #   self.connect-show-notification($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitOptionMenu, GdkEvent, GdkRectangle, gpointer --> gboolean
+  # method show-option-menu {
+  #   self.connect-show-option-menu($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
+  # method submit-form {
+  #   self.connect-submit-form($!wkv);
+  # }
+
+  # Is originally:
+  # WebKitWebView, gpointer --> gboolean
+  method web-process-crashed {
+    self.connect-rbool($!wkv, 'web-process-crashed');
+  }
+
+  # Is originally:
+  # WebKitWebView, WebKitWebProcessTerminationReason, gpointer --> void
+  method web-process-terminated {
+    self.connect-uint($!wkv, 'web-process-terminated');
+  }
+
   method can_execute_editing_command (
     Str() $command,
     GCancellable $cancellable,
@@ -71,7 +233,9 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
+    $ERROR = Nil;
     webkit_web_view_can_execute_editing_command_finish($!wkv, $result, $error);
+    $ERROR = $error[0].deref with $error[0];
   }
 
   method can_go_back {
@@ -163,7 +327,9 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
+    $ERROR = Nil;
     webkit_web_view_get_snapshot_finish($!wkv, $result, $error);
+    $ERROR = $error[0].deref with $error[0];
   }
 
   method get_title {
@@ -304,14 +470,22 @@ class WebkitGTK::WebView is GTK::Container {
     webkit_web_view_restore_session_state($!wkv, $state);
   }
 
-  method run_javascript (
+  multi method run_javascript (
     Str() $script,
+    &callback,
     GCancellable $cancellable = Pointer,
-    GAsyncReadyCallback $callback = Pointer,
+    gpointer $user_data = Pointer
+  ) {
+    samewith($script, $cancellable, &callback, $user_data);
+  }
+  multi method run_javascript (
+    Str() $script,
+    GCancellable $cancellable,
+    &callback,
     gpointer $user_data = Pointer
   ) {
     webkit_web_view_run_javascript(
-      $!wkv, $script, $cancellable, $callback, $user_data
+      $!wkv, $script, $cancellable, &callback, $user_data
     );
   }
 
@@ -319,7 +493,12 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
-    webkit_web_view_run_javascript_finish($!wkv, $result, $error);
+    $ERROR = Nil;
+    my $js_result = webkit_web_view_run_javascript_finish(
+      $!wkv, $result, $error
+    );
+    $ERROR = $error[0].deref with $error[0];
+    WebkitGTK::JavascriptResult.new($js_result);
   }
 
   method run_javascript_from_gresource (
@@ -337,9 +516,12 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
-    webkit_web_view_run_javascript_from_gresource_finish(
+    $ERROR = Nil;
+    my $js_result = webkit_web_view_run_javascript_from_gresource_finish(
       $!wkv, $result, $error
     );
+    $ERROR = $error[0].deref with $error[0];
+    WebkitGTK::JavascriptResult.new($js_result);
   }
 
   method run_javascript_in_world (
@@ -358,7 +540,12 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
-    webkit_web_view_run_javascript_in_world_finish($!wkv, $result, $error);
+    $ERROR = Nil;
+    my $js_result = webkit_web_view_run_javascript_in_world_finish(
+      $!wkv, $result, $error
+    );
+    $ERROR = $error[0].deref with $error[0];
+    WebkitGTK::JavascriptResult.new($js_result);
   }
 
   method save (
@@ -376,7 +563,9 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
+    $ERROR = Nil;
     webkit_web_view_save_finish($!wkv, $result, $error);
+    $ERROR = $error[0].deref with $error[0];
   }
 
   method save_to_file (
@@ -395,7 +584,9 @@ class WebkitGTK::WebView is GTK::Container {
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
   ) {
+    $ERROR = Nil;
     webkit_web_view_save_to_file_finish($!wkv, $result, $error);
+    $ERROR = $error[0].deref with $error[0];
   }
 
   method set_background_color (GdkRGBA $rgba) {

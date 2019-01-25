@@ -17,8 +17,6 @@ class WebKitFindController      is repr("CPointer") is export does GTK::Roles::P
 class WebKitWebInspector        is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitWebResource         is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitWebViewSessionState is repr("CPointer") is export does GTK::Roles::Pointers { * }
-class WebKitSnapshotRegion      is repr("CPointer") is export does GTK::Roles::Pointers { * }
-class WebKitSnapshotOptions     is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitUserContentManager  is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitWebsiteDataManager  is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitWindowProperties    is repr("CPointer") is export does GTK::Roles::Pointers { * }
@@ -27,6 +25,40 @@ class WebKitURIRequest          is repr("CPointer") is export does GTK::Roles::P
 class WebKitSettings            is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitJavascriptResult    is repr("CPointer") is export does GTK::Roles::Pointers { * }
 
+our enum WebKitPolicyDecisionType is export <
+  WEBKIT_POLICY_DECISION_TYPE_NAVIGATION_ACTION
+  WEBKIT_POLICY_DECISION_TYPE_NEW_WINDOW_ACTION
+  WEBKIT_POLICY_DECISION_TYPE_RESPONSE
+>;
+
+our enum WebKitLoadEvent is export <
+  WEBKIT_LOAD_STARTED
+  WEBKIT_LOAD_REDIRECTED
+  WEBKIT_LOAD_COMMITTED
+  WEBKIT_LOAD_FINISHED
+>;
+
 our enum WebKitSaveMode is export <
-  SAVED
+  WEBKIT_SAVE_MODE_MHTML
+>;
+
+our enum WebKitInsecureContentEvent is export <
+  WEBKIT_INSECURE_CONTENT_RUN,
+  WEBKIT_INSECURE_CONTENT_DISPLAYED
+>;
+
+our enum WebKitSnapshotOptions is export (
+  WEBKIT_SNAPSHOT_OPTIONS_NONE                           => 0,
+  WEBKIT_SNAPSHOT_OPTIONS_INCLUDE_SELECTION_HIGHLIGHTING => 1,
+  WEBKIT_SNAPSHOT_OPTIONS_TRANSPARENT_BACKGROUND         => 2,
+);
+
+our enum WebKitSnapshotRegion is export <
+  WEBKIT_SNAPSHOT_REGION_VISIBLE
+  WEBKIT_SNAPSHOT_REGION_FULL_DOCUMENT
+>;
+
+our enum WebKitWebProcessTerminationReason <
+  WEBKIT_WEB_PROCESS_CRASHED
+  WEBKIT_WEB_PROCESS_EXCEEDED_MEMORY_LIMIT
 >;

@@ -2,6 +2,8 @@ use v6.c;
 
 use NativeCall;
 
+use GTK::Compat::Types;
+
 use GTK::Roles::Types;
 
 use WebkitGTK::JavaScript::Raw::Types;
@@ -16,8 +18,15 @@ class WebkitGTK::JavaScript::Context {
     $!jsc = $context;
   }
 
-  method new {
+  multi method new (JSCContext $context) {
+    self.bless(:$context);
+  }
+  multi method new {
     self.bless( context => jsc_context_new() );
+  }
+
+  method get_current {
+    self.bless( context => jsc_context_get_current() );
   }
 
   method new_with_virtual_machine(JSCVirtualMachine() $vm) {
@@ -35,7 +44,7 @@ class WebkitGTK::JavaScript::Context {
     my $e = CArray[Pointer[JSCException]].new;
     my $rc = samewith ($code, $length, $mode, $uri, $line_number, $e);
     ($rc, $e);
-  )
+  }
   multi method check_syntax (
     Str() $code,
     Int() $length,
@@ -74,15 +83,11 @@ class WebkitGTK::JavaScript::Context {
   method evaluate_with_source_uri (
     Str() $code,
     Int() $length,
-    St() $uri,
+    Str() $uri,
     Int() $line_number
   ) {
     my ($l, $ln) = self.RESOLVE-UINT($length, $line_number);
     jsc_context_evaluate_with_source_uri($!jsc, $code, $l, $uri, $ln);
-  }
-
-  method get_current {
-    jsc_context_get_current($!jsc);
   }
 
   method get_exception {

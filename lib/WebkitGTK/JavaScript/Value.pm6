@@ -1,21 +1,27 @@
 use v6.c;
 
+use NativeCall;
+
 use GTK::Compat::Types;
 use GTK::Roles::Types;
 use GTK::Roles::Signals::Generic;
 
+use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Value;
 
-use WebkitGTK::JavaScript::Types;
 use WebkitGTK::JavaScript::Utils;
 
-class WebkitGTK::JavaScript::Valie {
+class WebkitGTK::JavaScript::Value {
   also does GTK::Roles::Types;
 
   has JSCValue $!jv;
 
   submethod BUILD (:$value) {
     $!jv = $value;
+  }
+
+  method new(JSCValue $value) {
+    self.bless(:$value);
   }
 
   method new_null(JSCContext() $c) {
@@ -47,7 +53,7 @@ class WebkitGTK::JavaScript::Valie {
   }
 
   method new_array_from_strv(JSCContext() $c, CArray[Str] $strv) {
-    self.bless( value => jsv_value_new_array_from_strv($c, $strv) );
+    self.bless( value => jsc_value_new_array_from_strv($c, $strv) );
   }
 
   method new_array_from_garray (JSCContect() $c, GPtrArray $array) {
