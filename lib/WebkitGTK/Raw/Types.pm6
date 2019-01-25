@@ -19,6 +19,8 @@ class WebKitEditorState           is repr("CPointer") is export does GTK::Roles:
 class WebKitFindController        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitHitTestResult         is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitJavascriptResult      is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitPolicyDecision        is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitNavigationAction      is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSettings              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIRequest            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserContentManager    is repr("CPointer") is export does GTK::Roles::Pointers { }

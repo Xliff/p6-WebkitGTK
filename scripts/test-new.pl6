@@ -19,7 +19,7 @@ sub MAIN( $rev = 'HEAD' ) {
     [ $_, $a, @buildlist.first(* eq $a, :k) // Inf ];
   });
 
-  for @files.sort( *[1] ) {
+  for @files.sort( *[2] ) {
     unless $_[0].IO.e {
       say "{ $_[0] } no longer exists.";
       next;

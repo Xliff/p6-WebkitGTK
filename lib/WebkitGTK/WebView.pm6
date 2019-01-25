@@ -88,15 +88,15 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitNavigationAction, gpointer --> GtkWidget
-  # method create {
-  #   self.connect-nav-rWidget($!wkv, 'create');
-  # }
+  method create {
+    self.connect-create($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, WebKitPolicyDecision, WebKitPolicyDecisionType, gpointer
-  # method decide-policy {
-  #   self.connect-decide-policy($!wkv);
-  # }
+  method decide-policy {
+    self.connect-decide-policy($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, gpointer --> gboolean
@@ -123,22 +123,22 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   # Is originally:
-  # WebKitWebView, WebKitLoadEvent, gchar, GError, gpointer --> gboolean
-  # method load-failed {
-  #   self.connect-load-event($!wkv);
-  # }
+  # WebKitWebView, guint (WebKitLoadEvent), gchar, GError, gpointer --> gboolean
+  method load-failed {
+    self.connect-load-event($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, gchar, GTlsCertificate, GTlsCertificateFlags, gpointer --> gboolean
   method load-failed-with-tls-errors {
-    self.connect($!wkv, 'load-failed-with-tls-errors');
+    self.connect-load-failed-with-tls-errors($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
-  # method mouse-target-changed {
-  #   self.connect-mouse-target($!wkv, 'mouse-target-changed');
-  # }
+  method mouse-target-changed {
+    self.connect-mouse-target($!wkv, 'mouse-target-changed');
+  }
 
   # Is originally:
   # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
