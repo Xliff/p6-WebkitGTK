@@ -64,9 +64,9 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitAuthenticationRequest, gpointer --> gboolean
-  # method authenticate {
-  #   self.connect-authenticate($!wkv);
-  # }
+  method authenticate {
+    self.connect-authenticate($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, gpointer --> void

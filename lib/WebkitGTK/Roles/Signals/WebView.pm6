@@ -15,7 +15,31 @@ role WebkitGTK::Roles::Signals::WebView {
   has %!signals-wv;
 
   # WebKitWebView, WebKitAuthenticationRequest, gpointer --> gboolean
-  #method authenticate {
+  method authenticate (
+    $obj,
+    $signal = 'authenticate',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-authenticate($obj, $signal,
+        -> $, $ar, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $ar, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
   #method context-menu {
@@ -26,30 +50,7 @@ role WebkitGTK::Roles::Signals::WebView {
   # WebKitWebView, WebKitPolicyDecision, WebKitPolicyDecisionType, gpointer
   #method decide-policy {
 
-  # WebKitWebView, WebKitLoadEvent, gpointer
-  # method load-changed (
-  #   $obj,
-  #   $signal,
-  #   &handler?
-  # ) {
-  #   my $hid;
-  #   %!signals-wv{$signal} //= do {
-  #     my $s = Supplier.new;
-  #     $hid = g-connect-load-changed($obj, $signal,
-  #       -> $, $le, $ud --> gboolean {
-  #         CATCH {
-  #           default { note($_) }
-  #         }
-  #
-  #         $s.emit( [self, $le, $ud] );
-  #       },
-  #       Pointer, 0
-  #     );
-  #     [ $s.Supply, $obj, $hid];
-  #   };
-  #   %!signals-wv{$signal}[0].tap(&handler) with &handler;
-  #   %!signals-wv{$signal}[0];
-  # }
+
 
   # WebKitWebView, WebKitLoadEvent, gchar, GError, gpointer --> gboolean
   #method load-failed
@@ -89,14 +90,14 @@ role WebkitGTK::Roles::Signals::WebView {
 
 }
 
-# sub g-connect-(
-#   Pointer $app,
-#   Str $name,
-#   &handler (Pointer, ..., Pointer),
-#   Pointer $data,
-#   uint32 $flags
-# )
-#   returns uint64
-#   is native('gobject-2.0')
-#   is symbol('g_signal_connect_object')
-#   { * }
+sub g-connect-authenticate(
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitAuthenticationRequest, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
