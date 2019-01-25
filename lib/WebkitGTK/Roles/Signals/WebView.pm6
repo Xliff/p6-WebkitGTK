@@ -15,7 +15,7 @@ role WebkitGTK::Roles::Signals::WebView {
   has %!signals-wv;
 
   # WebKitWebView, WebKitAuthenticationRequest, gpointer --> gboolean
-  method authenticate (
+  method connect-authenticate (
     $obj,
     $signal = 'authenticate',
     &handler?
@@ -42,7 +42,31 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
-  #method context-menu {
+  method connect-context-menu (
+    $obj,
+    $signal = 'context-menu',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-context-menu($obj, $signal,
+        -> $, $m, $e, $tr, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $m, $e, $tr, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitNavigationAction, gpointer --> GtkWidget
   #method create {
@@ -94,6 +118,19 @@ sub g-connect-authenticate(
   Pointer $app,
   Str $name,
   &handler (Pointer, WebKitAuthenticationRequest, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
+sub g-connect-context-menu(
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitContextMenu, GdkEvent, WebKitHitTestResult, Pointer --> gboolean),
   Pointer $data,
   uint32 $flags
 )

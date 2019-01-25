@@ -76,9 +76,9 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
-  # method context-menu {
-  #   self.connect-context-menu($!wkv);
-  # }
+  method context-menu {
+    self.connect-context-menu($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, gpointer --> void
