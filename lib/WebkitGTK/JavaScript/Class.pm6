@@ -153,7 +153,7 @@ class WebkitGTK::JavaScript::Class {
   }
 
   method get_parent {
-    jsc_class_get_parent($!jsc);
+    WebkitGTK::JavaScript::Class.new( jsc_class_get_parent($!jsc) );
   }
 
   method get_type {

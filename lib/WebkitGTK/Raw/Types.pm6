@@ -7,7 +7,6 @@ use GTK::Roles::Pointers;
 unit package WebkitGTK::Raw::Types;
 
 constant webkit is export = 'webkit2gtk-4.0',v37;
-constant jsc    is export = 'javascriptcoregtk-4.0',v18;
 
 class WebKitWebView             is repr("CPointer") is export does GTK::Roles::Pointers { * }
 class WebKitDownload            is repr("CPointer") is export does GTK::Roles::Pointers { * }
