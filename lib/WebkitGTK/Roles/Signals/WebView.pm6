@@ -175,7 +175,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
-  method mouse-target (
+  method connect-mouse-target (
     $obj,
     $signal = 'mouse-target-changed',
     &handler?
@@ -200,7 +200,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
-  method permission-request (
+  method connect-permission-request (
     $obj,
     $signal = 'permission-request',
     &handler?
@@ -227,7 +227,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
-  method print (
+  method connect-print (
     $obj,
     $signal = 'print',
     &handler?
@@ -254,7 +254,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
-  method resource-load-started (
+  method connect-resource-load-started (
     $obj,
     $signal = 'resource-load-started',
     &handler?
@@ -279,7 +279,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
-  method run-color-chooser (
+  method connect-run-color-chooser (
     $obj,
     $signal = 'run-color-chooser',
     &handler?
@@ -306,7 +306,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitFileChooserRequest, gpointer --> gboolean
-  method run-file-chooser (
+  method connect-run-file-chooser (
     $obj,
     $signal = 'run-file-chooser',
     &handler?
@@ -333,7 +333,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
-  method script-dialog (
+  method connect-script-dialog (
     $obj,
     $signal = 'script-dialog',
     &handler?
@@ -360,7 +360,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitNotification, gpointer --> gboolean
-  method show-notification (
+  method connect-show-notification (
     $obj,
     $signal = 'show-notification',
     &handler?
@@ -414,7 +414,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
-  method submit-form (
+  method connect-submit-form (
     $obj,
     $signal = 'submit-form',
     &handler?
@@ -437,7 +437,7 @@ role WebkitGTK::Roles::Signals::WebView {
     %!signals-wv{$signal}[0].tap(&handler) with &handler;
     %!signals-wv{$signal}[0];
   }
-
+  
 }
 
 sub g-connect-authenticate(
