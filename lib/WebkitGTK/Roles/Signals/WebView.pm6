@@ -175,7 +175,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
-  method mouse-target-changed (
+  method mouse-target (
     $obj,
     $signal = 'mouse-target-changed',
     &handler?
@@ -183,7 +183,7 @@ role WebkitGTK::Roles::Signals::WebView {
     my $hid;
     %!signals-wv{$signal} //= do {
       my $s = Supplier.new;
-      $hid = g-connect-mouse-target-changed($obj, $signal,
+      $hid = g-connect-mouse-target($obj, $signal,
         -> $, $htr, $i, $ud {
           CATCH {
             default { note($_) }
@@ -200,31 +200,243 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
-  #method permission-request
+  method permission-request (
+    $obj,
+    $signal = 'permission-request',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-permission-request($obj, $signal,
+        -> $, $pr, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $pr, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
-  #method print
+  method print (
+    $obj,
+    $signal = 'print',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-print($obj, $signal,
+        -> $, $po, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $po, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
-  #method resource-load-started
+  method resource-load-started (
+    $obj,
+    $signal = 'resource-load-started',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-resource-load-started($obj, $signal,
+        -> $, $rc, $ur, $ud {
+          CATCH {
+            default { note($_) }
+          }
+
+          $s.emit( [self, $rc, $ur, $ud] );
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
-  #method run-color-chooser
+  method run-color-chooser (
+    $obj,
+    $signal = 'run-color-chooser',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-color-chooser($obj, $signal,
+        -> $, $cc, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $cc, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitFileChooserRequest, gpointer --> gboolean
-  #run-file-chooser
+  method run-file-chooser (
+    $obj,
+    $signal = 'run-file-chooser',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-file-chooser($obj, $signal,
+        -> $, $fc, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $fc, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
-  #script-dialog
+  method script-dialog (
+    $obj,
+    $signal = 'script-dialog',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-script-dialog($obj, $signal,
+        -> $, $sd, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $sd, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitNotification, gpointer --> gboolean
-  #show-notification
+  method show-notification (
+    $obj,
+    $signal = 'show-notification',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-show-notification($obj, $signal,
+        -> $, $n, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $n, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitOptionMenu, GdkEvent, GdkRectangle, gpointer --> gboolean
-  #connect-show-option-menu
+  method connect-show-option-menu  (
+    $obj,
+    $signal = 'show-option-menu',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-show-option-menu($obj, $signal,
+        -> $, $om, $e, $rect, $ud --> gboolean {
+          CATCH {
+            default { note($_) }
+          }
+
+          my $r = GTK::Raw::ReturnedValue;
+          $s.emit( [self, $om, $e, $rect, $ud, $r] );
+          $r.r;
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
   # WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
-  #submit-form
+  method submit-form (
+    $obj,
+    $signal = 'submit-form',
+    &handler?
+  ) {
+    my $hid;
+    %!signals-wv{$signal} //= do {
+      my $s = Supplier.new;
+      $hid = g-connect-form-submission-request($obj, $signal,
+        -> $, $fsr, $ud {
+          CATCH {
+            default { note($_) }
+          }
+
+          $s.emit( [self, $fsr, $ud] );
+        },
+        Pointer, 0
+      );
+      [ $s.Supply, $obj, $hid];
+    };
+    %!signals-wv{$signal}[0].tap(&handler) with &handler;
+    %!signals-wv{$signal}[0];
+  }
 
 }
 
@@ -254,7 +466,7 @@ sub g-connect-context-menu(
   { * }
 
 # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
-sub g-connect-mouse-target-changed(
+sub g-connect-mouse-target(
   Pointer $app,
   Str $name,
   &handler (Pointer, WebKitHitTestResult, guint, Pointer),
@@ -310,6 +522,123 @@ sub g-connect-load-failed-with-tls-errors (
   Pointer $app,
   Str $name,
   &handler (Pointer, Str, GTlsCertificate, guint, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
+sub g-connect-permission-request (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitPermissionRequest, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
+sub g-connect-print (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitPrintOperation, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
+sub g-connect-resource-load-started (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitWebResource, WebKitURIRequest, Pointer),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
+sub g-connect-color-chooser (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitColorChooserRequest, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
+sub g-connect-file-chooser (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitFileChooserRequest, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
+sub g-connect-script-dialog (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitScriptDialog, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitNotification, gpointer --> gboolean
+sub g-connect-show-notification (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitNotification, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitOptionMenu, GdkEvent, GdkRectangle, gpointer --> gboolean
+sub g-connect-show-option-menu (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitOptionMenu, GdkEvent, GdkRectangle, Pointer --> gboolean),
+  Pointer $data,
+  uint32 $flags
+)
+  returns uint64
+  is native('gobject-2.0')
+  is symbol('g_signal_connect_object')
+  { * }
+
+# WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
+sub g-connect-form-submission-request (
+  Pointer $app,
+  Str $name,
+  &handler (Pointer, WebKitFormSubmissionRequest, Pointer),
   Pointer $data,
   uint32 $flags
 )

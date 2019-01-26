@@ -142,15 +142,15 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
-  # method permission-request {
-  #   self.connect-permission-request($!wkv);
-  # }
+  method permission-request {
+    self.connect-permission-request($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
-  # method print {
-  #   self.connect-print($!wkv);
-  # }
+  method print {
+    self.connect-print($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, gpointer --> void
@@ -160,9 +160,9 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
-  # method resource-load-started {
-  #   self.connect-resource-load-started($!wkv);
-  # }
+  method resource-load-started {
+    self.connect-resource-load-started($!wkv);
+  }
 
   # Is originally:
   # # WebKitWebView, gpointer --> void
@@ -172,39 +172,39 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
-  # method run-color-chooser {
-  #   self.connect-color-chooser($!wkv, 'run-color-chooser');
-  # }
+  method run-color-chooser {
+    self.connect-color-chooser($!wkv, 'run-color-chooser');
+  }
 
   # Is originally:
   # WebKitWebView, WebKitFileChooserRequest, gpointer --> gboolean
-  # method run-file-chooser {
-  #   self.connect-file-chooser($!wkv, 'run-file-chooser');
-  # }
+  method run-file-chooser {
+    self.connect-file-chooser($!wkv, 'run-file-chooser');
+  }
 
   # Is originally:
   # WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
-  # method script-dialog {
-  #   self.connect-dialog($!wkv, 'script-dialog');
-  # }
+  method script-dialog {
+    self.connect-dialog($!wkv, 'script-dialog');
+  }
 
   # Is originally:
   # WebKitWebView, WebKitNotification, gpointer --> gboolean
-  # method show-notification {
-  #   self.connect-show-notification($!wkv);
-  # }
+  method show-notification {
+    self.connect-show-notification($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, WebKitOptionMenu, GdkEvent, GdkRectangle, gpointer --> gboolean
-  # method show-option-menu {
-  #   self.connect-show-option-menu($!wkv);
-  # }
+  method show-option-menu {
+    self.connect-show-option-menu($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
-  # method submit-form {
-  #   self.connect-submit-form($!wkv);
-  # }
+  method submit-form {
+    self.connect-submit-form($!wkv);
+  }
 
   # Is originally:
   # WebKitWebView, gpointer --> gboolean

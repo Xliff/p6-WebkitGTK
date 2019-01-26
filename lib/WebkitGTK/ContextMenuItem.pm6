@@ -7,6 +7,8 @@ use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::ContextMenuItem;
 
+use GTK::Compat::Action;
+
 use GTK::Roles::Types;
 
 class WebkitGTK::ContextMenuItem {
@@ -74,7 +76,9 @@ class WebkitGTK::ContextMenuItem {
   }
 
   method get_gaction {
-    webkit_context_menu_item_get_gaction($!wcmi);
+    GTK::Compat::Action.new(
+      webkit_context_menu_item_get_gaction($!wcmi)
+    );
   }
 
   method get_stock_action {
