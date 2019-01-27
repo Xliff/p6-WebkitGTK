@@ -1,6 +1,6 @@
 # WebkitGTK+ bindings for Perl6
 
-![Screenshot](/grabs/Perl6_Browser_SimpleUI?raw=true "P6 Browser Interface")
+![Screenshot](/grabs/Perl6_Browser_SimpleUI.png?raw=true "P6 Browser Interface")
 
 This is an extremely experimental project, and getting it to work requires checking out several git repositories.
 
