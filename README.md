@@ -37,7 +37,7 @@ $ git clone https://github.com/Xliff/p6-WebkitGTK.git
 
 ```
 $ cd p6-WebkitGTK
-$ perl6 --stagestats -I../cairo-p6/lib -I../p6-Pango/lib -I../p6-GtkPlus/lib -Ilib visual-grammar.pl6
+$ perl6 --stagestats -I../cairo-p6/lib -I../p6-Pango/lib -I../p6-GtkPlus/lib -Ilib t/04-simple-ui.t
 ```
 
 Please share compile times and your environment from the last command, [here](/../../issues/1).
