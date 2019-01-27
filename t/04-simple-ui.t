@@ -63,6 +63,7 @@ sub handle_loading($s, *@a) {
       $s.pop($last_s);
       $last_s = Nil;
       %cids{$_}:delete for %cids.keys;
+      $b<Back>.sensitive = $wv.can_go_back;
     }
   }
 }
