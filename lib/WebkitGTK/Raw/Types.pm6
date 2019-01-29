@@ -8,27 +8,34 @@ unit package WebkitGTK::Raw::Types;
 
 constant webkit is export = 'webkit2gtk-4.0',v37;
 
+constant WebKitURISchemeRequestCallback is export := Pointer;
+
 class WebKitAuthenticationRequest is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitAutomationSession     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitBackForwardList       is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitBackForwardListItem   is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitColorChooserRequest   is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitContextMenu           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitContextMenuItem       is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitCookieManager         is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitCredential            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitDownload              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitEditorState           is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitFaviconDatabase       is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFileChooserRequest    is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFindController        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFormSubmissionRequest is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitHitTestResult         is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitJavascriptResult      is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitNavigationAction      is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitNetworkProxySettings  is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitNotification          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitOptionMenu            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPermissionRequest     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPolicyDecision        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPrintOperation        is repr("CPointer") is export does GTK::Roles::Pointers { }
-class WebKitNavigationAction      is repr("CPointer") is export does GTK::Roles::Pointers { }
-class WebKitNotification          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitScriptDialog          is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitSecurityManager       is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSettings              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIRequest            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserContentManager    is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -144,3 +151,28 @@ our enum WebKitContextMenuAction is export (
 
   WEBKIT_CONTEXT_MENU_ACTION_CUSTOM => 10000
 );
+
+our enum WebKitCacheModel is export <
+  WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER
+  WEBKIT_CACHE_MODEL_WEB_BROWSER
+  WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER
+>;
+
+our enum WebKitProcessModel is export <
+  WEBKIT_PROCESS_MODEL_SHARED_SECONDARY_PROCESS
+  WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES
+>
+
+our enum WebKitTLSErrorsPolicy is export <
+  WEBKIT_TLS_ERRORS_POLICY_IGNORE
+  WEBKIT_TLS_ERRORS_POLICY_FAIL
+>;
+
+our enum WebKitNavigationType is export <
+  WEBKIT_NAVIGATION_TYPE_LINK_CLICKED
+  WEBKIT_NAVIGATION_TYPE_FORM_SUBMITTED
+  WEBKIT_NAVIGATION_TYPE_BACK_FORWARD
+  WEBKIT_NAVIGATION_TYPE_RELOAD
+  WEBKIT_NAVIGATION_TYPE_FORM_RESUBMITTED
+  WEBKIT_NAVIGATION_TYPE_OTHER
+>

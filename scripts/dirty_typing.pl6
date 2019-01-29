@@ -2,12 +2,15 @@
 
 use File::Find;
 
-sub MAIN ($pattern, :$prefix!) {
+use WebkitGTK::Raw::Types;
+
+sub MAIN ($pattern is copy, :$prefix!) {
   $pattern ~~ s/\*//;
   my @files = find
-    dir => 'lib',
-    name => /{$pattern}/,
-    type => 'file';
+    dir     => 'lib',
+    name    => /{$pattern}/,
+    type    => 'file',
+    exclude => /'Types.pm6'$/;
 
   my %seen;
   my %seen-enum;
@@ -25,8 +28,17 @@ sub MAIN ($pattern, :$prefix!) {
       }
     }
   }
-  say "class $_ is repr(\"CPointer\") is export does GTK::Roles::Pointers;"
-    for %seen.keys;
+  for %seen.keys.sort {
+    my $is-there = False;
+    try {
+      my $a := ::($_);
+      $is-there = True;
+      CATCH { default { 1; } }
+    }
+    say
+      "class $_ is repr(\"CPointer\") is export does GTK::Roles::Pointers;"
+    unless $is-there;
+  }
   say "our enum $_ is export <\n>;"
     for %seen-enum.keys;
 }
