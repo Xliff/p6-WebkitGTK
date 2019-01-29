@@ -1,5 +1,7 @@
 use v6.c;
 
+use NativeCall;
+
 use GTK::Compat::Types;
 
 use WebkitGTK::Raw::Types;
@@ -57,7 +59,7 @@ sub webkit_web_context_get_plugins (
 sub webkit_web_context_get_plugins_finish (
   WebKitWebContext $context,
   GAsyncResult $result,
-  CArray[GError] $error
+  CArray[Pointer[GError]] $error
 )
   returns GList
   is native(webkit)
@@ -203,19 +205,19 @@ sub webkit_web_context_get_web_process_count_limit (WebKitWebContext $context)
   { * }
 
 sub webkit_web_context_get_process_model (WebKitWebContext $context)
-  returns WebKitProcessModel
+  returns guint # WebKitProcessModel
   is native(webkit)
   is export
   { * }
 
 sub webkit_web_context_get_cache_model (WebKitWebContext $context)
-  returns WebKitCacheModel
+  returns guint # WebKitCacheModel
   is native(webkit)
   is export
   { * }
 
 sub webkit_web_context_get_tls_errors_policy (WebKitWebContext $context)
-  returns WebKitTLSErrorsPolicy
+  returns guint # WebKitTLSErrorsPolicy
   is native(webkit)
   is export
   { * }
@@ -246,7 +248,7 @@ sub webkit_web_context_set_web_process_count_limit (
 
 sub webkit_web_context_set_process_model (
   WebKitWebContext $context,
-  WebKitProcessModel $process_model
+  guint $process_model            # WebKitProcessModel $process_model
 )
   is native(webkit)
   is export
@@ -254,7 +256,7 @@ sub webkit_web_context_set_process_model (
 
 sub webkit_web_context_set_cache_model (
   WebKitWebContext $context,
-  WebKitCacheModel $cache_model
+  guint $cache_model              # WebKitCacheModel $cache_model
 )
   is native(webkit)
   is export

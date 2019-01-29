@@ -161,7 +161,7 @@ our enum WebKitCacheModel is export <
 our enum WebKitProcessModel is export <
   WEBKIT_PROCESS_MODEL_SHARED_SECONDARY_PROCESS
   WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES
->
+>;
 
 our enum WebKitTLSErrorsPolicy is export <
   WEBKIT_TLS_ERRORS_POLICY_IGNORE
@@ -175,4 +175,17 @@ our enum WebKitNavigationType is export <
   WEBKIT_NAVIGATION_TYPE_RELOAD
   WEBKIT_NAVIGATION_TYPE_FORM_RESUBMITTED
   WEBKIT_NAVIGATION_TYPE_OTHER
->
+>;
+
+our enum WebKitWebsiteDataTypes is export (
+  WEBKIT_WEBSITE_DATA_MEMORY_CACHE              =>  1,
+  WEBKIT_WEBSITE_DATA_DISK_CACHE                =>  1 +< 1,
+  WEBKIT_WEBSITE_DATA_OFFLINE_APPLICATION_CACHE =>  1 +< 2,
+  WEBKIT_WEBSITE_DATA_SESSION_STORAGE           =>  1 +< 3,
+  WEBKIT_WEBSITE_DATA_LOCAL_STORAGE             =>  1 +< 4,
+  WEBKIT_WEBSITE_DATA_WEBSQL_DATABASES          =>  1 +< 5,
+  WEBKIT_WEBSITE_DATA_INDEXEDDB_DATABASES       =>  1 +< 6,
+  WEBKIT_WEBSITE_DATA_PLUGIN_DATA               =>  1 +< 7,
+  WEBKIT_WEBSITE_DATA_COOKIES                   =>  1 +< 8,
+  WEBKIT_WEBSITE_DATA_ALL                       => (1 +< 9) - 1
+);

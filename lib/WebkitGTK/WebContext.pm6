@@ -1,12 +1,15 @@
 use v6.c;
 
+use NativeCall;
+
 use GTK::Compat::Types;
+use WebkitGTK::Compat::Types;
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebContext;
 
 use GTK::Roles::Types;
-use WebkitGTK::Roles::Signals::Context;
+use WebkitGTK::Roles::Signals::WebContext;
 
 class WebkitGTK::WebContext {
   also does GTK::Roles::Types;
@@ -27,12 +30,12 @@ class WebkitGTK::WebContext {
   }
 
   method new_with_website_data_manager(WebKitWebsiteDataManager() $data) {
-    my $context = webkit_web_context_new_with_website_data_manager($dm);
+    my $context = webkit_web_context_new_with_website_data_manager($data);
     self.bless(:$context);
   }
 
   method get_default {
-    self.bless( context => webkit_web_context_get_default($!wwc) );
+    self.bless( context => webkit_web_context_get_default() );
   }
 
   # Is originally:
@@ -87,8 +90,8 @@ class WebkitGTK::WebContext {
       FETCH => sub ($) {
         webkit_web_context_get_process_model($!wwc);
       },
-      STORE => sub ($, Int () $process_model is copy) {
-        my guint $pm = self.RESOLVE-UINT($process_model)
+      STORE => sub ($, Int() $process_model is copy) {
+        my guint $pm = self.RESOLVE-UINT($process_model);
         webkit_web_context_set_process_model($!wwc, $pm);
       }
     );
@@ -168,10 +171,10 @@ class WebkitGTK::WebContext {
       $!wwc, $cancellable, $callback, $user_data
     );
   }
-
+  
   method get_plugins_finish (
     GAsyncResult $result,
-    CArray[GError] $error = webkit_gerror
+    CArray[Pointer[GError]] $error = gerror
   ) {
     webkit_web_context_get_plugins_finish($!wwc, $result, $error);
   }
