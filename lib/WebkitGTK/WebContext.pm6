@@ -132,10 +132,27 @@ class WebkitGTK::WebContext {
     );
   }
 
-  # -------- Missed detection  -----------
-  # const gchar ** webkit_web_context_get_spell_checking_languages     (WebKitWebContext              *context);
-  # webkit_web_context_set_spell_checking_languages     (WebKitWebContext              *context,                                                      const gchar * const           *languages);
-  # void webkit_web_context_set_preferred_languages          (WebKitWebContext              *context,                                                      const gchar * const           *languages);
+  method spell_checking_languages is rw {
+    Proxy.new(
+      FETCH => -> $ {
+        my $l = webkit_web_context_get_spell_checking_languages($!wwc);
+        my $ret;
+        with $l {
+          my $i = 0;
+          while $l[$i].defined { $ret[$i] = $l[$i++] }
+        }
+        $ret;
+      },
+      STORE => $, Str @langs {
+        my $l = CArray[Str].new;
+        for ^@langs.elems {
+          $l[$_] = @langs[$_];
+          LAST { $l[$_ + 1] = Str }
+        }
+        webkit_web_context_set_spell_checking_languages($!wwc, $l);
+      }
+    );
+  }
 
   method allow_tls_certificate_for_host (
     GTlsCertificate $certificate,
@@ -171,7 +188,7 @@ class WebkitGTK::WebContext {
       $!wwc, $cancellable, $callback, $user_data
     );
   }
-  
+
   method get_plugins_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
@@ -253,5 +270,18 @@ class WebkitGTK::WebContext {
       $!wwc, $user_data
     );
   }
+
+  method set_preferred_languages (
+    WebKitWebContext $context,
+    Str @languages
+  ) {
+    my $l = CArray[Str].new;
+    for ^@languages.elems {
+      $l[$_] = @languages[$_];
+      LAST { $l[$_] + 1 = Str }
+    }
+    webkit_web_context_set_preferrred_languages($!wwc, $l);
+  }
+
 
 }

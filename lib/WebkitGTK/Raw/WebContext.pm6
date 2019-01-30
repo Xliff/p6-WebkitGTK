@@ -269,3 +269,18 @@ sub webkit_web_context_set_tls_errors_policy (
   is native(webkit)
   is export
   { * }
+
+sub webkit_web_context_get_spell_checking_languages  (
+  WebKitWebContext $context
+)
+  is native(webkit)
+  is export
+  { * }
+
+sub webkit_web_context_set_preferred_languages (
+  WebKitWebContext $context,
+  CArray[Str]  $languages
+)
+  is native(webkit)
+  is sexport
+  { * }
