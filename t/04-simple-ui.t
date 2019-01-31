@@ -6,8 +6,8 @@ use WebkitGTK::Raw::Types;
 use WebkitGTK::HitTestResult;
 use WebkitGTK::WebView;
 
-my $a = GTK::Application.new( title => 'org.genex.p6-browser' );
-my $b = GTK::Builder.new( pod => $=pod );
+my $a  = GTK::Application.new( title => 'org.genex.p6-browser' );
+my $b  = GTK::Builder.new( pod => $=pod );
 my $wv = WebkitGTK::WebView.new;
 
 my (%cids, $tc, $last_s);
@@ -64,6 +64,7 @@ sub handle_loading($s, *@a) {
       $last_s = Nil;
       %cids{$_}:delete for %cids.keys;
       $b<Back>.sensitive = $wv.can_go_back;
+      $b<Fwd>.sensitive = $wv.can_go_forward;
     }
   }
 }
