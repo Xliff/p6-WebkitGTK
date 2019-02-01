@@ -38,6 +38,7 @@ class WebKitScriptDialog          is repr("CPointer") is export does GTK::Roles:
 class WebKitSecurityManager       is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSettings              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIRequest            is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitURIResponse           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserContentManager    is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebContext            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebInspector          is repr("CPointer") is export does GTK::Roles::Pointers { }
