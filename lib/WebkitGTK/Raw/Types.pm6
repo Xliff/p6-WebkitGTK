@@ -33,6 +33,7 @@ class WebKitNotification          is repr("CPointer") is export does GTK::Roles:
 class WebKitOptionMenu            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPermissionRequest     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPolicyDecision        is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitPrintCustomWidget     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPrintOperation        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitScriptDialog          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSecurityManager       is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -190,3 +191,8 @@ our enum WebKitWebsiteDataTypes is export (
   WEBKIT_WEBSITE_DATA_COOKIES                   =>  1 +< 8,
   WEBKIT_WEBSITE_DATA_ALL                       => (1 +< 9) - 1
 );
+
+our enum WebKitPrintOperationResponse is export <
+    WEBKIT_PRINT_OPERATION_RESPONSE_PRINT,
+    WEBKIT_PRINT_OPERATION_RESPONSE_CANCEL
+>;

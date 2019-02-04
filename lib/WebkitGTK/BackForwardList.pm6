@@ -2,8 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Type;
-use WebkitGTK::Raw::Type;
+use GTK::Compat::Types;
+use WebkitGTK::Raw::Types;
+use WebkitGTK::Raw::BackForwardList;
 
 use GTK::Roles::Types;
 use WebkitGTK::Roles::Signals::BackForwardList;
@@ -14,6 +15,16 @@ class WebkitGTK::BackForwardList {
   also does GTK::Roles::Types;
   also does WebkitGTK::Roles::Signals::BackForwardList;
 
+  has WebKitBackForwardList $!wbfl;
+
+  submethod BUILD (:$list) {
+    $!wbfl = $list;
+  }
+
+  method new (WebKitBackForwardList $list) {
+    self.bless(:$list);
+  }
+
   # Is originally:
   # WebKitBackForwardList, WebKitBackForwardListItem, gpointer, gpointer --> void
   method changed {
@@ -21,8 +32,8 @@ class WebkitGTK::BackForwardList {
   }
 
   method get_back_item {
-    WebkitGTK::BackForwardListIte.new(
-      mwebkit_back_forward_list_get_back_item($!wbfl)
+    WebkitGTK::BackForwardListItem.new(
+      webkit_back_forward_list_get_back_item($!wbfl)
     );
   }
 
@@ -42,7 +53,7 @@ class WebkitGTK::BackForwardList {
   }
 
   method get_forward_item {
-    WebkitGTK:BackListItem.new(
+    WebkitGTK::BackForwardListItem.new(
       webkit_back_forward_list_get_forward_item($!wbfl)
     );
   }
@@ -52,7 +63,7 @@ class WebkitGTK::BackForwardList {
   }
 
   method get_forward_list_with_limit (Int() $limit) {
-    my guint $l = self.RESOLVE-UINT($l);
+    my guint $l = self.RESOLVE-UINT($limit);
     webkit_back_forward_list_get_forward_list_with_limit($!wbfl, $l);
   }
 
@@ -61,9 +72,9 @@ class WebkitGTK::BackForwardList {
   }
 
   method get_nth_item (Int() $i) {
-    my guint $i = self.RESOLVE-INT($limit);
+    my guint $ii = self.RESOLVE-INT($i);
     WebkitGTK::BackForwardListItem.new(
-      webkit_back_forward_list_get_nth_item($!wbfl, $i)
+      webkit_back_forward_list_get_nth_item($!wbfl, $ii)
     );
   }
 

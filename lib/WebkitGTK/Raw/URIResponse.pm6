@@ -8,6 +8,12 @@ use WebkitGTK::Raw::Types;
 
 unit package WebkitGTK::Raw::URIResponse;
 
+sub webkit_uri_response_get_content_length (WebKitURIResponse $respnose)
+  returns guint64
+  is native(webkit)
+  is export
+  { * }
+
 sub webkit_uri_response_get_http_headers (WebKitURIResponse $response)
   returns SoupMessageHeaders
   is native(webkit)

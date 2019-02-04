@@ -3,7 +3,6 @@ use v6.c;
 use NativeCall;
 
 use GTK::Compat::Types;
-
 use GTK::Raw::ReturnedValue;
 use WebkitGTK::Raw::Types;
 
@@ -437,7 +436,7 @@ role WebkitGTK::Roles::Signals::WebView {
     %!signals-wv{$signal}[0].tap(&handler) with &handler;
     %!signals-wv{$signal}[0];
   }
-  
+
 }
 
 sub g-connect-authenticate(

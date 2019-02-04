@@ -24,6 +24,10 @@ class WebkitGTK::WebView is GTK::Container {
     self.setContainer( nativecast(GtkContainer, $!wkv = $view) );
   }
 
+  method WebkitGTK::Raw::Types::WebKitWebView {
+    $!wkv;
+  }
+
   method new {
     my $view = webkit_web_view_new();
     self.bless(:$view);

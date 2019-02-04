@@ -7,6 +7,14 @@ use WebkitGTK::Raw::Types;
 
 unit package WebkitGTK::Raw::BackForwardList;
 
+sub webkit_back_forward_list_get_back_item (
+  WebKitBackForwardList $back_forward_list
+)
+  returns WebKitBackForwardListItem
+  is native(webkit)
+  is export
+  { * }
+
 sub webkit_back_forward_list_get_back_list (
   WebKitBackForwardList $back_forward_list
 )

@@ -5,7 +5,7 @@ use NativeCall;
 use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 
-role WebkitGTK::Roles::BackForwardList {
+role WebkitGTK::Roles::Signals::BackForwardList {
   has %!signals-wbfl;
 
 # WebKitBackForwardList, WebKitBackForwardListItem, gpointer, gpointer
