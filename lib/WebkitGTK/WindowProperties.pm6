@@ -21,6 +21,7 @@ class WebkitGTK::WindowProperties {
 
   proto method get_geometry (|c)
     { * }
+    
   multi method get_geometry {
     my $r = GdkRectangle.new;
     samewith($r);
