@@ -44,14 +44,14 @@ class WebkitGTK::Download {
     );
   }
 
-  method new WebKitDownload($download) {
+  method new (WebKitDownload $download) {
     self.bless(:$download);
   }
 
   # Is originally:
   # WebKitDownload, gchar, gpointer --> void
   method created-destination {
-    self.connect-created-destination($!wd);
+    self.connect-string($!wd);
   }
 
   # Is originally:

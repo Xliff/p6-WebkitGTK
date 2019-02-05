@@ -9,9 +9,9 @@ class WebkitGTK::URIRequest {
   submethod BUILD (:$request) {
     $!wur =  $request;
   }
-  
-  method new {
-    self.bless( request => webkit_uri_request_new() );
+
+  method new (Str() $u) {
+    self.bless( request => webkit_uri_request_new($u) );
   }
 
   method get_http_headers {
