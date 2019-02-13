@@ -32,6 +32,7 @@ class WebKitNavigationAction      is repr("CPointer") is export does GTK::Roles:
 class WebKitNetworkProxySettings  is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitNotification          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitOptionMenu            is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitOptionMenuItem        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPermissionRequest     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPlugin                is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPolicyDecision        is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -42,6 +43,7 @@ class WebKitSecurityManager       is repr("CPointer") is export does GTK::Roles:
 class WebKitSettings              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIRequest            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIResponse           is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitURISchemeRequest      is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserContentManager    is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserScript            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserStyleSheet        is repr("CPointer") is export does GTK::Roles::Pointers { }

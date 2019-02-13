@@ -10,6 +10,7 @@ GTK::Raw::ReturnedValue
 GTK::Raw::Types
 GTK::Raw::Utils
 GTK::Roles::Pointers
+GTK::Roles::References
 GTK::Roles::Signals::Generic
 GTK::Roles::Types
 WebkitGTK::Raw::Types
@@ -42,6 +43,8 @@ WebkitGTK::Raw::HitTestResult
 WebkitGTK::Raw::JavascriptResult
 WebkitGTK::Raw::MimeInfo
 WebkitGTK::Raw::NavigationAction
+WebkitGTK::Raw::OptionMenu
+WebkitGTK::Raw::OptionMenuItem
 WebkitGTK::Raw::PermissionRequest
 WebkitGTK::Raw::Plugin
 WebkitGTK::Raw::PolicyDecision
@@ -49,8 +52,10 @@ WebkitGTK::Raw::PrintCustomWidget
 WebkitGTK::Raw::PrintOperation
 WebkitGTK::Raw::URIRequest
 WebkitGTK::Raw::URIResponse
+WebkitGTK::Raw::URISchemeRequest
 WebkitGTK::Raw::UserContentManager
 WebkitGTK::Raw::Value
+WebkitGTK::Raw::Version
 WebkitGTK::Raw::WebContext
 WebkitGTK::Raw::WebInspector
 WebkitGTK::Raw::WebResource
@@ -68,7 +73,9 @@ WebkitGTK::Roles::Signals::WebResource
 WebkitGTK::Roles::Signals::WebView
 WebkitGTK::URIRequest
 WebkitGTK::URIResponse
+WebkitGTK::URISchemeRequest
 WebkitGTK::UserContentManager
+WebkitGTK::Version
 WebkitGTK::WebContext
 WebkitGTK::WebInspector
 WebkitGTK::WebResource
@@ -93,9 +100,11 @@ WebkitGTK::JavaScript::Exception
 WebkitGTK::JavascriptResult
 WebkitGTK::MimeInfo
 WebkitGTK::NavigationAction
+WebkitGTK::OptionMenuItem
 WebkitGTK::Plugin
 WebkitGTK::PolicyDecision
 WebkitGTK::PrintCustomWidget
 WebkitGTK::PrintOperation
 WebkitGTK::WebView
 WebkitGTK::BackForwardList
+WebkitGTK::OptionMenu

@@ -15,20 +15,29 @@ use WebkitGTK::Roles::Signals::WebView;
 
 use WebkitGTK::JavascriptResult;
 
+use GTK::Roles::References;
+
 class WebkitGTK::WebView is GTK::Container {
+  also does GTK::Roles::References;
   also does WebkitGTK::Roles::Signals::WebView;
 
   has WebKitWebView $!wkv;
 
   submethod BUILD (:$view) {
     self.setContainer( nativecast(GtkContainer, $!wkv = $view) );
+    $!ref = nativecast(GObject, $view);           # GTK::Roles::References
   }
 
   method WebkitGTK::Raw::Types::WebKitWebView {
     $!wkv;
   }
 
-  method new {
+  multi method new (WebKitWebView $view) {
+    my $o = self.bless(:$view);
+    $o.upref;
+    $o;
+  }
+  multi method new {
     my $view = webkit_web_view_new();
     self.bless(:$view);
   }
