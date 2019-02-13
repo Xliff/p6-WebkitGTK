@@ -15,6 +15,10 @@ class WebkitGTK::UserContentManager {
     $!wcm = $manager;
   }
 
+  method WebkitGTK::Raw::Types::WebKitUserContentManager {
+    $!wcm;
+  }
+
   method new {
     self.bless( manager => webkit_user_content_manager_new() );
   }

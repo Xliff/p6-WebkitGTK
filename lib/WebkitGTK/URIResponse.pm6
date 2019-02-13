@@ -7,10 +7,14 @@ use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::URIResponse;
 
 class WebkitGTK::URIResponse {
-  has $!wurr;
+  has WebKitURIResponse $!wurr;
 
   submethod BLESS(:$response) {
     $!wurr = $response;
+  }
+
+  method WebkitGTK::Raw::Types::WebKitURIResponse {
+    $!wurr;
   }
 
   method get_content_length {

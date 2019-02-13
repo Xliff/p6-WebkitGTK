@@ -14,6 +14,10 @@ class WebkitGTK::HitTestResult {
     $!whtr = $result;
   }
 
+  method WebkitGTK::Raw::Types::WebKitHitTestResult {
+    $!whtr;
+  }
+
   multi method new(WebKitHitTestResult $result) {
     self.bless(:$result);
   }

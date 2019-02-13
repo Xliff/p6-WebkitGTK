@@ -10,6 +10,10 @@ class WebkitGTK::URIRequest {
     $!wur =  $request;
   }
 
+  method WebkitGTK::Raw::Types::WebKitURIRequest {
+    $!wur;
+  }
+
   method new (Str() $u) {
     self.bless( request => webkit_uri_request_new($u) );
   }

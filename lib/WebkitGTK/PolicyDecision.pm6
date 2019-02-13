@@ -10,6 +10,10 @@ class WebkitGTK::PolicyDecision {
     $!wpd = $decision;
   }
 
+  method WebkitGTK::Raw::Types::WebKitPolicyDecision {
+    $!wpd;
+  }
+
   method new (WebKitPolicyDecision $decision) {
     self.bless(:$decision);
   }

@@ -17,6 +17,10 @@ class WebkitGTK::WebResource {
     $!wr = $resource;
   }
 
+  method new WebkitGTK::Raw::Types::WebKitWebResource {
+    $!wr;
+  }
+
   method new (WebKitWebResource $resource) {
     self.bless(:$resource);
   }

@@ -21,6 +21,10 @@ class WebkitGTK::BackForwardList {
     $!wbfl = $list;
   }
 
+  method WebkitGTK::Raw::Types::WebKitBackForwardList {
+    $!wbfl;
+  }
+
   method new (WebKitBackForwardList $list) {
     self.bless(:$list);
   }

@@ -12,6 +12,10 @@ class WebkitGTK::JavascriptResult {
     $!wjr = $result;
   }
 
+  method WebkitGTK::Raw::Types::WebKitJavascriptResult {
+    $!wjr;
+  }
+
   method new (WebKitJavascriptResult $result) {
     self.bless(:$result);
   }

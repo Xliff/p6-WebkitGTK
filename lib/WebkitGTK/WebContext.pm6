@@ -21,6 +21,10 @@ class WebkitGTK::WebContext {
     $!wwc = $context;
   }
 
+  method WebkitGTK::Raw::Types::WebKitWebContext {
+    $!wwc;
+  }
+
   method new {
     self.bless( context => webkit_web_context_new() );
   }

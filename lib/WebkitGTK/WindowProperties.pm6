@@ -11,6 +11,10 @@ class WebkitGTK::WindowProperties {
     $!wwp = $props;
   }
 
+  method WebkitGTK::Raw::Types::WebKitWindowProperties {
+    $!wwp;
+  }
+
   method new (WebKitWindowProperties $props) {
     self.bless(:$props);
   }
@@ -21,7 +25,7 @@ class WebkitGTK::WindowProperties {
 
   proto method get_geometry (|c)
     { * }
-    
+
   multi method get_geometry {
     my $r = GdkRectangle.new;
     samewith($r);

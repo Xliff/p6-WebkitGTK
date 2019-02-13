@@ -12,6 +12,10 @@ class WebkitGTK::NavigationAction {
     $!wna = $action;
   }
 
+  method WebkitGTK::Raw::Types::WebKitNavigationAction {
+    $!wna;
+  }
+
   method new (WebKitNavigationAction $action) {
     self.bless(:$action);
   }

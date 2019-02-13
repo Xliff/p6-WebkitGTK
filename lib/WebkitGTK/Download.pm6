@@ -21,6 +21,10 @@ class WebkitGTK::Download {
     $!wd = $download;
   }
 
+  method WebkitGTK::Raw::TYpes::WebKitDownload {
+    $!wd;
+  }
+
   method allow_overwrite is rw {
     Proxy.new(
       FETCH => sub ($) {

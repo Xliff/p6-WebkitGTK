@@ -13,6 +13,10 @@ class WebkitGTK::EditorState {
     $!wes = $state;
   }
 
+  method WebkitGTK::Raw::Types::WebKitEditorState {
+    $!wes;
+  }
+
   method new (WebKitEditorState $state) {
     self.bless(:$state);
   }

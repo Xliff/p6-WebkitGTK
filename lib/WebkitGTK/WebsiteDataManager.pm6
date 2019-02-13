@@ -18,6 +18,10 @@ class WebkitGTK::WebsiteDataManager {
     $!wwdm = $manager;
   }
 
+  method WebkitGTK::Raw::Types::WebKitWebsiteDataManager {
+    $!wwdm;
+  }
+
   method new(%dirs) {
     constant oacd = 'offline-application-cache-directory';
 

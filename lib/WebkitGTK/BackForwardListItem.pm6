@@ -12,6 +12,10 @@ class WebkitGTK::BackForwardListItem {
     $!wbfli = $item;
   }
 
+  method WebkitGTK::Raw::Types::WebKitBackForwardListItem {
+    $!wbfli;
+  }
+
   method webkit_back_forward_list_item_get_original_uri {
     webkit_back_forward_list_item_get_original_uri($!wbfli);
   }

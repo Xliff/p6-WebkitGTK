@@ -19,6 +19,10 @@ class WebkitGTK::PrintOperation {
     $!wpo = $op;
   }
 
+  method WebkitGTK::Raw::Types::WebKitPrintOperation {
+    $!wpo;
+  }
+
   method new(WebKitWebView() $view) {
     self.bless( op => webkit_print_operation_new($view) );
   }

@@ -16,6 +16,10 @@ class WebkitGTK::PrintCustomWidget {
     $!wpcw = $widget;
   }
 
+  method WebkitGTK::Raw::Types::WebKitPrintCustomWidget {
+    $!wpcw;
+  }
+
   method new (GtkWidget() $widget, Str() $title) {
     self.bless( widget => webkit_print_custom_widget_new($widget, $title) );
   }
