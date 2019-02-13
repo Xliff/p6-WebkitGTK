@@ -27,11 +27,13 @@ class WebKitFindController        is repr("CPointer") is export does GTK::Roles:
 class WebKitFormSubmissionRequest is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitHitTestResult         is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitJavascriptResult      is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitMimeInfo              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitNavigationAction      is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitNetworkProxySettings  is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitNotification          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitOptionMenu            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPermissionRequest     is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitPlugin                is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPolicyDecision        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPrintCustomWidget     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitPrintOperation        is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -41,6 +43,8 @@ class WebKitSettings              is repr("CPointer") is export does GTK::Roles:
 class WebKitURIRequest            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIResponse           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitUserContentManager    is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitUserScript            is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitUserStyleSheet        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebContext            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebInspector          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebResource           is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -82,7 +86,7 @@ our enum WebKitSnapshotRegion is export <
   WEBKIT_SNAPSHOT_REGION_FULL_DOCUMENT
 >;
 
-our enum WebKitWebProcessTerminationReason <
+our enum WebKitWebProcessTerminationReason is export <
   WEBKIT_WEB_PROCESS_CRASHED
   WEBKIT_WEB_PROCESS_EXCEEDED_MEMORY_LIMIT
 >;
@@ -242,3 +246,20 @@ our enum WebKitJavascriptError is export (
 our enum WebKitSnapshotError is export (
     WEBKIT_SNAPSHOT_ERROR_FAILED_TO_CREATE => 799
 );
+
+our enum WebKitCookiePersistentStorage is export <
+  WEBKIT_COOKIE_PERSISTENT_STORAGE_TEXT,
+  WEBKIT_COOKIE_PERSISTENT_STORAGE_SQLITE
+>;
+
+our enum WebKitCookieAcceptPolicy is export <
+  WEBKIT_COOKIE_POLICY_ACCEPT_ALWAYS,
+  WEBKIT_COOKIE_POLICY_ACCEPT_NEVER,
+  WEBKIT_COOKIE_POLICY_ACCEPT_NO_THIRD_PARTY
+>;
+
+our enum WebKitNetworkProxyMode is export <
+  WEBKIT_NETWORK_PROXY_MODE_DEFAULT,
+  WEBKIT_NETWORK_PROXY_MODE_NO_PROXY,
+  WEBKIT_NETWORK_PROXY_MODE_CUSTOM
+>;

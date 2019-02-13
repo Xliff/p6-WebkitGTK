@@ -23,13 +23,15 @@ sub MAIN ($pattern is copy, :$prefix!) {
       next unless $_.Str.starts-with($prefix);
       my $prospect = $_[0].Str;
       next if %seen{$prospect};
-      if / 'Mode' | 'Result' | 'Flags' / {
+      if / 'Mode' | 'Result' | 'Flags' | 'Reason' / {
         %seen-enum{$prospect} = True;
       } else {
         %seen{$prospect} = True;
       }
     }
   }
+
+  say "\n\n------- MISSING CLASSES -------";
   for %seen.keys.sort {
     my $is-there = False;
     try {
@@ -38,9 +40,18 @@ sub MAIN ($pattern is copy, :$prefix!) {
       CATCH { default { 1; } }
     }
     say
-      "class $_ is repr(\"CPointer\") is export does GTK::Roles::Pointers;"
+      "class $_ is repr(\"CPointer\") is export does GTK::Roles::Pointers \{ \}"
     unless $is-there;
   }
-  say "our enum $_ is export <\n>;"
-    for %seen-enum.keys;
+
+  say "\n\n------- MISSING ENUMS -------";
+  for %seen-enum.keys {
+    my $is-there = False;
+    try {
+      my $a := ::($_);
+      $is-there = True;
+      CATCH { default { 1; } }
+    }
+    say "our enum $_ is export <\n>;" unless $is-there;
+  }
 }

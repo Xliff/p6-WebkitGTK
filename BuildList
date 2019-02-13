@@ -16,8 +16,6 @@ WebkitGTK::Raw::Types
 WebkitGTK::Compat::Types
 WebkitGTK::Raw::Error
 WebkitGTK::Error
-WebkitGTK::Raw::FaviconDatabase
-WebkitGTK::FaviconDatabase
 WebkitGTK::JavaScript::Raw::Types
 WebkitGTK::JavaScript::Raw::Class
 WebkitGTK::JavaScript::Raw::Context
@@ -37,12 +35,15 @@ WebkitGTK::Raw::CookieManager
 WebkitGTK::Raw::Credential
 WebkitGTK::Raw::Download
 WebkitGTK::Raw::EditorState
+WebkitGTK::Raw::FaviconDatabase
 WebkitGTK::Raw::FileChooserRequest
 WebkitGTK::Raw::FindController
 WebkitGTK::Raw::HitTestResult
 WebkitGTK::Raw::JavascriptResult
+WebkitGTK::Raw::MimeInfo
 WebkitGTK::Raw::NavigationAction
 WebkitGTK::Raw::PermissionRequest
+WebkitGTK::Raw::Plugin
 WebkitGTK::Raw::PolicyDecision
 WebkitGTK::Raw::PrintCustomWidget
 WebkitGTK::Raw::PrintOperation
@@ -51,6 +52,7 @@ WebkitGTK::Raw::URIResponse
 WebkitGTK::Raw::UserContentManager
 WebkitGTK::Raw::Value
 WebkitGTK::Raw::WebContext
+WebkitGTK::Raw::WebInspector
 WebkitGTK::Raw::WebResource
 WebkitGTK::Raw::WebView
 WebkitGTK::Raw::WebsiteDataManager
@@ -68,6 +70,7 @@ WebkitGTK::URIRequest
 WebkitGTK::URIResponse
 WebkitGTK::UserContentManager
 WebkitGTK::WebContext
+WebkitGTK::WebInspector
 WebkitGTK::WebResource
 WebkitGTK::WebsiteDataManager
 WebkitGTK::WindowProperties
@@ -80,6 +83,7 @@ WebkitGTK::CookieManager
 WebkitGTK::Credential
 WebkitGTK::Download
 WebkitGTK::EditorState
+WebkitGTK::FaviconDatabase
 WebkitGTK::FileChooserRequest
 WebkitGTK::FindController
 WebkitGTK::HitTestResult
@@ -87,7 +91,9 @@ WebkitGTK::JavaScript::Class
 WebkitGTK::JavaScript::Context
 WebkitGTK::JavaScript::Exception
 WebkitGTK::JavascriptResult
+WebkitGTK::MimeInfo
 WebkitGTK::NavigationAction
+WebkitGTK::Plugin
 WebkitGTK::PolicyDecision
 WebkitGTK::PrintCustomWidget
 WebkitGTK::PrintOperation
