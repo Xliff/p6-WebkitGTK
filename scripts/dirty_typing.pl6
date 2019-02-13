@@ -10,7 +10,9 @@ sub MAIN ($pattern is copy, :$prefix!) {
     dir     => 'lib',
     name    => /{$pattern}/,
     type    => 'file',
-    exclude => /'Types.pm6'$/;
+    exclude => /'Types.pm6'$/,
+    exclude => /'.precomp'/;
+
 
   my %seen;
   my %seen-enum;

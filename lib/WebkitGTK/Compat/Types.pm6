@@ -5,3 +5,4 @@ use NativeCall;
 unit package WebkitGTK::Compat::Types;
 
 constant SoupMessageHeaders is export := Pointer;
+constant SoupCookie         is export := Pointer;

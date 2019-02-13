@@ -5,7 +5,7 @@ use NativeCall;
 
 use GTK::Compat::Types;
 
-use WebkitGTK::Raw:Types;
+use WebkitGTK::Raw::Types;
 
 unit package WebkitGTK::Raw::FaviconDatabase;
 
@@ -20,18 +20,30 @@ sub webkit_favicon_database_error_quark ()
   is export
   { * }
 
-sub webkit_favicon_database_get_favicon (WebKitFaviconDatabase $database, gchar $page_uri, GCancellable $cancellable, GAsyncReadyCallback $callback, gpointer $user_data)
+sub webkit_favicon_database_get_favicon (
+  WebKitFaviconDatabase $database,
+  Str $page_uri,
+  GCancellable $cancellable,
+  GAsyncReadyCallback $callback,
+  gpointer $user_data)
   is native(webkit)
   is export
   { * }
 
-sub webkit_favicon_database_get_favicon_finish (WebKitFaviconDatabase $database, GAsyncResult $result, GError $error)
+sub webkit_favicon_database_get_favicon_finish (
+  WebKitFaviconDatabase $database,
+  GAsyncResult $result,
+  CArray[Pointer[GError]] $error
+)
   returns cairo_surface_t
   is native(webkit)
   is export
   { * }
 
-sub webkit_favicon_database_get_favicon_uri (WebKitFaviconDatabase $database, gchar $page_uri)
+sub webkit_favicon_database_get_favicon_uri (
+  WebKitFaviconDatabase $database,
+  Str $page_uri
+)
   returns Str
   is native(webkit)
   is export

@@ -6,10 +6,10 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::FaviconDatabase;
 use WebkitGTK::Raw::Types;
 
-use WebkitGTK::Roles::Signals::Generic;
+use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::FaviconDatabase {
-  also does WebkitGTK::Roles::Signals::Generic;
+  also does GTK::Roles::Signals::Generic;
 
   has WebKitFaviconDatabase $!wfd;
 
@@ -32,7 +32,7 @@ class WebkitGTK::FaviconDatabase {
   }
 
   method clear {
-    webkit_favicon_database_clear($database);
+    webkit_favicon_database_clear($!wfd);
   }
 
   method error_quark {
@@ -66,7 +66,7 @@ class WebkitGTK::FaviconDatabase {
     my $rc = webkit_favicon_database_get_favicon_finish(
       $!wfd, $result, $error
     );
-    $EERROR = $error[0] with $error[0];
+    $ERROR = $error[0] with $error[0];
     $rc;
   }
 
