@@ -282,5 +282,5 @@ sub webkit_web_context_set_preferred_languages (
   CArray[Str]  $languages
 )
   is native(webkit)
-  is sexport
+  is export
   { * }

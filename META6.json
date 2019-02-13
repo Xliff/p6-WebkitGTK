@@ -38,6 +38,8 @@
       "WebkitGTK::Raw::JavascriptResult"              :  "lib/WebkitGTK/Raw/JavascriptResult.pm6"             ,
       "WebkitGTK::Raw::MimeInfo"                      :  "lib/WebkitGTK/Raw/MimeInfo.pm6"                     ,
       "WebkitGTK::Raw::NavigationAction"              :  "lib/WebkitGTK/Raw/NavigationAction.pm6"             ,
+      "WebkitGTK::Raw::OptionMenu"                    :  "lib/WebkitGTK/Raw/OptionMenu.pm6"                   ,
+      "WebkitGTK::Raw::OptionMenuItem"                :  "lib/WebkitGTK/Raw/OptionMenuItem.pm6"               ,
       "WebkitGTK::Raw::PermissionRequest"             :  "lib/WebkitGTK/Raw/PermissionRequest.pm6"            ,
       "WebkitGTK::Raw::Plugin"                        :  "lib/WebkitGTK/Raw/Plugin.pm6"                       ,
       "WebkitGTK::Raw::PolicyDecision"                :  "lib/WebkitGTK/Raw/PolicyDecision.pm6"               ,
@@ -45,8 +47,10 @@
       "WebkitGTK::Raw::PrintOperation"                :  "lib/WebkitGTK/Raw/PrintOperation.pm6"               ,
       "WebkitGTK::Raw::URIRequest"                    :  "lib/WebkitGTK/Raw/URIRequest.pm6"                   ,
       "WebkitGTK::Raw::URIResponse"                   :  "lib/WebkitGTK/Raw/URIResponse.pm6"                  ,
+      "WebkitGTK::Raw::URISchemeRequest"              :  "lib/WebkitGTK/Raw/URISchemeRequest.pm6"             ,
       "WebkitGTK::Raw::UserContentManager"            :  "lib/WebkitGTK/Raw/UserContentManager.pm6"           ,
       "WebkitGTK::Raw::Value"                         :  "lib/WebkitGTK/Raw/Value.pm6"                        ,
+      "WebkitGTK::Raw::Version"                       :  "lib/WebkitGTK/Raw/Version.pm6"                      ,
       "WebkitGTK::Raw::WebContext"                    :  "lib/WebkitGTK/Raw/WebContext.pm6"                   ,
       "WebkitGTK::Raw::WebInspector"                  :  "lib/WebkitGTK/Raw/WebInspector.pm6"                 ,
       "WebkitGTK::Raw::WebResource"                   :  "lib/WebkitGTK/Raw/WebResource.pm6"                  ,
@@ -64,7 +68,9 @@
       "WebkitGTK::Roles::Signals::WebView"            :  "lib/WebkitGTK/Roles/Signals/WebView.pm6"            ,
       "WebkitGTK::URIRequest"                         :  "lib/WebkitGTK/URIRequest.pm6"                       ,
       "WebkitGTK::URIResponse"                        :  "lib/WebkitGTK/URIResponse.pm6"                      ,
+      "WebkitGTK::URISchemeRequest"                   :  "lib/WebkitGTK/URISchemeRequest.pm6"                 ,
       "WebkitGTK::UserContentManager"                 :  "lib/WebkitGTK/UserContentManager.pm6"               ,
+      "WebkitGTK::Version"                            :  "lib/WebkitGTK/Version.pm6"                          ,
       "WebkitGTK::WebContext"                         :  "lib/WebkitGTK/WebContext.pm6"                       ,
       "WebkitGTK::WebInspector"                       :  "lib/WebkitGTK/WebInspector.pm6"                     ,
       "WebkitGTK::WebResource"                        :  "lib/WebkitGTK/WebResource.pm6"                      ,
@@ -89,12 +95,14 @@
       "WebkitGTK::JavascriptResult"                   :  "lib/WebkitGTK/JavascriptResult.pm6"                 ,
       "WebkitGTK::MimeInfo"                           :  "lib/WebkitGTK/MimeInfo.pm6"                         ,
       "WebkitGTK::NavigationAction"                   :  "lib/WebkitGTK/NavigationAction.pm6"                 ,
+      "WebkitGTK::OptionMenuItem"                     :  "lib/WebkitGTK/OptionMenuItem.pm6"                   ,
       "WebkitGTK::Plugin"                             :  "lib/WebkitGTK/Plugin.pm6"                           ,
       "WebkitGTK::PolicyDecision"                     :  "lib/WebkitGTK/PolicyDecision.pm6"                   ,
       "WebkitGTK::PrintCustomWidget"                  :  "lib/WebkitGTK/PrintCustomWidget.pm6"                ,
       "WebkitGTK::PrintOperation"                     :  "lib/WebkitGTK/PrintOperation.pm6"                   ,
       "WebkitGTK::WebView"                            :  "lib/WebkitGTK/WebView.pm6"                          ,
-      "WebkitGTK::BackForwardList"                    :  "lib/WebkitGTK/BackForwardList.pm6"                  
+      "WebkitGTK::BackForwardList"                    :  "lib/WebkitGTK/BackForwardList.pm6"                  ,
+      "WebkitGTK::OptionMenu"                         :  "lib/WebkitGTK/OptionMenu.pm6"                       
     },
     "name": "p6-WebKitGTK",
     "perl": "6.c",
@@ -107,4 +115,5 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
 

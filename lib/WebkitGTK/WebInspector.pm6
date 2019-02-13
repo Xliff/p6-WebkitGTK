@@ -80,11 +80,9 @@ class WebkitGTK::WebInspector {
   }
 
   method get_web_view {
-    my $o = ::('WebkitGTK::WebView').new(
+    ::('WebkitGTK::WebView').new(
       webkit_web_inspector_get_web_view($!wwi)
     );
-    $o.upref;
-    $o;
   }
 
   method is_attached {
