@@ -40,6 +40,7 @@ class WebKitPrintCustomWidget     is repr("CPointer") is export does GTK::Roles:
 class WebKitPrintOperation        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitScriptDialog          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSecurityManager       is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitSecurityOrigin        is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSettings              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIRequest            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitURIResponse           is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -50,6 +51,7 @@ class WebKitUserStyleSheet        is repr("CPointer") is export does GTK::Roles:
 class WebKitWebContext            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebInspector          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebResource           is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitWebsiteData           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebsiteDataManager    is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebView               is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebViewSessionState   is repr("CPointer") is export does GTK::Roles::Pointers { }
