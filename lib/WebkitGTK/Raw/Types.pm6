@@ -10,6 +10,7 @@ constant webkit is export = 'webkit2gtk-4.0',v37;
 
 constant WebKitURISchemeRequestCallback is export := Pointer;
 
+class WebKitApplicationInfo       is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitAuthenticationRequest is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitAutomationSession     is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitBackForwardList       is repr("CPointer") is export does GTK::Roles::Pointers { }
