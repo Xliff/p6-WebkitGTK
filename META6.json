@@ -40,6 +40,7 @@
       "WebkitGTK::Raw::HitTestResult"                 :  "lib/WebkitGTK/Raw/HitTestResult.pm6"                ,
       "WebkitGTK::Raw::JavascriptResult"              :  "lib/WebkitGTK/Raw/JavascriptResult.pm6"             ,
       "WebkitGTK::Raw::MimeInfo"                      :  "lib/WebkitGTK/Raw/MimeInfo.pm6"                     ,
+      "WebkitGTK::Raw::NativgationPolicyDecision"     :  "lib/WebkitGTK/Raw/NativgationPolicyDecision.pm6"    ,
       "WebkitGTK::Raw::NavigationAction"              :  "lib/WebkitGTK/Raw/NavigationAction.pm6"             ,
       "WebkitGTK::Raw::NavigationPolicyDecision"      :  "lib/WebkitGTK/Raw/NavigationPolicyDecision.pm6"     ,
       "WebkitGTK::Raw::NetworkProxySettings"          :  "lib/WebkitGTK/Raw/NetworkProxySettings.pm6"         ,
@@ -54,6 +55,7 @@
       "WebkitGTK::Raw::ResponsePolicyDecision"        :  "lib/WebkitGTK/Raw/ResponsePolicyDecision.pm6"       ,
       "WebkitGTK::Raw::SecurityManager"               :  "lib/WebkitGTK/Raw/SecurityManager.pm6"              ,
       "WebkitGTK::Raw::SecurityOrigin"                :  "lib/WebkitGTK/Raw/SecurityOrigin.pm6"               ,
+      "WebkitGTK::Raw::Settings"                      :  "lib/WebkitGTK/Raw/Settings.pm6"                     ,
       "WebkitGTK::Raw::URIRequest"                    :  "lib/WebkitGTK/Raw/URIRequest.pm6"                   ,
       "WebkitGTK::Raw::URIResponse"                   :  "lib/WebkitGTK/Raw/URIResponse.pm6"                  ,
       "WebkitGTK::Raw::URISchemeRequest"              :  "lib/WebkitGTK/Raw/URISchemeRequest.pm6"             ,
@@ -80,6 +82,7 @@
       "WebkitGTK::Roles::Signals::WebView"            :  "lib/WebkitGTK/Roles/Signals/WebView.pm6"            ,
       "WebkitGTK::SecurityManager"                    :  "lib/WebkitGTK/SecurityManager.pm6"                  ,
       "WebkitGTK::SecurityOrigin"                     :  "lib/WebkitGTK/SecurityOrigin.pm6"                   ,
+      "WebkitGTK::Settings"                           :  "lib/WebkitGTK/Settings.pm6"                         ,
       "WebkitGTK::URIRequest"                         :  "lib/WebkitGTK/URIRequest.pm6"                       ,
       "WebkitGTK::URIResponse"                        :  "lib/WebkitGTK/URIResponse.pm6"                      ,
       "WebkitGTK::URISchemeRequest"                   :  "lib/WebkitGTK/URISchemeRequest.pm6"                 ,
@@ -138,6 +141,7 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
 
 
 

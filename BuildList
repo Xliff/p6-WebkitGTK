@@ -46,6 +46,7 @@ WebkitGTK::Raw::FormSubmissionRequest
 WebkitGTK::Raw::HitTestResult
 WebkitGTK::Raw::JavascriptResult
 WebkitGTK::Raw::MimeInfo
+WebkitGTK::Raw::NativgationPolicyDecision
 WebkitGTK::Raw::NavigationAction
 WebkitGTK::Raw::NavigationPolicyDecision
 WebkitGTK::Raw::NetworkProxySettings
@@ -60,6 +61,7 @@ WebkitGTK::Raw::PrintOperation
 WebkitGTK::Raw::ResponsePolicyDecision
 WebkitGTK::Raw::SecurityManager
 WebkitGTK::Raw::SecurityOrigin
+WebkitGTK::Raw::Settings
 WebkitGTK::Raw::URIRequest
 WebkitGTK::Raw::URIResponse
 WebkitGTK::Raw::URISchemeRequest
@@ -86,6 +88,7 @@ WebkitGTK::Roles::Signals::WebResource
 WebkitGTK::Roles::Signals::WebView
 WebkitGTK::SecurityManager
 WebkitGTK::SecurityOrigin
+WebkitGTK::Settings
 WebkitGTK::URIRequest
 WebkitGTK::URIResponse
 WebkitGTK::URISchemeRequest
