@@ -47,6 +47,7 @@ WebkitGTK::Raw::HitTestResult
 WebkitGTK::Raw::JavascriptResult
 WebkitGTK::Raw::MimeInfo
 WebkitGTK::Raw::NavigationAction
+WebkitGTK::Raw::NavigationPolicyDecision
 WebkitGTK::Raw::NetworkProxySettings
 WebkitGTK::Raw::Notification
 WebkitGTK::Raw::OptionMenu
@@ -56,6 +57,7 @@ WebkitGTK::Raw::Plugin
 WebkitGTK::Raw::PolicyDecision
 WebkitGTK::Raw::PrintCustomWidget
 WebkitGTK::Raw::PrintOperation
+WebkitGTK::Raw::ResponsePolicyDecision
 WebkitGTK::Raw::SecurityManager
 WebkitGTK::Raw::SecurityOrigin
 WebkitGTK::Raw::URIRequest
@@ -125,6 +127,8 @@ WebkitGTK::Plugin
 WebkitGTK::PolicyDecision
 WebkitGTK::PrintCustomWidget
 WebkitGTK::PrintOperation
+WebkitGTK::ResponsePolicyDecision
 WebkitGTK::WebView
 WebkitGTK::BackForwardList
+WebkitGTK::NavigationPolicyDecision
 WebkitGTK::OptionMenu

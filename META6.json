@@ -41,6 +41,7 @@
       "WebkitGTK::Raw::JavascriptResult"              :  "lib/WebkitGTK/Raw/JavascriptResult.pm6"             ,
       "WebkitGTK::Raw::MimeInfo"                      :  "lib/WebkitGTK/Raw/MimeInfo.pm6"                     ,
       "WebkitGTK::Raw::NavigationAction"              :  "lib/WebkitGTK/Raw/NavigationAction.pm6"             ,
+      "WebkitGTK::Raw::NavigationPolicyDecision"      :  "lib/WebkitGTK/Raw/NavigationPolicyDecision.pm6"     ,
       "WebkitGTK::Raw::NetworkProxySettings"          :  "lib/WebkitGTK/Raw/NetworkProxySettings.pm6"         ,
       "WebkitGTK::Raw::Notification"                  :  "lib/WebkitGTK/Raw/Notification.pm6"                 ,
       "WebkitGTK::Raw::OptionMenu"                    :  "lib/WebkitGTK/Raw/OptionMenu.pm6"                   ,
@@ -50,6 +51,7 @@
       "WebkitGTK::Raw::PolicyDecision"                :  "lib/WebkitGTK/Raw/PolicyDecision.pm6"               ,
       "WebkitGTK::Raw::PrintCustomWidget"             :  "lib/WebkitGTK/Raw/PrintCustomWidget.pm6"            ,
       "WebkitGTK::Raw::PrintOperation"                :  "lib/WebkitGTK/Raw/PrintOperation.pm6"               ,
+      "WebkitGTK::Raw::ResponsePolicyDecision"        :  "lib/WebkitGTK/Raw/ResponsePolicyDecision.pm6"       ,
       "WebkitGTK::Raw::SecurityManager"               :  "lib/WebkitGTK/Raw/SecurityManager.pm6"              ,
       "WebkitGTK::Raw::SecurityOrigin"                :  "lib/WebkitGTK/Raw/SecurityOrigin.pm6"               ,
       "WebkitGTK::Raw::URIRequest"                    :  "lib/WebkitGTK/Raw/URIRequest.pm6"                   ,
@@ -119,8 +121,10 @@
       "WebkitGTK::PolicyDecision"                     :  "lib/WebkitGTK/PolicyDecision.pm6"                   ,
       "WebkitGTK::PrintCustomWidget"                  :  "lib/WebkitGTK/PrintCustomWidget.pm6"                ,
       "WebkitGTK::PrintOperation"                     :  "lib/WebkitGTK/PrintOperation.pm6"                   ,
+      "WebkitGTK::ResponsePolicyDecision"             :  "lib/WebkitGTK/ResponsePolicyDecision.pm6"           ,
       "WebkitGTK::WebView"                            :  "lib/WebkitGTK/WebView.pm6"                          ,
       "WebkitGTK::BackForwardList"                    :  "lib/WebkitGTK/BackForwardList.pm6"                  ,
+      "WebkitGTK::NavigationPolicyDecision"           :  "lib/WebkitGTK/NavigationPolicyDecision.pm6"         ,
       "WebkitGTK::OptionMenu"                         :  "lib/WebkitGTK/OptionMenu.pm6"                       
     },
     "name": "p6-WebKitGTK",
@@ -134,6 +138,7 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
 
 
 

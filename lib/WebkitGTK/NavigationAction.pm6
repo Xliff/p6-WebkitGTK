@@ -1,6 +1,6 @@
 use v6.c;
 
-use NativeCall
+use NativeCall;
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::NavigationAction;

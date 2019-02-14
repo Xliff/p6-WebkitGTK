@@ -7,6 +7,10 @@ class WebkitGTK::PolicyDecision {
   has WebKitPolicyDecision $!wpd;
 
   submethod BUILD (:$decision) {
+    self.setPolicyDecision($decision);
+  }
+
+  method setPolicyDecision($decision) {
     $!wpd = $decision;
   }
 
