@@ -23,6 +23,12 @@ class WebkitGTK::WebView is GTK::Container {
 
   has WebKitWebView $!wkv;
 
+  method bless(*%attrinit) {
+    my $o = self.CREATE.BUILDALL(Empty, %attrinit);
+    $o.setType('WebkitGTK::WebView');
+    $o;
+  }
+
   submethod BUILD (:$view) {
     self.setContainer( nativecast(GtkContainer, $!wkv = $view) );
     $!ref = nativecast(GObject, $view);           # GTK::Roles::References
