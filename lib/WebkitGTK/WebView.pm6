@@ -14,11 +14,9 @@ use WebkitGTK::Raw::WebView;
 use WebkitGTK::Roles::Signals::WebView;
 
 use WebkitGTK::JavascriptResult;
-
-use GTK::Roles::References;
+use WebkitGTK::WebContext;
 
 class WebkitGTK::WebView is GTK::Container {
-  also does GTK::Roles::References;
   also does WebkitGTK::Roles::Signals::WebView;
 
   has WebKitWebView $!wkv;
@@ -31,7 +29,7 @@ class WebkitGTK::WebView is GTK::Container {
 
   submethod BUILD (:$view) {
     self.setContainer( nativecast(GtkContainer, $!wkv = $view) );
-    $!ref = nativecast(GObject, $view);           # GTK::Roles::References
+    self.APPEND-PREFIX('WebkitGTK::');
   }
 
   method WebkitGTK::Raw::Types::WebKitWebView {
@@ -295,7 +293,7 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method get_context {
-    webkit_web_view_get_context($!wkv);
+    WebkitGTK::WebContext.new( webkit_web_view_get_context($!wkv) );
   }
 
   method get_editor_state {

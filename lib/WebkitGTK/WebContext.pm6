@@ -19,13 +19,18 @@ class WebkitGTK::WebContext {
 
   submethod BUILD(:$context) {
     $!wwc = $context;
+    self.APPEND-PREFIX('WebkitGTK::');
   }
 
   method WebkitGTK::Raw::Types::WebKitWebContext {
     $!wwc;
   }
 
-  method new {
+  # No attempt at GC, so no need for reference count manip
+  multi method new (WebKitWebContext $context) {
+    self.bless(:$context);
+  }
+  multi method new {
     self.bless( context => webkit_web_context_new() );
   }
 
@@ -147,7 +152,7 @@ class WebkitGTK::WebContext {
         }
         $ret;
       },
-      STORE => $, Str @langs {
+      STORE => -> $, Str @langs {
         my $l = CArray[Str].new;
         for ^@langs.elems {
           $l[$_] = @langs[$_];
@@ -284,7 +289,7 @@ class WebkitGTK::WebContext {
       $l[$_] = @languages[$_];
       LAST { $l[$_] + 1 = Str }
     }
-    webkit_web_context_set_preferrred_languages($!wwc, $l);
+    webkit_web_context_set_preferred_languages($!wwc, $l);
   }
 
 
