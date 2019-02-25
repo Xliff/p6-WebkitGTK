@@ -279,8 +279,16 @@ sub webkit_web_context_get_spell_checking_languages  (
 
 sub webkit_web_context_set_preferred_languages (
   WebKitWebContext $context,
-  CArray[Str]  $languages
+  CArray[Str] $languages
 )
+  is native(webkit)
+  is export
+  { * }
+  
+sub webkit_web_context_set_spell_checking_languages (
+  WebKitWebContext $context,
+  CArray[Str] $languages
+) 
   is native(webkit)
   is export
   { * }

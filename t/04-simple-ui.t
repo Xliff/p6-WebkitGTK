@@ -10,6 +10,8 @@ my $a  = GTK::Application.new( title => 'org.genex.p6-browser' );
 my $b  = GTK::Builder.new( pod => $=pod );
 my $wv = WebkitGTK::WebView.new;
 
+my @tls-urls = ( 'http://www.eve-online.com/' );
+
 my (%cids, $tc, $last_s);
 sub update_statusbar($s, $wv, $htr, $m, $ud) {
   my $hit = WebkitGTK::HitTestResult.new($htr);
@@ -53,6 +55,9 @@ sub handle_loading($s, *@a) {
   given @a[1] {
     when WEBKIT_LOAD_STARTED    {
       my $uri = $wv.get_uri;
+      $wv.get_context.tls_errors_policy = $uri ∈ @tls-urls ??
+        WEBKIT_TLS_ERRORS_POLICY_IGNORE !!
+        WEBKIT_TLS_ERRORS_POLICY_FAIL;
       my $text = "Loading { $uri }……";
       $last_s = %cids{$uri} = $s.get_context_id($text);
       $s.push($last_s, $text);
@@ -70,7 +75,7 @@ sub handle_loading($s, *@a) {
 }
 
 $a.activate.tap({
-  my $s  = GTK::Statusbar.new;
+  my $s = GTK::Statusbar.new;
 
   $b<Back>.sensitive = $b<Fwd>.sensitive = False;
   $s.margins = 0;
