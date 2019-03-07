@@ -19,7 +19,7 @@ class WebkitGTK::WebContext {
 
   submethod BUILD(:$context) {
     $!wwc = $context;
-    self.APPEND-PREFIX('WebkitGTK::');
+    self.ADD-PREFIX('WebkitGTK::');
   }
 
   method WebkitGTK::Raw::Types::WebKitWebContext {

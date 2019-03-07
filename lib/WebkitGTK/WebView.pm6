@@ -29,7 +29,7 @@ class WebkitGTK::WebView is GTK::Container {
 
   submethod BUILD (:$view) {
     self.setContainer( nativecast(GtkContainer, $!wkv = $view) );
-    self.APPEND-PREFIX('WebkitGTK::');
+    self.ADD-PREFIX('WebkitGTK::');
   }
 
   method WebkitGTK::Raw::Types::WebKitWebView {
