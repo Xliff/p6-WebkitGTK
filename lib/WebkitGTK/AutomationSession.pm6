@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use WebkitGTK::Raw::Types;
@@ -26,7 +27,7 @@ class WebkitGTK::AutomationSession {
     self.bless(:$session);
   }
 
-  method application_info is rw {
+  method application_info is rw is also<application-info> {
     Proxy.new(
       FETCH => sub ($) {
         WebkitGTK::ApplicationInfo.new(
@@ -41,15 +42,15 @@ class WebkitGTK::AutomationSession {
 
   # Is originally:
   # WebKitAutomationSession, gpointer --> WebKitWebView
-  method create-web-view {
+  method create-web-view is also<create_web_view> {
     self.connect-create-web-view($!was);
   }
 
-  method get_id {
+  method get_id is also<get-id> {
     webkit_automation_session_get_id($!was);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_automation_session_get_type();
   }
 

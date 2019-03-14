@@ -26,7 +26,7 @@ class WebkitGTK::PolicyDecision {
     webkit_policy_decision_download($!wpd);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_policy_decision_get_type();
   }
 
@@ -39,3 +39,4 @@ class WebkitGTK::PolicyDecision {
   }
 
 }
+

@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::RGBA;
@@ -46,7 +47,7 @@ class WebkitGTK::WebView is GTK::Container {
     self.bless(:$view);
   }
 
-  method custom_charset is rw {
+  method custom_charset is rw is also<custom-charset> {
     Proxy.new(
       FETCH => sub ($) {
         webkit_web_view_get_custom_charset($!wkv);
@@ -68,7 +69,7 @@ class WebkitGTK::WebView is GTK::Container {
     );
   }
 
-  method zoom_level is rw {
+  method zoom_level is rw is also<zoom-level> {
     Proxy.new(
       FETCH => sub ($) {
         webkit_web_view_get_zoom_level($!wkv);
@@ -93,13 +94,13 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
-  method context-menu {
+  method context-menu is also<context_menu> {
     self.connect-context-menu($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, gpointer --> void
-  method context-menu-dismissed {
+  method context-menu-dismissed is also<context_menu_dismissed> {
     self.connect($!wkv, 'context-menu-dismissed');
   }
 
@@ -111,55 +112,55 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, WebKitPolicyDecision, WebKitPolicyDecisionType, gpointer
-  method decide-policy {
+  method decide-policy is also<decide_policy> {
     self.connect-decide-policy($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, gpointer --> gboolean
-  method enter-fullscreen {
+  method enter-fullscreen is also<enter_fullscreen> {
     self.connect-rbool($!wkv, 'enter-fullscreen');
   }
 
   # Is originally:
   # WebKitWebView, uint (WebKitInsecureContentEvent), gpointer --> void
-  method insecure-content-detected {
+  method insecure-content-detected is also<insecure_content_detected> {
     self.connect-uint($!wkv, 'insecure-content-detected');
   }
 
   # Is originally:
   # WebKitWebView, gpointer --> gboolean
-  method leave-fullscreen {
+  method leave-fullscreen is also<leave_fullscreen> {
     self.connect-rbool($!wkv, 'leave-fullscreen');
   }
 
   # Is originally:
   # WebKitWebView, guint (WebKitLoadEvent), gpointer
-  method load-changed {
+  method load-changed is also<load_changed> {
     self.connect-uint($!wkv, 'load-changed');
   }
 
   # Is originally:
   # WebKitWebView, guint (WebKitLoadEvent), gchar, GError, gpointer --> gboolean
-  method load-failed {
+  method load-failed is also<load_failed> {
     self.connect-load-event($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, gchar, GTlsCertificate, GTlsCertificateFlags, gpointer --> gboolean
-  method load-failed-with-tls-errors {
+  method load-failed-with-tls-errors is also<load_failed_with_tls_errors> {
     self.connect-load-failed-with-tls-errors($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
-  method mouse-target-changed {
+  method mouse-target-changed is also<mouse_target_changed> {
     self.connect-mouse-target($!wkv, 'mouse-target-changed');
   }
 
   # Is originally:
   # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
-  method permission-request {
+  method permission-request is also<permission_request> {
     self.connect-permission-request($!wkv);
   }
 
@@ -171,67 +172,67 @@ class WebkitGTK::WebView is GTK::Container {
 
   # Is originally:
   # WebKitWebView, gpointer --> void
-  method ready-to-show {
+  method ready-to-show is also<ready_to_show> {
     self.connect($!wkv, 'ready-to-show');
   }
 
   # Is originally:
   # WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
-  method resource-load-started {
+  method resource-load-started is also<resource_load_started> {
     self.connect-resource-load-started($!wkv);
   }
 
   # Is originally:
   # # WebKitWebView, gpointer --> void
-  method run-as-modal {
+  method run-as-modal is also<run_as_modal> {
     self.connect($!wkv, 'run-as-modal');
   }
 
   # Is originally:
   # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
-  method run-color-chooser {
+  method run-color-chooser is also<run_color_chooser> {
     self.connect-color-chooser($!wkv, 'run-color-chooser');
   }
 
   # Is originally:
   # WebKitWebView, WebKitFileChooserRequest, gpointer --> gboolean
-  method run-file-chooser {
+  method run-file-chooser is also<run_file_chooser> {
     self.connect-file-chooser($!wkv, 'run-file-chooser');
   }
 
   # Is originally:
   # WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
-  method script-dialog {
+  method script-dialog is also<script_dialog> {
     self.connect-dialog($!wkv, 'script-dialog');
   }
 
   # Is originally:
   # WebKitWebView, WebKitNotification, gpointer --> gboolean
-  method show-notification {
+  method show-notification is also<show_notification> {
     self.connect-show-notification($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, WebKitOptionMenu, GdkEvent, GdkRectangle, gpointer --> gboolean
-  method show-option-menu {
+  method show-option-menu is also<show_option_menu> {
     self.connect-show-option-menu($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
-  method submit-form {
+  method submit-form is also<submit_form> {
     self.connect-submit-form($!wkv);
   }
 
   # Is originally:
   # WebKitWebView, gpointer --> gboolean
-  method web-process-crashed {
+  method web-process-crashed is also<web_process_crashed> {
     self.connect-rbool($!wkv, 'web-process-crashed');
   }
 
   # Is originally:
   # WebKitWebView, WebKitWebProcessTerminationReason, gpointer --> void
-  method web-process-terminated {
+  method web-process-terminated is also<web_process_terminated> {
     self.connect-uint($!wkv, 'web-process-terminated');
   }
 
@@ -240,7 +241,7 @@ class WebkitGTK::WebView is GTK::Container {
     GCancellable $cancellable,
     GAsyncReadyCallback $callback,
     gpointer $user_data
-  ) {
+  ) is also<can-execute-editing-command> {
     webkit_web_view_can_execute_editing_command(
       $!wkv, $command, $cancellable, $callback, $user_data
     );
@@ -249,82 +250,82 @@ class WebkitGTK::WebView is GTK::Container {
   method can_execute_editing_command_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<can-execute-editing-command-finish> {
     $ERROR = Nil;
     webkit_web_view_can_execute_editing_command_finish($!wkv, $result, $error);
     $ERROR = $error[0].deref with $error[0];
   }
 
-  method can_go_back {
+  method can_go_back is also<can-go-back> {
     webkit_web_view_can_go_back($!wkv);
   }
 
-  method can_go_forward {
+  method can_go_forward is also<can-go-forward> {
     webkit_web_view_can_go_forward($!wkv);
   }
 
-  method can_show_mime_type (Str() $mime_type) {
+  method can_show_mime_type (Str() $mime_type) is also<can-show-mime-type> {
     webkit_web_view_can_show_mime_type($!wkv, $mime_type);
   }
 
-  method download_uri (Str() $uri) {
+  method download_uri (Str() $uri) is also<download-uri> {
     webkit_web_view_download_uri($!wkv, $uri);
   }
 
-  method execute_editing_command (Str() $command) {
+  method execute_editing_command (Str() $command) is also<execute-editing-command> {
     webkit_web_view_execute_editing_command($!wkv, $command);
   }
 
   method execute_editing_command_with_argument (
     Str() $command,
     Str() $argument
-  ) {
+  ) is also<execute-editing-command-with-argument> {
     webkit_web_view_execute_editing_command_with_argument(
       $!wkv, $command, $argument
     );
   }
 
-  method get_back_forward_list {
+  method get_back_forward_list is also<get-back-forward-list> {
     webkit_web_view_get_back_forward_list($!wkv);
   }
 
-  method get_background_color (GdkRGBA $rgba) {
+  method get_background_color (GdkRGBA $rgba) is also<get-background-color> {
     webkit_web_view_get_background_color($!wkv, $rgba);
   }
 
-  method get_context {
+  method get_context is also<get-context> {
     WebkitGTK::WebContext.new( webkit_web_view_get_context($!wkv) );
   }
 
-  method get_editor_state {
+  method get_editor_state is also<get-editor-state> {
     webkit_web_view_get_editor_state($!wkv);
   }
 
-  method get_estimated_load_progress {
+  method get_estimated_load_progress is also<get-estimated-load-progress> {
     webkit_web_view_get_estimated_load_progress($!wkv);
   }
 
-  method get_favicon {
+  method get_favicon is also<get-favicon> {
     webkit_web_view_get_favicon($!wkv);
   }
 
-  method get_find_controller {
+  method get_find_controller is also<get-find-controller> {
     webkit_web_view_get_find_controller($!wkv);
   }
 
-  method get_inspector {
+  method get_inspector is also<get-inspector> {
     webkit_web_view_get_inspector($!wkv);
   }
 
-  method get_main_resource {
+  method get_main_resource is also<get-main-resource> {
     webkit_web_view_get_main_resource($!wkv);
   }
 
-  method get_page_id {
+  method get_page_id is also<get-page-id> {
     webkit_web_view_get_page_id($!wkv);
   }
 
-  method get_session_state {
+  method get_session_state is also<get-session-state> {
     webkit_web_view_get_session_state($!wkv);
   }
 
@@ -334,7 +335,7 @@ class WebkitGTK::WebView is GTK::Container {
     GCancellable $cancellable = Pointer,
     GAsyncReadyCallback $callback = Pointer,
     gpointer $user_data = Pointer
-  ) {
+  ) is also<get-snapshot> {
     webkit_web_view_get_snapshot(
       $!wkv, $region, $options, $cancellable, $callback, $user_data
     );
@@ -343,75 +344,75 @@ class WebkitGTK::WebView is GTK::Container {
   method get_snapshot_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<get-snapshot-finish> {
     $ERROR = Nil;
     webkit_web_view_get_snapshot_finish($!wkv, $result, $error);
     $ERROR = $error[0].deref with $error[0];
   }
 
-  method get_title {
+  method get_title is also<get-title> {
     webkit_web_view_get_title($!wkv);
   }
 
   method get_tls_info (
     GTlsCertificate $certificate,
     guint $errors                         # GTlsCertificateFlags $errors
-  ) {
+  ) is also<get-tls-info> {
     webkit_web_view_get_tls_info($!wkv, $certificate, $errors);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_web_view_get_type();
   }
 
-  method get_uri {
+  method get_uri is also<get-uri> {
     webkit_web_view_get_uri($!wkv);
   }
 
-  method get_user_content_manager {
+  method get_user_content_manager is also<get-user-content-manager> {
     webkit_web_view_get_user_content_manager($!wkv);
   }
 
-  method get_website_data_manager {
+  method get_website_data_manager is also<get-website-data-manager> {
     webkit_web_view_get_website_data_manager($!wkv);
   }
 
-  method get_window_properties {
+  method get_window_properties is also<get-window-properties> {
     webkit_web_view_get_window_properties($!wkv);
   }
 
-  method go_back {
+  method go_back is also<go-back> {
     webkit_web_view_go_back($!wkv);
   }
 
-  method go_forward {
+  method go_forward is also<go-forward> {
     webkit_web_view_go_forward($!wkv);
   }
 
   method go_to_back_forward_list_item (
     WebKitWebView $!wkv,
     WebKitBackForwardListItem $list_item
-  ) {
+  ) is also<go-to-back-forward-list-item> {
     webkit_web_view_go_to_back_forward_list_item($!wkv, $list_item);
   }
 
-  method is_controlled_by_automation {
+  method is_controlled_by_automation is also<is-controlled-by-automation> {
     webkit_web_view_is_controlled_by_automation($!wkv);
   }
 
-  method is_editable {
+  method is_editable is also<is-editable> {
     webkit_web_view_is_editable($!wkv);
   }
 
-  method is_ephemeral {
+  method is_ephemeral is also<is-ephemeral> {
     webkit_web_view_is_ephemeral($!wkv);
   }
 
-  method is_loading {
+  method is_loading is also<is-loading> {
     webkit_web_view_is_loading($!wkv);
   }
 
-  method is_playing_audio {
+  method is_playing_audio is also<is-playing-audio> {
     webkit_web_view_is_playing_audio($!wkv);
   }
 
@@ -419,7 +420,7 @@ class WebkitGTK::WebView is GTK::Container {
     Str() $content,
     Str() $content_uri,
     Str() $base_uri
-  ) {
+  ) is also<load-alternate-html> {
     webkit_web_view_load_alternate_html(
       $!wkv, $content, $content_uri, $base_uri
     );
@@ -430,7 +431,7 @@ class WebkitGTK::WebView is GTK::Container {
     Str() $mime_type,
     Str() $encoding,
     Str() $base_uri
-  ) {
+  ) is also<load-bytes> {
     webkit_web_view_load_bytes(
       $!wkv, $bytes, $mime_type, $encoding, $base_uri
     );
@@ -439,37 +440,37 @@ class WebkitGTK::WebView is GTK::Container {
   method load_html (
     Str() $content,
     Str() $base_uri
-  ) {
+  ) is also<load-html> {
     webkit_web_view_load_html($!wkv, $content, $base_uri);
   }
 
-  method load_plain_text (Str() $plain_text) {
+  method load_plain_text (Str() $plain_text) is also<load-plain-text> {
     webkit_web_view_load_plain_text($!wkv, $plain_text);
   }
 
-  method load_request (WebKitURIRequest $request) {
+  method load_request (WebKitURIRequest $request) is also<load-request> {
     webkit_web_view_load_request($!wkv, $request);
   }
 
-  method load_uri (Str() $uri) {
+  method load_uri (Str() $uri) is also<load-uri> {
     webkit_web_view_load_uri($!wkv, $uri);
   }
 
-  method new_with_context (WebKitWebContext $context) {
+  method new_with_context (WebKitWebContext $context) is also<new-with-context> {
     webkit_web_view_new_with_context($context);
   }
 
-  method new_with_related_view {
+  method new_with_related_view is also<new-with-related-view> {
     webkit_web_view_new_with_related_view($!wkv);
   }
 
-  method new_with_settings (WebKitSettings $settings) {
+  method new_with_settings (WebKitSettings $settings) is also<new-with-settings> {
     webkit_web_view_new_with_settings($settings);
   }
 
   method new_with_user_content_manager (
     WebKitUserContentManager $user_content_manager
-  ) {
+  ) is also<new-with-user-content-manager> {
     webkit_web_view_new_with_user_content_manager($user_content_manager);
   }
 
@@ -477,13 +478,13 @@ class WebkitGTK::WebView is GTK::Container {
     webkit_web_view_reload($!wkv);
   }
 
-  method reload_bypass_cache {
+  method reload_bypass_cache is also<reload-bypass-cache> {
     webkit_web_view_reload_bypass_cache($!wkv);
   }
 
   method restore_session_state (
     WebKitWebViewSessionState $state
-  ) {
+  ) is also<restore-session-state> {
     webkit_web_view_restore_session_state($!wkv, $state);
   }
 
@@ -492,7 +493,7 @@ class WebkitGTK::WebView is GTK::Container {
     &callback,
     GCancellable $cancellable = Pointer,
     gpointer $user_data = Pointer
-  ) {
+  ) is also<run-javascript> {
     samewith($script, $cancellable, &callback, $user_data);
   }
   multi method run_javascript (
@@ -500,7 +501,7 @@ class WebkitGTK::WebView is GTK::Container {
     GCancellable $cancellable,
     &callback,
     gpointer $user_data = Pointer
-  ) {
+  ) is also<run-javascript> {
     webkit_web_view_run_javascript(
       $!wkv, $script, $cancellable, &callback, $user_data
     );
@@ -509,7 +510,7 @@ class WebkitGTK::WebView is GTK::Container {
   method run_javascript_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<run-javascript-finish> {
     $ERROR = Nil;
     my $js_result = webkit_web_view_run_javascript_finish(
       $!wkv, $result, $error
@@ -523,7 +524,7 @@ class WebkitGTK::WebView is GTK::Container {
     GCancellable $cancellable = Pointer,
     GAsyncReadyCallback $callback = Pointer,
     gpointer $user_data = Pointer
-  ) {
+  ) is also<run-javascript-from-gresource> {
     webkit_web_view_run_javascript_from_gresource(
       $!wkv, $resource, $cancellable, $callback, $user_data
     );
@@ -532,7 +533,7 @@ class WebkitGTK::WebView is GTK::Container {
   method run_javascript_from_gresource_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<run-javascript-from-gresource-finish> {
     $ERROR = Nil;
     my $js_result = webkit_web_view_run_javascript_from_gresource_finish(
       $!wkv, $result, $error
@@ -547,7 +548,7 @@ class WebkitGTK::WebView is GTK::Container {
     GCancellable $cancellable,
     GAsyncReadyCallback $callback = Pointer,
     gpointer $user_data = Pointer
-  ) {
+  ) is also<run-javascript-in-world> {
     webkit_web_view_run_javascript_in_world(
       $!wkv, $script, $world_name, $cancellable, $callback, $user_data
     );
@@ -556,7 +557,7 @@ class WebkitGTK::WebView is GTK::Container {
   method run_javascript_in_world_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<run-javascript-in-world-finish> {
     $ERROR = Nil;
     my $js_result = webkit_web_view_run_javascript_in_world_finish(
       $!wkv, $result, $error
@@ -579,7 +580,7 @@ class WebkitGTK::WebView is GTK::Container {
   method save_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<save-finish> {
     $ERROR = Nil;
     webkit_web_view_save_finish($!wkv, $result, $error);
     $ERROR = $error[0].deref with $error[0];
@@ -591,7 +592,7 @@ class WebkitGTK::WebView is GTK::Container {
     GCancellable $cancellable = Pointer,
     GAsyncReadyCallback $callback = Pointer,
     gpointer $user_data = Pointer
-  ) {
+  ) is also<save-to-file> {
     webkit_web_view_save_to_file(
       $!wkv, $file, $save_mode, $cancellable, $callback, $user_data
     );
@@ -600,26 +601,27 @@ class WebkitGTK::WebView is GTK::Container {
   method save_to_file_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<save-to-file-finish> {
     $ERROR = Nil;
     webkit_web_view_save_to_file_finish($!wkv, $result, $error);
     $ERROR = $error[0].deref with $error[0];
   }
 
-  method set_background_color (GdkRGBA $rgba) {
+  method set_background_color (GdkRGBA $rgba) is also<set-background-color> {
     webkit_web_view_set_background_color($!wkv, $rgba);
   }
 
-  method set_editable (gboolean $editable) {
+  method set_editable (gboolean $editable) is also<set-editable> {
     webkit_web_view_set_editable($!wkv, $editable);
   }
 
-  method stop_loading {
+  method stop_loading is also<stop-loading> {
     webkit_web_view_stop_loading($!wkv);
   }
 
-  method try_close {
+  method try_close is also<try-close> {
     webkit_web_view_try_close($!wkv);
   }
 
 }
+

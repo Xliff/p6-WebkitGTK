@@ -20,12 +20,12 @@ class WebkitGTK::JavascriptResult {
     self.bless(:$result);
   }
 
-  method get_js_value {
+  method get_js_value is also<get-js-value> {
     my $val = webkit_javascript_result_get_js_value($!wjr);
     $val.defined ?? WebkitGTK::JavaScript::Value.new($val) !! Nil;
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_javascript_result_get_type();
   }
 
@@ -38,3 +38,4 @@ class WebkitGTK::JavascriptResult {
   }
 
 }
+

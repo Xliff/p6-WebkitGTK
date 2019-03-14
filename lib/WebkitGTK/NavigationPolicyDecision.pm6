@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use WebkitGTK::Raw::Types;
@@ -32,17 +33,18 @@ class WebkitGTK::NavigationPolicyDecision is WebkitGTK::PolicyDecision {
     self.bless(:$decision);
   }
 
-  method get_frame_name {
+  method get_frame_name is also<get-frame-name> {
     webkit_navigation_policy_decision_get_frame_name($!wnpd);
   }
 
-  method get_navigation_action {
+  method get_navigation_action is also<get-navigation-action> {
     WebkitGTK::NavigationAction.new(
       webkit_navigation_policy_decision_get_navigation_action($!wnpd)
     );
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_navigation_policy_decision_get_type();
   }
 }
+

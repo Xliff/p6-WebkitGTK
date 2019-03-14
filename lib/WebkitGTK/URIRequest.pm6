@@ -18,16 +18,17 @@ class WebkitGTK::URIRequest {
     self.bless( request => webkit_uri_request_new($u) );
   }
 
-  method get_http_headers {
+  method get_http_headers is also<get-http-headers> {
     webkit_uri_request_get_http_headers($!wur);
   }
 
-  method get_http_method {
+  method get_http_method is also<get-http-method> {
     webkit_uri_request_get_http_method($!wur);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_uri_request_get_type();
   }
 
 }
+

@@ -14,36 +14,36 @@ class WebkitGTK::JavaScript::Exception {
     self.bless( exception =>  jsc_exception_new($!jse, $message) );
   }
 
-  method new_with_name (Str() $name, Str() $message) {
+  method new_with_name (Str() $name, Str() $message) is also<new-with-name> {
     my $exception = jsc_exception_new_with_name($!jse, $name, $message);
     self.bless(:$exception);
   }
 
-  method get_backtrace_string {
+  method get_backtrace_string is also<get-backtrace-string> {
     jsc_exception_get_backtrace_string($!jse);
   }
 
-  method get_column_number {
+  method get_column_number is also<get-column-number> {
     jsc_exception_get_column_number($!jse);
   }
 
-  method get_line_number {
+  method get_line_number is also<get-line-number> {
     jsc_exception_get_line_number($!jse);
   }
 
-  method get_message {
+  method get_message is also<get-message> {
     jsc_exception_get_message($!jse);
   }
 
-  method get_name {
+  method get_name is also<get-name> {
     jsc_exception_get_name($!jse);
   }
 
-  method get_source_uri {
+  method get_source_uri is also<get-source-uri> {
     jsc_exception_get_source_uri($!jse);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     jsc_exception_get_type();
   }
 
@@ -51,8 +51,9 @@ class WebkitGTK::JavaScript::Exception {
     jsc_exception_report($!jse);
   }
 
-  method to_string {
+  method to_string is also<to-string> {
     jsc_exception_to_string($!jse);
   }
 
 }
+

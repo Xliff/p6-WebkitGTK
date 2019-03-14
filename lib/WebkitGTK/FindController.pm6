@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -25,19 +26,19 @@ class WebkitGTK::FindController {
 
   # Is originally:
   # WebKitFindController, guint, gpointer --> void
-  method counted-matches {
+  method counted-matches is also<counted_matches> {
     self.connect-uint($!wfc, 'counted-matches');
   }
 
   # Is originally:
   # WebKitFindController, gpointer --> void
-  method failed-to-find-text {
+  method failed-to-find-text is also<failed_to_find_text> {
     self.connect($!wfc, 'failed-to-find-text');
   }
 
   # Is originally:
   # WebKitFindController, guint, gpointer --> void
-  method found-text {
+  method found-text is also<found_text> {
     self.connect-uint($!wfc, 'found-text');
   }
 
@@ -45,28 +46,30 @@ class WebkitGTK::FindController {
     Str() $search_text,
     Int() $find_options,
     Int() $max_match_count
-  ) {
+  ) 
+    is also<count-matches> 
+  {
     my guint ($fo, $mmc) = self.RESOLVE-UINT($find_options, $max_match_count);
     webkit_find_controller_count_matches($!wfc, $search_text, $fo, $mmc);
   }
 
-  method get_max_match_count {
+  method get_max_match_count is also<get-max-match-count> {
     webkit_find_controller_get_max_match_count($!wfc);
   }
 
-  method get_options {
+  method get_options is also<get-options> {
     webkit_find_controller_get_options($!wfc);
   }
 
-  method get_search_text {
+  method get_search_text is also<get-search-text> {
     webkit_find_controller_get_search_text($!wfc);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_find_controller_get_type();
   }
 
-  method get_web_view {
+  method get_web_view is also<get-web-view> {
     ::('WebkitGTK::WebView').new(
       webkit_find_controller_get_web_view($!wfc)
     );
@@ -81,15 +84,15 @@ class WebkitGTK::FindController {
     webkit_find_controller_search($!wfc, $search_text, $fo, $mmc);
   }
 
-  method search_finish {
+  method search_finish is also<search-finish> {
     webkit_find_controller_search_finish($!wfc);
   }
 
-  method search_next {
+  method search_next is also<search-next> {
     webkit_find_controller_search_next($!wfc);
   }
 
-  method search_previous {
+  method search_previous is also<search-previous> {
     webkit_find_controller_search_previous($!wfc);
   }
 

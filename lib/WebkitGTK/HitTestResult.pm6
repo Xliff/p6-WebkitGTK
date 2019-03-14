@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -25,56 +26,57 @@ class WebkitGTK::HitTestResult {
     die "No matching constructor for: ({ c.map( *.^name ).join(', ') })";
   }
 
-  method context_is_editable {
+  method context_is_editable is also<context-is-editable> {
     so webkit_hit_test_result_context_is_editable($!whtr);
   }
 
-  method context_is_image {
+  method context_is_image is also<context-is-image> {
     so webkit_hit_test_result_context_is_image($!whtr);
   }
 
-  method context_is_link {
+  method context_is_link is also<context-is-link> {
     so webkit_hit_test_result_context_is_link($!whtr);
   }
 
-  method context_is_media {
+  method context_is_media is also<context-is-media> {
     so webkit_hit_test_result_context_is_media($!whtr);
   }
 
-  method context_is_scrollbar {
+  method context_is_scrollbar is also<context-is-scrollbar> {
     so webkit_hit_test_result_context_is_scrollbar($!whtr);
   }
 
-  method context_is_selection {
+  method context_is_selection is also<context-is-selection> {
     so webkit_hit_test_result_context_is_selection($!whtr);
   }
 
-  method get_context {
+  method get_context is also<get-context> {
     webkit_hit_test_result_get_context($!whtr);
   }
 
-  method get_image_uri {
+  method get_image_uri is also<get-image-uri> {
     webkit_hit_test_result_get_image_uri($!whtr);
   }
 
-  method get_link_label {
+  method get_link_label is also<get-link-label> {
     webkit_hit_test_result_get_link_label($!whtr);
   }
 
-  method get_link_title {
+  method get_link_title is also<get-link-title> {
     webkit_hit_test_result_get_link_title($!whtr);
   }
 
-  method get_link_uri {
+  method get_link_uri is also<get-link-uri> {
     webkit_hit_test_result_get_link_uri($!whtr);
   }
 
-  method get_media_uri {
+  method get_media_uri is also<get-media-uri> {
     webkit_hit_test_result_get_media_uri($!whtr);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_hit_test_result_get_type();
   }
 
 }
+

@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -54,7 +55,9 @@ class WebkitGTK::UserStyleSheet {
     Str() $world_name,
     @whitelist,
     @blacklist,
-  ) {
+  ) 
+    is also<new-for-world> 
+  {
     my $wl = CArray[Str].new(@whitelist);
     my $bl = CArray[Str].new(@blacklist);
     samewith($source, $frames, $time, $wl, $bl);
@@ -66,7 +69,9 @@ class WebkitGTK::UserStyleSheet {
     Str $world_name,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
-  ) {
+  ) 
+    is also<new-for-world> 
+  {
     my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
     self.bless(
       content => webkit_user_style_sheet_new_for_world (
@@ -132,7 +137,9 @@ class WebkitGTK::UserScript {
     Str() $world_name,
     @whitelist,
     @blacklist,
-  ) {
+  ) 
+    is also<new-for-world> 
+  {
     my $wl = CArray[Str].new(@whitelist);
     my $bl = CArray[Str].new(@blacklist);
     samewith($source, $frames, $time, $wl, $bl);
@@ -144,7 +151,9 @@ class WebkitGTK::UserScript {
     Str $world_name,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
-  ) {
+  ) 
+    is also<new-for-world> 
+  {
     my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
     self.bless(
       content => webkit_user_script_new_for_world (

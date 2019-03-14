@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -41,7 +42,7 @@ class WebkitGTK::WebsiteDataManager {
   }
 
 
-  method new_ephemeral {
+  method new_ephemeral is also<new-ephemeral> {
     my $manager = webkit_website_data_manager_new_ephemeral();
     self.bless(:$manager);
   }
@@ -61,7 +62,7 @@ class WebkitGTK::WebsiteDataManager {
   method clear_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<clear-finish> {
     webkit_website_data_manager_clear_finish($!wwdm, $result, $error);
   }
 
@@ -79,49 +80,49 @@ class WebkitGTK::WebsiteDataManager {
   method fetch_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<fetch-finish> {
     so webkit_website_data_manager_fetch_finish($!wwdm, $result, $error);
   }
 
-  method get_base_cache_directory {
+  method get_base_cache_directory is also<get-base-cache-directory> {
     webkit_website_data_manager_get_base_cache_directory($!wwdm);
   }
 
-  method get_base_data_directory {
+  method get_base_data_directory is also<get-base-data-directory> {
     webkit_website_data_manager_get_base_data_directory($!wwdm);
   }
 
-  method get_cookie_manager {
+  method get_cookie_manager is also<get-cookie-manager> {
     webkit_website_data_manager_get_cookie_manager($!wwdm);
   }
 
-  method get_disk_cache_directory {
+  method get_disk_cache_directory is also<get-disk-cache-directory> {
     webkit_website_data_manager_get_disk_cache_directory($!wwdm);
   }
 
-  method get_indexeddb_directory {
+  method get_indexeddb_directory is also<get-indexeddb-directory> {
     webkit_website_data_manager_get_indexeddb_directory($!wwdm);
   }
 
-  method get_local_storage_directory {
+  method get_local_storage_directory is also<get-local-storage-directory> {
     webkit_website_data_manager_get_local_storage_directory($!wwdm);
   }
 
-  method get_offline_application_cache_directory {
+  method get_offline_application_cache_directory is also<get-offline-application-cache-directory> {
     webkit_website_data_manager_get_offline_application_cache_directory(
       $!wwdm
     );
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_website_data_manager_get_type();
   }
 
-  method get_websql_directory {
+  method get_websql_directory is also<get-websql-directory> {
     webkit_website_data_manager_get_websql_directory($!wwdm);
   }
 
-  method is_ephemeral {
+  method is_ephemeral is also<is-ephemeral> {
     so webkit_website_data_manager_is_ephemeral($!wwdm);
   }
 
@@ -140,8 +141,9 @@ class WebkitGTK::WebsiteDataManager {
   method remove_finish (
     GAsyncResult $result,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) is also<remove-finish> {
     so webkit_website_data_manager_remove_finish($!wwdm, $result, $error);
   }
 
 }
+

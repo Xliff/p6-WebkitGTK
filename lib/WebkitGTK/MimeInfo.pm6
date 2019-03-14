@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -17,22 +18,22 @@ class WebkitGTK::MimeInfo {
     self.bless(:$info);
   }
 
-  method get_description {
+  method get_description is also<get-description> {
     webkit_mime_info_get_description($!wmi);
   }
 
-  method get_mime_type {
+  method get_mime_type is also<get-mime-type> {
     webkit_mime_info_get_mime_type($!wmi);
   }
 
-  method get_extensions {
+  method get_extensions is also<get-extensions> {
     my ($cai, $e, @e) = (0);
     my $ca = webkit_mime_info_get_extensions($!wmi);
     @e.push($e) while ($e = $ca[$cai++]).defined;
     @e;
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_mime_info_get_type();
   }
 
@@ -45,3 +46,4 @@ class WebkitGTK::MimeInfo {
   }
 
 }
+
