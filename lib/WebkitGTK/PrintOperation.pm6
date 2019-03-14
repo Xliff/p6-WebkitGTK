@@ -29,7 +29,7 @@ class WebkitGTK::PrintOperation {
 
   # Is originally:
   # WebKitPrintOperation, gpointer --> WebKitPrintCustomWidget
-  method create-custom-widget {
+  method create-custom-widget is also<create_custom_widget> {
     self.connect-create-custom-widget($!wpo);
   }
 
@@ -45,7 +45,7 @@ class WebkitGTK::PrintOperation {
     self.connect($!wpo, 'finished');
   }
 
-  method page_setup is rw {
+  method page_setup is rw is also<page-setup> {
     Proxy.new(
       FETCH => sub ($) {
         GTK::PageSetup.new( webkit_print_operation_get_page_setup($!wpo) );
@@ -56,7 +56,7 @@ class WebkitGTK::PrintOperation {
     );
   }
 
-  method print_settings is rw {
+  method print_settings is rw is also<print-settings> {
     Proxy.new(
       FETCH => sub ($) {
         GTK::PrintSettings.new(
@@ -69,7 +69,7 @@ class WebkitGTK::PrintOperation {
     );
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_print_operation_get_type();
   }
 
@@ -77,10 +77,11 @@ class WebkitGTK::PrintOperation {
     webkit_print_operation_print($!wpo);
   }
 
-  method run_dialog (GtkWindow() $parent) {
+  method run_dialog (GtkWindow() $parent) is also<run-dialog> {
     WebKitPrintOperationResponse(
       webkit_print_operation_run_dialog($!wpo, $parent)
     );
   }
 
 }
+

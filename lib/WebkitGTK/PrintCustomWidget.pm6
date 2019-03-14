@@ -36,16 +36,18 @@ class WebkitGTK::PrintCustomWidget {
     self.connect-update($!wpcw);
   }
 
-  method get_title {
+  method get_title is also<get-title> is also<get-title> {
     webkit_print_custom_widget_get_title($!wpcw);
   }
 
-  method get_type {
+  method get_type is also<get-type> is also<get-type> {
     webkit_print_custom_widget_get_type();
   }
 
-  method get_widget {
+  method get_widget is also<get-widget> is also<get-widget> {
     webkit_print_custom_widget_get_widget($!wpcw);
   }
 
 }
+
+

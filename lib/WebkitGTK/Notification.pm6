@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -29,7 +30,7 @@ class WebkitGTK::Notification {
     self.connect($!wn, 'closed');
   }
 
-  method emit-clicked {
+  method emit-clicked is also<emit_clicked> {
     webkit_notification_clicked($!wn);
   }
 
@@ -37,24 +38,25 @@ class WebkitGTK::Notification {
     webkit_notification_close($!wn);
   }
 
-  method get_body {
+  method get_body is also<get-body> {
     webkit_notification_get_body($!wn);
   }
 
-  method get_id {
+  method get_id is also<get-id> {
     webkit_notification_get_id($!wn);
   }
 
-  method get_tag {
+  method get_tag is also<get-tag> {
     webkit_notification_get_tag($!wn);
   }
 
-  method get_title {
+  method get_title is also<get-title> {
     webkit_notification_get_title($!wn);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_notification_get_type();
   }
 
 }
+

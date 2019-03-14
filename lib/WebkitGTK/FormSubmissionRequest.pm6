@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -17,13 +18,13 @@ class WebkitGTK::FormSubmissionRequest {
     self.bless(:$request);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_form_submission_request_get_type();
   }
 
   # This DEFINITELY needs a multi! I don't even see why they need to do it
   # this way. Why not an array of Str?
-  multi method list_test_fields {
+  multi method list_test_fields is also<list-test-fields> {
     my $fn = CArray[Pointer[GPtrArray]].new;
     my $fv = CArray[Pointer[GPtrArray]].new;
     samewith($fn, $fv);
@@ -31,7 +32,9 @@ class WebkitGTK::FormSubmissionRequest {
   multi method list_text_fields (
     CArray[Pointer[GPtrArray]] $field_names,
     CArray[Pointer[GPtrArray]] $field_values
-  ) {
+  ) 
+    is also<list-text-fields> 
+  {
     my $rc = webkit_form_submission_request_list_text_fields(
       $!wfsr, $field_names, $field_values
     );

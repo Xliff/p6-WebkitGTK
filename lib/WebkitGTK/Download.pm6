@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -25,7 +26,7 @@ class WebkitGTK::Download {
     $!wd;
   }
 
-  method allow_overwrite is rw {
+  method allow_overwrite is rw is also<allow-overwrite> {
     Proxy.new(
       FETCH => sub ($) {
         so webkit_download_get_allow_overwrite($!wd);
@@ -54,13 +55,13 @@ class WebkitGTK::Download {
 
   # Is originally:
   # WebKitDownload, gchar, gpointer --> void
-  method created-destination {
+  method created-destination is also<created_destination> {
     self.connect-string($!wd);
   }
 
   # Is originally:
   # WebKitDownload, gchar, gpointer --> gboolean
-  method decide-destination {
+  method decide-destination is also<decide_destination> {
     self.connect-decide-destination($!wd);
   }
 
@@ -78,7 +79,7 @@ class WebkitGTK::Download {
 
   # Is originally:
   # WebKitDownload, guint64, gpointer --> void
-  method received-data {
+  method received-data is also<received_data> {
     self.connect-received-data($!wd);
   }
 
@@ -86,32 +87,33 @@ class WebkitGTK::Download {
     webkit_download_cancel($!wd);
   }
 
-  method get_elapsed_time {
+  method get_elapsed_time is also<get-elapsed-time> {
     webkit_download_get_elapsed_time($!wd);
   }
 
-  method get_estimated_progress {
+  method get_estimated_progress is also<get-estimated-progress> {
     webkit_download_get_estimated_progress($!wd);
   }
 
-  method get_received_data_length {
+  method get_received_data_length is also<get-received-data-length> {
     webkit_download_get_received_data_length($!wd);
   }
 
-  method get_request {
+  method get_request is also<get-request> {
     webkit_download_get_request($!wd);
   }
 
-  method get_response {
+  method get_response is also<get-response> {
     webkit_download_get_response($!wd);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_download_get_type();
   }
 
-  method get_web_view {
+  method get_web_view is also<get-web-view> {
     ::('WebkitGTK::WebView').new( webkit_download_get_web_view($!wd) );
   }
 
 }
+

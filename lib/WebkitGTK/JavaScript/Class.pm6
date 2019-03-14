@@ -22,7 +22,9 @@ class WebkitGTK::JavaScript::Class {
     gpointer $user_data,
     GDestroyNotify $destroy_notify,
     Int() $return_type
-  ) {
+  ) 
+    is also<add-constructor-variadic> 
+  {
     my guint $rt = self.RESOLVE-UINT($return_type);
     jsc_class_add_constructor_variadic(
       $!jsc, $name, $callback, $user_data, $destroy_notify, $rt
@@ -36,7 +38,9 @@ class WebkitGTK::JavaScript::Class {
     Int() $return_type = G_TYPE_NONE,
     gpointer $user_data = Pointer,
     GDestroyNotify $destroy_notify = Pointer,
-  ) {
+  ) 
+    is also<add-constructor> 
+  {
     die '@param_types must be a list of JSCValues'
       unless @parameters.all ~~ Int;
     self.add_constructorv(
@@ -58,16 +62,18 @@ class WebkitGTK::JavaScript::Class {
     Int() $return_type,
     guint $n_parameters,
     CArray[GType] $parameter_types
-  ) {
-    my guint $rt = self.RESOLVE-UINT($return_type);
+  ) 
+    is also<add-constructorv> 
+  {
+    my guint ($rt, $np) = self.RESOLVE-UINT($return_type, $n_parameters);
     jsc_class_add_constructorv(
       $!jsc,
       $name,
       $callback,
       $user_data,
       $destroy_notify,
-      $return_type,
-      $n_parameters,
+      $rt,
+      $np,
       $parameter_types
     );
   }
@@ -78,7 +84,9 @@ class WebkitGTK::JavaScript::Class {
     gpointer $user_data = Pointer,
     GDestroyNotify $destroy_notify = Pointer,
     Int() $return_type = G_TYPE_NONE
-  ) {
+  ) 
+    is also<add-method-variadic> 
+  {
     my guint $rt = self.RESOLVE-UINT($return_type);
     jsc_class_add_method_variadic(
       $!jsc, $name, $callback, $user_data, $destroy_notify, $return_type
@@ -92,7 +100,9 @@ class WebkitGTK::JavaScript::Class {
     Int() $return_type = G_TYPE_NONE,
     gpointer $user_data, = Pointer
     GDestroyNotify $destroy_notify = Pointer
-  ) {
+  ) 
+    is also<add-method> 
+  {
     die '@param_types must be a list of GTypeEnum compatible integers'
       unless @param_types.all ~~ Int;
     self.add_methodv(
@@ -112,10 +122,12 @@ class WebkitGTK::JavaScript::Class {
     gpointer $user_data,
     GDestroyNotify $destroy_notify,
     Int() $return_type,
-    guint $n_parameters,
+    Int() $n_parameters,
     GType $parameter_types
-  ) {
-    my guint $rt = self.RESOLVE-UINT($return_type);
+  ) 
+    is also<add-methodv> 
+  {
+    my guint ($rt, $np) = self.RESOLVE-UINT($return_type, $n_parameters);
     jsc_class_add_methodv(
       $!jsc,
       $name,
@@ -123,7 +135,7 @@ class WebkitGTK::JavaScript::Class {
       $user_data,
       $destroy_notify,
       $rt,
-      $n_parameters,
+      $np,
       $parameter_types
     );
   }
@@ -135,7 +147,9 @@ class WebkitGTK::JavaScript::Class {
     GCallback $setter,
     gpointer $user_data = Pointer,
     GDestroyNotify $destroy_notify = Pointer
-  ) {
+  ) 
+    is also<add-property> 
+  {
     my guint $pt = self.RESOLVE-UINT($property_type);
     jsc_class_add_property(
       $!jsc,
@@ -148,15 +162,15 @@ class WebkitGTK::JavaScript::Class {
     );
   }
 
-  method get_name {
+  method get_name is also<get-name> {
     jsc_class_get_name($!jsc);
   }
 
-  method get_parent {
+  method get_parent is also<get-parent> {
     WebkitGTK::JavaScript::Class.new( jsc_class_get_parent($!jsc) );
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     jsc_class_get_type();
   }
 

@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -18,22 +19,22 @@ class WebkitGTK::WebsiteData {
     self.bless(:$data);
   }
 
-  method get_name {
+  method get_name is also<get-name> {
     webkit_website_data_get_name($!wwd);
   }
 
   method get_size (
     Int() $types                  # WebKitWebsiteDataTypes $types
-  ) {
+  ) is also<get-size> {
     my guint $t = resolve-uint($types);
     webkit_website_data_get_size($!wwd, $t);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_website_data_get_type();
   }
 
-  method get_types {
+  method get_types is also<get-types> {
     webkit_website_data_get_types($!wwd);
   }
 
@@ -47,3 +48,4 @@ class WebkitGTK::WebsiteData {
   }
 
 }
+

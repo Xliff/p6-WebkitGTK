@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -28,13 +29,15 @@ class WebkitGTK::ContextMenuItem {
     GAction() $action,
     Str() $label,
     GVariant $target = GVariant
-  ) {
+  ) is also<new-from-gaction> {
     self.bless( menuitem => webkit_context_menu_item_new_from_gaction(
       $action, $label, $target
     ) );
   }
 
-  method new_from_stock_action (Int() $action) {
+  method new_from_stock_action (Int() $action) 
+    is also<new-from-stock-action> 
+  {
     my guint $a = self.RESOLVE-UINT($action);
     my $menuitem = webkit_context_menu_item_new_from_stock_action($a);
     self.bless(:$menuitem);
@@ -43,7 +46,9 @@ class WebkitGTK::ContextMenuItem {
   method new_from_stock_action_with_label (
     Int() $action,
     Str() $label
-  ) {
+  ) 
+    is also<new-from-stock-action-with-label> 
+  {
     my guint $a = self.RESOLVE-UINT($action);
     self.bless(
       menuitem => webkit_context_menu_item_new_from_stock_action_with_label(
@@ -52,11 +57,13 @@ class WebkitGTK::ContextMenuItem {
     );
   }
 
-  method new_separator {
+  method new_separator is also<new-separator> {
     self.bless( menuitem => webkit_context_menu_item_new_separator() );
   }
 
-  method new_with_submenu (Str() $label, WebKitContextMenu() $submenu) {
+  method new_with_submenu (Str() $label, WebKitContextMenu() $submenu) 
+    is also<new-with-submenu> 
+  {
     self.bless( menuitem => webkit_context_menu_item_new_with_submenu(
       $label, $submenu
     ) );
@@ -75,23 +82,23 @@ class WebkitGTK::ContextMenuItem {
     );
   }
 
-  method get_gaction {
+  method get_gaction is also<get-gaction> {
     GTK::Compat::Action.new(
       webkit_context_menu_item_get_gaction($!wcmi)
     );
   }
 
-  method get_stock_action {
+  method get_stock_action is also<get-stock-action> {
     WebKitContextMenuAction(
       webkit_context_menu_item_get_stock_action($!wcmi)
     );
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     webkit_context_menu_item_get_type();
   }
 
-  method is_separator {
+  method is_separator is also<is-separator> {
     webkit_context_menu_item_is_separator($!wcmi);
   }
 

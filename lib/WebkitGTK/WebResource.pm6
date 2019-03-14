@@ -1,5 +1,6 @@
 use v6.c;
 
+use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
@@ -33,7 +34,7 @@ class WebkitGTK::WebResource {
 
   # Is originally:
   # WebKitWebResource, GTlsCertificate, GTlsCertificateFlags, gpointer --> void
-  method failed-with-tls-errors {
+  method failed-with-tls-errors is also<failed_with_tls_errors> {
     self.connect-failed-with-tls-errors($!wr);
   }
 
@@ -45,13 +46,13 @@ class WebkitGTK::WebResource {
 
   # Is originally:
   # WebKitWebResource, guint64, gpointer --> void
-  method received-data {
+  method received-data is also<received_data> {
     self.connect-long($!wr, 'received-data');
   }
 
   # Is originally:
   # WebKitWebResource, WebKitURIRequest, WebKitURIResponse, gpointer --> void
-  method sent-request {
+  method sent-request is also<sent_request> {
     self.connect-sent-request($!wr);
   }
 
@@ -59,7 +60,9 @@ class WebkitGTK::WebResource {
     GCancellable $cancellable,
     GAsyncReadyCallback $callback = Pointer,
     gpointer $user_data = Pointer
-  ) {
+  ) 
+    is also<get-data> 
+  {
     webkit_web_resource_get_data($!wr, $cancellable, $callback, $user_data);
   }
 
@@ -67,19 +70,21 @@ class WebkitGTK::WebResource {
     GAsyncResult $result,
     gsize $length,
     CArray[Pointer[GError]] $error = gerror
-  ) {
+  ) 
+    is also<get-data-finish> 
+  {
     webkit_web_resource_get_data_finish($!wr, $result, $length, $error);
   }
 
-  method get_response {
+  method get_response is also<get-response> {
     webkit_web_resource_get_response($!wr);
   }
 
-  method get_type{
+  method get_typeis also<get-typ> {
     webkit_web_resource_get_type();
   }
 
-  method get_uri {
+  method get_uri is also<get-uri> {
     webkit_web_resource_get_uri($!wr);
   }
 
