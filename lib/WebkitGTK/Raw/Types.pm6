@@ -20,12 +20,14 @@ class WebKitContextMenu              is repr("CPointer") is export does GTK::Rol
 class WebKitContextMenuItem          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitCookieManager            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitCredential               is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitDOMObject                is repr("CPointer") is export does GTK::Roles::Pointers { } # DEPRECATED
 class WebKitDownload                 is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitEditorState              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFaviconDatabase          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFileChooserRequest       is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFindController           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitFormSubmissionRequest    is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitFrame                    is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitHitTestResult            is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitJavascriptResult         is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitMimeInfo                 is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -42,6 +44,7 @@ class WebKitPrintCustomWidget        is repr("CPointer") is export does GTK::Rol
 class WebKitPrintOperation           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitResponsePolicyDecision   is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitScriptDialog             is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitScriptWorld              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSecurityManager          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSecurityOrigin           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitSettings                 is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -59,6 +62,7 @@ class WebKitWebsiteDataManager       is repr("CPointer") is export does GTK::Rol
 class WebKitWebView                  is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWebViewSessionState      is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitWindowProperties         is repr("CPointer") is export does GTK::Roles::Pointers { }
+
 
 our enum WebKitPolicyDecisionType is export <
   WEBKIT_POLICY_DECISION_TYPE_NAVIGATION_ACTION
@@ -286,7 +290,7 @@ our enum WebKitUserScriptInjectionTime is export <
   WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_END
 >;
 
-our enum WebKitHardwareAccelerationPolicy <
+our enum WebKitHardwareAccelerationPolicy is export <
   WEBKIT_HARDWARE_ACCELERATION_POLICY_ON_DEMAND
   WEBKIT_HARDWARE_ACCELERATION_POLICY_ALWAYS
   WEBKIT_HARDWARE_ACCELERATION_POLICY_NEVER
