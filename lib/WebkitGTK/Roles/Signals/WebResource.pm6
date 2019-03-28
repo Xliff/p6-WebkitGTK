@@ -20,7 +20,7 @@ role WebkitGTK::Roles::Signals::WebResource {
     &handler?
   ) {
     my $hid;
-    %!signals-wr //= do {
+    %!signals-wr{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-failed-with-tls-errors($obj, $signal,
         -> $, $c, $cf, $ud {
@@ -45,7 +45,7 @@ role WebkitGTK::Roles::Signals::WebResource {
     &handler?
   ) {
     my $hid;
-    %!signals-wr //= do {
+    %!signals-wr{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-sent-request($obj, $signal,
         -> $, $ur1, $ur2, $ud {

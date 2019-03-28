@@ -20,7 +20,7 @@ role WebkitGTK::Roles::Signals::PrintCustomWidget {
     &handler?
   ) {
     my $hid;
-    %!signals-wpcw //= do {
+    %!signals-wpcw{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-update($obj, $signal,
         -> $, $gpsp, $gpss, $ud {

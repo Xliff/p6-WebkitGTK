@@ -18,7 +18,7 @@ role WebkitGTK::Roles::Signals::PrintOperation {
     &handler?
   ) {
     my $hid;
-    %!signals-wpo //= do {
+    %!signals-wpo{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-create-custom-widget($obj, $signal,
         -> $, $ud --> WebKitPrintCustomWidget {
@@ -46,7 +46,7 @@ role WebkitGTK::Roles::Signals::PrintOperation {
     &handler?
   ) {
     my $hid;
-    %!signals-wpo //= do {
+    %!signals-wpo{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-failed($obj, $signal,
         -> $, $g, $ud {

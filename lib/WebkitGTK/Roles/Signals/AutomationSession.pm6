@@ -16,7 +16,7 @@ role WebkitGTK::Roles::Signals::AutomationSession {
     &handler?
   ) {
     my $hid;
-    %!signals-was //= do {
+    %!signals-was{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-create-web-view($obj, $signal,
         -> $, $ud --> WebKitWebView {

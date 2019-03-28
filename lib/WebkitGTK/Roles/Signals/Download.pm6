@@ -20,7 +20,7 @@ role WebkitGTK::Roles::Signals::Download {
     &handler?
   ) {
     my $hid;
-    %!signals-wd //= do {
+    %!signals-wd{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-decide-destination($obj, $signal,
         -> $, $gr, $ud --> gboolean {
@@ -47,7 +47,7 @@ role WebkitGTK::Roles::Signals::Download {
     &handler?
   ) {
     my $hid;
-    %!signals-wd //= do {
+    %!signals-wd{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-failed($obj, $signal,
         -> $, $g, $ud {
