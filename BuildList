@@ -10,11 +10,11 @@ GTK::Raw::ReturnedValue
 GTK::Raw::Types
 GTK::Raw::Utils
 GTK::Roles::Pointers
-GTK::Roles::References
 GTK::Roles::Signals::Generic
 GTK::Roles::Types
 Method::Also
 WebkitGTK::Raw::Types
+WebkitGTK::ConsoleMessage
 WebkitGTK::Compat::Types
 WebkitGTK::Raw::Error
 WebkitGTK::Error
@@ -33,6 +33,7 @@ WebkitGTK::Raw::AutomationSession
 WebkitGTK::Raw::BackForwardList
 WebkitGTK::Raw::BackForwardListItem
 WebkitGTK::Raw::ColorChooserRequest
+WebkitGTK::Raw::ConsoleMessage
 WebkitGTK::Raw::ContextMenu
 WebkitGTK::Raw::ContextMenuItem
 WebkitGTK::Raw::CookieManager
@@ -43,6 +44,7 @@ WebkitGTK::Raw::FaviconDatabase
 WebkitGTK::Raw::FileChooserRequest
 WebkitGTK::Raw::FindController
 WebkitGTK::Raw::FormSubmissionRequest
+WebkitGTK::Raw::Frame
 WebkitGTK::Raw::HitTestResult
 WebkitGTK::Raw::JavascriptResult
 WebkitGTK::Raw::MimeInfo
@@ -116,6 +118,7 @@ WebkitGTK::FaviconDatabase
 WebkitGTK::FileChooserRequest
 WebkitGTK::FindController
 WebkitGTK::FormSubmissionRequest
+WebkitGTK::Frame
 WebkitGTK::HitTestResult
 WebkitGTK::JavaScript::Class
 WebkitGTK::JavaScript::Context

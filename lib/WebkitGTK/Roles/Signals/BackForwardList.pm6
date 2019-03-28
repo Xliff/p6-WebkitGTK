@@ -15,7 +15,7 @@ role WebkitGTK::Roles::Signals::BackForwardList {
     &handler?
     ) {
     my $hid;
-    %!signals-wbfl //= do {
+    %!signals-wbfl{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-changed($obj, $signal,
         -> $, $wkbflim, $gr, $ud {

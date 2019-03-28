@@ -9,6 +9,7 @@
     "source-url": "https://github.com/Xliff/p6-WebKitGtk",
     "provides": {
       "WebkitGTK::Raw::Types"                         :  "lib/WebkitGTK/Raw/Types.pm6"                        ,
+      "WebkitGTK::ConsoleMessage"                     :  "lib/WebkitGTK/ConsoleMessage.pm6"                   ,
       "WebkitGTK::Compat::Types"                      :  "lib/WebkitGTK/Compat/Types.pm6"                     ,
       "WebkitGTK::Raw::Error"                         :  "lib/WebkitGTK/Raw/Error.pm6"                        ,
       "WebkitGTK::Error"                              :  "lib/WebkitGTK/Error.pm6"                            ,
@@ -27,6 +28,7 @@
       "WebkitGTK::Raw::BackForwardList"               :  "lib/WebkitGTK/Raw/BackForwardList.pm6"              ,
       "WebkitGTK::Raw::BackForwardListItem"           :  "lib/WebkitGTK/Raw/BackForwardListItem.pm6"          ,
       "WebkitGTK::Raw::ColorChooserRequest"           :  "lib/WebkitGTK/Raw/ColorChooserRequest.pm6"          ,
+      "WebkitGTK::Raw::ConsoleMessage"                :  "lib/WebkitGTK/Raw/ConsoleMessage.pm6"               ,
       "WebkitGTK::Raw::ContextMenu"                   :  "lib/WebkitGTK/Raw/ContextMenu.pm6"                  ,
       "WebkitGTK::Raw::ContextMenuItem"               :  "lib/WebkitGTK/Raw/ContextMenuItem.pm6"              ,
       "WebkitGTK::Raw::CookieManager"                 :  "lib/WebkitGTK/Raw/CookieManager.pm6"                ,
@@ -37,6 +39,7 @@
       "WebkitGTK::Raw::FileChooserRequest"            :  "lib/WebkitGTK/Raw/FileChooserRequest.pm6"           ,
       "WebkitGTK::Raw::FindController"                :  "lib/WebkitGTK/Raw/FindController.pm6"               ,
       "WebkitGTK::Raw::FormSubmissionRequest"         :  "lib/WebkitGTK/Raw/FormSubmissionRequest.pm6"        ,
+      "WebkitGTK::Raw::Frame"                         :  "lib/WebkitGTK/Raw/Frame.pm6"                        ,
       "WebkitGTK::Raw::HitTestResult"                 :  "lib/WebkitGTK/Raw/HitTestResult.pm6"                ,
       "WebkitGTK::Raw::JavascriptResult"              :  "lib/WebkitGTK/Raw/JavascriptResult.pm6"             ,
       "WebkitGTK::Raw::MimeInfo"                      :  "lib/WebkitGTK/Raw/MimeInfo.pm6"                     ,
@@ -110,6 +113,7 @@
       "WebkitGTK::FileChooserRequest"                 :  "lib/WebkitGTK/FileChooserRequest.pm6"               ,
       "WebkitGTK::FindController"                     :  "lib/WebkitGTK/FindController.pm6"                   ,
       "WebkitGTK::FormSubmissionRequest"              :  "lib/WebkitGTK/FormSubmissionRequest.pm6"            ,
+      "WebkitGTK::Frame"                              :  "lib/WebkitGTK/Frame.pm6"                            ,
       "WebkitGTK::HitTestResult"                      :  "lib/WebkitGTK/HitTestResult.pm6"                    ,
       "WebkitGTK::JavaScript::Class"                  :  "lib/WebkitGTK/JavaScript/Class.pm6"                 ,
       "WebkitGTK::JavaScript::Context"                :  "lib/WebkitGTK/JavaScript/Context.pm6"               ,
@@ -141,6 +145,7 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
 
 
 
