@@ -1,9 +1,15 @@
 use v6.c;
 
+use Method::Also;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PolicyDecision;
 
+use GTK::Compat::Roles::Object;
+
 class WebkitGTK::PolicyDecision {
+  also does GTK::Compat::Roles::Object;
+  
   has WebKitPolicyDecision $!wpd;
 
   submethod BUILD (:$decision) {
@@ -11,12 +17,12 @@ class WebkitGTK::PolicyDecision {
   }
 
   method setPolicyDecision($decision) {
-    $!wpd = $decision;
+    self!setObject($!wpd = $decision);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPolicyDecision {
-    $!wpd;
-  }
+  method WebkitGTK::Raw::Types::WebKitPolicyDecision 
+    is also<PolicyDecision> 
+  { $!wpd }
 
   method new (WebKitPolicyDecision $decision) {
     self.bless(:$decision);
@@ -39,4 +45,3 @@ class WebkitGTK::PolicyDecision {
   }
 
 }
-

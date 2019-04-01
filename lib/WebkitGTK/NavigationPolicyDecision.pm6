@@ -9,7 +9,8 @@ use WebkitGTK::Raw::NavigationPolicyDecision;
 use WebkitGTK::PolicyDecision;
 use WebkitGTK::NavigationAction;
 
-my subset Ancestry where WebKitNavigationPolicyDecision | WebKitPolicyDecision;
+our subset NavigationPolicyDecisionAncestry is export 
+  where WebKitNavigationPolicyDecision | WebKitPolicyDecision;
 
 class WebkitGTK::NavigationPolicyDecision is WebkitGTK::PolicyDecision {
   has WebKitNavigationPolicyDecision $!wnpd;
@@ -29,15 +30,27 @@ class WebkitGTK::NavigationPolicyDecision is WebkitGTK::PolicyDecision {
     self.setPolicyDecision($to_parent);
   }
 
-  method new (Ancestry $decision) {
+  method new (NavigationPolicyDecisionAncestry $decision) {
     self.bless(:$decision);
   }
 
-  method get_frame_name is also<get-frame-name> {
+  method get_frame_name 
+    is also<
+      get-frame-name
+      frame_name
+      frame-name
+    > 
+  {
     webkit_navigation_policy_decision_get_frame_name($!wnpd);
   }
 
-  method get_navigation_action is also<get-navigation-action> {
+  method get_navigation_action 
+    is also<
+      get-navigation-action
+      navigation_action
+      navigation-action
+    > 
+  {
     WebkitGTK::NavigationAction.new(
       webkit_navigation_policy_decision_get_navigation_action($!wnpd)
     );
@@ -47,4 +60,3 @@ class WebkitGTK::NavigationPolicyDecision is WebkitGTK::PolicyDecision {
     webkit_navigation_policy_decision_get_type();
   }
 }
-

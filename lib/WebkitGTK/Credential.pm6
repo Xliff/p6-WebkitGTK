@@ -12,6 +12,8 @@ use GTK::Roles::Types;
 
 use GTK::Raw::Utils;
 
+# BOXED TYPE
+
 class WebkitGTK::Credential {
   has WebKitCredential $!wkc;
 
@@ -19,11 +21,12 @@ class WebkitGTK::Credential {
     $!wkc = $cred;
   }
 
-  method WebkitGTK::Raw::Types::WebKitCredential {
-    $!wkc;
-  }
+  method WebkitGTK::Raw::Types::WebKitCredential is also<Credential> { $!wkc }
 
-  method new (
+  multi method new (WebKitCredential $cred) {
+    self.bless(:$cred);
+  }
+  multi method new (
     Str() $username,
     Str() $password,
     Int() $persistence            # WebKitCredentialPersistence $persistence
@@ -40,11 +43,21 @@ class WebkitGTK::Credential {
     webkit_credential_free($!wkc);
   }
 
-  method get_password is also<get-password> {
+  method get_password 
+    is also<
+      get-password
+      password
+    > 
+  {
     webkit_credential_get_password($!wkc);
   }
 
-  method get_persistence is also<get-persistence> {
+  method get_persistence 
+    is also<
+      get-persistence
+      persistence
+    > 
+  {
     WebKitCredentialPersistence( webkit_credential_get_persistence($!wkc) );
   }
 
@@ -52,7 +65,12 @@ class WebkitGTK::Credential {
     webkit_credential_get_type();
   }
 
-  method get_username is also<get-username> {
+  method get_username 
+    is also<
+      get-username
+      username
+    > 
+  {
     webkit_credential_get_username($!wkc);
   }
 
@@ -61,4 +79,3 @@ class WebkitGTK::Credential {
   }
   
 }
-

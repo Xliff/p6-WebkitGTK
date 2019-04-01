@@ -6,20 +6,24 @@ use NativeCall;
 use WebkitGTK::Raw::AuthenticationRequest;
 use WebkitGTK::Raw::Types;
 
+use GTK::Compat::Roles::Object;
+
 use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::AuthenticationRequest {
+  also does GTK::Compat::Roles::Object;
+  
   also does GTK::Roles::Signals::Generic;
 
   has WebKitAuthenticationRequest $!war;
 
   submethod BUILD (:$request) {
-    $!war = $request;
+    self!setObject($!war = $request);
   }
 
-  method WebkitGTK::Raw::Types::WebKitAuthenticationRequest {
-    $!war;
-  }
+  method WebkitGTK::Raw::Types::WebKitAuthenticationRequest 
+    is also<AuthenticationRequest>
+  { $!war }
 
   # Is originally:
   # WebKitAuthenticationRequest, gpointer --> void
@@ -39,25 +43,51 @@ class WebkitGTK::AuthenticationRequest {
     webkit_authentication_request_cancel($!war);
   }
 
-  method get_host is also<get-host> {
+  method get_host 
+    is also<
+      get-host
+      host
+    > 
+  {
     webkit_authentication_request_get_host($!war);
   }
 
-  method get_port is also<get-port> {
+  method get_port 
+    is also<
+      get-port
+      port
+    > 
+  {
     webkit_authentication_request_get_port($!war);
   }
 
-  method get_proposed_credential is also<get-proposed-credential> {
+  method get_proposed_credential 
+    is also<
+      get-proposed-credential
+      proposed_credential
+      proposed-credential
+    > 
+  {
     WebkitGTK::Credential.new(
       webkit_authentication_request_get_proposed_credential($!war)
     );
   }
 
-  method get_realm is also<get-realm> {
+  method get_realm 
+    is also<
+      get-realm
+      realm
+    > 
+  {
     webkit_authentication_request_get_realm($!war);
   }
 
-  method get_scheme is also<get-scheme> {
+  method get_scheme 
+    is also<
+      get-scheme
+      scheme
+    > 
+  {
     WebKitAuthenticationScheme(
       webkit_authentication_request_get_scheme($!war)
     );
@@ -76,4 +106,3 @@ class WebkitGTK::AuthenticationRequest {
   }
 
 }
-
