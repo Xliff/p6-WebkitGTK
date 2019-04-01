@@ -9,23 +9,32 @@ use WebkitGTK::Raw::OptionMenu;
 
 use WebkitGTK::OptionMenuItem;
 
+use GTK::Compat::Roles::Object;
+
 use GTK::Roles::Types;
 
+# BOXED TYPE
+
 class WebkitGTK::OptionMenu {
+  also does GTK::Compat::Roles::Object;
+  
   also does GTK::Roles::Types;
 
   has WebKitOptionMenu $!wom;
 
   submethod BUILD (:$menu) {
-    $!wom = $menu;
+    self!setObject($!wom = $menu);
   }
+  
+  method WebkitGTK::Raw::Types::WebKitOptionMenu is also<OptionMenu> { $!wom }
 
   method new (WebKitOptionMenu $menu) {
     self.bless(:$menu);
   }
 
-  method activate_item (guint $index) is also<activate-item> {
-    webkit_option_menu_activate_item($!wom, $index);
+  method activate_item (Int() $index) is also<activate-item> {
+    my guint $i = self.RESOLVE-UINT($index);
+    webkit_option_menu_activate_item($!wom, $i);
   }
 
   method close {
@@ -53,4 +62,3 @@ class WebkitGTK::OptionMenu {
   }
 
 }
-

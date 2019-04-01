@@ -1,24 +1,30 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PrintCustomWidget;
 
+use GTK::Compat::Roles::Object;
+
 use WebkitGTK::Roles::Signals::PrintCustomWidget;
 
 class WebkitGTK::PrintCustomWidget {
+  also does GTK::Compat::Roles::Object;
+  
   also does WebkitGTK::Roles::Signals::PrintCustomWidget;
 
   has WebKitPrintCustomWidget $!wpcw;
 
   submethod BUILD (:$widget) {
-    $!wpcw = $widget;
+    self!setObject($!wpcw = $widget);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPrintCustomWidget {
-    $!wpcw;
-  }
+  method WebkitGTK::Raw::Types::WebKitPrintCustomWidget 
+    is also<PrintCustomWidget>
+  { $!wpcw }
 
   method new (GtkWidget() $widget, Str() $title) {
     self.bless( widget => webkit_print_custom_widget_new($widget, $title) );
@@ -36,18 +42,27 @@ class WebkitGTK::PrintCustomWidget {
     self.connect-update($!wpcw);
   }
 
-  method get_title is also<get-title> is also<get-title> {
+  method get_title 
+    is also<
+      get-title
+      title
+    >  
+  {
     webkit_print_custom_widget_get_title($!wpcw);
   }
 
-  method get_type is also<get-type> is also<get-type> {
+  method get_type is also<get-type> {
     webkit_print_custom_widget_get_type();
   }
 
-  method get_widget is also<get-widget> is also<get-widget> {
+  method get_widget 
+    is also<
+      get-widget
+      widget
+    > 
+  {
+    # Determining the widget is up too the caller.
     webkit_print_custom_widget_get_widget($!wpcw);
   }
 
 }
-
-

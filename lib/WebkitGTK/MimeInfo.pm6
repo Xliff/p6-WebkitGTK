@@ -7,12 +7,19 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::MimeInfo;
 
+# BOXED TYPE - 
+#   ASSUMPTION! 
+#     From /usr/include/webkitgtk-4.0/webkit2/WebKitMimeInfo.h
+#     There was no WebKitMineInfoClass, nor any reference to GObject.
+
 class WebkitGTK::MimeInfo {
   has WebKitMimeInfo $!wmi;
 
   submethod BUILD (:$info) {
     $!wmi = $info;
   }
+  
+  method WekitGTK::Raw::Types::WebKitMimeInfo is also<MinmeInfo> { $!wmi }
 
   method new (WebKitMimeInfo $info) {
     self.bless(:$info);
@@ -46,4 +53,3 @@ class WebkitGTK::MimeInfo {
   }
 
 }
-

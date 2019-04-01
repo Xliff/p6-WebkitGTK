@@ -1,6 +1,7 @@
 Cairo
 GTK::Compat::Action
 GTK::Compat::RGBA
+GTK::Compat::Roles::Object
 GTK::Compat::Types
 GTK::Container
 GTK::FileFilter
@@ -112,7 +113,6 @@ WebkitGTK::ContextMenu
 WebkitGTK::ContextMenuItem
 WebkitGTK::CookieManager
 WebkitGTK::Credential
-WebkitGTK::Download
 WebkitGTK::EditorState
 WebkitGTK::FaviconDatabase
 WebkitGTK::FileChooserRequest
@@ -136,5 +136,6 @@ WebkitGTK::PrintOperation
 WebkitGTK::ResponsePolicyDecision
 WebkitGTK::WebView
 WebkitGTK::BackForwardList
+WebkitGTK::Download
 WebkitGTK::NavigationPolicyDecision
 WebkitGTK::OptionMenu

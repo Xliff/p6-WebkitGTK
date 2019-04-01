@@ -7,6 +7,8 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::OptionMenuItem;
 
+# BOXED TYPE
+
 class WebkitGTK::OptionMenuItem {
   has WebKitOptionMenuItem $!womi;
 
@@ -17,6 +19,10 @@ class WebkitGTK::OptionMenuItem {
   method new (WebKitOptionMenuItem $item) {
     self.bless(:$item);
   }
+  
+  method WebkitGTK::Raw::Types::WebKitOptionMenuItem 
+    is also<OptionMenuItem>
+  { $!womi }
 
   method copy {
     self.bless( item => webkit_option_menu_item_copy($!womi) );
@@ -55,4 +61,3 @@ class WebkitGTK::OptionMenuItem {
   }
 
 }
-

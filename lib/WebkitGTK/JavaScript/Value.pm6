@@ -21,9 +21,9 @@ class WebkitGTK::JavaScript::Value {
     $!jv = $value;
   }
   
-  method WebkitGTK::JavaScript::Raw::Types::JSCValue {
-    $!jv;
-  }
+  method WebkitGTK::JavaScript::Raw::Types::JSCValue 
+    is also<JSCValue>
+  { $!jv }
 
   method new(JSCValue $value) {
     self.bless(:$value);
@@ -41,7 +41,9 @@ class WebkitGTK::JavaScript::Value {
     JSCContext() $c,
     gpointer $instance,
     JSCClass() $jsc_class
-  ) is also<new-object> {
+  ) 
+    is also<new-object> 
+  {
     self.bless( value => jsc_value_new_object($c, $instance, $jsc_class) );
   }
 
@@ -116,29 +118,33 @@ class WebkitGTK::JavaScript::Value {
       $parameter_types
     ) );
   }
+  
+  proto method constructor_callv (|)
+    is also<constructor-callv>
+  { * }
 
-  multi method constructor_callv (@parameters) is also<constructor-callv> {
+  multi method constructor_callv (@parameters) {
     samewith(@parameters.elems, paramsToCArray(@parameters) );
   }
   multi method constructor_callv (
     Int() $n_parameters,
     CArray[JSCValue] $parameters
-  ) 
-    is also<constructor-callv> 
-  {
+  ) {
     my guint $np = self.RESOLVE-UINT($n_parameters);
     jsc_value_constructor_callv($!jv, $np, $parameters);
   }
+  
+  proto method function_callv (|)
+    is also<function-callv>
+  { * }
 
-  multi method function_callv (@parameters) is also<function-callv> {
+  multi method function_callv (@parameters) {
     samewith(@parameters.elems, paramsToCArray(@parameters) );
   }
   multi method function_callv (
     Int() $n_parameters,
     CArray[JSCValue] $parameters
-  ) 
-    is also<function-callv> 
-  {
+  ) {
     my guint $np = self.RESOLVE-UINT($n_parameters);
     jsc_value_function_callv($!jv, $np, $parameters);
   }
@@ -248,19 +254,19 @@ class WebkitGTK::JavaScript::Value {
   method object_has_property (Str() $name) is also<object-has-property> {
     jsc_value_object_has_property($!jv, $name);
   }
+  
+  proto method object_invoke_methodv (|) 
+    is also<object-object-invoke-methodv>
+  { * }
 
-  multi method object_invoke_methodv(Str() $name, @parameters) 
-    is also<object-invoke-methodv> 
-  {
+  multi method object_invoke_methodv(Str() $name, @parameters) {
     samewith( $name, @parameters.elems, paramsToCArray(@parameters) );
   }
   multi method object_invoke_methodv (
     Str() $name,
     Int() $n_parameters,
     CArray[JSCValue] $parameters
-  ) 
-    is also<object-invoke-methodv> 
-  {
+  ) {
     my guint $np = self.RESOLVE-UINT($n_parameters);
     jsc_value_object_invoke_methodv($!jv, $name, $np, $parameters);
   }

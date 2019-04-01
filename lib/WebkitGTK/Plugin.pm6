@@ -7,31 +7,50 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::Plugin;
 
+use GTK::Compat::Roles::Object;
+
 class WebkitGTK::Plugin {
+  also does GTK::Compat::Roles::Object;
+  
   has WebKitPlugin $!wp;
 
   submethod BUILD (:$plugin) {
-    $!wp = $plugin;
+    self!setObject($!wp = $plugin);
   }
+  
+  method WebkitGTK::Raw::Types::WebKitPlugin is also<Plugin> { $!wp }
 
   method new (WebKitPlugin $plugin) {
     self.bless(:$plugin);
   }
 
-  method get_description is also<get-description> {
+  method get_description is also<
+    get-description
+    description
+  > {
     webkit_plugin_get_description($!wp);
   }
 
-  method get_mime_info_list is also<get-mime-info-list> {
+  method get_mime_info_list is also<
+    get-mime-info-list
+    mime_info_list
+    mime-info-list
+  > {
     # Convert GList to @
     webkit_plugin_get_mime_info_list($!wp);
   }
 
-  method get_name is also<get-name> {
+  method get_name is also<
+    get-name
+    name
+  > {
     webkit_plugin_get_name($!wp);
   }
 
-  method get_path is also<get-path> {
+  method get_path is also<
+    get-path
+    path
+  > {
     webkit_plugin_get_path($!wp);
   }
 
@@ -40,4 +59,3 @@ class WebkitGTK::Plugin {
   }
 
 }
-

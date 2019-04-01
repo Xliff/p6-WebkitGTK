@@ -10,20 +10,30 @@ use WebkitGTK::Raw::Download;
 use WebkitGTK::URIResponse;
 use WebkitGTK::URIRequest;
 
+use GTK::Compat::Roles::Object;
+
 use GTK::Roles::Types;
 use WebkitGTK::Roles::Signals::Download;
 
+use WebkitGTK::URIRequest;
+use WebkitGTK::URIResponse;
+use WebkitGTK::WebView;
+
 class WebkitGTK::Download {
+  also does GTK::Compat::Roles::Object;
+  
   also does GTK::Roles::Types;
 
   has WebKitDownload $!wd;
 
   submethod BUILD (:$download) {
-    $!wd = $download;
+    self!setObject($!wd = $download);
   }
 
-  method WebkitGTK::Raw::TYpes::WebKitDownload {
-    $!wd;
+  method WebkitGTK::Raw::TYpes::WebKitDownload is also<Download> { $!wd }
+  
+  method new (WebKitDownload $download) {
+    self.bless(:$download);
   }
 
   method allow_overwrite is rw is also<allow-overwrite> {
@@ -47,10 +57,6 @@ class WebkitGTK::Download {
         webkit_download_set_destination($!wd, $uri);
       }
     );
-  }
-
-  method new (WebKitDownload $download) {
-    self.bless(:$download);
   }
 
   # Is originally:
@@ -91,7 +97,11 @@ class WebkitGTK::Download {
     webkit_download_get_elapsed_time($!wd);
   }
 
-  method get_estimated_progress is also<get-estimated-progress> {
+  method get_estimated_progress is also<
+    get-estimated-progress
+    estimated_progress
+    estimated-progress
+  > {
     webkit_download_get_estimated_progress($!wd);
   }
 
@@ -100,20 +110,26 @@ class WebkitGTK::Download {
   }
 
   method get_request is also<get-request> {
-    webkit_download_get_request($!wd);
+    WebkitGTK::URIRequest.new( webkit_download_get_request($!wd) );
   }
 
-  method get_response is also<get-response> {
-    webkit_download_get_response($!wd);
+  method get_response is also<
+    get-response
+    response
+  > {
+    WebkitGTK::URIResponse.new( webkit_download_get_response($!wd) );
   }
 
   method get_type is also<get-type> {
     webkit_download_get_type();
   }
 
-  method get_web_view is also<get-web-view> {
-    ::('WebkitGTK::WebView').new( webkit_download_get_web_view($!wd) );
+  method get_web_view is also<
+    get-web-view
+    web_view
+    web-view
+  > {
+    WebkitGTK::WebView.new( webkit_download_get_web_view($!wd) );
   }
 
 }
-
