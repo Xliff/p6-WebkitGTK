@@ -107,7 +107,6 @@
       "WebkitGTK::ContextMenuItem"                    :  "lib/WebkitGTK/ContextMenuItem.pm6"                  ,
       "WebkitGTK::CookieManager"                      :  "lib/WebkitGTK/CookieManager.pm6"                    ,
       "WebkitGTK::Credential"                         :  "lib/WebkitGTK/Credential.pm6"                       ,
-      "WebkitGTK::Download"                           :  "lib/WebkitGTK/Download.pm6"                         ,
       "WebkitGTK::EditorState"                        :  "lib/WebkitGTK/EditorState.pm6"                      ,
       "WebkitGTK::FaviconDatabase"                    :  "lib/WebkitGTK/FaviconDatabase.pm6"                  ,
       "WebkitGTK::FileChooserRequest"                 :  "lib/WebkitGTK/FileChooserRequest.pm6"               ,
@@ -131,6 +130,7 @@
       "WebkitGTK::ResponsePolicyDecision"             :  "lib/WebkitGTK/ResponsePolicyDecision.pm6"           ,
       "WebkitGTK::WebView"                            :  "lib/WebkitGTK/WebView.pm6"                          ,
       "WebkitGTK::BackForwardList"                    :  "lib/WebkitGTK/BackForwardList.pm6"                  ,
+      "WebkitGTK::Download"                           :  "lib/WebkitGTK/Download.pm6"                         ,
       "WebkitGTK::NavigationPolicyDecision"           :  "lib/WebkitGTK/NavigationPolicyDecision.pm6"         ,
       "WebkitGTK::OptionMenu"                         :  "lib/WebkitGTK/OptionMenu.pm6"                       
     },
@@ -145,6 +145,7 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
 
 
 

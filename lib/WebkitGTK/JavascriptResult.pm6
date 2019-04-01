@@ -1,9 +1,13 @@
 use v6.c;
 
+use Method::Also;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::JavascriptResult;
 
 use WebkitGTK::JavaScript::Value;
+
+# Opaque struct
 
 class WebkitGTK::JavascriptResult {
   has WebKitJavascriptResult $!wjr;
@@ -12,9 +16,9 @@ class WebkitGTK::JavascriptResult {
     $!wjr = $result;
   }
 
-  method WebkitGTK::Raw::Types::WebKitJavascriptResult {
-    $!wjr;
-  }
+  method WebkitGTK::Raw::Types::WebKitJavascriptResult
+    is also<JavascriptResult>
+  { $!wjr }
 
   method new (WebKitJavascriptResult $result) {
     self.bless(:$result);
@@ -29,13 +33,12 @@ class WebkitGTK::JavascriptResult {
     webkit_javascript_result_get_type();
   }
 
-  method ref {
+  method ref is also<upref> {
     webkit_javascript_result_ref($!wjr);
   }
 
-  method unref {
+  method unref is also<downref> {
     webkit_javascript_result_unref($!wjr);
   }
 
 }
-
