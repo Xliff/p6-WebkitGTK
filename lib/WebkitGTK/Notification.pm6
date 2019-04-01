@@ -7,13 +7,17 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::Notification;
 
+use GTK::Compat::Roles::Object;
+
 use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::Notification {
+  also does GTK::Compat::Roles::Object;
+  
   has WebKitNotification $!wn;
 
   submethod BUILD (:$notice) {
-    $!wn = $notice;
+    self!setObject($!wn = $notice);
   }
 
   method new (WebKitNotification $notice) {
@@ -38,19 +42,39 @@ class WebkitGTK::Notification {
     webkit_notification_close($!wn);
   }
 
-  method get_body is also<get-body> {
+  method get_body 
+    is also<
+      get-body
+      body
+    > 
+  {
     webkit_notification_get_body($!wn);
   }
 
-  method get_id is also<get-id> {
+  method get_id 
+    is also<
+      get-id
+      id
+    > 
+  {
     webkit_notification_get_id($!wn);
   }
 
-  method get_tag is also<get-tag> {
+  method get_tag 
+    is also<
+      get-tag
+      tag
+    > 
+  {
     webkit_notification_get_tag($!wn);
   }
 
-  method get_title is also<get-title> {
+  method get_title 
+    is also<
+      get-title
+      title
+    > 
+  {
     webkit_notification_get_title($!wn);
   }
 
@@ -59,4 +83,3 @@ class WebkitGTK::Notification {
   }
 
 }
-

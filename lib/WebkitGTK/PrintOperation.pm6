@@ -1,27 +1,33 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PrintOperation;
 
-use GTK::PageSetup;
-use GTK::PrintSettings;
+use GTK::Compat::Roles::Object;
 
 use WebkitGTK::Roles::Signals::PrintOperation;
 
+use GTK::PageSetup;
+use GTK::PrintSettings;
+
 class WebkitGTK::PrintOperation {
+  also does GTK::Compat::Roles::Object;
+  
   also does WebkitGTK::Roles::Signals::PrintOperation;
 
   has WebKitPrintOperation $!wpo;
 
   submethod BUILD (:$op) {
-    $!wpo = $op;
+    self!setObject($!wpo = $op);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPrintOperation {
-    $!wpo;
-  }
+  method WebkitGTK::Raw::Types::WebKitPrintOperation 
+    is also<PrintOperation>
+  { $!wpo }
 
   method new(WebKitWebView() $view) {
     self.bless( op => webkit_print_operation_new($view) );
@@ -84,4 +90,3 @@ class WebkitGTK::PrintOperation {
   }
 
 }
-

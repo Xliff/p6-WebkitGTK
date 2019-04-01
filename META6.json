@@ -96,7 +96,6 @@
       "WebkitGTK::WebInspector"                       :  "lib/WebkitGTK/WebInspector.pm6"                     ,
       "WebkitGTK::WebResource"                        :  "lib/WebkitGTK/WebResource.pm6"                      ,
       "WebkitGTK::WebsiteData"                        :  "lib/WebkitGTK/WebsiteData.pm6"                      ,
-      "WebkitGTK::WebsiteDataManager"                 :  "lib/WebkitGTK/WebsiteDataManager.pm6"               ,
       "WebkitGTK::WindowProperties"                   :  "lib/WebkitGTK/WindowProperties.pm6"                 ,
       "WebkitGTK::ApplicationInfo"                    :  "lib/WebkitGTK/ApplicationInfo.pm6"                  ,
       "WebkitGTK::AuthenticationRequest"              :  "lib/WebkitGTK/AuthenticationRequest.pm6"            ,
@@ -129,6 +128,7 @@
       "WebkitGTK::PrintOperation"                     :  "lib/WebkitGTK/PrintOperation.pm6"                   ,
       "WebkitGTK::ResponsePolicyDecision"             :  "lib/WebkitGTK/ResponsePolicyDecision.pm6"           ,
       "WebkitGTK::WebView"                            :  "lib/WebkitGTK/WebView.pm6"                          ,
+      "WebkitGTK::WebsiteDataManager"                 :  "lib/WebkitGTK/WebsiteDataManager.pm6"               ,
       "WebkitGTK::BackForwardList"                    :  "lib/WebkitGTK/BackForwardList.pm6"                  ,
       "WebkitGTK::Download"                           :  "lib/WebkitGTK/Download.pm6"                         ,
       "WebkitGTK::NavigationPolicyDecision"           :  "lib/WebkitGTK/NavigationPolicyDecision.pm6"         ,
@@ -145,6 +145,7 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
 
 
 

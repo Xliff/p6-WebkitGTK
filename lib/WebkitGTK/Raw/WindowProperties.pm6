@@ -5,8 +5,7 @@ use NativeCall;
 use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 
-unit properties WebkitGTK::Raw::WindowProperties;
-
+unit package WebkitGTK::Raw::WindowProperties;
 
 sub webkit_window_properties_get_fullscreen (
   WebKitWindowProperties $window_properties
@@ -48,7 +47,7 @@ sub webkit_window_properties_get_resizable (
   is export
   { * }
 
-sub webkit_window_properties_get_scrollbars_visible
+sub webkit_window_properties_get_scrollbars_visible (
   WebKitWindowProperties $window_properties
 )
   returns uint32

@@ -1,19 +1,25 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WindowProperties;
 
+use GTK::Compat::Roles::Object;
+
 class WebkitGTK::WindowProperties {
+  also does GTK::Compat::Roles::Object;
+  
   has WebKitWindowProperties  $!wwp;
 
   submethod BLESS (:$props) {
-    $!wwp = $props;
+    self!setObject($!wwp = $props);
   }
 
-  method WebkitGTK::Raw::Types::WebKitWindowProperties {
-    $!wwp;
-  }
+  method WebkitGTK::Raw::Types::WebKitWindowProperties 
+    is also<WindowProperties>
+  { $!wwp }
 
   method new (WebKitWindowProperties $props) {
     self.bless(:$props);
@@ -24,37 +30,73 @@ class WebkitGTK::WindowProperties {
   }
 
   proto method get_geometry (|c)
-    { * }
+    is also<get-geometry>
+  { * }
 
-  multi method get_geometry is also<get-geometry> {
+  multi method get_geometry {
     my $r = GdkRectangle.new;
     samewith($r);
   }
-  multi method get_geometry (GdkRectangle $geometry) is also<get-geometry> {
+  multi method get_geometry (GdkRectangle $geometry) {
     webkit_window_properties_get_geometry($!wwp, $geometry);
   }
 
-  method get_locationbar_visible is also<get-locationbar-visible> {
+  method get_locationbar_visible 
+    is also<
+      get-locationbar-visible
+      locationbar_visible
+      locationbar-visible
+    > 
+  {
     so webkit_window_properties_get_locationbar_visible($!wwp);
   }
 
-  method get_menubar_visible is also<get-menubar-visible> {
+  method get_menubar_visible 
+    is also<
+      get-menubar-visible
+      menubar_visible
+      menubar-visible
+    > 
+  {
     so webkit_window_properties_get_menubar_visible($!wwp);
   }
 
-  method get_resizable is also<get-resizable> {
+  method get_resizable 
+    is also<
+      get-resizable
+      resizeable
+    > 
+  {
     so webkit_window_properties_get_resizable($!wwp);
   }
 
-  method get_scrollbars_visible is also<get-scrollbars-visible> {
+  method get_scrollbars_visible 
+    is also<
+      get-scrollbars-visible
+      scrollbars_visible
+      scrollbars-visible
+    > 
+  {
     so webkit_window_properties_get_scrollbars_visible($!wwp);
   }
 
-  method get_statusbar_visible is also<get-statusbar-visible> {
+  method get_statusbar_visible 
+    is also<
+      get-statusbar-visible
+      statusbar_visible
+      statusbar-visible
+    > 
+  {
     so webkit_window_properties_get_statusbar_visible($!wwp);
   }
 
-  method get_toolbar_visible is also<get-toolbar-visible> {
+  method get_toolbar_visible 
+    is also<
+      get-toolbar-visible
+      toolbar_visible
+      toolbar-visible
+    > 
+  {
     so webkit_window_properties_get_toolbar_visible($!wwp);
   }
 
@@ -63,4 +105,3 @@ class WebkitGTK::WindowProperties {
   }
 
 }
-
