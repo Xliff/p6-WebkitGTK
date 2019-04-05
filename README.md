@@ -6,20 +6,21 @@ This is an extremely experimental project, and getting it to work requires check
 
 Here are the installation instructions for those of you wanting to experiment:
 
-- First, create a working directory for all of the repositories
-- Next, check out my forthcoming Pango module:
+- First, check out and build my forthcoming Pango module:
 
 ```
 $ git clone https://github.com/Xliff/p6-Pango.git
+$ ./build.sh
 ```
 
-- Then checkout p6-GtkPlus
+- Then checkout and build p6-GtkPlus (will take a _long_ time, so be patient)
 
 ```
 $ git clone https://github.com/Xliff/p6-GtkPlus.git
+$ ./build.sh
 ```
 
-- And finally, checkout WebkitGTK
+- And finally, checkout and build WebkitGTK
 
 ```
 $ git clone https://github.com/Xliff/p6-WebkitGTK.git
@@ -29,7 +30,7 @@ $ git clone https://github.com/Xliff/p6-WebkitGTK.git
 
 ```
 $ cd p6-WebkitGTK
-$ perl6 --stagestats -I../cairo-p6/lib -I../p6-Pango/lib -I../p6-GtkPlus/lib -Ilib t/04-simple-ui.t
+$ perl6 --stagestats -I../p6-Pango/lib -I../p6-GtkPlus/lib -Ilib t/04-simple-ui.t
 ```
 
 Please share compile times and your environment from the last command, [here](/../../issues/1).
