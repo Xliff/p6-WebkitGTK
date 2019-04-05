@@ -7,14 +7,6 @@ This is an extremely experimental project, and getting it to work requires check
 Here are the installation instructions for those of you wanting to experiment:
 
 - First, create a working directory for all of the repositories
-- Next, check out my working branch of timotimo's Cairo for Perl6 (PRs forthcoming):
-
-```
-$ git clone https://github.com/Xliff/cairo-p6.git
-$ cd cairo-p6
-$ git checkout cairo_path_t
-```
-
 - Next, check out my forthcoming Pango module:
 
 ```
