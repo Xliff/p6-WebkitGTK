@@ -8,6 +8,9 @@ unit package WebkitGTK::Raw::Types;
 
 constant webkit is export = 'webkit2gtk-4.0',v37;
 
+# Number of times compilations have been forced.
+constant forced = 4;
+
 constant WebKitURISchemeRequestCallback is export := Pointer;
 
 class WebKitApplicationInfo          is repr("CPointer") is export does GTK::Roles::Pointers { }
@@ -16,6 +19,7 @@ class WebKitAutomationSession        is repr("CPointer") is export does GTK::Rol
 class WebKitBackForwardList          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitBackForwardListItem      is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitColorChooserRequest      is repr("CPointer") is export does GTK::Roles::Pointers { }
+class WebKitConsoleMessage           is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitContextMenu              is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitContextMenuItem          is repr("CPointer") is export does GTK::Roles::Pointers { }
 class WebKitCookieManager            is repr("CPointer") is export does GTK::Roles::Pointers { }

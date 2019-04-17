@@ -48,6 +48,10 @@ class WebkitGTK::UserStyleSheet {
     );
   }
 
+  proto method new_for_world (|)
+    is also<new-for-world>
+  { * }
+
   multi method new_for_world (
     Str() $source,
     Int() $frames,
@@ -55,9 +59,8 @@ class WebkitGTK::UserStyleSheet {
     Str() $world_name,
     @whitelist,
     @blacklist,
-  ) 
-    is also<new-for-world> 
-  {
+
+  ) {
     my $wl = CArray[Str].new(@whitelist);
     my $bl = CArray[Str].new(@blacklist);
     samewith($source, $frames, $time, $wl, $bl);
@@ -69,9 +72,7 @@ class WebkitGTK::UserStyleSheet {
     Str $world_name,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
-  ) 
-    is also<new-for-world> 
-  {
+  ) {
     my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
     self.bless(
       content => webkit_user_style_sheet_new_for_world (
@@ -80,12 +81,12 @@ class WebkitGTK::UserStyleSheet {
     );
   }
 
-  method ref {
+  method ref is also<upref> {
     webkit_user_style_sheet_ref($!wuss);
     self;
   }
 
-  method unref {
+  method unref is also<downref> {
     webkit_user_style_sheet_unref($!wuss);
   }
 
@@ -130,6 +131,9 @@ class WebkitGTK::UserScript {
     );
   }
 
+  proto method new_for_world (|)
+    is also<new-for-world>
+  { * }
   multi method new_for_world (
     Str() $source,
     Int() $frames,
@@ -137,9 +141,7 @@ class WebkitGTK::UserScript {
     Str() $world_name,
     @whitelist,
     @blacklist,
-  ) 
-    is also<new-for-world> 
-  {
+  ) {
     my $wl = CArray[Str].new(@whitelist);
     my $bl = CArray[Str].new(@blacklist);
     samewith($source, $frames, $time, $wl, $bl);
@@ -151,9 +153,7 @@ class WebkitGTK::UserScript {
     Str $world_name,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
-  ) 
-    is also<new-for-world> 
-  {
+  ) {
     my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
     self.bless(
       content => webkit_user_script_new_for_world (
@@ -162,12 +162,12 @@ class WebkitGTK::UserScript {
     );
   }
 
-  method ref {
+  method ref is also<upref> {
     webkit_user_script_ref($!wus);
     self;
   }
 
-  method unref {
+  method unref is also<downref> {
     webkit_user_script_unref($!wus);
   }
 

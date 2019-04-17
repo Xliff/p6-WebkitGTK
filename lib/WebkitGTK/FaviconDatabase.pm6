@@ -18,9 +18,9 @@ class WebkitGTK::FaviconDatabase {
     $!wfd = $database;
   }
 
-  method WebkitGTK::Raw::Types::WebKitFaviconDatabase {
-    $!wfd;
-  }
+  method WebkitGTK::Raw::Types::WebKitFaviconDatabase
+    is also<FaviconDatabase>
+  { $!wfd }
 
   method new (WebKitFaviconDatabase $database) {
     self.bless(:$database);
@@ -40,24 +40,24 @@ class WebkitGTK::FaviconDatabase {
     webkit_favicon_database_error_quark();
   }
 
+  proto method get_favicon (|)
+    is also<get-favicon>
+  { * }
+
   multi method get_favicon(
     Str() $page_uri,
     GAsyncReadyCallback $callback,
-    GCancellable $cancellable = Pointer,
-    gpointer $user_data = Pointer
-  ) 
-    is also<get-favicon> 
-  {
+    gpointer $user_data       = Pointer,
+    GCancellable $cancellable = Pointer
+  ) {
     samewith($page_uri, $cancellable, $callback, $user_data);
   }
   multi method get_favicon (
     Str() $page_uri,
     GCancellable $cancellable,
     GAsyncReadyCallback $callback,
-    gpointer $user_data = Pointer;
-  ) 
-    is also<get-favicon> 
-  {
+    gpointer $user_data = Pointer
+  ) {
     webkit_favicon_database_get_favicon(
       $!wfd, $page_uri, $cancellable, $callback, $user_data
     );
@@ -65,15 +65,15 @@ class WebkitGTK::FaviconDatabase {
 
   method get_favicon_finish (
     GAsyncResult $result,
-    CArray[Pointer[GError]] $error = gerror;
-  ) 
-    is also<get-favicon-finish> 
+    CArray[Pointer[GError]] $error = gerror()
+  )
+    is also<get-favicon-finish>
   {
-    $ERROR = Nil;
+    clear_error;
     my $rc = webkit_favicon_database_get_favicon_finish(
       $!wfd, $result, $error
     );
-    $ERROR = $error[0] with $error[0];
+    set_error($error);
     $rc;
   }
 
@@ -82,7 +82,8 @@ class WebkitGTK::FaviconDatabase {
   }
 
   method get_type is also<get-type> {
-    webkit_favicon_database_get_type();
+    state ($n, $t);
+    unstable_get_type( self.^name, &webkit_favicon_database_get_type, $n, $t );
   }
 
 }

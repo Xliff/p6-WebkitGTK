@@ -1,6 +1,6 @@
 Cairo
-GTK::Compat::Action
 GTK::Compat::RGBA
+GTK::Compat::Roles::Action
 GTK::Compat::Roles::Object
 GTK::Compat::Types
 GTK::Container
@@ -15,10 +15,7 @@ GTK::Roles::Signals::Generic
 GTK::Roles::Types
 Method::Also
 WebkitGTK::Raw::Types
-WebkitGTK::ConsoleMessage
 WebkitGTK::Compat::Types
-WebkitGTK::Raw::Error
-WebkitGTK::Error
 WebkitGTK::JavaScript::Raw::Types
 WebkitGTK::JavaScript::Raw::Class
 WebkitGTK::JavaScript::Raw::Context
@@ -41,6 +38,7 @@ WebkitGTK::Raw::CookieManager
 WebkitGTK::Raw::Credential
 WebkitGTK::Raw::Download
 WebkitGTK::Raw::EditorState
+WebkitGTK::Raw::Error
 WebkitGTK::Raw::FaviconDatabase
 WebkitGTK::Raw::FileChooserRequest
 WebkitGTK::Raw::FindController
@@ -70,7 +68,6 @@ WebkitGTK::Raw::URIResponse
 WebkitGTK::Raw::URISchemeRequest
 WebkitGTK::Raw::UserContent
 WebkitGTK::Raw::UserContentManager
-WebkitGTK::Raw::Value
 WebkitGTK::Raw::Version
 WebkitGTK::Raw::WebContext
 WebkitGTK::Raw::WebInspector
@@ -108,11 +105,13 @@ WebkitGTK::AuthenticationRequest
 WebkitGTK::AutomationSession
 WebkitGTK::BackForwardListItem
 WebkitGTK::ColorChooserRequest
+WebkitGTK::ConsoleMessage
 WebkitGTK::ContextMenu
 WebkitGTK::ContextMenuItem
 WebkitGTK::CookieManager
 WebkitGTK::Credential
 WebkitGTK::EditorState
+WebkitGTK::Error
 WebkitGTK::FaviconDatabase
 WebkitGTK::FileChooserRequest
 WebkitGTK::FindController

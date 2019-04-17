@@ -19,6 +19,10 @@ class WebkitGTK::JavaScript::Context {
     $!jsc = $context;
   }
 
+  method WebkitGTK::JavaScript::Raw::Types::JSCContext
+    is also<JSCContext>
+  { $!jsc }
+
   multi method new (JSCContext $context) {
     self.bless(:$context);
   }
@@ -26,16 +30,25 @@ class WebkitGTK::JavaScript::Context {
     self.bless( context => jsc_context_new() );
   }
 
-  method get_current is also<get-current> {
+  method get_current
+    is also<
+      get-current
+      current
+    >
+  {
     self.bless( context => jsc_context_get_current() );
   }
 
-  method new_with_virtual_machine(JSCVirtualMachine() $vm) 
-    is also<new-with-virtual-machine> 
+  method new_with_virtual_machine(JSCVirtualMachine() $vm)
+    is also<new-with-virtual-machine>
   {
     my $context = jsc_context_new_with_virtual_machine($vm);
     self.bless(:$context);
   }
+
+  proto method check_syntax (|)
+    is also<check-syntax>
+  { * }
 
   multi method check_syntax (
     Str() $code,
@@ -43,9 +56,7 @@ class WebkitGTK::JavaScript::Context {
     Int() $mode,
     Str() $uri,
     Int() $line_number
-  ) 
-    is also<check-syntax> 
-  {
+  ) {
     my $e = CArray[Pointer[JSCException]].new;
     my $rc = samewith ($code, $length, $mode, $uri, $line_number, $e);
     ($rc, $e);
@@ -57,9 +68,7 @@ class WebkitGTK::JavaScript::Context {
     Str() $uri,
     Int() $line_number,
     CArray[Pointer[JSCException]] $exception is copy
-  ) 
-    is also<check-syntax> 
-  {
+  ) {
     my guint ($l, $m, $ln) = self.RESOLVE-UINT($length, $mode, $line_number);
     jsc_context_check_syntax($!jsc, $code, $l, $m, $uri, $ln, $exception);
   }
@@ -81,8 +90,8 @@ class WebkitGTK::JavaScript::Context {
     Str() $uri,
     Int() $line_number,
     JSCValue() $object
-  ) 
-    is also<evaluate-in-object> 
+  )
+    is also<evaluate-in-object>
   {
     my ($l, $ln) = self.RESOLVE-UINT($length, $line_number);
     jsc_context_evaluate_in_object(
@@ -94,30 +103,48 @@ class WebkitGTK::JavaScript::Context {
     Int() $length,
     Str() $uri,
     Int() $line_number
-  ) 
-    is also<evaluate-with-source-uri> 
+  )
+    is also<evaluate-with-source-uri>
   {
     my ($l, $ln) = self.RESOLVE-UINT($length, $line_number);
     jsc_context_evaluate_with_source_uri($!jsc, $code, $l, $uri, $ln);
   }
 
-  method get_exception is also<get-exception> {
+  method get_exception
+    is also<
+      get-exception
+      exception
+    >
+  {
     jsc_context_get_exception($!jsc);
   }
 
-  method get_global_object is also<get-global-object> {
+  method get_global_object
+    is also<
+      get-global-object
+      global_object
+      global-object
+    >
+  {
     jsc_context_get_global_object($!jsc);
   }
 
   method get_type is also<get-type> {
-    jsc_context_get_type();
+    state ($n, $t);
+    unstable_get_type( self.^name, &jsc_context_get_type, $n, $t );
   }
 
   method get_value (Str() $name) is also<get-value> {
     jsc_context_get_value($!jsc, $name);
   }
 
-  method get_virtual_machine is also<get-virtual-machine> {
+  method get_virtual_machine
+    is also<
+      get-virtual-machine
+      virtual_machine
+      virtual-machine
+    >
+  {
     jsc_context_get_virtual_machine($!jsc);
   }
 
@@ -129,8 +156,8 @@ class WebkitGTK::JavaScript::Context {
     JSCExceptionHandler $handler,
     gpointer $user_data = Pointer,
     GDestroyNotify $destroy_notify = Pointer
-  ) 
-    is also<push-exception-handler> 
+  )
+    is also<push-exception-handler>
   {
     jsc_context_push_exception_handler(
       $!jsc, $handler, $user_data, $destroy_notify
@@ -142,8 +169,8 @@ class WebkitGTK::JavaScript::Context {
     JSCClass() $parent_class,
     JSCClassVTable() $vtable,
     GDestroyNotify $destroy_notify = Pointer
-  ) 
-    is also<register-class> 
+  )
+    is also<register-class>
   {
     jsc_context_register_class(
       $!jsc, $name, $parent_class, $vtable, $destroy_notify
@@ -158,14 +185,14 @@ class WebkitGTK::JavaScript::Context {
     jsc_context_throw($!jsc, $error_message);
   }
 
-  method throw_exception (JSCException() $exception) 
-    is also<throw-exception> 
+  method throw_exception (JSCException() $exception)
+    is also<throw-exception>
   {
     jsc_context_throw_exception($!jsc, $exception);
   }
 
-  method throw_with_name (Str() $error_name, Str() $error_message) 
-    is also<throw-with-name> 
+  method throw_with_name (Str() $error_name, Str() $error_message)
+    is also<throw-with-name>
   {
     jsc_context_throw_with_name($!jsc, $error_name, $error_message);
   }

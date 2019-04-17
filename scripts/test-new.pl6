@@ -2,7 +2,7 @@
 use v6.c;
 
 sub MAIN( $rev = 'HEAD' ) {
-  chdir '/home/cbwood/Projects/p6-WebkitGtk';
+  chdir '/home/cbwood/Projects/p6-WebkitGTK';
   mkdir '.touch' unless '.touch'.IO.d;
 
   die 'Cannot find BuildList file in current directory.'

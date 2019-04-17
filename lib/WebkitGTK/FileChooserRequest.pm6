@@ -35,25 +35,34 @@ class WekkitGTK::FileChooserRequest {
   }
 
   method get_type is also<get-type> {
-    webkit_file_chooser_request_get_type();
+    state ($n, $t);
+    unstable_get_type(
+      self.^name,
+      &webkit_file_chooser_request_get_type,
+      $n,
+      $t
+    );
   }
 
-  multi method select_files (@files) is also<select-files> {
+  proto method select_files (|)
+    is also<select-files>
+  { * }
+
+  multi method select_files (@files)  {
     my $f = CArray[Str].new;
     $f[$_] = @files[$_] for ^@files;
     $f[@files.elems] = Str;
     samewith($f);
   }
-  multi method select_files (CArray[Str] $files) is also<select-files> {
+  multi method select_files (CArray[Str] $files) {
     webkit_file_chooser_request_select_files($!wfcr, $files);
   }
 
   multi method get_selected_files is also<get-selected-files> {
     my ($sfi, $f, @f) = (0);
-    my $sf = webkit_file_chooser_get_selected_files($!wfcr);
+    my $sf = webkit_file_chooser_request_get_selected_files($!wfcr);
     @f.push($f) while ($f = $sf[$sfi++]).defined;
     @f;
   }
 
 }
-

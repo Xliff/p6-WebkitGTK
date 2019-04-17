@@ -8,11 +8,9 @@
     "license": "GPL-3.0",
     "source-url": "https://github.com/Xliff/p6-WebKitGtk",
     "provides": {
+      "WebkitGTK::Builder::Registry"                  :  "lib/WebkitGTK/Builder/Registry.pm6"                 ,
       "WebkitGTK::Raw::Types"                         :  "lib/WebkitGTK/Raw/Types.pm6"                        ,
-      "WebkitGTK::ConsoleMessage"                     :  "lib/WebkitGTK/ConsoleMessage.pm6"                   ,
       "WebkitGTK::Compat::Types"                      :  "lib/WebkitGTK/Compat/Types.pm6"                     ,
-      "WebkitGTK::Raw::Error"                         :  "lib/WebkitGTK/Raw/Error.pm6"                        ,
-      "WebkitGTK::Error"                              :  "lib/WebkitGTK/Error.pm6"                            ,
       "WebkitGTK::JavaScript::Raw::Types"             :  "lib/WebkitGTK/JavaScript/Raw/Types.pm6"             ,
       "WebkitGTK::JavaScript::Raw::Class"             :  "lib/WebkitGTK/JavaScript/Raw/Class.pm6"             ,
       "WebkitGTK::JavaScript::Raw::Context"           :  "lib/WebkitGTK/JavaScript/Raw/Context.pm6"           ,
@@ -35,6 +33,7 @@
       "WebkitGTK::Raw::Credential"                    :  "lib/WebkitGTK/Raw/Credential.pm6"                   ,
       "WebkitGTK::Raw::Download"                      :  "lib/WebkitGTK/Raw/Download.pm6"                     ,
       "WebkitGTK::Raw::EditorState"                   :  "lib/WebkitGTK/Raw/EditorState.pm6"                  ,
+      "WebkitGTK::Raw::Error"                         :  "lib/WebkitGTK/Raw/Error.pm6"                        ,
       "WebkitGTK::Raw::FaviconDatabase"               :  "lib/WebkitGTK/Raw/FaviconDatabase.pm6"              ,
       "WebkitGTK::Raw::FileChooserRequest"            :  "lib/WebkitGTK/Raw/FileChooserRequest.pm6"           ,
       "WebkitGTK::Raw::FindController"                :  "lib/WebkitGTK/Raw/FindController.pm6"               ,
@@ -64,7 +63,6 @@
       "WebkitGTK::Raw::URISchemeRequest"              :  "lib/WebkitGTK/Raw/URISchemeRequest.pm6"             ,
       "WebkitGTK::Raw::UserContent"                   :  "lib/WebkitGTK/Raw/UserContent.pm6"                  ,
       "WebkitGTK::Raw::UserContentManager"            :  "lib/WebkitGTK/Raw/UserContentManager.pm6"           ,
-      "WebkitGTK::Raw::Value"                         :  "lib/WebkitGTK/Raw/Value.pm6"                        ,
       "WebkitGTK::Raw::Version"                       :  "lib/WebkitGTK/Raw/Version.pm6"                      ,
       "WebkitGTK::Raw::WebContext"                    :  "lib/WebkitGTK/Raw/WebContext.pm6"                   ,
       "WebkitGTK::Raw::WebInspector"                  :  "lib/WebkitGTK/Raw/WebInspector.pm6"                 ,
@@ -102,11 +100,13 @@
       "WebkitGTK::AutomationSession"                  :  "lib/WebkitGTK/AutomationSession.pm6"                ,
       "WebkitGTK::BackForwardListItem"                :  "lib/WebkitGTK/BackForwardListItem.pm6"              ,
       "WebkitGTK::ColorChooserRequest"                :  "lib/WebkitGTK/ColorChooserRequest.pm6"              ,
+      "WebkitGTK::ConsoleMessage"                     :  "lib/WebkitGTK/ConsoleMessage.pm6"                   ,
       "WebkitGTK::ContextMenu"                        :  "lib/WebkitGTK/ContextMenu.pm6"                      ,
       "WebkitGTK::ContextMenuItem"                    :  "lib/WebkitGTK/ContextMenuItem.pm6"                  ,
       "WebkitGTK::CookieManager"                      :  "lib/WebkitGTK/CookieManager.pm6"                    ,
       "WebkitGTK::Credential"                         :  "lib/WebkitGTK/Credential.pm6"                       ,
       "WebkitGTK::EditorState"                        :  "lib/WebkitGTK/EditorState.pm6"                      ,
+      "WebkitGTK::Error"                              :  "lib/WebkitGTK/Error.pm6"                            ,
       "WebkitGTK::FaviconDatabase"                    :  "lib/WebkitGTK/FaviconDatabase.pm6"                  ,
       "WebkitGTK::FileChooserRequest"                 :  "lib/WebkitGTK/FileChooserRequest.pm6"               ,
       "WebkitGTK::FindController"                     :  "lib/WebkitGTK/FindController.pm6"                   ,
@@ -145,6 +145,17 @@
     "support": {"source": null},
     "authors": ["clifton.wood@gmail.com"]
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

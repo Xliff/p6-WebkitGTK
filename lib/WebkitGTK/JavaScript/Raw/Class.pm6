@@ -76,7 +76,7 @@ sub jsc_class_add_property (
   { * }
 
 sub jsc_class_get_name (JSCClass $jsc_class)
-  returns char
+  returns Str
   is native(jsc)
   is export
   { * }

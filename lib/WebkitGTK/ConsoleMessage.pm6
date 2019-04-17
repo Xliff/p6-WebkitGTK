@@ -5,17 +5,19 @@ use Method::Also;
 use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 
+use WebkitGTK::Raw::ConsoleMessage;
+
 class WebkitGTK::ConsoleMessage {
   has WebKitConsoleMessage $!wcm;
-  
+
   submethod BUILD (:$message) {
     $!wcm = $message;
   }
-  
+
   method new (WebKitConsoleMessage $message) {
     self.bless( message => $message );
   }
-  
+
   method copy {
     self.bless( message => webkit_console_message_copy($!wcm) );
   }
@@ -47,5 +49,5 @@ class WebkitGTK::ConsoleMessage {
   method get_type is also<get-type> {
     webkit_console_message_get_type();
   }
-  
+
 }

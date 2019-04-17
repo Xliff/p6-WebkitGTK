@@ -3,6 +3,9 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
+use GTK::Compat::Types;
+use WebkitGTK::Raw::Types;
+
 use WebkitGTK::Raw::UserContentManager;
 
 use WebkitGTK::Roles::Signals::UserContentManager;
@@ -16,9 +19,9 @@ class WebkitGTK::UserContentManager {
     $!wcm = $manager;
   }
 
-  method WebkitGTK::Raw::Types::WebKitUserContentManager {
-    $!wcm;
-  }
+  method WebkitGTK::Raw::Types::WebKitUserContentManager
+    is also<UserContentManager>
+  { $!wcm }
 
   method new {
     self.bless( manager => webkit_user_content_manager_new() );
@@ -36,16 +39,24 @@ class WebkitGTK::UserContentManager {
 
   method add_style_sheet (
     WebKitUserStyleSheet() $stylesheet
-  ) is also<add-style-sheet> {
+  )
+    is also<add-style-sheet>
+  {
     webkit_user_content_manager_add_style_sheet($!wcm, $stylesheet);
   }
 
   method get_type is also<get-type> {
-    webkit_user_content_manager_get_type();
+    state ($n, $t);
+    unstable_get_type(
+      self.^name,
+      &webkit_user_content_manager_get_type,
+      $n,
+      $t
+    );
   }
 
-  method register_script_message_handler (Str() $name) 
-    is also<register-script-message-handler> 
+  method register_script_message_handler (Str() $name)
+    is also<register-script-message-handler>
   {
     webkit_user_content_manager_register_script_message_handler(
       $!wcm, $name
@@ -55,8 +66,8 @@ class WebkitGTK::UserContentManager {
   method register_script_message_handler_in_world (
     Str() $name,
     Str() $world_name
-  ) 
-    is also<register-script-message-handler-in-world> 
+  )
+    is also<register-script-message-handler-in-world>
   {
     webkit_user_content_manager_register_script_message_handler_in_world(
       $!wcm, $name, $world_name
@@ -71,8 +82,8 @@ class WebkitGTK::UserContentManager {
     webkit_user_content_manager_remove_all_style_sheets($!wcm);
   }
 
-  method unregister_script_message_handler (Str() $name) 
-    is also<unregister-script-message-handler> 
+  method unregister_script_message_handler (Str() $name)
+    is also<unregister-script-message-handler>
   {
     webkit_user_content_manager_unregister_script_message_handler(
       $!wcm, $name
@@ -82,8 +93,8 @@ class WebkitGTK::UserContentManager {
   method unregister_script_message_handler_in_world (
     Str() $name,
     Str() $world_name
-  ) 
-    is also<unregister-script-message-handler-in-world> 
+  )
+    is also<unregister-script-message-handler-in-world>
   {
     webkit_user_content_manager_unregister_script_message_handler_in_world(
       $!wcm, $name, $world_name

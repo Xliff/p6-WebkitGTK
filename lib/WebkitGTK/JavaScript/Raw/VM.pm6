@@ -1,5 +1,7 @@
 use v6.c;
 
+use NativeCall;
+
 use WebkitGTK::JavaScript::Raw::Types;
 
 unit package WebkitGTK::Javascript::Raw::VM;

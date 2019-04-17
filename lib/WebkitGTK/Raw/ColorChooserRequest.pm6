@@ -6,6 +6,8 @@ use GTK::Compat::Types;
 use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 
+use GTK::Compat::RGBA;
+
 unit package WebkitGTK::Raw::ColorChooserRequest;
 
 sub webkit_color_chooser_request_cancel (WebKitColorChooserRequest $request)

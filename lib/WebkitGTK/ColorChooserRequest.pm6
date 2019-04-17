@@ -3,8 +3,11 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
+use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::ColorChooserRequest;
+
+use GTK::Compat::RGBA;
 
 use GTK::Roles::Signals::Generic;
 
@@ -39,8 +42,8 @@ class WebkitGTK::ColorChooserRequest {
     webkit_color_chooser_request_finish($!wccr);
   }
 
-  method request_get_element_rectangle (GdkRectangle $rect) 
-    is also<request-get-element-rectangle> 
+  method request_get_element_rectangle (GdkRectangle $rect)
+    is also<request-get-element-rectangle>
   {
     webkit_color_chooser_request_get_element_rectangle($!wccr, $rect);
   }

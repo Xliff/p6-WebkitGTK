@@ -18,9 +18,9 @@ class WebkitGTK::WebResource {
     $!wr = $resource;
   }
 
-  method new WebkitGTK::Raw::Types::WebKitWebResource {
-    $!wr;
-  }
+  method WebkitGTK::Raw::Types::WebKitWebResource
+    is also<WebResource>
+  { $!wr }
 
   method new (WebKitWebResource $resource) {
     self.bless(:$resource);
@@ -56,13 +56,22 @@ class WebkitGTK::WebResource {
     self.connect-sent-request($!wr);
   }
 
-  method get_data (
+  proto method get_data (|)
+    is also<get-data>
+  { * }
+
+  multi method get_data (
+    GAsyncReadyCallback $callback,
+    gpointer $user_data       = Pointer,
+    GCancellable $cancellable = Pointer
+  ) {
+    samewith($cancellable, $callback, $user_data);
+  }
+  multi method get_data (
     GCancellable $cancellable,
-    GAsyncReadyCallback $callback = Pointer,
+    GAsyncReadyCallback $callback,
     gpointer $user_data = Pointer
-  ) 
-    is also<get-data> 
-  {
+  ) {
     webkit_web_resource_get_data($!wr, $cancellable, $callback, $user_data);
   }
 
@@ -70,21 +79,32 @@ class WebkitGTK::WebResource {
     GAsyncResult $result,
     gsize $length,
     CArray[Pointer[GError]] $error = gerror
-  ) 
-    is also<get-data-finish> 
+  )
+    is also<get-data-finish>
   {
     webkit_web_resource_get_data_finish($!wr, $result, $length, $error);
   }
 
-  method get_response is also<get-response> {
+  method get_response
+    is also<
+      get-response
+      response
+    >
+  {
     webkit_web_resource_get_response($!wr);
   }
 
-  method get_typeis also<get-typ> {
-    webkit_web_resource_get_type();
+  method get_type is also<get-typ> {
+    state ($n, $t);
+    unstable_get_type( self.^name, &webkit_web_resource_get_type, $n, $t );
   }
 
-  method get_uri is also<get-uri> {
+  method get_uri
+    is also<
+      get-uri
+      uri
+    >
+  {
     webkit_web_resource_get_uri($!wr);
   }
 
