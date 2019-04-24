@@ -1,6 +1,7 @@
+#!/usr/bin/env perl6
 use v6.c;
 
-#use Grammar::Tracer;
+use Grammar::Tracer;
 use JSON::Fast;
 
 grammar ParseBuildResults {
@@ -28,7 +29,7 @@ grammar ParseBuildResults {
     ^^ \s* '=== ' <module> ' ===' $$
   }
   regex stage {
-    ^^ 'Stage ' <stage_type> \s* ': ' [
+    ^^ 'Stage ' <stage_type> \s* ':' [
       \s* <num> \s*
       |
       \s* <err_msg> \s*
