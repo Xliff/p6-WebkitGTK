@@ -1,7 +1,7 @@
 #!/usr/bin/env perl6
 use v6.c;
 
-use Grammar::Tracer;
+#use Grammar::Tracer;
 use JSON::Fast;
 
 grammar ParseBuildResults {
