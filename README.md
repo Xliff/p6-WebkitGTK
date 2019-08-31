@@ -17,6 +17,7 @@ $ ./build.sh
 
 ```
 $ git clone https://github.com/Xliff/p6-GtkPlus.git
+$ zef install --deps-only .
 $ ./build.sh
 ```
 
