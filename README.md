@@ -2,6 +2,8 @@
 
 ![Screenshot](grabs/Perl6_Browser_SimpleUI.png?raw=true "P6 Browser Interface")
 
+Source for the screenshot above, (can be found here)[master/t/04-simple-ui.t]
+
 ## Installation
 
 Make a directory to contain the p6-Gtk-based projects. Once made, then set the P6_GTK_HOME environment variable to that directory:
