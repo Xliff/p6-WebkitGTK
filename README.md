@@ -2,7 +2,7 @@
 
 ![Screenshot](grabs/Perl6_Browser_SimpleUI.png?raw=true "P6 Browser Interface")
 
-Source for the screenshot above, (can be found here)[master/t/04-simple-ui.t]
+Source for the screenshot above, (can be found here)[t/04-simple-ui.t?raw=true]
 
 ## Installation
 
