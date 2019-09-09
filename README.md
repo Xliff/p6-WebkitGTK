@@ -1,4 +1,6 @@
-# p6-WebkitGTK
+# p6-WebkitGTK - WebkitGTK+ bindings for Perl6
+
+![Screenshot](/grabs/Perl6_Browser_SimpleUI?raw=true "P6 Browser Interface")
 
 ## Installation
 
