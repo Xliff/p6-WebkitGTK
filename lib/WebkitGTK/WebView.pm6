@@ -7,6 +7,8 @@ use GTK::Compat::RGBA;
 use GTK::Compat::Types;
 use GTK::Raw::Types;
 
+use GIO::InputStream;
+
 use GTK::Container;
 
 use WebkitGTK::Raw::Types;
@@ -621,13 +623,15 @@ class WebkitGTK::WebView is GTK::Container {
 
   method save_finish (
     GAsyncResult $result,
-    CArray[Pointer[GError]] $error = gerror
+    CArray[Pointer[GError]] $error = gerror,
+    :$raw = False
   )
     is also<save-finish>
   {
     clear_error;
-    webkit_web_view_save_finish($!wkv, $result, $error);
-    $ERROR = $error[0].deref with $error[0];
+    my $rv = webkit_web_view_save_finish($!wkv, $result, $error);
+    set_error($error);
+    $raw ?? $rv !! GIO::InputStream.new($rv);
   }
 
   method save_to_file (

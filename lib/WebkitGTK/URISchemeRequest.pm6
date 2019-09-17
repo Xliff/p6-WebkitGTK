@@ -19,7 +19,7 @@ class WebkitGTK::URISchemeRequest {
   }
 
   method finish (
-    GInputStream $stream,
+    GInputStream() $stream,
     Int() $stream_length,
     Str() $mime_type
   ) {
@@ -29,8 +29,8 @@ class WebkitGTK::URISchemeRequest {
 
   method finish_error (
     CArray[Pointer[GError]] $error = gerror
-  ) 
-    is also<finish-error> 
+  )
+    is also<finish-error>
   {
     $ERROR = Nil;
     my $rc = webkit_uri_scheme_request_finish_error($!wusr, $error);
