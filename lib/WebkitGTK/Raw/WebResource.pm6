@@ -20,10 +20,10 @@ sub webkit_web_resource_get_data (
 sub webkit_web_resource_get_data_finish (
   WebKitWebResource $resource,
   GAsyncResult $result,
-  gsize $length,
+  gsize $length is rw,
   CArray[Pointer[GError]] $error
 )
-  returns Str
+  returns CArray[uint8]
   is native(webkit)
   is export
   { * }

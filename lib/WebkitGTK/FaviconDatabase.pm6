@@ -48,13 +48,12 @@ class WebkitGTK::FaviconDatabase {
     Str() $page_uri,
     GAsyncReadyCallback $callback,
     gpointer $user_data       = Pointer,
-    GCancellable $cancellable = Pointer
   ) {
-    samewith($page_uri, $cancellable, $callback, $user_data);
+    samewith($page_uri, GCancellable, $callback, $user_data);
   }
   multi method get_favicon (
     Str() $page_uri,
-    GCancellable $cancellable,
+    GCancellable() $cancellable,
     GAsyncReadyCallback $callback,
     gpointer $user_data = Pointer
   ) {
@@ -64,7 +63,7 @@ class WebkitGTK::FaviconDatabase {
   }
 
   method get_favicon_finish (
-    GAsyncResult $result,
+    GAsyncResult() $result,
     CArray[Pointer[GError]] $error = gerror()
   )
     is also<get-favicon-finish>
@@ -83,6 +82,7 @@ class WebkitGTK::FaviconDatabase {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &webkit_favicon_database_get_type, $n, $t );
   }
 

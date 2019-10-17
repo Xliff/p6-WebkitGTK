@@ -63,26 +63,44 @@ class WebkitGTK::WebResource {
   multi method get_data (
     GAsyncReadyCallback $callback,
     gpointer $user_data       = Pointer,
-    GCancellable $cancellable = Pointer
   ) {
-    samewith($cancellable, $callback, $user_data);
+    samewith(GCancellable, $callback, $user_data);
   }
   multi method get_data (
-    GCancellable $cancellable,
+    GCancellable() $cancellable,
     GAsyncReadyCallback $callback,
     gpointer $user_data = Pointer
   ) {
     webkit_web_resource_get_data($!wr, $cancellable, $callback, $user_data);
   }
 
-  method get_data_finish (
-    GAsyncResult $result,
-    gsize $length,
-    CArray[Pointer[GError]] $error = gerror
-  )
+  proto method get_data_finish (|)
     is also<get-data-finish>
-  {
-    webkit_web_resource_get_data_finish($!wr, $result, $length, $error);
+  { * }
+
+  # Returns all values by default.
+  multi method get_data_finish (
+    GAsyncResult() $result,
+    CArray[Pointer[GError]] $error = gerror,
+    :$all = True
+  ) {
+    samewith($result, $, $error, :$all);
+  }
+  multi method get_data_finish (
+    GAsyncResult() $result,
+    $length is rw,
+    CArray[Pointer[GError]] $error = gerror,
+    :$all = False
+  ) {
+    my gsize $l = 0;
+
+    clear_error;
+    my $d = webkit_web_resource_get_data_finish($!wr, $result, $l, $error);
+    set_error($error);
+    $length = $l;
+
+    return Nil unless $d;
+    $all.not ?? $d !! ($d, $length);
   }
 
   method get_response
