@@ -7,11 +7,7 @@ use GTK::Compat::FileTypes;
 use GTK::Raw::ReturnedValue;
 use WebkitGTK::Raw::Types;
 
-#use WebkitGTK::Roles::Signals::Download;
-
 role WebkitGTK::Roles::Signals::WebResource {
-#  also does WebkitGTK::Roles::Signals::Download;
-
   has %!signals-wr;
 
   # WebKitWebResource, GTlsCertificate, GTlsCertificateFlags, gpointer
