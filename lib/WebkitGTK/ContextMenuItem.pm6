@@ -96,7 +96,7 @@ class WebkitGTK::ContextMenuItem {
     );
   }
 
-  method get_gaction (:$raw = False);
+  method get_gaction (:$raw = False)
     is also<
       get-gaction
       gaction
