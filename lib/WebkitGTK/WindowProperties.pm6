@@ -6,10 +6,10 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WindowProperties;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 class WebkitGTK::WindowProperties {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   has WebKitWindowProperties  $!wwp;
 

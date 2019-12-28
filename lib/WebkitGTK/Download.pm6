@@ -10,7 +10,7 @@ use WebkitGTK::Raw::Download;
 use WebkitGTK::URIResponse;
 use WebkitGTK::URIRequest;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Types;
 use WebkitGTK::Roles::Signals::Download;
@@ -20,7 +20,7 @@ use WebkitGTK::URIResponse;
 use WebkitGTK::WebView;
 
 class WebkitGTK::Download {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   also does GTK::Roles::Types;
 

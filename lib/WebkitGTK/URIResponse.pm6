@@ -7,10 +7,10 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::URIResponse;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 class WebkitGTK::URIResponse {
-  also does GTK::Compat::Roles::Object; 
+  also does GLib::Roles::Object; 
   
   has WebKitURIResponse $!wurr;
 

@@ -5,10 +5,10 @@ use Method::Also;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PolicyDecision;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 class WebkitGTK::PolicyDecision {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   has WebKitPolicyDecision $!wpd;
 

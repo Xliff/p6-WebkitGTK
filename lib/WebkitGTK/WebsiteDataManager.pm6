@@ -8,14 +8,14 @@ use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::WebsiteDataManager;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Types;
 
 use WebkitGTK::CookieManager;
 
 class WebkitGTK::WebsiteDataManager {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   also does GTK::Roles::Types;
 

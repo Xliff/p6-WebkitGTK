@@ -8,10 +8,10 @@ use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::HitTestResult;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 class WebkitGTK::HitTestResult {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   has WebKitHitTestResult $!whtr;
 

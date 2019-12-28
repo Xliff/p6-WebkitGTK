@@ -6,12 +6,12 @@ use NativeCall;
 use WebkitGTK::Raw::AuthenticationRequest;
 use WebkitGTK::Raw::Types;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::AuthenticationRequest {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   also does GTK::Roles::Signals::Generic;
 

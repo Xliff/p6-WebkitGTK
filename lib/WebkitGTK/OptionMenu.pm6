@@ -9,14 +9,14 @@ use WebkitGTK::Raw::OptionMenu;
 
 use WebkitGTK::OptionMenuItem;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Types;
 
 # BOXED TYPE
 
 class WebkitGTK::OptionMenu {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   also does GTK::Roles::Types;
 

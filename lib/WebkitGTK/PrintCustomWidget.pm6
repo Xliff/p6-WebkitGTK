@@ -7,12 +7,12 @@ use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PrintCustomWidget;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use WebkitGTK::Roles::Signals::PrintCustomWidget;
 
 class WebkitGTK::PrintCustomWidget {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   also does WebkitGTK::Roles::Signals::PrintCustomWidget;
 

@@ -7,7 +7,7 @@ use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PrintOperation;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use WebkitGTK::Roles::Signals::PrintOperation;
 
@@ -15,7 +15,7 @@ use GTK::PageSetup;
 use GTK::PrintSettings;
 
 class WebkitGTK::PrintOperation {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   also does WebkitGTK::Roles::Signals::PrintOperation;
 

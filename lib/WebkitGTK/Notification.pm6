@@ -7,12 +7,12 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::Notification;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::Notification {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   has WebKitNotification $!wn;
 

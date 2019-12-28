@@ -8,13 +8,13 @@ use WebkitGTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::CookieManager;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Types;
 use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::CookieManager {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
 
   also does GTK::Roles::Types;
   also does GTK::Roles::Signals::Generic;

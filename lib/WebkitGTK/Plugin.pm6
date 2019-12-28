@@ -7,10 +7,10 @@ use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::Plugin;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 class WebkitGTK::Plugin {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   
   has WebKitPlugin $!wp;
 
