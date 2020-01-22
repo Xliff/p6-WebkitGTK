@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::SecurityOrigin;
 use GTK::Raw::Utils;
@@ -17,7 +17,7 @@ class WebkitGTK::SecurityOrigin {
     $!wso = $origin;
   }
   
-  method WebkitGTK::Raw::Types::WebKitSecurityOrigin 
+  method WebkitGTK::Raw::Definitions::WebKitSecurityOrigin 
     is also<SecurityOrigin>
   { $!wso }
 

@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::EditorState;
 
@@ -14,7 +14,7 @@ class WebkitGTK::EditorState {
     $!wes = $state;
   }
 
-  method WebkitGTK::Raw::Types::WebKitEditorState {
+  method WebkitGTK::Raw::Definitions::WebKitEditorState {
     $!wes;
   }
 

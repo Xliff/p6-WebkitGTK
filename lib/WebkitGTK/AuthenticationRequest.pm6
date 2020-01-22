@@ -12,7 +12,6 @@ use GTK::Roles::Signals::Generic;
 
 class WebkitGTK::AuthenticationRequest {
   also does GLib::Roles::Object;
-  
   also does GTK::Roles::Signals::Generic;
 
   has WebKitAuthenticationRequest $!war;
@@ -21,8 +20,11 @@ class WebkitGTK::AuthenticationRequest {
     self!setObject($!war = $request);
   }
 
-  method WebkitGTK::Raw::Types::WebKitAuthenticationRequest 
-    is also<AuthenticationRequest>
+  method WebkitGTK::Raw::Definitions::WebKitAuthenticationRequest
+    is also<
+      AuthenticationRequest
+      WebKitAuthenticationRequest
+    >
   { $!war }
 
   # Is originally:
@@ -43,50 +45,50 @@ class WebkitGTK::AuthenticationRequest {
     webkit_authentication_request_cancel($!war);
   }
 
-  method get_host 
+  method get_host
     is also<
       get-host
       host
-    > 
+    >
   {
     webkit_authentication_request_get_host($!war);
   }
 
-  method get_port 
+  method get_port
     is also<
       get-port
       port
-    > 
+    >
   {
     webkit_authentication_request_get_port($!war);
   }
 
-  method get_proposed_credential 
+  method get_proposed_credential
     is also<
       get-proposed-credential
       proposed_credential
       proposed-credential
-    > 
+    >
   {
     WebkitGTK::Credential.new(
       webkit_authentication_request_get_proposed_credential($!war)
     );
   }
 
-  method get_realm 
+  method get_realm
     is also<
       get-realm
       realm
-    > 
+    >
   {
     webkit_authentication_request_get_realm($!war);
   }
 
-  method get_scheme 
+  method get_scheme
     is also<
       get-scheme
       scheme
-    > 
+    >
   {
     WebKitAuthenticationScheme(
       webkit_authentication_request_get_scheme($!war)
@@ -94,7 +96,14 @@ class WebkitGTK::AuthenticationRequest {
   }
 
   method get_type is also<get-type> {
-    webkit_authentication_request_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_authentication_request_get_type,
+      $n,
+      $t
+    );
   }
 
   method is_for_proxy is also<is-for-proxy> {

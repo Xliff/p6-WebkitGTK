@@ -3,7 +3,6 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::BackForwardList;
 
@@ -22,9 +21,9 @@ class WebkitGTK::BackForwardList {
     $!wbfl = $list;
   }
 
-  method WebkitGTK::Raw::Types::WebKitBackForwardList {
-    $!wbfl;
-  }
+  method WebkitGTK::Raw::Definitions::WebKitBackForwardList
+    is also<WebKitBackForwardList>
+  { $!wbfl }
 
   method new (WebKitBackForwardList $list) {
     self.bless(:$list);
@@ -46,8 +45,8 @@ class WebkitGTK::BackForwardList {
     webkit_back_forward_list_get_back_list($!wbfl);
   }
 
-  method get_back_list_with_limit (Int() $limit) 
-    is also<get-back-list-with-limit> 
+  method get_back_list_with_limit (Int() $limit)
+    is also<get-back-list-with-limit>
   {
     my guint $l = self.RESOLVE-UINT($limit);
     webkit_back_forward_list_get_back_list_with_limit($!wbfl, $limit);
@@ -69,8 +68,8 @@ class WebkitGTK::BackForwardList {
     webkit_back_forward_list_get_forward_list($!wbfl);
   }
 
-  method get_forward_list_with_limit (Int() $limit) 
-    is also<get-forward-list-with-limit> 
+  method get_forward_list_with_limit (Int() $limit)
+    is also<get-forward-list-with-limit>
   {
     my guint $l = self.RESOLVE-UINT($limit);
     webkit_back_forward_list_get_forward_list_with_limit($!wbfl, $l);

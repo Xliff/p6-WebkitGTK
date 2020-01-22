@@ -20,7 +20,7 @@ class WebkitGTK::PolicyDecision {
     self!setObject($!wpd = $decision);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPolicyDecision 
+  method WebkitGTK::Raw::Definitions::WebKitPolicyDecision 
     is also<PolicyDecision> 
   { $!wpd }
 

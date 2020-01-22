@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Compat::Types;
 
 use WebkitGTK::Raw::Types;
@@ -22,7 +22,7 @@ class WebkitGTK::WebContext {
     self.ADD-PREFIX('WebkitGTK::');
   }
 
-  method WebkitGTK::Raw::Types::WebKitWebContext {
+  method WebkitGTK::Raw::Definitions::WebKitWebContext {
     $!wwc;
   }
 

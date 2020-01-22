@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::ColorChooserRequest;
 
@@ -20,7 +20,7 @@ class WebkitGTK::ColorChooserRequest {
     $!wccr = $request;
   }
 
-  method WebkitGTK::Raw::Types::WebKitColorChooserRequest {
+  method WebkitGTK::Raw::Definitions::WebKitColorChooserRequest {
     $!wccr;
   }
 

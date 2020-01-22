@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::FaviconDatabase;
 use WebkitGTK::Raw::Types;
 
@@ -18,7 +18,7 @@ class WebkitGTK::FaviconDatabase {
     $!wfd = $database;
   }
 
-  method WebkitGTK::Raw::Types::WebKitFaviconDatabase
+  method WebkitGTK::Raw::Definitions::WebKitFaviconDatabase
     is also<FaviconDatabase>
   { $!wfd }
 

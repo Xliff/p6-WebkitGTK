@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebResource;
 
@@ -18,7 +18,7 @@ class WebkitGTK::WebResource {
     $!wr = $resource;
   }
 
-  method WebkitGTK::Raw::Types::WebKitWebResource
+  method WebkitGTK::Raw::Definitions::WebKitWebResource
     is also<WebResource>
   { $!wr }
 

@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::URIResponse;
 
@@ -18,7 +18,7 @@ class WebkitGTK::URIResponse {
     self!setObject($!wurr = $response);
   }
 
-  method WebkitGTK::Raw::Types::WebKitURIResponse 
+  method WebkitGTK::Raw::Definitions::WebKitURIResponse 
     is also<URIResponse>
   { $!wurr }
 

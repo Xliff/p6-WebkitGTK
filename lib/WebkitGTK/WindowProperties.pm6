@@ -2,7 +2,7 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WindowProperties;
 
@@ -17,7 +17,7 @@ class WebkitGTK::WindowProperties {
     self!setObject($!wwp = $props);
   }
 
-  method WebkitGTK::Raw::Types::WebKitWindowProperties 
+  method WebkitGTK::Raw::Definitions::WebKitWindowProperties 
     is also<WindowProperties>
   { $!wwp }
 

@@ -3,7 +3,7 @@ use v6.c;
 use NativeCall;
 
 use GTK::Raw::ReturnedValue;
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 
 use GTK::Roles::Signals::Generic;

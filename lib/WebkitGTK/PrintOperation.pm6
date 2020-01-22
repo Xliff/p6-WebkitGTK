@@ -2,8 +2,8 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
+
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PrintOperation;
 
@@ -25,7 +25,7 @@ class WebkitGTK::PrintOperation {
     self!setObject($!wpo = $op);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPrintOperation 
+  method WebkitGTK::Raw::Definitions::WebKitPrintOperation 
     is also<PrintOperation>
   { $!wpo }
 

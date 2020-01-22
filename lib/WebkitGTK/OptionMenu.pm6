@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::OptionMenu;
 
@@ -26,7 +26,7 @@ class WebkitGTK::OptionMenu {
     self!setObject($!wom = $menu);
   }
   
-  method WebkitGTK::Raw::Types::WebKitOptionMenu is also<OptionMenu> { $!wom }
+  method WebkitGTK::Raw::Definitions::WebKitOptionMenu is also<OptionMenu> { $!wom }
 
   method new (WebKitOptionMenu $menu) {
     self.bless(:$menu);

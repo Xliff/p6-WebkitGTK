@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::Plugin;
 
@@ -18,7 +18,7 @@ class WebkitGTK::Plugin {
     self!setObject($!wp = $plugin);
   }
   
-  method WebkitGTK::Raw::Types::WebKitPlugin is also<Plugin> { $!wp }
+  method WebkitGTK::Raw::Definitions::WebKitPlugin is also<Plugin> { $!wp }
 
   method new (WebKitPlugin $plugin) {
     self.bless(:$plugin);

@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::UserContentManager;
@@ -19,7 +19,7 @@ class WebkitGTK::UserContentManager {
     $!wcm = $manager;
   }
 
-  method WebkitGTK::Raw::Types::WebKitUserContentManager
+  method WebkitGTK::Raw::Definitions::WebKitUserContentManager
     is also<UserContentManager>
   { $!wcm }
 

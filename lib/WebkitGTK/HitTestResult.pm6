@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::HitTestResult;
@@ -19,7 +19,7 @@ class WebkitGTK::HitTestResult {
     self!setObject($!whtr = $result);
   }
 
-  method WebkitGTK::Raw::Types::WebKitHitTestResult 
+  method WebkitGTK::Raw::Definitions::WebKitHitTestResult 
     is also<HitTestResult>
   { $!whtr }
 

@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebsiteData;
 use GTK::Raw::Utils;
@@ -17,7 +17,7 @@ class WebkitGTK::WebsiteData {
     $!wwd = $data;
   }
   
-  method WebkitGTK::Raw::Types::WebKitWebsiteData 
+  method WebkitGTK::Raw::Definitions::WebKitWebsiteData 
     is also<WebsteData> 
   { $!wwd }
 

@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::ContextMenuItem;
@@ -21,7 +21,7 @@ class WebkitGTK::ContextMenuItem {
     self!roleInit-Action;
   }
 
-  method WebkitGTK::Raw::Types::WebKitContextMenuItem
+  method WebkitGTK::Raw::Definitions::WebKitContextMenuItem
     is also<
       WebKitContextMenuItem
       ContextMenuItem

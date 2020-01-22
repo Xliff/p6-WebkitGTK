@@ -1,0 +1,268 @@
+use v6.c;
+
+use GLib::Raw::Definitions;
+use WebkitGTK::Raw::Definitions;
+
+unit package WebkitGTK::Raw::Enums;
+
+constant WebKitPolicyDecisionType is export := guint32;
+our enum WebKitPolicyDecisionTypeEnum is export
+  WEBKIT_POLICY_DECISION_TYPE_NAVIGATION_ACTION
+  WEBKIT_POLICY_DECISION_TYPE_NEW_WINDOW_ACTION
+  WEBKIT_POLICY_DECISION_TYPE_RESPONSE
+>;
+
+constant WebKitLoadEvent is export := guint32;
+our enum WebKitLoadEventEnum is export <
+  WEBKIT_LOAD_STARTED
+  WEBKIT_LOAD_REDIRECTED
+  WEBKIT_LOAD_COMMITTED
+  WEBKIT_LOAD_FINISHED
+>;
+
+constant WebKitSaveMode is export := guint32;
+our enum WebKitSaveModeEnum is export <
+  WEBKIT_SAVE_MODE_MHTML
+>;
+
+constant WebKitInsecureContentEvent is export := guint32;
+our enum WebKitInsecureContentEventEnum is export <
+  WEBKIT_INSECURE_CONTENT_RUN,
+  WEBKIT_INSECURE_CONTENT_DISPLAYED
+>;
+
+constant WebKitSnapshotOptions is export := guint32;
+our enum WebKitSnapshotOptionsEnum is export (
+  WEBKIT_SNAPSHOT_OPTIONS_NONE                           => 0,
+  WEBKIT_SNAPSHOT_OPTIONS_INCLUDE_SELECTION_HIGHLIGHTING => 1,
+  WEBKIT_SNAPSHOT_OPTIONS_TRANSPARENT_BACKGROUND         => 2,
+);
+
+constant WebKitSnapshotRegion is export := guint32;
+our enum WebKitSnapshotRegionEnum is export <
+  WEBKIT_SNAPSHOT_REGION_VISIBLE
+  WEBKIT_SNAPSHOT_REGION_FULL_DOCUMENT
+>;
+
+constant WebKitWebProcessTerminationReason is export := guint32;
+our enum WebKitWebProcessTerminationReasonEnum is export <
+  WEBKIT_WEB_PROCESS_CRASHED
+  WEBKIT_WEB_PROCESS_EXCEEDED_MEMORY_LIMIT
+>;
+
+constant WebKitAuthenticationScheme is export := guint32;
+our enum WebKitAuthenticationSchemeEnum is export (
+  WEBKIT_AUTHENTICATION_SCHEME_DEFAULT                           => 1,
+  WEBKIT_AUTHENTICATION_SCHEME_HTTP_BASIC                        => 2,
+  WEBKIT_AUTHENTICATION_SCHEME_HTTP_DIGEST                       => 3,
+  WEBKIT_AUTHENTICATION_SCHEME_HTML_FORM                         => 4,
+  WEBKIT_AUTHENTICATION_SCHEME_NTLM                              => 5,
+  WEBKIT_AUTHENTICATION_SCHEME_NEGOTIATE                         => 6,
+  WEBKIT_AUTHENTICATION_SCHEME_CLIENT_CERTIFICATE_REQUESTED      => 7,
+  WEBKIT_AUTHENTICATION_SCHEME_SERVER_TRUST_EVALUATION_REQUESTED => 8,
+  WEBKIT_AUTHENTICATION_SCHEME_UNKNOWN                           => 100,
+);
+
+constant WebKitCredentialPersistence is export := guint32;
+our enum WebKitCredentialPersistenceEnum is export <
+  WEBKIT_CREDENTIAL_PERSISTENCE_NONE
+  WEBKIT_CREDENTIAL_PERSISTENCE_FOR_SESSION
+  WEBKIT_CREDENTIAL_PERSISTENCE_PERMANENT
+>;
+
+constant WebKitContextMenuAction is export := guint32;
+our enum WebKitContextMenuActionEnum is export (
+  WEBKIT_CONTEXT_MENU_ACTION_NO_ACTION => 0,
+  'WEBKIT_CONTEXT_MENU_ACTION_OPEN_LINK',
+  'WEBKIT_CONTEXT_MENU_ACTION_OPEN_LINK_IN_NEW_WINDOW',
+  'WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_LINK_TO_DISK',
+  'WEBKIT_CONTEXT_MENU_ACTION_COPY_LINK_TO_CLIPBOARD',
+  'WEBKIT_CONTEXT_MENU_ACTION_OPEN_IMAGE_IN_NEW_WINDOW',
+  'WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_IMAGE_TO_DISK',
+  'WEBKIT_CONTEXT_MENU_ACTION_COPY_IMAGE_TO_CLIPBOARD',
+  'WEBKIT_CONTEXT_MENU_ACTION_COPY_IMAGE_URL_TO_CLIPBOARD',
+  'WEBKIT_CONTEXT_MENU_ACTION_OPEN_FRAME_IN_NEW_WINDOW',
+  'WEBKIT_CONTEXT_MENU_ACTION_GO_BACK',
+  'WEBKIT_CONTEXT_MENU_ACTION_GO_FORWARD',
+  'WEBKIT_CONTEXT_MENU_ACTION_STOP',
+  'WEBKIT_CONTEXT_MENU_ACTION_RELOAD',
+  'WEBKIT_CONTEXT_MENU_ACTION_COPY',
+  'WEBKIT_CONTEXT_MENU_ACTION_CUT',
+  'WEBKIT_CONTEXT_MENU_ACTION_PASTE',
+  'WEBKIT_CONTEXT_MENU_ACTION_DELETE',
+  'WEBKIT_CONTEXT_MENU_ACTION_SELECT_ALL',
+  'WEBKIT_CONTEXT_MENU_ACTION_INPUT_METHODS',
+  'WEBKIT_CONTEXT_MENU_ACTION_UNICODE',
+  'WEBKIT_CONTEXT_MENU_ACTION_SPELLING_GUESS',
+  'WEBKIT_CONTEXT_MENU_ACTION_NO_GUESSES_FOUND',
+  'WEBKIT_CONTEXT_MENU_ACTION_IGNORE_SPELLING',
+  'WEBKIT_CONTEXT_MENU_ACTION_LEARN_SPELLING',
+  'WEBKIT_CONTEXT_MENU_ACTION_IGNORE_GRAMMAR',
+  'WEBKIT_CONTEXT_MENU_ACTION_FONT_MENU',
+  'WEBKIT_CONTEXT_MENU_ACTION_BOLD',
+  'WEBKIT_CONTEXT_MENU_ACTION_ITALIC',
+  'WEBKIT_CONTEXT_MENU_ACTION_UNDERLINE',
+  'WEBKIT_CONTEXT_MENU_ACTION_OUTLINE',
+  'WEBKIT_CONTEXT_MENU_ACTION_INSPECT_ELEMENT',
+  'WEBKIT_CONTEXT_MENU_ACTION_OPEN_VIDEO_IN_NEW_WINDOW',
+  'WEBKIT_CONTEXT_MENU_ACTION_OPEN_AUDIO_IN_NEW_WINDOW',
+  'WEBKIT_CONTEXT_MENU_ACTION_COPY_VIDEO_LINK_TO_CLIPBOARD',
+  'WEBKIT_CONTEXT_MENU_ACTION_COPY_AUDIO_LINK_TO_CLIPBOARD',
+  'WEBKIT_CONTEXT_MENU_ACTION_TOGGLE_MEDIA_CONTROLS',
+  'WEBKIT_CONTEXT_MENU_ACTION_TOGGLE_MEDIA_LOOP',
+  'WEBKIT_CONTEXT_MENU_ACTION_ENTER_VIDEO_FULLSCREEN',
+  'WEBKIT_CONTEXT_MENU_ACTION_MEDIA_PLAY',
+  'WEBKIT_CONTEXT_MENU_ACTION_MEDIA_PAUSE',
+  'WEBKIT_CONTEXT_MENU_ACTION_MEDIA_MUTE',
+  'WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_VIDEO_TO_DISK',
+  'WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_AUDIO_TO_DISK',
+
+  WEBKIT_CONTEXT_MENU_ACTION_CUSTOM => 10000
+);
+
+constant WebKitCacheModel is export := guint32;
+our enum WebKitCacheModelEnum is export <
+  WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER
+  WEBKIT_CACHE_MODEL_WEB_BROWSER
+  WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER
+>;
+
+constant WebKitProcessModel is export := guint32;
+our enum WebKitProcessModelEnum is export <
+  WEBKIT_PROCESS_MODEL_SHARED_SECONDARY_PROCESS
+  WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES
+>;
+
+constant WebKitTLSErrorsPolicy is export := guint32;
+our enum WebKitTLSErrorsPolicyEnum is export <
+  WEBKIT_TLS_ERRORS_POLICY_IGNORE
+  WEBKIT_TLS_ERRORS_POLICY_FAIL
+>;
+
+constant WebKitNavigationType is export := guint32;
+our enum WebKitNavigationTypeEnum is export <
+  WEBKIT_NAVIGATION_TYPE_LINK_CLICKED
+  WEBKIT_NAVIGATION_TYPE_FORM_SUBMITTED
+  WEBKIT_NAVIGATION_TYPE_BACK_FORWARD
+  WEBKIT_NAVIGATION_TYPE_RELOAD
+  WEBKIT_NAVIGATION_TYPE_FORM_RESUBMITTED
+  WEBKIT_NAVIGATION_TYPE_OTHER
+>;
+
+constant WebKitWebsiteDataTypes is export := guint32;
+our enum WebKitWebsiteDataTypesEnum is export (
+  WEBKIT_WEBSITE_DATA_MEMORY_CACHE              =>  1,
+  WEBKIT_WEBSITE_DATA_DISK_CACHE                =>  1 +< 1,
+  WEBKIT_WEBSITE_DATA_OFFLINE_APPLICATION_CACHE =>  1 +< 2,
+  WEBKIT_WEBSITE_DATA_SESSION_STORAGE           =>  1 +< 3,
+  WEBKIT_WEBSITE_DATA_LOCAL_STORAGE             =>  1 +< 4,
+  WEBKIT_WEBSITE_DATA_WEBSQL_DATABASES          =>  1 +< 5,
+  WEBKIT_WEBSITE_DATA_INDEXEDDB_DATABASES       =>  1 +< 6,
+  WEBKIT_WEBSITE_DATA_PLUGIN_DATA               =>  1 +< 7,
+  WEBKIT_WEBSITE_DATA_COOKIES                   =>  1 +< 8,
+  WEBKIT_WEBSITE_DATA_ALL                       => (1 +< 9) - 1
+);
+
+constant WebKitPrintOperationResponse is export := guint32;
+our enum WebKitPrintOperationResponseEnum is export <
+    WEBKIT_PRINT_OPERATION_RESPONSE_PRINT,
+    WEBKIT_PRINT_OPERATION_RESPONSE_CANCEL
+>;
+
+constant WebKitNetworkError is export := guint32;
+our enum WebKitNetworkErrorEnum is export (
+    WEBKIT_NETWORK_ERROR_FAILED              => 399,
+    WEBKIT_NETWORK_ERROR_TRANSPORT           => 300,
+    WEBKIT_NETWORK_ERROR_UNKNOWN_PROTOCOL    => 301,
+    WEBKIT_NETWORK_ERROR_CANCELLED           => 302,
+    WEBKIT_NETWORK_ERROR_FILE_DOES_NOT_EXIST => 303
+);
+
+constant WebKitPolicyError is export := guint32;
+our enum WebKitPolicyErrorEnum is export (
+    WEBKIT_POLICY_ERROR_FAILED                                  => 199,
+    WEBKIT_POLICY_ERROR_CANNOT_SHOW_MIME_TYPE                   => 100,
+    WEBKIT_POLICY_ERROR_CANNOT_SHOW_URI                         => 101,
+    WEBKIT_POLICY_ERROR_FRAME_LOAD_INTERRUPTED_BY_POLICY_CHANGE => 102,
+    WEBKIT_POLICY_ERROR_CANNOT_USE_RESTRICTED_PORT              => 103
+);
+
+
+constant WebKitPluginError is export := guint32;
+our enum WebKitPluginErrorEnum is export (
+    WEBKIT_PLUGIN_ERROR_FAILED               => 299,
+    WEBKIT_PLUGIN_ERROR_CANNOT_FIND_PLUGIN   => 200,
+    WEBKIT_PLUGIN_ERROR_CANNOT_LOAD_PLUGIN   => 201,
+    WEBKIT_PLUGIN_ERROR_JAVA_UNAVAILABLE     => 202,
+    WEBKIT_PLUGIN_ERROR_CONNECTION_CANCELLED => 203,
+    WEBKIT_PLUGIN_ERROR_WILL_HANDLE_LOAD     => 204,
+);
+
+constant WebKitDownloadError is export := guint32;
+our enum WebKitDownloadErrorEnum is export (
+    WEBKIT_DOWNLOAD_ERROR_NETWORK           => 499,
+    WEBKIT_DOWNLOAD_ERROR_CANCELLED_BY_USER => 400,
+    WEBKIT_DOWNLOAD_ERROR_DESTINATION       => 401
+);
+
+constant WebKitPrintError is export := guint32;
+our enum WebKitPrintErrorEnum is export (
+    WEBKIT_PRINT_ERROR_GENERAL            => 599,
+    WEBKIT_PRINT_ERROR_PRINTER_NOT_FOUND  => 500,
+    WEBKIT_PRINT_ERROR_INVALID_PAGE_RANGE => 501
+);
+
+constant WebKitJavascriptError is export := guint32;
+our enum WebKitJavascriptErrorEnum is export (
+    WEBKIT_JAVASCRIPT_ERROR_SCRIPT_FAILED => 699
+);
+
+constant WebKitSnapshotError is export := guint32;
+our enum WebKitSnapshotErrorEnum is export (
+    WEBKIT_SNAPSHOT_ERROR_FAILED_TO_CREATE => 799
+);
+
+constant WebKitCookiePersistentStorage is export := guint32;
+our enum WebKitCookiePersistentStorageEnum is export <
+  WEBKIT_COOKIE_PERSISTENT_STORAGE_TEXT
+  WEBKIT_COOKIE_PERSISTENT_STORAGE_SQLITE
+>;
+
+constant WebKitCookieAcceptPolicy is export := guint32;
+our enum WebKitCookieAcceptPolicyEnum is export <
+  WEBKIT_COOKIE_POLICY_ACCEPT_ALWAYS
+  WEBKIT_COOKIE_POLICY_ACCEPT_NEVER
+  WEBKIT_COOKIE_POLICY_ACCEPT_NO_THIRD_PARTY
+>;
+
+constant WebKitNetworkProxyMode is export := guint32;
+our enum WebKitNetworkProxyModeEnum is export <
+  WEBKIT_NETWORK_PROXY_MODE_DEFAULT
+  WEBKIT_NETWORK_PROXY_MODE_NO_PROXY
+  WEBKIT_NETWORK_PROXY_MODE_CUSTOM
+>;
+
+constant WebKitUserStyleLevel is export := guint32;
+our enum WebKitUserStyleLevelEnum is export <
+  WEBKIT_USER_STYLE_LEVEL_USER
+  WEBKIT_USER_STYLE_LEVEL_AUTHOR
+>;
+
+constant WebKitUserContentInjectedFrames is export := guint32;
+our enum WebKitUserContentInjectedFramesEnum is export <
+  WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES
+  WEBKIT_USER_CONTENT_INJECT_TOP_FRAME
+>;
+
+constant WebKitUserScriptInjectionTime is export := guint32;
+our enum WebKitUserScriptInjectionTimeEnum is export <
+  WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_START
+  WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_END
+>;
+
+constant WebKitHardwareAccelerationPolicy is export := guint32;
+our enum WebKitHardwareAccelerationPolicyEnum is export <
+  WEBKIT_HARDWARE_ACCELERATION_POLICY_ON_DEMAND
+  WEBKIT_HARDWARE_ACCELERATION_POLICY_ALWAYS
+  WEBKIT_HARDWARE_ACCELERATION_POLICY_NEVER
+>;

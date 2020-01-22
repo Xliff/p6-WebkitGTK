@@ -12,7 +12,7 @@ class WebkitGTK::URIRequest {
     $!wur =  $request;
   }
 
-  method WebkitGTK::Raw::Types::WebKitURIRequest {
+  method WebkitGTK::Raw::Definitions::WebKitURIRequest {
     $!wur;
   }
 

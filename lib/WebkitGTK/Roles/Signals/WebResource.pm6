@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use GTK::Compat::FileTypes;
 use GTK::Raw::ReturnedValue;
 use WebkitGTK::Raw::Types;

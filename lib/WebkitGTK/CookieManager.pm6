@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::CookieManager;
@@ -27,7 +27,7 @@ class WebkitGTK::CookieManager {
     self.roleInit-Object;
   }
 
-  method WebkitGTK::Raw::Types::WebKitCookieManager
+  method WebkitGTK::Raw::Definitions::WebKitCookieManager
     is also<WebKitCookieManager>
   { $!wcm }
 

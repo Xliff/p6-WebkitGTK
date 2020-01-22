@@ -1,9 +1,7 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
-use GTK::Raw::Utils;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::ApplicationInfo;
 
@@ -15,15 +13,24 @@ class WebkitGTK::ApplicationInfo {
   }
 
   submethod DESTROY {
-    self.downref;
+    self.unref;
   }
 
-  multi method new (WebKitApplicationInfo $info) {
+  method WebkitGTK::Raw::Definitions::WebKitApplicationInfo
+    is also<WebKitApplicationInfo>
+  { $!wai }
+
+  multi method new (WebKitApplicationInfo $info, :$ref = True) {
+    return Nil unless $info;
+
     my $o = self.bless(:$info);
-    $o.upref;
+    $o.ref if $ref;
+    $o;
   }
   multi method new {
-    self.bless( info => webkit_application_info_new() );
+    my $info = webkit_application_info_new();
+
+    $info ?? self.bless(:$info) !! Nil;
   }
 
   method name is rw {
@@ -38,19 +45,21 @@ class WebkitGTK::ApplicationInfo {
   }
 
   method get_type is also<get-type> {
-    webkit_application_info_get_type();
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_application_info_get_type, $n, $t );
   }
 
-  proto method get_version(|c)
+  proto method get_version(|)
     is also<get-version>
-    { * }
+  { * }
 
   multi method get_version {
-    my ($mj, $mn, $mc);
-    samewith($mj, $mn, $mc);
+    samewith($, $, $);
   }
-  multi method get_version (Int $major, Int $minor, Int $micro) {
+  multi method get_version ($major is rw, $minor is rw, $micro is rw) {
     my uint64 ($mj, $mn, $mc) = (0, 0, 0);
+
     webkit_application_info_get_version($!wai, $mj, $mn, $mc);
     ($major, $minor, $micro) = ($mj, $mn, $mc);
   }
@@ -63,7 +72,8 @@ class WebkitGTK::ApplicationInfo {
   method set_version (Int() $major, Int() $minor, Int() $micro)
     is also<set-version>
   {
-    my uint64 ($mj, $mn, $mc) = resolve-ulong($major, $minor, $micro);
+    my uint64 ($mj, $mn, $mc) = ($major, $minor, $micro);
+
     webkit_application_info_set_version($!wai, $mj, $mn, $mc);
   }
 

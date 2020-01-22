@@ -2,7 +2,7 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::SecurityManager;
 

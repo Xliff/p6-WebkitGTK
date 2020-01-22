@@ -2,7 +2,7 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
+
 
 use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Exception;

@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 
 use WebkitGTK::Raw::Credential;
 use WebkitGTK::Raw::Types;
@@ -21,7 +21,7 @@ class WebkitGTK::Credential {
     $!wkc = $cred;
   }
 
-  method WebkitGTK::Raw::Types::WebKitCredential is also<Credential> { $!wkc }
+  method WebkitGTK::Raw::Definitions::WebKitCredential is also<Credential> { $!wkc }
 
   multi method new (WebKitCredential $cred) {
     self.bless(:$cred);

@@ -4,8 +4,8 @@ use Method::Also;
 use NativeCall;
 
 use GTK::Compat::RGBA;
-use GTK::Compat::Types;
-use GTK::Raw::Types;
+
+
 
 use GIO::InputStream;
 
@@ -35,7 +35,7 @@ class WebkitGTK::WebView is GTK::Container {
     self.ADD-PREFIX('WebkitGTK::');
   }
 
-  method WebkitGTK::Raw::Types::WebKitWebView is also<WebView> { $!wkv }
+  method WebkitGTK::Raw::Definitions::WebKitWebView is also<WebView> { $!wkv }
 
   multi method new (WebKitWebView $view) {
     my $o = self.bless(:$view);

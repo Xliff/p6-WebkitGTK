@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::ContextMenu;
@@ -18,7 +18,7 @@ class WebkitGTK::ContextMenu {
     $!wcm = $menu;
   }
 
-  method WebkitGTK::Raw::Types::WebKitContextMenu {
+  method WebkitGTK::Raw::Definitions::WebKitContextMenu {
     $!wcm;
   }
 

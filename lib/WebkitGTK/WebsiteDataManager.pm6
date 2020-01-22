@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::WebsiteDataManager;
@@ -25,7 +25,7 @@ class WebkitGTK::WebsiteDataManager {
     self!setObject($!wwdm = $manager);
   }
 
-  method WebkitGTK::Raw::Types::WebKitWebsiteDataManager 
+  method WebkitGTK::Raw::Definitions::WebKitWebsiteDataManager 
     is also<DataManager>
   { $!wwdm }
 

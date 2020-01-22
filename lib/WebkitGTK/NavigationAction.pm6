@@ -15,7 +15,7 @@ class WebkitGTK::NavigationAction {
     $!wna = $action;
   }
 
-  method WebkitGTK::Raw::Types::WebKitNavigationAction 
+  method WebkitGTK::Raw::Definitions::WebKitNavigationAction 
     is also<NavigationAction> 
   { $!wna }
 

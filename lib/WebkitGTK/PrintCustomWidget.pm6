@@ -2,8 +2,8 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
+
+
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::PrintCustomWidget;
 
@@ -22,7 +22,7 @@ class WebkitGTK::PrintCustomWidget {
     self!setObject($!wpcw = $widget);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPrintCustomWidget 
+  method WebkitGTK::Raw::Definitions::WebKitPrintCustomWidget 
     is also<PrintCustomWidget>
   { $!wpcw }
 

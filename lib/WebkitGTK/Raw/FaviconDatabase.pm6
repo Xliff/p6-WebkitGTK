@@ -3,7 +3,7 @@ use v6.c;
 use Cairo;
 use NativeCall;
 
-use GTK::Compat::Types;
+
 
 use WebkitGTK::Raw::Types;
 

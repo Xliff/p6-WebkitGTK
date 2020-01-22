@@ -16,7 +16,7 @@ class WebkitGTK::JavascriptResult {
     $!wjr = $result;
   }
 
-  method WebkitGTK::Raw::Types::WebKitJavascriptResult
+  method WebkitGTK::Raw::Definitions::WebKitJavascriptResult
     is also<JavascriptResult>
   { $!wjr }
 

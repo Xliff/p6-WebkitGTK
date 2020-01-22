@@ -13,7 +13,7 @@ class WebkitGTK::BackForwardListItem {
     $!wbfli = $item;
   }
 
-  method WebkitGTK::Raw::Types::WebKitBackForwardListItem {
+  method WebkitGTK::Raw::Definitions::WebKitBackForwardListItem {
     $!wbfli;
   }
 
