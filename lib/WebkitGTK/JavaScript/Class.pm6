@@ -3,22 +3,33 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
-
+use GLib::Raw::Definitions;
+use GLib::Raw::Enums;
+use GLib::Raw::Subs;
 use WebkitGTK::JavaScript::Raw::Class;
 use WebkitGTK::JavaScript::Raw::Types;
 
 use WebkitGTK::JavaScript::Utils;
 
+use GLib::Roles::Object;
+
 class WebkitGTK::JavaScript::Class {
-  has JSCClass $!jsc;
+  also does GLib::Roles::Object;
+
+  has JSCClass $!jsc is implementor;
 
   submethod BUILD (:$class) {
     $!jsc = $class;
+
+    self.roleInit-Object;
   }
 
+  method WebkitGTK::JavaScript::Raw::Types::JSCClass
+    is also<JSSCClass>
+  { $!jsc }
+
   method new (JSCClass $class) {
-    self.bless(:$class);
+    $class ?? self.bless(:$class) !! Nil;
   }
 
   method add_constructor_variadic (
@@ -30,7 +41,8 @@ class WebkitGTK::JavaScript::Class {
   )
     is also<add-constructor-variadic>
   {
-    my guint $rt = self.RESOLVE-UINT($return_type);
+    my guint $rt = $return_type;
+
     jsc_class_add_constructor_variadic(
       $!jsc, $name, $callback, $user_data, $destroy_notify, $rt
     );
@@ -65,12 +77,13 @@ class WebkitGTK::JavaScript::Class {
     gpointer $user_data,
     GDestroyNotify $destroy_notify,
     Int() $return_type,
-    guint $n_parameters,
+    Int() $n_parameters,
     CArray[GType] $parameter_types
   )
     is also<add-constructorv>
   {
-    my guint ($rt, $np) = self.RESOLVE-UINT($return_type, $n_parameters);
+    my guint ($rt, $np) = ($return_type, $n_parameters);
+
     jsc_class_add_constructorv(
       $!jsc,
       $name,
@@ -92,7 +105,8 @@ class WebkitGTK::JavaScript::Class {
   )
     is also<add-method-variadic>
   {
-    my guint $rt = self.RESOLVE-UINT($return_type);
+    my guint $rt = $return_type;
+
     jsc_class_add_method_variadic(
       $!jsc, $name, $callback, $user_data, $destroy_notify, $return_type
     );
@@ -132,7 +146,8 @@ class WebkitGTK::JavaScript::Class {
   )
     is also<add-methodv>
   {
-    my guint ($rt, $np) = self.RESOLVE-UINT($return_type, $n_parameters);
+    my guint ($rt, $np) = ($return_type, $n_parameters);
+
     jsc_class_add_methodv(
       $!jsc,
       $name,
@@ -155,7 +170,8 @@ class WebkitGTK::JavaScript::Class {
   )
     is also<add-property>
   {
-    my guint $pt = self.RESOLVE-UINT($property_type);
+    my guint $pt = $property_type;
+
     jsc_class_add_property(
       $!jsc,
       $name,
@@ -176,17 +192,23 @@ class WebkitGTK::JavaScript::Class {
     jsc_class_get_name($!jsc);
   }
 
-  method get_parent
+  method get_parent (:$raw = False)
     is also<
       get-parent
       parent
     >
   {
-    WebkitGTK::JavaScript::Class.new( jsc_class_get_parent($!jsc) );
+    my $j = jsc_class_get_parent($!jsc);
+
+    $j ??
+      ( $raw ?? $j !! WebkitGTK::JavaScript::Class.new($j) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &jsc_class_get_type, $n, $t );
   }
 

@@ -3,20 +3,26 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
+use GLib::Raw::Types;
 
-
-use GTK::Roles::Types;
-
+use WebkitGTK::JavaScript::Raw::Enums;
 use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Context;
 
-class WebkitGTK::JavaScript::Context {
-  also does GTK::Roles::Types;
+use WebkitGTK::JavaScript::Value;
+use WebkitGTK::JavaScript::Exception;
 
-  has JSCContext $!jsc;
+use GLib::Roles::Object;
+
+class WebkitGTK::JavaScript::Context {
+  also does GLib::Roles::Object;
+
+  has JSCContext $!jsc is implementor;
 
   submethod BUILD (:$context) {
     $!jsc = $context;
+
+    self.roleInit-Object;
   }
 
   method WebkitGTK::JavaScript::Raw::Types::JSCContext
@@ -24,10 +30,12 @@ class WebkitGTK::JavaScript::Context {
   { $!jsc }
 
   multi method new (JSCContext $context) {
-    self.bless(:$context);
+    $context ?? self.bless(:$context) !! Nil;
   }
   multi method new {
-    self.bless( context => jsc_context_new() );
+    my $context = jsc_context_new();
+
+    $context ?? self.bless(:$context) !! Nil;
   }
 
   method get_current
@@ -36,14 +44,17 @@ class WebkitGTK::JavaScript::Context {
       current
     >
   {
-    self.bless( context => jsc_context_get_current() );
+    my $context = jsc_context_get_current();
+
+    $context ?? self.bless(:$context) !! Nil;
   }
 
   method new_with_virtual_machine(JSCVirtualMachine() $vm)
     is also<new-with-virtual-machine>
   {
     my $context = jsc_context_new_with_virtual_machine($vm);
-    self.bless(:$context);
+
+    $context ?? self.bless(:$context) !! Nil;
   }
 
   proto method check_syntax (|)
@@ -57,9 +68,7 @@ class WebkitGTK::JavaScript::Context {
     Str() $uri,
     Int() $line_number
   ) {
-    my $e = CArray[Pointer[JSCException]].new;
-    my $rc = samewith ($code, $length, $mode, $uri, $line_number, $e);
-    ($rc, $e);
+    samewith($code, $length, $mode, $uri, $line_number, $, :all);
   }
   multi method check_syntax (
     Str() $code,
@@ -67,75 +76,163 @@ class WebkitGTK::JavaScript::Context {
     Int() $mode,
     Str() $uri,
     Int() $line_number,
-    CArray[Pointer[JSCException]] $exception is copy
+    CArray[Pointer[JSCException]] $exception is copy,
+    :$all = False
   ) {
-    my guint ($l, $m, $ln) = self.RESOLVE-UINT($length, $mode, $line_number);
-    jsc_context_check_syntax($!jsc, $code, $l, $m, $uri, $ln, $exception);
+    my guint ($l, $m, $ln) = ($length, $mode, $line_number);
+
+    my $rv = jsc_context_check_syntax(
+      $!jsc,
+      $code,
+      $l,
+      $m,
+      $uri,
+      $ln,
+      $exception
+    );
+    ( JSCCheckSyntaxResultEnum($rv), $exception );
   }
 
   method clear_exception is also<clear-exception> {
     jsc_context_clear_exception($!jsc);
   }
 
-  method evaluate (Str() $code, Int() $length) {
-    my guint $l = self.RESOLVE-UINT($length);
-    jsc_context_evaluate($!jsc, $code, $l);
+  method evaluate (Str() $code, Int() $length, :$raw = False) {
+    my guint $l = $length;
+    my $v = jsc_context_evaluate($!jsc, $code, $l);
+
+    $v ??
+      ( $raw ?? $v !! WebkitGTK::JavaScript::Value.new($v) )
+      !!
+      Nil;
   }
 
-  method evaluate_in_object (
+  proto method evaluate_in_object (|)
+  { * }
+
+  multi method evaluate_in_object (
     Str() $code,
     Int() $length,
     gpointer $object_instance,
     JSCClass() $object_class,
     Str() $uri,
     Int() $line_number,
-    JSCValue() $object
+    :$raw = False
+  ) {
+    samewith(
+      $code,
+      $length,
+      $object_instance,
+      $object_class,
+      $uri,
+      $line_number,
+      $,
+      :all,
+      :$raw
+    );
+  }
+  multi method evaluate_in_object (
+    Str() $code,
+    Int() $length,
+    gpointer $object_instance,
+    JSCClass() $object_class,
+    Str() $uri,
+    Int() $line_number,
+    $object is rw,
+    :$all = False,
+    :$raw = False
   )
     is also<evaluate-in-object>
   {
-    my ($l, $ln) = self.RESOLVE-UINT($length, $line_number);
-    jsc_context_evaluate_in_object(
-      $!jsc, $code, $l, $object_instance, $object_class, $uri, $ln, $object);
+    my ($l, $ln) = $length, $line_number;
+
+    my $o = CArray[Pointer[JSCValue]].new;
+    $o[0] = Pointer[JSCValue];
+
+    my $v = jsc_context_evaluate_in_object(
+      $!jsc,
+      $code,
+      $l,
+      $object_instance,
+      $object_class,
+      $uri,
+      $ln,
+      $o
+    );
+
+    if $o[0] {
+      $object = $o[0];
+      $object = WebkitGTK::JavaScript::Value.new($object) unless $raw;
+    }
+
+    $v = $v ??
+      ( $raw ?? $v !! WebkitGTK::JavaScript::Value.new($v) )
+      !!
+      Nil;
+
+    $all.not ?? $v !! ($v, $object);
   }
 
   method evaluate_with_source_uri (
     Str() $code,
     Int() $length,
     Str() $uri,
-    Int() $line_number
+    Int() $line_number,
+    :$raw = False
   )
     is also<evaluate-with-source-uri>
   {
-    my ($l, $ln) = self.RESOLVE-UINT($length, $line_number);
-    jsc_context_evaluate_with_source_uri($!jsc, $code, $l, $uri, $ln);
+    my ($l, $ln) = $length, $line_number;
+    my $v = jsc_context_evaluate_with_source_uri($!jsc, $code, $l, $uri, $ln);
+
+    $v ??
+      ( $raw ?? $v !! WebkitGTK::JavaScript::Value.new($v) )
+      !!
+      Nil;
   }
 
-  method get_exception
+  method get_exception ( :$raw = False )
     is also<
       get-exception
       exception
     >
   {
-    jsc_context_get_exception($!jsc);
+    my $e = jsc_context_get_exception($!jsc);
+
+    $e ??
+      ( $raw ?? $e !! WebkitGTK::JavaScript::Exception.new($e) )
+      !!
+      Nil;
   }
 
-  method get_global_object
+  method get_global_object (:$raw = False)
     is also<
       get-global-object
       global_object
       global-object
     >
   {
-    jsc_context_get_global_object($!jsc);
+    my $v = jsc_context_get_global_object($!jsc);
+
+    $v ??
+      ( $raw ?? $v !! WebkitGTK::JavaScript::Value.new($v) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &jsc_context_get_type, $n, $t );
   }
 
-  method get_value (Str() $name) is also<get-value> {
-    jsc_context_get_value($!jsc, $name);
+  method get_value (Str() $name, :$raw = False) is also<get-value> {
+    my $v = jsc_context_get_value($!jsc, $name);
+
+    $v ??
+      ( $raw ?? $v !! WebkitGTK::JavaScript::Value.new($v) )
+      !!
+      Nil;
   }
 
   method get_virtual_machine
@@ -154,7 +251,7 @@ class WebkitGTK::JavaScript::Context {
 
   method push_exception_handler (
     JSCExceptionHandler $handler,
-    gpointer $user_data = Pointer,
+    gpointer $user_data            = Pointer,
     GDestroyNotify $destroy_notify = Pointer
   )
     is also<push-exception-handler>

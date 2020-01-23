@@ -18,15 +18,3 @@ class JSCException        is repr("CPointer") is export does GLib::Roles::Pointe
 class JSCClass            is repr("CPointer") is export does GLib::Roles::Pointers { }
 class JSCVirtualMachine   is repr("CPointer") is export does GLib::Roles::Pointers { }
 class JSCValues           is repr("CPointer") is export does GLib::Roles::Pointers { }
-
-our enum JSCCheckSyntaxResult is export <
-  A1
->;
-
-our enum JSCCheckSyntaxMode is export <
-  A2
->;
-
-our enum JSCValuePropertyFlags is export <
-  A3
->;

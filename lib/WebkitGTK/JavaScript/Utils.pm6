@@ -2,6 +2,7 @@ use v6.c;
 
 use NativeCall;
 
+use GLib::Raw::Definitions;
 use WebkitGTK::JavaScript::Raw::Types;
 
 unit package WebkitGTK::Javascript::Utils;
@@ -16,7 +17,7 @@ sub paramsToCArray(@parameters) is export {
 sub typesToCArray(@types) is export {
   die '@parameters must be list of GTypeEnum compatible integers'
     unless @types.all ~~ Int;
-  my $p = CArray[uint32].new;
+  my $p = CArray[GType].new;
   $p[$_] = @types[$_] for ^@types.elems;
   $p;
 }
