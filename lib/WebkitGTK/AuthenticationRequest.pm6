@@ -1,13 +1,14 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
 use WebkitGTK::Raw::AuthenticationRequest;
 use WebkitGTK::Raw::Types;
 
 use GLib::Roles::Object;
 use GLib::Roles::Signals::Generic;
+
+use WebkitGTK::Credential;
 
 class WebkitGTK::AuthenticationRequest {
   also does GLib::Roles::Object;
@@ -25,6 +26,10 @@ class WebkitGTK::AuthenticationRequest {
       WebKitAuthenticationRequest
     >
   { $!war }
+
+  method new (WebKitAuthenticationRequest $request) {
+    $request ?? self.bless(:$request) !! Nil;
+  }
 
   # Is originally:
   # WebKitAuthenticationRequest, gpointer --> void
@@ -62,16 +67,19 @@ class WebkitGTK::AuthenticationRequest {
     webkit_authentication_request_get_port($!war);
   }
 
-  method get_proposed_credential
+  method get_proposed_credential (:$raw = False)
     is also<
       get-proposed-credential
       proposed_credential
       proposed-credential
     >
   {
-    WebkitGTK::Credential.new(
-      webkit_authentication_request_get_proposed_credential($!war)
-    );
+    my $c = webkit_authentication_request_get_proposed_credential($!war);
+
+    $c ??
+      ( $raw ?? $c !! WebkitGTK::Credential.new($c) )
+      !!
+      Nil;
   }
 
   method get_realm
@@ -89,7 +97,7 @@ class WebkitGTK::AuthenticationRequest {
       scheme
     >
   {
-    WebKitAuthenticationScheme(
+    WebKitAuthenticationSchemeEnum(
       webkit_authentication_request_get_scheme($!war)
     );
   }

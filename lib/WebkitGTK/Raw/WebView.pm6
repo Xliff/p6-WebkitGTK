@@ -4,8 +4,7 @@ use NativeCall;
 
 use Cairo;
 
-use GTK::Compat::RGBA;
-
+use GDK::RGBA;
 
 use WebkitGTK::Raw::Types;
 

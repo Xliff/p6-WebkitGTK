@@ -1,22 +1,25 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::AutomationSession;
 
 use WebkitGTK::ApplicationInfo;
 
+use GLib::Roles::Object;
 use WebkitGTK::Roles::Signals::AutomationSession;
 
 class WebkitGTK::AutomationSession {
+  also does GLib::Roles::Object;
   also does WebkitGTK::Roles::Signals::AutomationSession;
 
-  has WebKitAutomationSession $!was;
+  has WebKitAutomationSession $!was is implementor;
 
   submethod BUILD (:$session) {
     $!was = $session;
+
+    self.roleInit-Object;
   }
 
   submethod DESTROY {
@@ -24,15 +27,18 @@ class WebkitGTK::AutomationSession {
   }
 
   method new (WebKitAutomationSession $session) {
-    self.bless(:$session);
+    $session ?? self.bless(:$session) !! Nil;
   }
 
-  method application_info is rw is also<application-info> {
+  method application_info (:$raw = False) is rw is also<application-info> {
     Proxy.new(
       FETCH => sub ($) {
-        WebkitGTK::ApplicationInfo.new(
-          webkit_automation_session_get_application_info($!was)
-        );
+        my $ai = webkit_automation_session_get_application_info($!was);
+
+        $ai ??
+          ( $raw ?? $ai !! WebkitGTK::ApplicationInfo.new($ai) )
+          !!
+          Nil;
       },
       STORE => sub ($, WebKitApplicationInfo() $info is copy) {
         webkit_automation_session_set_application_info($!was, $info);
@@ -51,7 +57,14 @@ class WebkitGTK::AutomationSession {
   }
 
   method get_type is also<get-type> {
-    webkit_automation_session_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_automation_session_get_type,
+      $n,
+      $t
+    );
   }
 
 }

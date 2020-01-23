@@ -1,28 +1,19 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
-
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::Download;
 
-use WebkitGTK::URIResponse;
-use WebkitGTK::URIRequest;
-
 use GLib::Roles::Object;
-
-use GTK::Roles::Types;
-use WebkitGTK::Roles::Signals::Download;
-
 use WebkitGTK::URIRequest;
 use WebkitGTK::URIResponse;
 use WebkitGTK::WebView;
 
+use WebkitGTK::Roles::Signals::Download;
+
 class WebkitGTK::Download {
   also does GLib::Roles::Object;
-  
-  also does GTK::Roles::Types;
 
   has WebKitDownload $!wd;
 
@@ -30,10 +21,15 @@ class WebkitGTK::Download {
     self!setObject($!wd = $download);
   }
 
-  method WebkitGTK::Raw::TYpes::WebKitDownload is also<Download> { $!wd }
-  
+  method WebkitGTK::Raw::Definitions::WebKitDownload
+    is also<
+      Download
+      WebKitDownload
+    >
+  { $!wd }
+
   method new (WebKitDownload $download) {
-    self.bless(:$download);
+    $download ?? self.bless(:$download) !! Nil;
   }
 
   method allow_overwrite is rw is also<allow-overwrite> {
@@ -42,7 +38,8 @@ class WebkitGTK::Download {
         so webkit_download_get_allow_overwrite($!wd);
       },
       STORE => sub ($, Int() $allowed is copy) {
-        my guint32 $a = self.RESOLVE-BOOL($allowed);
+        my gboolean $a = $allowed.so.Int;
+
         webkit_download_set_allow_overwrite($!wd, $a);
       }
     );
@@ -109,27 +106,48 @@ class WebkitGTK::Download {
     webkit_download_get_received_data_length($!wd);
   }
 
-  method get_request is also<get-request> {
-    WebkitGTK::URIRequest.new( webkit_download_get_request($!wd) );
+  method get_request (:$raw = False) is also<get-request> {
+    my $uri = webkit_download_get_request($!wd);
+
+    $uri ??
+      ( $raw ?? $uri !! WebkitGTK::URIRequest.new($uri) )
+      !!
+      Nil;
   }
 
-  method get_response is also<
-    get-response
-    response
-  > {
-    WebkitGTK::URIResponse.new( webkit_download_get_response($!wd) );
+  method get_response (:$raw = False)
+    is also<
+      get-response
+      response
+    >
+  {
+    my $r = webkit_download_get_response($!wd);
+
+    $r ??
+      ( $raw ?? $r !! WebkitGTK::URIResponse.new($r) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_download_get_type();
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_download_get_type, $n, $t );
   }
 
-  method get_web_view is also<
-    get-web-view
-    web_view
-    web-view
-  > {
-    WebkitGTK::WebView.new( webkit_download_get_web_view($!wd) );
+  method get_web_view (:$raw = False)
+    is also<
+      get-web-view
+      web_view
+      web-view
+    >
+  {
+    my $wv = webkit_download_get_web_view($!wd);
+
+    $wv ??
+      ( $raw ?? $wv !! WebkitGTK::WebView.new($wv) )
+      !!
+      Nil;
   }
 
 }

@@ -12,7 +12,7 @@ sub webkit_cookie_manager_add_cookie (
   WebKitCookieManager $cookie_manager,
   SoupCookie $cookie,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -33,7 +33,7 @@ sub webkit_cookie_manager_delete_cookie (
   WebKitCookieManager $cookie_manager,
   SoupCookie $cookie,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -53,7 +53,7 @@ sub webkit_cookie_manager_delete_cookie_finish (
 sub webkit_cookie_manager_get_accept_policy (
   WebKitCookieManager $cookie_manager,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -74,7 +74,7 @@ sub webkit_cookie_manager_get_cookies (
   WebKitCookieManager $cookie_manager,
   Str $uri,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)

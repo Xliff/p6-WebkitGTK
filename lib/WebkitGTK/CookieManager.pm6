@@ -3,20 +3,15 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
 use WebkitGTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::CookieManager;
 
 use GLib::Roles::Object;
-
-use GTK::Roles::Types;
 use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::CookieManager {
   also does GLib::Roles::Object;
-
-  also does GTK::Roles::Types;
   also does GLib::Roles::Signals::Generic;
 
   has WebKitCookieManager $!wcm;
@@ -32,7 +27,7 @@ class WebkitGTK::CookieManager {
   { $!wcm }
 
   method new (WebKitCookieManager $manager) {
-    self.bless(:$manager);
+    $manager ?? self.bless(:$manager) !! Nil;
   }
 
   method changed {
@@ -45,19 +40,23 @@ class WebkitGTK::CookieManager {
 
   multi method add_cookie(
     SoupCookie $cookie,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
-    samewith($cookie, GCancellable, $callback, $user_data);
+    samewith($cookie, GCancellable, &callback, $user_data);
   }
   multi method add_cookie (
     SoupCookie $cookie,
     GCancellable() $cancellable,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
     webkit_cookie_manager_add_cookie(
-      $!wcm, $cookie, $cancellable, $callback, $user_data
+      $!wcm,
+      $cookie,
+      $cancellable,
+      &callback,
+      $user_data
     );
   }
 
@@ -68,9 +67,7 @@ class WebkitGTK::CookieManager {
     is also<add-cookie-finish>
   {
     clear_error;
-    my $rc = webkit_cookie_manager_add_cookie_finish(
-      $!wcm, $result, $error
-    );
+    my $rc = webkit_cookie_manager_add_cookie_finish($!wcm, $result, $error);
     set_error($error);
     $rc;
   }
@@ -81,31 +78,37 @@ class WebkitGTK::CookieManager {
 
   multi method delete_cookie(
     SoupCookie $cookie,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
-    samewith($cookie, GCancellable, $callback, $user_data);
+    samewith($cookie, GCancellable, &callback, $user_data);
   }
   multi method delete_cookie (
     SoupCookie $cookie,
     GCancellable() $cancellable,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
     webkit_cookie_manager_delete_cookie(
-      $!wcm, $cookie, $cancellable, $callback, $user_data
+      $!wcm,
+      $cookie,
+      $cancellable,
+      &callback,
+      $user_data
     );
   }
 
   method delete_cookie_finish (
-    GAsyncResult $result,
+    GAsyncResult() $result,
     CArray[Pointer[GError]] $error = gerror;
   )
     is also<delete-cookie-finish>
   {
     clear_error;
     my $rc = webkit_cookie_manager_delete_cookie_finish(
-      $!wcm, $result, $error
+      $!wcm,
+      $result,
+      $error
     );
     set_error($error);
     $rc;
@@ -116,18 +119,21 @@ class WebkitGTK::CookieManager {
   { * }
 
   multi method get_accept_policy(
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
-    samewith(GCancellable, $callback, $user_data);
+    samewith(GCancellable, &callback, $user_data);
   }
   multi method get_accept_policy (
     GCancellable() $cancellable,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
     webkit_cookie_manager_get_accept_policy(
-      $!wcm, $cancellable, $callback, $user_data
+      $!wcm,
+      $cancellable,
+      &callback,
+      $user_data
     );
   }
 
@@ -155,19 +161,23 @@ class WebkitGTK::CookieManager {
 
   multi method get_cookies (
     Str() $uri,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
-    samewith($uri, GCancellable, $callback, $user_data);
+    samewith($uri, GCancellable, &callback, $user_data);
   }
   multi method get_cookies (
     Str() $uri,
     GCancellable() $cancellable,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
     webkit_cookie_manager_get_cookies(
-      $!wcm, $uri, $cancellable, $callback, $user_data
+      $!wcm,
+      $uri,
+      $cancellable,
+      &callback,
+      $user_data
     );
   }
 

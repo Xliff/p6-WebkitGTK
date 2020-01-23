@@ -38,7 +38,7 @@ class WebkitGTK::ApplicationInfo {
       FETCH => sub ($) {
         webkit_application_info_get_name($!wai);
       },
-      STORE => sub ($, $name is copy) {
+      STORE => sub ($, Str() $name is copy) {
         webkit_application_info_set_name($!wai, $name);
       }
     );
