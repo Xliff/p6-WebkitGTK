@@ -7,12 +7,11 @@ use WebkitGTK::Raw::AuthenticationRequest;
 use WebkitGTK::Raw::Types;
 
 use GLib::Roles::Object;
-
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::AuthenticationRequest {
   also does GLib::Roles::Object;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitAuthenticationRequest $!war;
 

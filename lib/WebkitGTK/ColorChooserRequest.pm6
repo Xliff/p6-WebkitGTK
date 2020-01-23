@@ -9,10 +9,10 @@ use WebkitGTK::Raw::ColorChooserRequest;
 
 use GTK::Compat::RGBA;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::ColorChooserRequest {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitColorChooserRequest $!wccr;
 

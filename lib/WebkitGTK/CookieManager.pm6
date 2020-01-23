@@ -11,13 +11,13 @@ use WebkitGTK::Raw::CookieManager;
 use GLib::Roles::Object;
 
 use GTK::Roles::Types;
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::CookieManager {
   also does GLib::Roles::Object;
 
   also does GTK::Roles::Types;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitCookieManager $!wcm;
 

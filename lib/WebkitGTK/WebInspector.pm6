@@ -6,10 +6,10 @@ use NativeCall;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebInspector;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::WebInspector {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitWebInspector $!wwi;
 

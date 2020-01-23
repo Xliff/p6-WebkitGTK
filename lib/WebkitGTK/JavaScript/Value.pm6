@@ -4,7 +4,7 @@ use Method::Also;
 use NativeCall;
 
 use GLib::Raw::Types;
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Value;

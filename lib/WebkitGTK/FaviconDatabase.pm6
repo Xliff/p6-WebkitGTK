@@ -7,10 +7,10 @@ use NativeCall;
 use WebkitGTK::Raw::FaviconDatabase;
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::FaviconDatabase {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitFaviconDatabase $!wfd;
 

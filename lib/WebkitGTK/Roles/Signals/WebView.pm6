@@ -5,10 +5,10 @@ use NativeCall;
 use GLib::Raw::ReturnedValue;
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 role WebkitGTK::Roles::Signals::WebView {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has %!signals-wv;
 

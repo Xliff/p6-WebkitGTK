@@ -8,11 +8,11 @@ use WebkitGTK::Raw::FindController;
 use WebkitGTK::Raw::Types;
 
 use GTK::Roles::Types;
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::FindController {
   also does GTK::Roles::Types;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitFindController $!wfc;
 

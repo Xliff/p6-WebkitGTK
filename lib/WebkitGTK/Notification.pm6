@@ -9,7 +9,7 @@ use WebkitGTK::Raw::Notification;
 
 use GLib::Roles::Object;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::Notification {
   also does GLib::Roles::Object;

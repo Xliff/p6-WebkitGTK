@@ -6,7 +6,7 @@ use GLib::Raw::ReturnedValue;
 
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 role WebkitGTK::Roles::Signals::PrintOperation {
   has %!signals-wpo;
