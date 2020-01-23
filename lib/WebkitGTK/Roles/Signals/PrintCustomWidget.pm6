@@ -2,8 +2,6 @@ use v6.c;
 
 use NativeCall;
 
-
-
 use WebkitGTK::Raw::Types;
 
 use GTK::Roles::Signals::Generic;

@@ -1,4 +1,4 @@
-use v6.c;
+`use v6.c;
 
 class WebkitGTK::Builder::Registry {
 
@@ -8,5 +8,5 @@ class WebkitGTK::Builder::Registry {
       'WEBKIT::WebView' => 'WebkitGTK::View'
     );
   }
-  
+
 }

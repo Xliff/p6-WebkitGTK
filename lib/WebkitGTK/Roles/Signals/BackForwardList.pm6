@@ -2,7 +2,6 @@ use v6.c;
 
 use NativeCall;
 
-
 use WebkitGTK::Raw::Types;
 
 role WebkitGTK::Roles::Signals::BackForwardList {

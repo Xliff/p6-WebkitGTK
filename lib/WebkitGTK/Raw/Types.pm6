@@ -8,7 +8,7 @@ use Pango::Raw::Exports;
 use GIO::Raw::Exports;
 use GDK::Raw::Exports;
 use GTK::Raw::Exports;
-use WekbitGTK::Raw::Exports;
+use WebkitGTK::Raw::Exports;
 
 unit package GTK::Raw::Types;
 

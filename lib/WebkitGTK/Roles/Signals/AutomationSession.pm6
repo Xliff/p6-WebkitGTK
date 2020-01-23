@@ -2,8 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-
-use GTK::Raw::ReturnedValue;
+use GLib::Raw::ReturnedValue;
 use WebkitGTK::Raw::Types;
 
 role WebkitGTK::Roles::Signals::AutomationSession {

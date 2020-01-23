@@ -6,7 +6,7 @@ use WebkitGTK::Raw::Definitions;
 unit package WebkitGTK::Raw::Enums;
 
 constant WebKitPolicyDecisionType is export := guint32;
-our enum WebKitPolicyDecisionTypeEnum is export
+our enum WebKitPolicyDecisionTypeEnum is export <
   WEBKIT_POLICY_DECISION_TYPE_NAVIGATION_ACTION
   WEBKIT_POLICY_DECISION_TYPE_NEW_WINDOW_ACTION
   WEBKIT_POLICY_DECISION_TYPE_RESPONSE
