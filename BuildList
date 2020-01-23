@@ -25,6 +25,7 @@ GLib::Roles::ListData
 GLib::Roles::Object
 GLib::Roles::Pointers
 GLib::Roles::Signals::Generic
+GLib::Roles::StaticClass
 GTK::Container
 GTK::FileFilter
 GTK::PageSetup
@@ -54,9 +55,9 @@ WebkitGTK::JavaScript::Raw::Value
 WebkitGTK::JavaScript::Utils
 WebkitGTK::JavaScript::VM
 WebkitGTK::JavaScript::Value
+WebkitGTK::Raw::Exports
 WebkitGTK::Raw::Definitions
 WebkitGTK::Raw::Enums
-WebkitGTK::Raw::Exports
 WebkitGTK::Raw::Types
 WebkitGTK::Raw::URIRequest
 WebkitGTK::Raw::URIResponse
@@ -150,7 +151,6 @@ WebkitGTK::FaviconDatabase
 WebkitGTK::FileChooserRequest
 WebkitGTK::FindController
 WebkitGTK::FormSubmissionRequest
-WebkitGTK::Frame
 WebkitGTK::HitTestResult
 WebkitGTK::JavaScript::Context
 WebkitGTK::JavascriptResult
@@ -169,5 +169,6 @@ WebkitGTK::WebsiteDataManager
 WebkitGTK::AuthenticationRequest
 WebkitGTK::BackForwardList
 WebkitGTK::Download
+WebkitGTK::Frame
 WebkitGTK::NavigationPolicyDecision
 WebkitGTK::OptionMenu

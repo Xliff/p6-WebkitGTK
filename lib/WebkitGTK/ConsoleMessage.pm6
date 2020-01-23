@@ -6,6 +6,8 @@ use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::ConsoleMessage;
 
+# Boxed
+
 class WebkitGTK::ConsoleMessage {
   has WebKitConsoleMessage $!wcm;
 
@@ -30,7 +32,7 @@ class WebkitGTK::ConsoleMessage {
   }
 
   method get_level is also<get-level> {
-    webkit_console_message_get_level($!wcm);
+    WebKitConsoleMessageLevelEnum( webkit_console_message_get_level($!wcm) );
   }
 
   method get_line is also<get-line> {
@@ -38,7 +40,7 @@ class WebkitGTK::ConsoleMessage {
   }
 
   method get_source is also<get-source> {
-    webkit_console_message_get_source($!wcm);
+    WebKitConsoleMessageSourceEnum( webkit_console_message_get_source($!wcm) );
   }
 
   method get_source_id is also<get-source-id> {

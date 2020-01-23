@@ -3,27 +3,33 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
 use WebkitGTK::Raw::FaviconDatabase;
 use WebkitGTK::Raw::Types;
 
+use GLib::Roles::Object;
 use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::FaviconDatabase {
+  also does GLib::Roles::Object;
   also does GLib::Roles::Signals::Generic;
 
-  has WebKitFaviconDatabase $!wfd;
+  has WebKitFaviconDatabase $!wfd is implementor;
 
   submethod BUILD (:$database) {
     $!wfd = $database;
+
+    self.roleInit-Object;
   }
 
   method WebkitGTK::Raw::Definitions::WebKitFaviconDatabase
-    is also<FaviconDatabase>
+    is also<
+      FaviconDatabase
+      WebKitFaviconDatabase
+    >
   { $!wfd }
 
   method new (WebKitFaviconDatabase $database) {
-    self.bless(:$database);
+    $database ?? self.bless(:$database) !! Nil;
   }
 
   # Is originally:
@@ -46,19 +52,19 @@ class WebkitGTK::FaviconDatabase {
 
   multi method get_favicon(
     Str() $page_uri,
-    GAsyncReadyCallback $callback,
-    gpointer $user_data       = Pointer,
+    &callback,
+    gpointer $user_data = Pointer,
   ) {
-    samewith($page_uri, GCancellable, $callback, $user_data);
+    samewith($page_uri, GCancellable, &callback, $user_data);
   }
   multi method get_favicon (
     Str() $page_uri,
     GCancellable() $cancellable,
-    GAsyncReadyCallback $callback,
+    &callback,
     gpointer $user_data = Pointer
   ) {
     webkit_favicon_database_get_favicon(
-      $!wfd, $page_uri, $cancellable, $callback, $user_data
+      $!wfd, $page_uri, $cancellable, &callback, $user_data
     );
   }
 
