@@ -7,7 +7,7 @@ use WebkitGTK::Raw::JavascriptResult;
 
 use WebkitGTK::JavaScript::Value;
 
-# Opaque struct
+# Boxed
 
 class WebkitGTK::JavascriptResult {
   has WebKitJavascriptResult $!wjr;
@@ -17,24 +17,39 @@ class WebkitGTK::JavascriptResult {
   }
 
   method WebkitGTK::Raw::Definitions::WebKitJavascriptResult
-    is also<JavascriptResult>
+    is also<
+      JavascriptResult
+      WebKitJavascriptResult
+    >
   { $!wjr }
 
   method new (WebKitJavascriptResult $result) {
-    self.bless(:$result);
+    $result ?? self.bless(:$result) !! Nil;
   }
 
-  method get_js_value is also<get-js-value> {
+  method get_js_value (:$raw = False) is also<get-js-value> {
     my $val = webkit_javascript_result_get_js_value($!wjr);
-    $val.defined ?? WebkitGTK::JavaScript::Value.new($val) !! Nil;
+
+    $val ??
+      ( $raw ?? $val !! WebkitGTK::JavaScript::Value.new($val) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_javascript_result_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_javascript_result_get_type,
+      $n,
+      $t
+    );
   }
 
   method ref is also<upref> {
     webkit_javascript_result_ref($!wjr);
+    self;
   }
 
   method unref is also<downref> {

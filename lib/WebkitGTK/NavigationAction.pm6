@@ -6,6 +6,8 @@ use NativeCall;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::NavigationAction;
 
+use WebkitGTK::URIRequest;
+
 # BOXED TYPE
 
 class WebkitGTK::NavigationAction {
@@ -15,64 +17,84 @@ class WebkitGTK::NavigationAction {
     $!wna = $action;
   }
 
-  method WebkitGTK::Raw::Definitions::WebKitNavigationAction 
-    is also<NavigationAction> 
+  method WebkitGTK::Raw::Definitions::WebKitNavigationAction
+    is also<
+      NavigationAction
+      WebKitNavigationAction
+    >
   { $!wna }
 
   method new (WebKitNavigationAction $action) {
-    self.bless(:$action);
+    $action ?? self.bless(:$action) !! Nil;
   }
 
-  method copy {
-    self.bless( action => webkit_navigation_action_copy($!wna) )
+  method copy (:$raw = False) {
+    my $c = webkit_navigation_action_copy($!wna);
+
+    $c ??
+      ( $raw ?? $c !! WebkitGTK::NavigationAction.new($c) )
+      !!
+      Nil;
   }
 
   method free {
     webkit_navigation_action_free($!wna);
   }
 
-  method get_modifiers 
+  method get_modifiers
     is also<
       get-modifiers
       modifiers
-    > 
+    >
   {
     webkit_navigation_action_get_modifiers($!wna);
   }
 
-  method get_mouse_button 
+  method get_mouse_button
     is also<
       get-mouse-button
       mouse_button
       mouse-button
-    > 
+    >
   {
     webkit_navigation_action_get_mouse_button($!wna);
   }
 
-  method get_navigation_type 
+  method get_navigation_type
     is also<
       get-navigation-type
       navigation_type
       navigation-type
-    > 
+    >
   {
-    WebKitNavigationType( 
-      webkit_navigation_action_get_navigation_type($!wna) 
+    WebKitNavigationTypeEnum(
+      webkit_navigation_action_get_navigation_type($!wna)
     );
   }
 
-  method get_request 
+  method get_request (:$raw = False)
     is also<
       get-request
       request
-    > 
+    >
   {
-    WebkitGTK::URIRequest.new( webkit_navigation_action_get_request($!wna) );
+    my $r = webkit_navigation_action_get_request($!wna);
+
+    $r ??
+      ( $raw ?? $r !! WebkitGTK::URIRequest.new($r) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_navigation_action_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_navigation_action_get_type,
+      $n,
+      $t
+    );
   }
 
   method is_redirect is also<is-redirect> {

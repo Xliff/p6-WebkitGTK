@@ -1,14 +1,12 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
-
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::MimeInfo;
 
-# BOXED TYPE - 
-#   ASSUMPTION! 
+# BOXED TYPE -
+#   ASSUMPTION!
 #     From /usr/include/webkitgtk-4.0/webkit2/WebKitMimeInfo.h
 #     There was no WebKitMineInfoClass, nor any reference to GObject.
 
@@ -18,11 +16,16 @@ class WebkitGTK::MimeInfo {
   submethod BUILD (:$info) {
     $!wmi = $info;
   }
-  
-  method WekitGTK::Raw::Types::WebKitMimeInfo is also<MinmeInfo> { $!wmi }
+
+  method WekitGTK::Raw::Types::WebKitMimeInfo
+    is also<
+      MinmeInfo
+      WebKitMimeInfo
+    >
+  { $!wmi }
 
   method new (WebKitMimeInfo $info) {
-    self.bless(:$info);
+    $info ?? self.bless(:$info) !! Nil;
   }
 
   method get_description is also<get-description> {
@@ -34,18 +37,21 @@ class WebkitGTK::MimeInfo {
   }
 
   method get_extensions is also<get-extensions> {
-    my ($cai, $e, @e) = (0);
     my $ca = webkit_mime_info_get_extensions($!wmi);
-    @e.push($e) while ($e = $ca[$cai++]).defined;
-    @e;
+
+    $ca ?? CStringArrayToArray($ca) !! Nil;
+
   }
 
   method get_type is also<get-type> {
-    webkit_mime_info_get_type();
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_mime_info_get_type, $n, $t );
   }
 
   method ref {
     webkit_mime_info_ref($!wmi);
+    self;
   }
 
   method unref {

@@ -38,6 +38,7 @@ GTK::Raw::Structs
 GTK::Raw::Subs
 GTK::Raw::Utils
 GTK::Roles::Types
+GTK::Widget
 Method::Also
 Pango::Raw::Definitions
 Pango::Raw::Enums
@@ -162,7 +163,6 @@ WebkitGTK::OptionMenuItem
 WebkitGTK::Plugin
 WebkitGTK::PolicyDecision
 WebkitGTK::PrintCustomWidget
-WebkitGTK::PrintOperation
 WebkitGTK::ResponsePolicyDecision
 WebkitGTK::WebView
 WebkitGTK::WebsiteDataManager
@@ -172,3 +172,4 @@ WebkitGTK::Download
 WebkitGTK::Frame
 WebkitGTK::NavigationPolicyDecision
 WebkitGTK::OptionMenu
+WebkitGTK::PrintOperation

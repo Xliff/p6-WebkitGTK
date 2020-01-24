@@ -6,6 +6,8 @@ use NativeCall;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::NetworkProxySettings;
 
+# BOXED
+
 class WebkitGTK::NetworkProxySettings {
   has WebKitNetworkProxySettings $!wnps;
 
@@ -13,38 +15,44 @@ class WebkitGTK::NetworkProxySettings {
     $!wnps = $settings;
   }
 
+  multi method WebkitGTK::Raw::Definitions::WebKitNetworkProxySettings
+    is also<WebKitNetworkProxySettings>
+  { $!wnps }
+
   multi method new (WebKitNetworkProxySettings $settings) {
-    self.bless(:$settings);
+    $settings ?? self.bless(:$settings) !! Nil;
   }
   multi method new (
     Str() $default_proxy_uri,
     @ignore_hosts
   ) {
-    my $ih = CArray[Str].new(@ignore_hosts);
-    samewith($default_proxy_uri, $ih);
+    samewith($default_proxy_uri, ArrayToCArray(Str, @ignore_hosts) );
   }
   multi method new (
     Str $default_proxy_uri,
     CArray[Str] $ignore_hosts
   ) {
-    self.bless(
-      settings => webkit_network_proxy_settings_new(
-        $default_proxy_uri, $ignore_hosts
-      )
+    my $settings = webkit_network_proxy_settings_new(
+      $default_proxy_uri,
+      $ignore_hosts
     );
+
+    $settings ?? self.bless(:$settings) !! Nil;
   }
 
   method copy {
-    self.bless(
-      settings => webkit_network_proxy_settings_copy($!wnps)
-    );
+    my $settings = webkit_network_proxy_settings_copy($!wnps);
+
+    $settings ?? self.bless(:$settings) !! Nil;
   }
 
-  method add_proxy_for_scheme (Str() $scheme, Str() $proxy_uri) 
-    is also<add-proxy-for-scheme> 
+  method add_proxy_for_scheme (Str() $scheme, Str() $proxy_uri)
+    is also<add-proxy-for-scheme>
   {
     webkit_network_proxy_settings_add_proxy_for_scheme(
-      $!wnps, $scheme, $proxy_uri
+      $!wnps,
+      $scheme,
+      $proxy_uri
     );
   }
 
@@ -53,7 +61,14 @@ class WebkitGTK::NetworkProxySettings {
   }
 
   method get_type is also<get-type> {
-    webkit_network_proxy_settings_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_network_proxy_settings_get_type,
+      $n,
+      $t
+    );
   }
 
 }

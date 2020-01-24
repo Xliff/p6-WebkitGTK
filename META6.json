@@ -127,7 +127,6 @@
       "WebkitGTK::Plugin"                             :  "lib/WebkitGTK/Plugin.pm6"                           ,
       "WebkitGTK::PolicyDecision"                     :  "lib/WebkitGTK/PolicyDecision.pm6"                   ,
       "WebkitGTK::PrintCustomWidget"                  :  "lib/WebkitGTK/PrintCustomWidget.pm6"                ,
-      "WebkitGTK::PrintOperation"                     :  "lib/WebkitGTK/PrintOperation.pm6"                   ,
       "WebkitGTK::ResponsePolicyDecision"             :  "lib/WebkitGTK/ResponsePolicyDecision.pm6"           ,
       "WebkitGTK::WebView"                            :  "lib/WebkitGTK/WebView.pm6"                          ,
       "WebkitGTK::WebsiteDataManager"                 :  "lib/WebkitGTK/WebsiteDataManager.pm6"               ,
@@ -136,7 +135,8 @@
       "WebkitGTK::Download"                           :  "lib/WebkitGTK/Download.pm6"                         ,
       "WebkitGTK::Frame"                              :  "lib/WebkitGTK/Frame.pm6"                            ,
       "WebkitGTK::NavigationPolicyDecision"           :  "lib/WebkitGTK/NavigationPolicyDecision.pm6"         ,
-      "WebkitGTK::OptionMenu"                         :  "lib/WebkitGTK/OptionMenu.pm6"                       
+      "WebkitGTK::OptionMenu"                         :  "lib/WebkitGTK/OptionMenu.pm6"                       ,
+      "WebkitGTK::PrintOperation"                     :  "lib/WebkitGTK/PrintOperation.pm6"                   
     },
     "name": "p6-WebKitGTK",
     "perl": "6.c",
