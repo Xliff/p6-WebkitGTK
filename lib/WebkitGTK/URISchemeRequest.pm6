@@ -3,7 +3,6 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::URISchemeRequest;
 
@@ -15,7 +14,7 @@ class WebkitGTK::URISchemeRequest {
   }
 
   method new (WebKitURISchemeRequest $request) {
-    self.bless(:$request);
+    $request ?? self.bless(:$request) !! Nil;
   }
 
   method finish (
@@ -23,7 +22,8 @@ class WebkitGTK::URISchemeRequest {
     Int() $stream_length,
     Str() $mime_type
   ) {
-    my gint64 $sl = self.RESOLVE-LONG($stream_length);
+    my gint64 $sl = $stream_length;
+
     webkit_uri_scheme_request_finish($!wusr, $stream, $sl, $mime_type);
   }
 
@@ -32,17 +32,26 @@ class WebkitGTK::URISchemeRequest {
   )
     is also<finish-error>
   {
-    $ERROR = Nil;
-    my $rc = webkit_uri_scheme_request_finish_error($!wusr, $error);
-    $ERROR = $error[0] with $error[0];
-    $rc;
+    clear_error;
+    webkit_uri_scheme_request_finish_error($!wusr, $error);
+    set_error($error);
   }
 
-  method get_path is also<get-path> {
+  method get_path
+    is also<
+      get-path
+      path
+    >
+  {
     webkit_uri_scheme_request_get_path($!wusr);
   }
 
-  method get_scheme is also<get-scheme> {
+  method get_scheme
+    is also<
+      get-scheme
+      scheme
+    >
+  {
     webkit_uri_scheme_request_get_scheme($!wusr);
   }
 
@@ -50,14 +59,28 @@ class WebkitGTK::URISchemeRequest {
     webkit_uri_scheme_request_get_type();
   }
 
-  method get_uri is also<get-uri> {
+  method get_uri
+    is also<
+      get-uri
+      uri
+    >
+  {
     webkit_uri_scheme_request_get_uri($!wusr);
   }
 
-  method get_web_view is also<get-web-view> {
-    ::('WebkitGTK::WebView').new(
-      webkit_uri_scheme_request_get_web_view($!wusr)
-    );
+  method get_web_view (:$raw)
+    is also<
+      get-web-view
+      web_view
+      web-view
+    >
+  {
+    my $wv = webkit_uri_scheme_request_get_web_view($!wusr);
+
+    $wv ??
+      ( $raw ?? $wv !! ::('WebkitGTK::WebView').new($wv) )
+      !!
+      Nil;
   }
 
 }
