@@ -3,24 +3,24 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::UserContent;
 
-use GTK::Roles::Types;
-
 class WebkitGTK::UserStyleSheet {
-  also does GTK::Roles::Types;
-
   has WebKitUserStyleSheet $!wuss;
 
   submethod BUILD (:$content) {
     $!wuss = $content;
   }
 
-  multi method new (WebKitUserStyleSheet $content) {
+  submethod DESTROY {
+    self.unref;
+  }
+
+  multi method new (WebKitUserStyleSheet $content, :$ref = True) {
     my $o = self.bless(:$content);
-    $o.upref;
+    $o.ref if $ref;
+    $o;
   }
   multi method new (
     Str $source,
@@ -29,9 +29,13 @@ class WebkitGTK::UserStyleSheet {
     @whitelist,
     @blacklist,
   ) {
-    my $wl = CArray[Str].new(@whitelist);
-    my $bl = CArray[Str].new(@blacklist);
-    samewith($source, $frames, $time, $wl, $bl);
+    samewith(
+      $source,
+      $frames,
+      $time,
+      ArrayToCArray(Str, @whitelist),
+      ArrayToCArray(Str, @blacklist)
+    );
   }
   multi method new (
     Str $source,
@@ -40,12 +44,16 @@ class WebkitGTK::UserStyleSheet {
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
-    my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
-    self.bless(
-      content => webkit_user_style_sheet_new (
-        $source, $f, $t, $whitelist, $blacklist
-      )
+    my guint ($f, $t) = $frames, $time;
+    my $content = webkit_user_style_sheet_new(
+      $source,
+      $f,
+      $t,
+      $whitelist,
+      $blacklist
     );
+
+    $content ?? self.bless(:$content) !! Nil;
   }
 
   proto method new_for_world (|)
@@ -58,12 +66,15 @@ class WebkitGTK::UserStyleSheet {
     Int() $time,
     Str() $world_name,
     @whitelist,
-    @blacklist,
-
+    @blacklist
   ) {
-    my $wl = CArray[Str].new(@whitelist);
-    my $bl = CArray[Str].new(@blacklist);
-    samewith($source, $frames, $time, $wl, $bl);
+    samewith(
+      $source,
+      $frames,
+      $time,
+      ArrayToCArray(Str, @whitelist),
+      ArrayToCArray(Str, @blacklist)
+    );
   }
   multi method new_for_world (
     Str() $source,
@@ -73,12 +84,17 @@ class WebkitGTK::UserStyleSheet {
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
-    my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
-    self.bless(
-      content => webkit_user_style_sheet_new_for_world (
-        $source, $f, $t, $world_name, $whitelist, $blacklist
-      )
+    my guint ($f, $t) = $frames, $time;
+    my $content = webkit_user_style_sheet_new_for_world (
+      $source,
+      $f,
+      $t,
+      $world_name,
+      $whitelist,
+      $blacklist
     );
+
+    $content ?? self.bless(:$content) !! Nil;
   }
 
   method ref is also<upref> {
@@ -93,17 +109,22 @@ class WebkitGTK::UserStyleSheet {
 }
 
 class WebkitGTK::UserScript {
-  also does GTK::Roles::Types;
-
   has WebKitUserScript $!wus;
 
   submethod BUILD (:$content) {
     $!wus = $content;
   }
 
-  multi method new (WebKitUserScript $content) {
+  method DESTROY {
+    self.unref;
+  }
+
+  multi method new (WebKitUserScript $content, :$ref = True) {
+    return Nil unless $content;
+
     my $o = self.bless(:$content);
-    $o.upref;
+    $o.ref if $ref;
+    $o;
   }
   multi method new (
     Str $source,
@@ -112,9 +133,13 @@ class WebkitGTK::UserScript {
     @whitelist,
     @blacklist,
   ) {
-    my $wl = CArray[Str].new(@whitelist);
-    my $bl = CArray[Str].new(@blacklist);
-    samewith($source, $frames, $time, $wl, $bl);
+    samewith(
+      $source,
+      $frames,
+      $time,
+      ArrayToCArray(Str, @whitelist),
+      ArrayToCArray(Str, @blacklist)
+    );
   }
   multi method new (
     Str $source,
@@ -123,12 +148,16 @@ class WebkitGTK::UserScript {
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
-    my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
-    self.bless(
-      content => webkit_user_script_new (
-        $source, $f, $t, $whitelist, $blacklist
-      )
+    my guint ($f, $t) = $frames, $time;
+    my $content = webkit_user_script_new(
+      $source,
+      $f,
+      $t,
+      $whitelist,
+      $blacklist
     );
+
+    $content ?? self.bless(:$content) !! Nil;
   }
 
   proto method new_for_world (|)
@@ -142,9 +171,13 @@ class WebkitGTK::UserScript {
     @whitelist,
     @blacklist,
   ) {
-    my $wl = CArray[Str].new(@whitelist);
-    my $bl = CArray[Str].new(@blacklist);
-    samewith($source, $frames, $time, $wl, $bl);
+    samewith(
+      $source,
+      $frames,
+      $time,
+      ArrayToCArray(Str, @whitelist),
+      ArrayToCArray(Str, @blacklist)
+    );
   }
   multi method new_for_world (
     Str() $source,
@@ -154,12 +187,17 @@ class WebkitGTK::UserScript {
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
-    my guint ($f, $t) = self.RESOLVE-UINT($frames, $time);
-    self.bless(
-      content => webkit_user_script_new_for_world (
-        $source, $f, $t, $world_name, $whitelist, $blacklist
-      )
+    my guint ($f, $t) = $frames, $time;
+    my $content = webkit_user_script_new_for_world(
+      $source,
+      $f,
+      $t,
+      $world_name,
+      $whitelist,
+      $blacklist
     );
+
+    $content ?? self.bless(:$content) !! Nil;
   }
 
   method ref is also<upref> {

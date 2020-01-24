@@ -3,7 +3,6 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::UserContentManager;
@@ -20,11 +19,19 @@ class WebkitGTK::UserContentManager {
   }
 
   method WebkitGTK::Raw::Definitions::WebKitUserContentManager
-    is also<UserContentManager>
+    is also<
+      UserContentManager
+      WebKitUserContentManager
+    >
   { $!wcm }
 
-  method new {
-    self.bless( manager => webkit_user_content_manager_new() );
+  multi method new (WebKitUserContentManager $manager) {
+    $manager ?? self.bless(:$manager) !! Nil;
+  }
+  multi method new {
+    my $manager = webkit_user_content_manager_new();
+
+    $manager ?? self.bless(:$manager) !! Nil;
   }
 
   # Is originally:
@@ -47,6 +54,7 @@ class WebkitGTK::UserContentManager {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type(
       self.^name,
       &webkit_user_content_manager_get_type,
@@ -58,8 +66,9 @@ class WebkitGTK::UserContentManager {
   method register_script_message_handler (Str() $name)
     is also<register-script-message-handler>
   {
-    webkit_user_content_manager_register_script_message_handler(
-      $!wcm, $name
+    so webkit_user_content_manager_register_script_message_handler(
+      $!wcm,
+      $name
     );
   }
 
@@ -69,8 +78,10 @@ class WebkitGTK::UserContentManager {
   )
     is also<register-script-message-handler-in-world>
   {
-    webkit_user_content_manager_register_script_message_handler_in_world(
-      $!wcm, $name, $world_name
+    so webkit_user_content_manager_register_script_message_handler_in_world(
+      $!wcm,
+      $name,
+      $world_name
     );
   }
 
@@ -86,7 +97,8 @@ class WebkitGTK::UserContentManager {
     is also<unregister-script-message-handler>
   {
     webkit_user_content_manager_unregister_script_message_handler(
-      $!wcm, $name
+      $!wcm,
+      $name
     );
   }
 
@@ -97,7 +109,9 @@ class WebkitGTK::UserContentManager {
     is also<unregister-script-message-handler-in-world>
   {
     webkit_user_content_manager_unregister_script_message_handler_in_world(
-      $!wcm, $name, $world_name
+      $!wcm,
+      $name,
+      $world_name
     );
   }
 

@@ -3,19 +3,24 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebResource;
 
+use WebkitGTK::URIResponse;
+
+use GLib::Roles::Object;
 use WebkitGTK::Roles::Signals::WebResource;
 
 class WebkitGTK::WebResource {
+  also does GLib::Roles::Object;
   also does WebkitGTK::Roles::Signals::WebResource;
 
-  has WebKitWebResource $!wr;
+  has WebKitWebResource $!wr is implementor;
 
   submethod BUILD (:$resource) {
     $!wr = $resource;
+
+    self.roleInit-Object;
   }
 
   method WebkitGTK::Raw::Definitions::WebKitWebResource
@@ -23,7 +28,7 @@ class WebkitGTK::WebResource {
   { $!wr }
 
   method new (WebKitWebResource $resource) {
-    self.bless(:$resource);
+    $resource ?? self.bless(:$resource) !! Nil;
   }
 
   # Is originally:
@@ -78,13 +83,12 @@ class WebkitGTK::WebResource {
     is also<get-data-finish>
   { * }
 
-  # Returns all values by default.
+  # Length is provided since this may be a region in memory...
   multi method get_data_finish (
     GAsyncResult() $result,
     CArray[Pointer[GError]] $error = gerror,
-    :$all = True
   ) {
-    samewith($result, $, $error, :$all);
+    samewith($result, $, $error, :all);
   }
   multi method get_data_finish (
     GAsyncResult() $result,
@@ -100,20 +104,26 @@ class WebkitGTK::WebResource {
     $length = $l;
 
     return Nil unless $d;
-    $all.not ?? $d !! ($d, $length);
+    $all.not ?? $d !! ($d, $length)
   }
 
-  method get_response
+  method get_response (:$raw = False)
     is also<
       get-response
       response
     >
   {
-    webkit_web_resource_get_response($!wr);
+    my $r = webkit_web_resource_get_response($!wr);
+
+    $r ??
+      ( $raw ?? $r !! WebkitGTK::URIResponse.new($r) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-typ> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &webkit_web_resource_get_type, $n, $t );
   }
 

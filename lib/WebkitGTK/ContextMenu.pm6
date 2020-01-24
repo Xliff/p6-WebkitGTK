@@ -3,8 +3,9 @@ use v6.c;
 use Method::Also;
 
 use WebkitGTK::Raw::Types;
-
 use WebkitGTK::Raw::ContextMenu;
+
+use WebkitGTK::ContextMenuItem;
 
 use GLib::Roles::Object;
 

@@ -1,24 +1,31 @@
 use v6.c;
 
-use NativeCall;
-
+use Method::Also;
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebInspector;
 
+use GLib::Roles::Object;
 use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::WebInspector {
+  also does GLib::Roles::Object;
   also does GLib::Roles::Signals::Generic;
 
-  has WebKitWebInspector $!wwi;
+  has WebKitWebInspector $!wwi is implementor;
 
   submethod BUILD (:$inspector) {
     $!wwi = $inspector;
+
+    self.roleInit-Object;
   }
 
+  method WebkitGTK::Raw::Definitions::WebKitWebInspector
+    is also<WebKitWebInspector>
+  { $!wwi }
+
   method new (WebKitWebInspector $inspector) {
-    self.bless(:$inspector);
+    $inspector ?? self.bless(:$inspector) !! Nil;
   }
 
   # Is originally:
@@ -29,7 +36,7 @@ class WebkitGTK::WebInspector {
 
   # Is originally:
   # WebKitWebInspector, gpointer --> gboolean
-  method bring-to-front {
+  method bring-to-front is also<bring_to_front> {
     self.connect-rbool($!wwi, 'bring-to-front');
   }
 
@@ -47,11 +54,11 @@ class WebkitGTK::WebInspector {
 
   # Is originally:
   # WebKitWebInspector, gpointer --> gboolean
-  method open-window {
+  method open-window is also<open_window> {
     self.connect-rbool($!wwi, 'open-window');
   }
 
-  method attach-emit {
+  method emit_attach is also<emit-attach> {
     webkit_web_inspector_attach($!wwi);
   }
 
@@ -59,33 +66,35 @@ class WebkitGTK::WebInspector {
     webkit_web_inspector_close($!wwi);
   }
 
-  method detach-emit {
+  method emit_detach is also<emit-detach> {
     webkit_web_inspector_detach($!wwi);
   }
 
-  method get_attached_height {
+  method get_attached_height is also<get-attached-height> {
     webkit_web_inspector_get_attached_height($!wwi);
   }
 
-  method get_can_attach {
+  method get_can_attach is also<get-can-attach> {
     so webkit_web_inspector_get_can_attach($!wwi);
   }
 
-  method get_inspected_uri {
+  method get_inspected_uri is also<get-inspected-uri> {
     webkit_web_inspector_get_inspected_uri($!wwi);
   }
 
-  method get_type {
-    webkit_web_inspector_get_type();
+  method get_type is also<get-type> {
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_web_inspector_get_type, $n, $t );
   }
 
-  method get_web_view {
+  method get_web_view is also<get-web-view> {
     ::('WebkitGTK::WebView').new(
       webkit_web_inspector_get_web_view($!wwi)
     );
   }
 
-  method is_attached {
+  method is_attached is also<is-attached> {
     so webkit_web_inspector_is_attached($!wwi);
   }
 

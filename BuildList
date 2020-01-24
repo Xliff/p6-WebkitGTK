@@ -36,8 +36,6 @@ GTK::Raw::Exports
 GTK::Raw::Requisition
 GTK::Raw::Structs
 GTK::Raw::Subs
-GTK::Raw::Utils
-GTK::Roles::Types
 GTK::Widget
 Method::Also
 Pango::Raw::Definitions
@@ -88,7 +86,6 @@ WebkitGTK::URISchemeRequest
 WebkitGTK::UserContent
 WebkitGTK::UserContentManager
 WebkitGTK::Version
-WebkitGTK::WebContext
 WebkitGTK::WebInspector
 WebkitGTK::WebResource
 WebkitGTK::WebsiteData
@@ -142,7 +139,6 @@ WebkitGTK::AutomationSession
 WebkitGTK::BackForwardListItem
 WebkitGTK::ColorChooserRequest
 WebkitGTK::ConsoleMessage
-WebkitGTK::ContextMenu
 WebkitGTK::ContextMenuItem
 WebkitGTK::CookieManager
 WebkitGTK::Credential
@@ -164,12 +160,14 @@ WebkitGTK::Plugin
 WebkitGTK::PolicyDecision
 WebkitGTK::PrintCustomWidget
 WebkitGTK::ResponsePolicyDecision
-WebkitGTK::WebView
 WebkitGTK::WebsiteDataManager
 WebkitGTK::AuthenticationRequest
 WebkitGTK::BackForwardList
-WebkitGTK::Download
+WebkitGTK::ContextMenu
 WebkitGTK::Frame
 WebkitGTK::NavigationPolicyDecision
 WebkitGTK::OptionMenu
+WebkitGTK::WebContext
+WebkitGTK::WebView
+WebkitGTK::Download
 WebkitGTK::PrintOperation
