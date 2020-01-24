@@ -49,7 +49,7 @@ sub webkit_web_context_get_favicon_database (WebKitWebContext $context)
 sub webkit_web_context_get_plugins (
   WebKitWebContext $context,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)

@@ -10,7 +10,7 @@ unit package WebkitGTK::Raw::WebResource;
 sub webkit_web_resource_get_data (
   WebKitWebResource $resource,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
