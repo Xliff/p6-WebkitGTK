@@ -14,14 +14,14 @@ my $c = GTK::CSSProvider.new( pod => $=pod );
 
 my (%cids, $tc);
 sub update_statusbar($s, $wv, $htr, $m, $ud) {
-  state $last_s;
+  state $last_s = 0;
   my $hit = WebkitGTK::HitTestResult.new($htr);
 
   if $hit.context_is_link {
     with $tc { $tc.cancel; $tc = Nil; }
     my $k = $hit.get_link_uri;
     $k = $k.substr(0, 63) ~ '…';
-    %cids{$k} //= $s.get_context_id($k);
+    %cids{$k} //= $last_s = $s.get_context_id($k);
     $s.push($last_s, $k);
   } else {
     $s.remove_all($last_s) with $last_s;

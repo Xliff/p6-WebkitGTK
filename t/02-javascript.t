@@ -1,6 +1,5 @@
 use v6.c;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 
 use GTK::Application;
@@ -19,10 +18,10 @@ sub print_story_title($o, $r, $ud, $wv) {
   }
 
   my $val = $js_result.get_js_value;
-  if $val.defined && $val.is_string {
+  if $val && $val.is_string {
     my $s = $val.to_string;
     my $e = WebkitGTK::JavaScript::Context.new(
-      $val.get_context
+      $val.get_context(:raw)
     ).get_exception;
     with $e {
       say "Error running javascript: { $e.get_message }";

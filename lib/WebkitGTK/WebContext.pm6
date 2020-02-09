@@ -26,7 +26,7 @@ class WebkitGTK::WebContext {
     $!wwc = $context;
 
     self.roleInit-Object;
-    self.ADD-PREFIX('WebkitGTK::');
+    #self.ADD-PREFIX('WebkitGTK::');
   }
 
   method WebkitGTK::Raw::Definitions::WebKitWebContext
