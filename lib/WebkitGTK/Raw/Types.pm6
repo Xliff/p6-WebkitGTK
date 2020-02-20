@@ -10,7 +10,7 @@ use GDK::Raw::Exports;
 use GTK::Raw::Exports;
 use WebkitGTK::Raw::Exports;
 
-unit package GTK::Raw::Types;
+unit package WebkitGTK::Raw::Types;
 
 need Cairo;
 need GLib::Raw::Definitions;
