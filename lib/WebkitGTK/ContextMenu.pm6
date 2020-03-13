@@ -38,7 +38,7 @@ class WebkitGTK::ContextMenu {
 
   method user_data (:$raw = False) is rw {
     Proxy.new:
-      FETCH => -> $                { self.get_user_data(:$raw) },
+      FETCH => sub ($)                { self.get_user_data(:$raw) },
       STORE => -> $, GVariant() \v { self.set_user_data(v)     };
   }
 

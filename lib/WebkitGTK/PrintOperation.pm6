@@ -89,7 +89,7 @@ class WebkitGTK::PrintOperation {
   method web-view (:$raw = False) is rw  {
     my $gv;
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('web-view', $gv)
         );

@@ -169,7 +169,7 @@ class WebkitGTK::WebContext {
 
   method spell_checking_languages is rw is also<spell-checking-languages> {
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         my $l = webkit_web_context_get_spell_checking_languages($!wwc);
 
         CStringArrayToArray($l);
