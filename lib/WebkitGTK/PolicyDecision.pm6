@@ -9,7 +9,7 @@ use GLib::Roles::Object;
 
 class WebkitGTK::PolicyDecision {
   also does GLib::Roles::Object;
-  
+
   has WebKitPolicyDecision $!wpd;
 
   submethod BUILD (:$decision) {
@@ -20,12 +20,15 @@ class WebkitGTK::PolicyDecision {
     self!setObject($!wpd = $decision);
   }
 
-  method WebkitGTK::Raw::Types::WebKitPolicyDecision 
-    is also<PolicyDecision> 
+  method WebkitGTK::Raw::Definitions::WebKitPolicyDecision
+    is also<
+      PolicyDecision
+      WebKitPolicyDecision
+    >
   { $!wpd }
 
   method new (WebKitPolicyDecision $decision) {
-    self.bless(:$decision);
+    $decision ?? self.bless(:$decision) !! Nil;
   }
 
   method download {
@@ -33,7 +36,14 @@ class WebkitGTK::PolicyDecision {
   }
 
   method get_type is also<get-type> {
-    webkit_policy_decision_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_policy_decision_get_type,
+      $n,
+      $t
+    );
   }
 
   method ignore {

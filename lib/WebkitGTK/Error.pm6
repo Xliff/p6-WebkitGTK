@@ -1,12 +1,11 @@
 use v6.c;
 
-use NativeCall;
-
-use GTK::Compat::Types;
-
 use WebkitGTK::Raw::Error;
 
+use GLib::Roles::StaticClass;
+
 class WebkitGTK::Error {
+  also does GLib::Roles::StaticClass;
 
   method download {
     webkit_download_error_quark();

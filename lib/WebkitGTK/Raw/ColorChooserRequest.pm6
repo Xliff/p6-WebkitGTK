@@ -2,11 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 
-use GTK::Compat::RGBA;
+use GDK::RGBA;
 
 unit package WebkitGTK::Raw::ColorChooserRequest;
 

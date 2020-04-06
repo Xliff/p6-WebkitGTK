@@ -2,20 +2,31 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
-
+use GLib::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Exception;
 
+use GLib::Roles::Object;
+
 class WebkitGTK::JavaScript::Exception {
-  has JSCException $!jse;
+  also does GLib::Roles::Object;
+
+  has JSCException $!jse is implementor;
 
   submethod BUILD (:$exception) {
     $!jse = $exception;
+
+    self.roleInitObject;
   }
 
+  method WebkitGTK::JavaScript::Raw::Types::JSCException
+    is also<JSCException>
+  { $!jse }
+
   method new (JSCContext() $context, Str() $message) {
-    self.bless( exception =>  jsc_exception_new($context, $message) );
+    my $exception = jsc_exception_new($context, $message);
+
+    $exception ?? self.bless(:$exception) !! Nil;
   }
 
   method new_with_name (
@@ -26,7 +37,8 @@ class WebkitGTK::JavaScript::Exception {
     is also<new-with-name>
   {
     my $exception = jsc_exception_new_with_name($context, $name, $message);
-    self.bless(:$exception);
+
+    $exception ?? self.bless(:$exception) !! Nil;
   }
 
   method get_backtrace_string
@@ -89,6 +101,7 @@ class WebkitGTK::JavaScript::Exception {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &jsc_exception_get_type, $n, $t );
   }
 

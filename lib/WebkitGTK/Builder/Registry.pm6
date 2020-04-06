@@ -8,5 +8,5 @@ class WebkitGTK::Builder::Registry {
       'WEBKIT::WebView' => 'WebkitGTK::View'
     );
   }
-  
+
 }

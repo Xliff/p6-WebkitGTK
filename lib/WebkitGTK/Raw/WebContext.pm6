@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
+
 
 use WebkitGTK::Raw::Types;
 
@@ -49,7 +49,7 @@ sub webkit_web_context_get_favicon_database (WebKitWebContext $context)
 sub webkit_web_context_get_plugins (
   WebKitWebContext $context,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -133,7 +133,7 @@ sub webkit_web_context_prefetch_dns (WebKitWebContext $context, Str $hostname)
 sub webkit_web_context_register_uri_scheme (
   WebKitWebContext $context,
   Str $scheme,
-  WebKitURISchemeRequestCallback $callback,
+  &callback (WebKitURISchemeRequest, Pointer),
   gpointer $user_data,
   GDestroyNotify $user_data_destroy_func
 )
@@ -284,11 +284,11 @@ sub webkit_web_context_set_preferred_languages (
   is native(webkit)
   is export
   { * }
-  
+
 sub webkit_web_context_set_spell_checking_languages (
   WebKitWebContext $context,
   CArray[Str] $languages
-) 
+)
   is native(webkit)
   is export
   { * }

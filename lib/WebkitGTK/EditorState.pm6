@@ -1,32 +1,39 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::EditorState;
 
+use GLib::Roles::Object;
+
 class WebkitGTK::EditorState {
-  has WebKitEditorState $!wes;
+  also does GLib::Roles::Object;
+
+  has WebKitEditorState $!wes is implementor;
 
   submethod BUILD (:$state) {
     $!wes = $state;
+
+    self.roleInit-Object;
   }
 
-  method WebkitGTK::Raw::Types::WebKitEditorState {
-    $!wes;
-  }
+  method WebkitGTK::Raw::Definitions::WebKitEditorState
+    is also<WebKitEditorState>
+  { $!wes }
 
   method new (WebKitEditorState $state) {
-    self.bless(:$state);
+    $state ?? self.bless(:$state) !! Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_editor_state_get_type();
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_editor_state_get_type, $n, $t );
   }
 
   method get_typing_attributes is also<get-typing-attributes> {
+    # Flags
     webkit_editor_state_get_typing_attributes($!wes);
   }
 
@@ -51,4 +58,3 @@ class WebkitGTK::EditorState {
   }
 
 }
-

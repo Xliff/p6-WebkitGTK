@@ -3,12 +3,13 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::ContextMenuItem;
 
 use GIO::Roles::Action;
+
+# May need ancestry logic if EVER needed to be constructed from a GAction.
 
 class WebkitGTK::ContextMenuItem {
   also does GIO::Roles::Action;
@@ -18,10 +19,11 @@ class WebkitGTK::ContextMenuItem {
   submethod BUILD (:$menuitem) {
     $!wcmi = $menuitem;
 
+    self.roleInit-Object; # Provided by GLib::Roles::Properties, which is punned by ::Action
     self!roleInit-Action;
   }
 
-  method WebkitGTK::Raw::Types::WebKitContextMenuItem
+  method WebkitGTK::Raw::Definitions::WebKitContextMenuItem
     is also<
       WebKitContextMenuItem
       ContextMenuItem
@@ -83,12 +85,15 @@ class WebkitGTK::ContextMenuItem {
     $cmi ?? self.bless( menuitem => $cmi ) !! Nil;
   }
 
-  method submenu is rw {
+  method submenu (:$raw = False) is rw {
     Proxy.new(
       FETCH => sub ($) {
         my $sm = webkit_context_menu_item_get_submenu($!wcmi);
 
-        $sm ?? ::('WebkitGTK::ContextMenu').new($sm) !! Nil;
+        $sm ??
+          ( $raw ?? $sm !! ::('WebkitGTK::ContextMenu').new($sm) )
+          !!
+          Nil;
       },
       STORE => sub ($, WebKitContextMenu() $submenu is copy) {
         webkit_context_menu_item_set_submenu($!wcmi, $submenu)
@@ -117,7 +122,7 @@ class WebkitGTK::ContextMenuItem {
       stock-action
     >
   {
-    WebKitContextMenuAction(
+    WebKitContextMenuActionEnum(
       webkit_context_menu_item_get_stock_action($!wcmi)
     );
   }

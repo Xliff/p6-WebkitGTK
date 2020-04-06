@@ -1,7 +1,6 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::ResponsePolicyDecision;
@@ -10,48 +9,61 @@ use WebkitGTK::PolicyDecision;
 use WebkitGTK::URIResponse;
 use WebkitGTK::URIRequest;
 
-my subset Ancestry where WebKitResponsePolicyDecision | WebKitPolicyDecision;
+my subset PolicyDecisionAncestry is export
+  where WebKitResponsePolicyDecision | WebKitPolicyDecision;
 
 class WebkitGTK::ResponsePolicyDecision is WebkitGTK::PolicyDecision {
   has WebKitResponsePolicyDecision $!wrpd;
 
-  submethod BUILD (:$decision is copy) {
+  submethod BUILD (:$policy-decision is copy) {
     my $to_parent;
-    $!wrpd = do given $decision {
+    $!wrpd = do given $policy-decision {
       when WebKitPolicyDecision {
         $to_parent = $_;
-        nativecast(WebKitResponsePolicyDecision, $_);
+        cast(WebKitResponsePolicyDecision, $_);
       }
       when WebKitResponsePolicyDecision {
-        $to_parent = nativecast(WebKitPolicyDecision, $_);
+        $to_parent = cast(WebKitPolicyDecision, $_);
         $_;
       }
     }
     self.setPolicyDecision($to_parent);
   }
 
-  method new (Ancestry $decision) {
-    self.bless(:$decision);
+  method new (PolicyDecisionAncestry $policy-decision) {
+    $policy-decision ?? self.bless(:$policy-decision) !! Nil;
   }
 
-  method get_request is also<get-request> {
-    WebkitGTK::URIRequest.new(
-      webkit_response_policy_decision_get_request($!wrpd)
-    );
+  method get_request (:$raw = False) is also<get-request> {
+    my $r = webkit_response_policy_decision_get_request($!wrpd);
+
+    $r ??
+      ( $raw ?? $r !! WebkitGTK::URIRequest.new($r) )
+      !!
+      Nil;
   }
 
-  method get_response is also<get-response> {
-    WebkitGTK::URIResponse.new(
-      webkit_response_policy_decision_get_response($!wrpd)
-    );
+  method get_response (:$raw = False) is also<get-response> {
+    my $r = webkit_response_policy_decision_get_response($!wrpd);
+
+    $r ??
+      ( $raw ?? $r !! WebkitGTK::URIRequest.new($r) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_response_policy_decision_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_response_policy_decision_get_type,
+      $n,
+      $t
+    );
   }
 
   method is_mime_type_supported is also<is-mime-type-supported> {
     so webkit_response_policy_decision_is_mime_type_supported($!wrpd);
   }
 }
-

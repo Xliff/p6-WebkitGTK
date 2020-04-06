@@ -2,14 +2,12 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 role WebkitGTK::Roles::Signals::PrintCustomWidget {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has %!signals-wpcw;
 

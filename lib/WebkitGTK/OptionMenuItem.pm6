@@ -3,29 +3,33 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::OptionMenuItem;
 
-# BOXED TYPE
-
 class WebkitGTK::OptionMenuItem {
-  has WebKitOptionMenuItem $!womi;
+  has WebKitOptionMenuItem $!womi is implementor;
 
   submethod BUILD (:$item) {
     $!womi = $item;
+
+    self.roleInit-Object;
   }
 
-  method new (WebKitOptionMenuItem $item) {
-    self.bless(:$item);
-  }
-  
-  method WebkitGTK::Raw::Types::WebKitOptionMenuItem 
-    is also<OptionMenuItem>
+  method WebkitGTK::Raw::Definitions::WebKitOptionMenuItem
+    is also<
+      OptionMenuItem
+      WebKitOptionMenuItem
+    >
   { $!womi }
 
-  method copy {
-    self.bless( item => webkit_option_menu_item_copy($!womi) );
+  method new (WebKitOptionMenuItem $item) {
+    $item ?? self.bless(:$item) !! Nil;
+  }
+
+  method copy (:$raw = False) {
+    my $item = webkit_option_menu_item_copy($!womi);
+
+    $item ?? WebkitGTK::OptionMenuItem.new($item) !! Nil;
   }
 
   method free {
@@ -41,7 +45,14 @@ class WebkitGTK::OptionMenuItem {
   }
 
   method get_type is also<get-type> {
-    webkit_option_menu_item_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_option_menu_item_get_type,
+      $n,
+      $t
+    );
   }
 
   method is_enabled is also<is-enabled> {

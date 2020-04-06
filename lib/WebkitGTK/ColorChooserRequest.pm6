@@ -1,18 +1,18 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::ColorChooserRequest;
 
-use GTK::Compat::RGBA;
+use GDK::RGBA;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Object;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::ColorChooserRequest {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Object;
+  also does GLib::Roles::Signals::Generic;
 
   has WebKitColorChooserRequest $!wccr;
 
@@ -20,12 +20,12 @@ class WebkitGTK::ColorChooserRequest {
     $!wccr = $request;
   }
 
-  method WebkitGTK::Raw::Types::WebKitColorChooserRequest {
-    $!wccr;
-  }
+  method WebkitGTK::Raw::Definitions::WebKitColorChooserRequest
+    is also<WebKitColorChooserRequest>
+  { $!wccr }
 
   method new (WebKitColorChooserRequest $request) {
-    self.bless(:$request);
+    $request ?? self.bless(:$request) !! Nil;
   }
 
   # Is originally:
@@ -34,29 +34,47 @@ class WebkitGTK::ColorChooserRequest {
     self.connect($!wccr, 'finished');
   }
 
-  method request_cancel is also<request-cancel> {
+  method cancel {
     webkit_color_chooser_request_cancel($!wccr);
   }
 
-  method request_finish is also<request-finish> {
+  method finish {
     webkit_color_chooser_request_finish($!wccr);
   }
 
-  method request_get_element_rectangle (GdkRectangle $rect)
-    is also<request-get-element-rectangle>
+  method get_element_rectangle (GdkRectangle() $rect)
+    is also<get-element-rectangle>
   {
     webkit_color_chooser_request_get_element_rectangle($!wccr, $rect);
   }
 
-  method request_get_rgba (GdkRGBA $rgba) is also<request-get-rgba> {
+  proto method get_rgba (|)
+    is also<get-rgba>
+  { * }
+
+  multi method get_rgba is also<rgba> {
+    my $r = GdkRGBA.new;
+
+    die 'Could not create GdkRGBA!' unless $r;
+
+    samewith($r);
+  }
+  multi method get_rgba (GdkRGBA $rgba) {
     webkit_color_chooser_request_get_rgba($!wccr, $rgba);
   }
 
-  method request_get_type is also<request-get-type> {
-    webkit_color_chooser_request_get_type();
+  method get_type is also<get-type> {
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_color_chooser_request_get_type,
+      $n,
+      $t
+    );
   }
 
-  method request_set_rgba (GdkRGBA $rgba) is also<request-set-rgba> {
+  method set_rgba (GdkRGBA $rgba) is also<set-rgba> {
     webkit_color_chooser_request_set_rgba($!wccr, $rgba);
   }
 

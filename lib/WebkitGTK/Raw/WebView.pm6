@@ -4,9 +4,8 @@ use NativeCall;
 
 use Cairo;
 
-use GTK::Compat::RGBA;
-use GTK::Compat::Types;
-use GTK::Raw::Types;
+use GDK::RGBA;
+
 use WebkitGTK::Raw::Types;
 
 unit package WebkitGTK::Raw::WebView;
@@ -15,7 +14,7 @@ sub webkit_web_view_can_execute_editing_command (
   WebKitWebView $web_view,
   Str $command,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -149,7 +148,7 @@ sub webkit_web_view_get_snapshot (
   guint $region,                  # WebKitSnapshotRegion $region,
   guint $options,                 # WebKitSnapshotOptions $options,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -385,7 +384,7 @@ sub webkit_web_view_run_javascript_from_gresource (
   WebKitWebView $web_view,
   Str $resource,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -407,7 +406,7 @@ sub webkit_web_view_run_javascript_in_world (
   Str $script,
   Str $world_name,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -428,7 +427,7 @@ sub webkit_web_view_save (
   WebKitWebView $web_view,
   guint $save_mode,               # WebKitSaveMode $save_mode,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -450,7 +449,7 @@ sub webkit_web_view_save_to_file (
   GFile $file,
   guint $save_mode,               # WebKitSaveMode $save_mode,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)

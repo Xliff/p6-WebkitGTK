@@ -2,11 +2,11 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Raw::ReturnedValue;
-use GTK::Compat::Types;
+use GLib::Raw::ReturnedValue;
+
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 role WebkitGTK::Roles::Signals::PrintOperation {
   has %!signals-wpo;

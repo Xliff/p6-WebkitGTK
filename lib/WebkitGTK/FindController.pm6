@@ -1,27 +1,31 @@
 use v6.c;
 
 use Method::Also;
-use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::FindController;
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Types;
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Object;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::FindController {
-  also does GTK::Roles::Types;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Object;
+  also does GLib::Roles::Signals::Generic;
 
-  has WebKitFindController $!wfc;
+  has WebKitFindController $!wfc is implementor;
 
   submethod BUILD (:$controller) {
     $!wfc = $controller;
+
+    self.roleInit-Object;
   }
 
+  method WebkitGTK::Raw::Definitions::WebKitFindController
+    is also<WebKitFindController>
+  { $!wfc }
+
   method new (WebKitFindController $controller) {
-    self.bless(:$controller);
+    $controller ?? self.bless(:$controller) !! Nil;
   }
 
   # Is originally:
@@ -46,10 +50,11 @@ class WebkitGTK::FindController {
     Str() $search_text,
     Int() $find_options,
     Int() $max_match_count
-  ) 
-    is also<count-matches> 
+  )
+    is also<count-matches>
   {
-    my guint ($fo, $mmc) = self.RESOLVE-UINT($find_options, $max_match_count);
+    my guint ($fo, $mmc) = ($find_options, $max_match_count);
+
     webkit_find_controller_count_matches($!wfc, $search_text, $fo, $mmc);
   }
 
@@ -66,13 +71,18 @@ class WebkitGTK::FindController {
   }
 
   method get_type is also<get-type> {
-    webkit_find_controller_get_type();
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_find_controller_get_type, $n, $t );
   }
 
-  method get_web_view is also<get-web-view> {
-    ::('WebkitGTK::WebView').new(
-      webkit_find_controller_get_web_view($!wfc)
-    );
+  method get_web_view (:$raw = False) is also<get-web-view> {
+    my $wv = webkit_find_controller_get_web_view($!wfc);
+
+    $wv ??
+      ( $raw ?? $wv !! ::('WebkitGTK::WebView').new($wv) )
+      !!
+      Nil;
   }
 
   method search (
@@ -80,7 +90,8 @@ class WebkitGTK::FindController {
     Int() $find_options,
     Int() $max_match_count
   ) {
-    my guint ($fo, $mmc) = self.RESOLVE-UINT($find_options, $max_match_count);
+    my guint ($fo, $mmc) = ($find_options, $max_match_count);
+
     webkit_find_controller_search($!wfc, $search_text, $fo, $mmc);
   }
 

@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
+
 
 use WebkitGTK::Raw::Types;
 
@@ -30,7 +30,7 @@ sub webkit_website_data_manager_clear (
   guint $types,                   # WebKitWebsiteDataTypes $types,
   GTimeSpan $timespan,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -51,7 +51,7 @@ sub webkit_website_data_manager_fetch (
   WebKitWebsiteDataManager $manager,
   guint $types,                   # WebKitWebsiteDataTypes $types,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)
@@ -157,7 +157,7 @@ sub webkit_website_data_manager_remove (
   guint $types,                   # WebKitWebsiteDataTypes $types,
   GList $website_data,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data
 )
   is native(webkit)

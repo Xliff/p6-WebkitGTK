@@ -2,30 +2,47 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::SecurityManager;
 
+use GLib::Roles::Object;
+
 class WebkitGTK::SecurityManager {
-  has WebKitSecurityManager $!wsm;
+  also does GLib::Roles::Object;
+
+  has WebKitSecurityManager $!wsm is implementor;
 
   submethod BUILD (:$manager) {
     $!wsm = $manager;
+
+    self.roleInit-Object;
   }
 
+  method WebkitGTK::Raw::Definitions::WebKitSecurityManager
+    is also<WebKitSecurityManager>
+  { $!wsm }
+
   method new (WebKitSecurityManager $manager) {
-    self.bless(:$manager);
+    $manager ?? self.bless(:$manager) !! Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_security_manager_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_security_manager_get_type,
+      $n,
+      $t
+    );
   }
 
   method register_uri_scheme_as_cors_enabled (Str() $scheme)
     is also<register-uri-scheme-as-cors-enabled>
   {
     webkit_security_manager_register_uri_scheme_as_cors_enabled(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 
@@ -33,7 +50,8 @@ class WebkitGTK::SecurityManager {
     is also<register-uri-scheme-as-display-isolated>
   {
     webkit_security_manager_register_uri_scheme_as_display_isolated(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 
@@ -41,7 +59,8 @@ class WebkitGTK::SecurityManager {
     is also<register-uri-scheme-as-empty-document>
   {
     webkit_security_manager_register_uri_scheme_as_empty_document(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 
@@ -49,7 +68,8 @@ class WebkitGTK::SecurityManager {
     is also<register-uri-scheme-as-local>
   {
     webkit_security_manager_register_uri_scheme_as_local(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 
@@ -57,7 +77,8 @@ class WebkitGTK::SecurityManager {
     is also<register-uri-scheme-as-no-access>
   {
     webkit_security_manager_register_uri_scheme_as_no_access(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 
@@ -65,7 +86,8 @@ class WebkitGTK::SecurityManager {
     is also<register-uri-scheme-as-secure>
   {
     webkit_security_manager_register_uri_scheme_as_secure(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 
@@ -79,7 +101,8 @@ class WebkitGTK::SecurityManager {
     is also<uri-scheme-is-display-isolated>
   {
     so webkit_security_manager_uri_scheme_is_display_isolated(
-      $!wsm, $scheme
+      $!wsm,
+      $scheme
     );
   }
 

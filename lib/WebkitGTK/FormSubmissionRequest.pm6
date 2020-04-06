@@ -3,59 +3,65 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::FormSubmissionRequest;
 
+use GLib::Roles::Object;
+
 class WebkitGTK::FormSubmissionRequest {
-  has WebKitFormSubmissionRequest $!wfsr;
+  also does GLib::Roles::Object;
+
+  has WebKitFormSubmissionRequest $!wfsr is implementor;
 
   submethod BUILD (:$request) {
     $!wfsr = $request;
+
+    self.roleInit-Object;
   }
 
   method new (WebKitFormSubmissionRequest $request) {
-    self.bless(:$request);
+    $request ?? self.bless(:$request) !! Nil;
   }
 
   method get_type is also<get-type> {
-    webkit_form_submission_request_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      &webkit_form_submission_request_get_type,
+      $n,
+      $t
+    );
   }
 
   # This DEFINITELY needs a multi! I don't even see why they need to do it
   # this way. Why not an array of Str?
   multi method list_test_fields is also<list-test-fields> {
-    my $fn = CArray[Pointer[GPtrArray]].new;
-    my $fv = CArray[Pointer[GPtrArray]].new;
-    samewith($fn, $fv);
+    my @r = callwith($, $, :all);
+
+    @r[0] ?? @r[1..*] !! Nil;
   }
   multi method list_text_fields (
-    CArray[Pointer[GPtrArray]] $field_names,
-    CArray[Pointer[GPtrArray]] $field_values
-  ) 
-    is also<list-text-fields> 
+    $field_names  is rw,
+    $field_values is rw,
+    :$all = False
+  )
+    is also<list-text-fields>
   {
-    my $rc = webkit_form_submission_request_list_text_fields(
-      $!wfsr, $field_names, $field_values
-    );
+    my $fn = CArray[Pointer[GPtrArray]].new;
+    $fn[0] = Pointer[GPtrArray];
 
-    my @field_names;
-    with $field_names[0] {
-      my $pa = GTK::Compat::PtrArray.new($field_names[0]);
-      $pa.downref; # Remove if SEGV
-      @field_names.push: nativecast( Str, $pa.index($_) )
-        for ^$pa.elems;
-    }
+    my $fv = CArray[Pointer[GPtrArray]].new;
+    $fv[0] = Pointer[GPtrArray];
 
-    my @field_values;
-    with $field_values[0] {
-      my $pa = GTK::Compat::PtrArray.new($field_values[0]);
-      $pa.downref; # Remove if SEGV
-      @field_values.push: nativecast( Str, $pa.index($_) )
-        for ^$pa.elems;
-    }
+    my $rc = webkit_form_submission_request_list_text_fields($!wfsr, $fn, $fv);
 
-    ($rc.so, @field_names, @field_values);
+    return Nil unless $rc;
+
+    $field_names  = CArrayToArray( $fn[0] ) if $fn[0];
+    $field_values = CArrayToArray( $fv[0] ) if $fv[0];
+
+    ($rc.so, $field_names, $field_values);
   }
 
   method submit {

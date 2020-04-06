@@ -3,10 +3,8 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::SecurityOrigin;
-use GTK::Raw::Utils;
 
 # BOXED TYPE
 
@@ -16,22 +14,29 @@ class WebkitGTK::SecurityOrigin {
   submethod BUILD (:$origin) {
     $!wso = $origin;
   }
-  
-  method WebkitGTK::Raw::Types::WebKitSecurityOrigin 
+
+  method WebkitGTK::Raw::Definitions::WebKitSecurityOrigin
     is also<SecurityOrigin>
   { $!wso }
 
   multi method new (WebKitSecurityOrigin $origin) {
+    return Nil unless $origin;
+
     my $o = self.bless(:$origin);
-    $o.upref;
+    #$o.upref;
+    $o;
   }
   multi method new (Str() $protocol, Str() $host, Int() $port) {
-    my gint16 $p = resolve-uint16($port);
-    self.bless( origin => webkit_security_origin_new($protocol, $host, $p) )
+    my gint16 $p = $port;
+    my $origin = webkit_security_origin_new($protocol, $host, $p);
+
+    $origin ?? self.bless(:$origin) !! Nil;
   }
 
   method new_for_uri(Str() $uri) is also<new-for-uri> {
-    self.bless( origin => webkit_security_origin_new_for_uri($uri) );
+    my $origin = webkit_security_origin_new_for_uri($uri);
+
+    $origin ?? self.bless(:$origin) !! Nil;
   }
 
   method get_host is also<
@@ -43,7 +48,7 @@ class WebkitGTK::SecurityOrigin {
 
   method get_port is also<
     get-port
-    port 
+    port
   > {
     webkit_security_origin_get_port($!wso);
   }
@@ -56,7 +61,14 @@ class WebkitGTK::SecurityOrigin {
   }
 
   method get_type is also<get-type> {
-    webkit_security_origin_get_type();
+    state ($n, $t);
+
+    unstable_get_type(
+      self.^name,
+      webkit_security_origin_get_type();
+      $n,
+      $t
+    );
   }
 
   method is_opaque is also<is-opaque> {
@@ -69,7 +81,12 @@ class WebkitGTK::SecurityOrigin {
   }
 
   # Alias to Str
-  method to_string is also<to-string> {
+  method to_string
+    is also<
+      to-string
+      Str
+    >
+  {
     webkit_security_origin_to_string($!wso);
   }
 

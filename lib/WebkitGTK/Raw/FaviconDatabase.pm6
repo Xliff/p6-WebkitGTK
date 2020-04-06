@@ -3,8 +3,6 @@ use v6.c;
 use Cairo;
 use NativeCall;
 
-use GTK::Compat::Types;
-
 use WebkitGTK::Raw::Types;
 
 unit package WebkitGTK::Raw::FaviconDatabase;
@@ -24,7 +22,7 @@ sub webkit_favicon_database_get_favicon (
   WebKitFaviconDatabase $database,
   Str $page_uri,
   GCancellable $cancellable,
-  GAsyncReadyCallback $callback,
+  &callback (GObject, GAsyncResult, Pointer),
   gpointer $user_data)
   is native(webkit)
   is export

@@ -2,14 +2,13 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
-use GTK::Raw::ReturnedValue;
+use GLib::Raw::ReturnedValue;
 use WebkitGTK::Raw::Types;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 role WebkitGTK::Roles::Signals::WebView {
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has %!signals-wv;
 
@@ -28,7 +27,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $ar, $ud, $r] );
           $r.r;
         },
@@ -55,7 +54,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $m, $e, $tr, $ud, $r] );
           $r.r;
         },
@@ -82,7 +81,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $na, $ud, $r] );
           $r.r;
         },
@@ -134,7 +133,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $le, $f, $e, $ud, $r] );
           $r.r;
         },
@@ -161,7 +160,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $f, $c, $e, $ud, $r] );
           $r.r;
         },
@@ -213,7 +212,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $pr, $ud, $r] );
           $r.r;
         },
@@ -240,7 +239,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $po, $ud, $r] );
           $r.r;
         },
@@ -292,7 +291,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $cc, $ud, $r] );
           $r.r;
         },
@@ -319,7 +318,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $fc, $ud, $r] );
           $r.r;
         },
@@ -346,7 +345,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $sd, $ud, $r] );
           $r.r;
         },
@@ -373,7 +372,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $n, $ud, $r] );
           $r.r;
         },
@@ -400,7 +399,7 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GTK::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $om, $e, $rect, $ud, $r] );
           $r.r;
         },

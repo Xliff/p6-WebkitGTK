@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Compat::Types;
+use GLib::Raw::Definitions;
 use WebkitGTK::JavaScript::Raw::Types;
 
 unit package WebkitGTK::JavaScript::Raw::Context;

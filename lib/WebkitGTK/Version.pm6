@@ -2,11 +2,9 @@ use v6.c;
 
 use WebkitGTK::Raw::Version;
 
-class WebkitGTK::Version {
+use GLib::Roles::StaticClass;
 
-  method new (|c) {
-    die 'WebkitGTK::Version is not an instantiable class.'
-  }
+class WebkitGTK::Version {
 
   method minor {
     webkit_get_minor_version();
@@ -33,4 +31,5 @@ class WebkitGTK::Version {
       self.major, self.minor.fmt('%02d'), self.micro.fmt('%03d')
     ).join('.');
   }
+  
 }

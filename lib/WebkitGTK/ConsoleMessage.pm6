@@ -2,10 +2,11 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 
 use WebkitGTK::Raw::ConsoleMessage;
+
+# Boxed
 
 class WebkitGTK::ConsoleMessage {
   has WebKitConsoleMessage $!wcm;
@@ -14,8 +15,12 @@ class WebkitGTK::ConsoleMessage {
     $!wcm = $message;
   }
 
+  method WebkitGTK::Raw::Definitions::WebKitConsoleMessage
+    is also<WebKitConsoleMessage>
+  { $!wcm }
+
   method new (WebKitConsoleMessage $message) {
-    self.bless( message => $message );
+    $message ?? self.bless(:$message) !! Nil;
   }
 
   method copy {
@@ -27,7 +32,7 @@ class WebkitGTK::ConsoleMessage {
   }
 
   method get_level is also<get-level> {
-    webkit_console_message_get_level($!wcm);
+    WebKitConsoleMessageLevelEnum( webkit_console_message_get_level($!wcm) );
   }
 
   method get_line is also<get-line> {
@@ -35,7 +40,7 @@ class WebkitGTK::ConsoleMessage {
   }
 
   method get_source is also<get-source> {
-    webkit_console_message_get_source($!wcm);
+    WebKitConsoleMessageSourceEnum( webkit_console_message_get_source($!wcm) );
   }
 
   method get_source_id is also<get-source-id> {
@@ -47,7 +52,9 @@ class WebkitGTK::ConsoleMessage {
   }
 
   method get_type is also<get-type> {
-    webkit_console_message_get_type();
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &webkit_console_message_get_type, $n, $t );
   }
 
 }
