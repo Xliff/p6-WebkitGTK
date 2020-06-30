@@ -9,7 +9,7 @@ unit package WebkitGTK::Raw::Types;
 constant webkit is export = 'webkit2gtk-4.0',v37;
 
 # Number of times compilations have been forced.
-constant forced = 7;
+my constant forced = 10;
 
 constant WebKitURISchemeRequestCallback is export := Pointer;
 
