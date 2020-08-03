@@ -1,0 +1,3583 @@
+Dependency Generation
+=====================
+real 0.93
+user 1.43
+sys 0.05
+ === Cairo ===
+Stage start      :   0.000
+Stage parse      :   1.199
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::RGBA ===
+Stage start      :   0.000
+Stage parse      :   1.309
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.233
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.236
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.010
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GDK::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.098
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GDK::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.271
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.242
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GIO::DBus::Raw::Types ===
+Stage start      :   0.000
+Stage parse      :   1.413
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GIO::InputStream ===
+Stage start      :   0.000
+Stage parse      :   1.629
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.012
+Stage moar       :   0.000
+ === GIO::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.331
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.229
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.097
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GIO::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.354
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.335
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Roles::Action ===
+Stage start      :   0.000
+Stage parse      :   1.541
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::GList ===
+Stage start      :   0.000
+Stage parse      :   1.329
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.226
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.252
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.006
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.104
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Raw::Object ===
+Stage start      :   0.000
+Stage parse      :   1.267
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::ReturnedValue ===
+Stage start      :   0.000
+Stage parse      :   1.105
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Raw::Struct_Subs ===
+Stage start      :   0.000
+Stage parse      :   1.214
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.308
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.287
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Types ===
+Stage start      :   0.000
+Stage parse      :   1.380
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.007
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GLib::Roles::ListData ===
+Stage start      :   0.000
+Stage parse      :   1.315
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Object ===
+Stage start      :   0.000
+Stage parse      :   1.469
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Roles::Pointers ===
+Stage start      :   0.000
+Stage parse      :   1.200
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Roles::Signals::Generic ===
+Stage start      :   0.000
+Stage parse      :   1.352
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::StaticClass ===
+Stage start      :   0.000
+Stage parse      :   1.344
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Container ===
+Stage start      :   0.000
+Stage parse      :   2.786
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.008
+Stage moar       :   0.000
+ === GTK::FileFilter ===
+Stage start      :   0.000
+Stage parse      :   1.942
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GTK::PageSetup ===
+Stage start      :   0.000
+Stage parse      :   1.934
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GTK::PrintSettings ===
+Stage start      :   0.000
+Stage parse      :   1.985
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.012
+Stage moar       :   0.000
+ === GTK::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.208
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.240
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.007
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GTK::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.135
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Raw::Requisition ===
+Stage start      :   0.000
+Stage parse      :   1.433
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.423
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.215
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Widget ===
+Stage start      :   0.000
+Stage parse      :   2.604
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.006
+Stage moar       :   0.000
+ === Method::Also ===
+Stage start      :   0.000
+Stage parse      :   1.145
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === NativeCall ===
+Stage start      :   0.000
+Stage parse      :   1.161
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === Pango::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.253
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.245
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.095
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === Pango::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.361
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.371
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Compat::Types ===
+Stage start      :   0.000
+Stage parse      :   1.192
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::Types ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/Types.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.302
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.001
+    Stage mast       :   0.037
+    Stage mbc        :   0.001
+Stage parse      :   2.518
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::Enums ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/Enums.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.377
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.002
+    Stage mast       :   0.066
+    Stage mbc        :   0.003
+Stage parse      :   2.696
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::Class ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/Class.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.701
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.008
+    Stage mast       :   0.059
+    Stage mbc        :   0.010
+Stage parse      :   3.053
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::Context ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/Context.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.219
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.092
+    Stage mbc        :   0.022
+Stage parse      :   3.608
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::Exception ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/Exception.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.796
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.006
+    Stage mast       :   0.066
+    Stage mbc        :   0.012
+Stage parse      :   3.136
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::VM ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/VM.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.267
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.001
+    Stage mast       :   0.035
+    Stage mbc        :   0.001
+Stage parse      :   2.533
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Raw::Value ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Raw/Value.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.991
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.026
+    Stage mast       :   0.129
+    Stage mbc        :   0.081
+Stage parse      :   5.588
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::Utils ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Utils.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.281
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.003
+    Stage mast       :   0.039
+    Stage mbc        :   0.001
+Stage parse      :   2.589
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::JavaScript::VM ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/VM.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.251
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.002
+    Stage mast       :   0.035
+    Stage mbc        :   0.001
+Adding alias in WebkitGTK::Java::VM for JSCVirtualMachine...
+Stage parse      :   2.540
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Roles: ()
+ === WebkitGTK::JavaScript::Value ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Value.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.982
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.032
+    Stage mast       :   0.090
+    Stage mbc        :   0.007
+Adding alias in WebkitGTK::JavaScript::Value for JSCValue...
+Stage parse      :   3.495
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WebkitGTK::JavaScript::Value for new-null...
+Adding alias in WebkitGTK::JavaScript::Value for new-number...
+Adding alias in WebkitGTK::JavaScript::Value for new-object...
+Adding alias in WebkitGTK::JavaScript::Value for new-string...
+Adding alias in WebkitGTK::JavaScript::Value for new-string-from-bytes...
+Adding alias in WebkitGTK::JavaScript::Value for new-undefined...
+Adding alias in WebkitGTK::JavaScript::Value for new-array-from-strv...
+Adding alias in WebkitGTK::JavaScript::Value for new-array-from-garray...
+Adding alias in WebkitGTK::JavaScript::Value for new-boolean...
+Adding alias in WebkitGTK::JavaScript::Value for new-function-variadic...
+Adding alias in WebkitGTK::JavaScript::Value for new-functionv...
+Adding alias in WebkitGTK::JavaScript::Value for constructor-callv...
+Adding alias in WebkitGTK::JavaScript::Value for function-callv...
+Adding alias in WebkitGTK::JavaScript::Value for get-context...
+Adding alias in WebkitGTK::JavaScript::Value for get-type...
+Adding alias in WebkitGTK::JavaScript::Value for is-array...
+Adding alias in WebkitGTK::JavaScript::Value for is-boolean...
+Adding alias in WebkitGTK::JavaScript::Value for is-constructor...
+Adding alias in WebkitGTK::JavaScript::Value for is-function...
+Adding alias in WebkitGTK::JavaScript::Value for is-null...
+Adding alias in WebkitGTK::JavaScript::Value for is-number...
+Adding alias in WebkitGTK::JavaScript::Value for is-object...
+Adding alias in WebkitGTK::JavaScript::Value for is-string...
+Adding alias in WebkitGTK::JavaScript::Value for is-undefined...
+Adding alias in WebkitGTK::JavaScript::Value for object-define-property-accessor...
+Adding alias in WebkitGTK::JavaScript::Value for object-define-property-data...
+Adding alias in WebkitGTK::JavaScript::Value for object-delete-property...
+Adding alias in WebkitGTK::JavaScript::Value for object-enumerate-properties...
+Adding alias in WebkitGTK::JavaScript::Value for object-get-property...
+Adding alias in WebkitGTK::JavaScript::Value for object-get-property-at-index...
+Adding alias in WebkitGTK::JavaScript::Value for object-has-property...
+Adding alias in WebkitGTK::JavaScript::Value for object-object-invoke-methodv...
+Adding alias in WebkitGTK::JavaScript::Value for object-is-instance-of...
+Adding alias in WebkitGTK::JavaScript::Value for object-set-property...
+Adding alias in WebkitGTK::JavaScript::Value for object-set-property-at-index...
+Adding alias in WebkitGTK::JavaScript::Value for to-boolean...
+Adding alias in WebkitGTK::JavaScript::Value for to-double...
+Adding alias in WebkitGTK::JavaScript::Value for to-int32...
+Adding alias in WebkitGTK::JavaScript::Value for to-string...
+Adding alias in WebkitGTK::JavaScript::Value for to-string-as-bytes...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.101
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Definitions ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Definitions.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.371
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.005
+    Stage mast       :   0.067
+    Stage mbc        :   0.002
+Stage parse      :   2.618
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Enums ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Enums.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.360
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.297
+    Stage mbc        :   0.022
+Stage parse      :   3.995
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Types ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Types.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.170
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.001
+    Stage mast       :   0.055
+    Stage mbc        :   0.004
+Stage parse      :   3.798
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.010
+Stage mast       :   0.034
+Stage mbc        :   0.011
+Stage moar       :   0.000
+ === WebkitGTK::Raw::URIRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/URIRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.387
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.070
+    Stage mbc        :   0.030
+Stage parse      :   4.011
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::URIResponse ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/URIResponse.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.537
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.028
+    Stage mast       :   0.106
+    Stage mbc        :   0.042
+Stage parse      :   4.242
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::URISchemeRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/URISchemeRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.481
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.076
+    Stage mbc        :   0.034
+Stage parse      :   4.085
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::UserContent ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/UserContent.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.804
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.078
+    Stage mbc        :   0.045
+Stage parse      :   4.474
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::UserContentManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/UserContentManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.940
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.080
+    Stage mbc        :   0.048
+Stage parse      :   4.633
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Version ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Version.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.864
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.063
+    Stage mbc        :   0.019
+Stage parse      :   3.429
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WebContext ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WebContext.pm6
+    Stage start      :   0.000
+    Stage parse      :   7.233
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.040
+    Stage mast       :   0.150
+    Stage mbc        :   0.164
+Stage parse      :   9.160
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WebInspector ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WebInspector.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.895
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.078
+    Stage mbc        :   0.045
+Stage parse      :   4.518
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WebResource ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WebResource.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.206
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.072
+    Stage mbc        :   0.027
+Stage parse      :   3.785
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WebView ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WebView.pm6
+    Stage start      :   0.000
+    Stage parse      :  11.972
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.045
+    Stage mast       :   0.236
+    Stage mbc        :   0.381
+Stage parse      :  14.260
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WebsiteData ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WebsiteData.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.354
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.073
+    Stage mbc        :   0.031
+Stage parse      :   3.984
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WebsiteDataManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WebsiteDataManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.115
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.028
+    Stage mast       :   0.129
+    Stage mbc        :   0.077
+Stage parse      :   5.846
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::WindowProperties ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/WindowProperties.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.792
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.075
+    Stage mbc        :   0.043
+Stage parse      :   4.472
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::AutomationSession ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/AutomationSession.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.762
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.028
+    Stage mast       :   0.063
+    Stage mbc        :   0.061
+Stage parse      :   3.394
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::BackForwardList ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/BackForwardList.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.772
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.069
+    Stage mbc        :   0.015
+Stage parse      :   3.379
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::Download ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/Download.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.492
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.075
+    Stage mbc        :   0.028
+Stage parse      :   4.149
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::PrintCustomWidget ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/PrintCustomWidget.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.201
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.024
+    Stage mast       :   0.064
+    Stage mbc        :   0.074
+Stage parse      :   3.869
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::PrintOperation ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/PrintOperation.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.531
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.076
+    Stage mbc        :   0.027
+Stage parse      :   4.165
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::UserContentManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/UserContentManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.747
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.069
+    Stage mbc        :   0.015
+Stage parse      :   3.374
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::WebContext ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/WebContext.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.962
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.026
+    Stage mast       :   0.149
+    Stage mbc        :   0.026
+Stage parse      :   3.611
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::WebResource ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/WebResource.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.007
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.151
+    Stage mbc        :   0.026
+Stage parse      :   3.713
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::Signals::WebView ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/Signals/WebView.pm6
+    Stage start      :   0.000
+    Stage parse      :   5.948
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.056
+    Stage mast       :   0.194
+    Stage mbc        :   0.155
+Stage parse      :   7.945
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::URIRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/URIRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.256
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.053
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::URIRequest for WebKitURIRequest...
+Stage parse      :   3.839
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::URIRequest for get-http-headers...
+Adding alias in WebkitGTK::URIRequest for get-http-method...
+Adding alias in WebkitGTK::URIRequest for get-type...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::URIResponse ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/URIResponse.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.830
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.055
+    Stage mbc        :   0.027
+Adding alias in WebkitGTK::URIResponse for URIResponse...
+Stage parse      :   4.534
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::URIResponse for WebKitURIResponse...
+Adding alias in WebkitGTK::URIResponse for get-content-length...
+Adding alias in WebkitGTK::URIResponse for content_length...
+Adding alias in WebkitGTK::URIResponse for content-length...
+Adding alias in WebkitGTK::URIResponse for get-http-headers...
+Adding alias in WebkitGTK::URIResponse for http_headers...
+Adding alias in WebkitGTK::URIResponse for http-headers...
+Adding alias in WebkitGTK::URIResponse for get-mime-type...
+Adding alias in WebkitGTK::URIResponse for mime_type...
+Adding alias in WebkitGTK::URIResponse for mime-type...
+Adding alias in WebkitGTK::URIResponse for get-status-code...
+Adding alias in WebkitGTK::URIResponse for status_code...
+Adding alias in WebkitGTK::URIResponse for status-code...
+Adding alias in WebkitGTK::URIResponse for get-suggested-filename...
+Adding alias in WebkitGTK::URIResponse for suggested_filename...
+Adding alias in WebkitGTK::URIResponse for suggested-filename...
+Adding alias in WebkitGTK::URIResponse for get-type...
+Adding alias in WebkitGTK::URIResponse for get-uri...
+Adding alias in WebkitGTK::URIResponse for uri...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::URISchemeRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/URISchemeRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.819
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.025
+    Stage mast       :   0.063
+    Stage mbc        :   0.015
+Adding alias in WebkitGTK::URISchemeRequest for finish-error...
+Stage parse      :   3.406
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::URISchemeRequest for get-path...
+Adding alias in WebkitGTK::URISchemeRequest for path...
+Adding alias in WebkitGTK::URISchemeRequest for get-scheme...
+Adding alias in WebkitGTK::URISchemeRequest for scheme...
+Adding alias in WebkitGTK::URISchemeRequest for get-type...
+Adding alias in WebkitGTK::URISchemeRequest for get-uri...
+Adding alias in WebkitGTK::URISchemeRequest for uri...
+Adding alias in WebkitGTK::URISchemeRequest for get-web-view...
+Adding alias in WebkitGTK::URISchemeRequest for web_view...
+Adding alias in WebkitGTK::URISchemeRequest for web-view...
+Roles: ()
+ === WebkitGTK::UserContent ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/UserContent.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.561
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.029
+    Stage mast       :   0.099
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::UserStyleSheet for new-for-world...
+Stage parse      :   3.205
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::UserStyleSheet for upref...
+Adding alias in WebkitGTK::UserStyleSheet for downref...
+Roles: ()
+Adding alias in WebkitGTK::UserScript for new-for-world...
+Adding alias in WebkitGTK::UserScript for upref...
+Adding alias in WebkitGTK::UserScript for downref...
+ === WebkitGTK::UserContentManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/UserContentManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.657
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.025
+    Stage mast       :   0.065
+    Stage mbc        :   0.009
+Adding alias in WebkitGTK::UserContentManager for UserContentManager...
+Stage parse      :   3.319
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::UserContentManager for WebKitUserContentManager...
+Adding alias in WebkitGTK::UserContentManager for script_message_received...
+Adding alias in WebkitGTK::UserContentManager for add-script...
+Adding alias in WebkitGTK::UserContentManager for add-style-sheet...
+Adding alias in WebkitGTK::UserContentManager for get-type...
+Adding alias in WebkitGTK::UserContentManager for register-script-message-handler...
+Adding alias in WebkitGTK::UserContentManager for register-script-message-handler-in-world...
+Adding alias in WebkitGTK::UserContentManager for remove-all-scripts...
+Adding alias in WebkitGTK::UserContentManager for remove-all-style-sheets...
+Adding alias in WebkitGTK::UserContentManager for unregister-script-message-handler...
+Adding alias in WebkitGTK::UserContentManager for unregister-script-message-handler-in-world...
+Roles: ((UserContentManager))
+R: WebkitGTK::Roles::Signals::UserContentManager
+ === WebkitGTK::Version ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Version.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.330
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.032
+    Stage mbc        :   0.001
+Stage parse      :   2.850
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::WebInspector ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WebInspector.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.329
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.061
+    Stage mbc        :   0.012
+Adding alias in WebkitGTK::WebInspector for WebKitWebInspector...
+Stage parse      :   3.978
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WebInspector for bring_to_front...
+Adding alias in WebkitGTK::WebInspector for open_window...
+Adding alias in WebkitGTK::WebInspector for emit-attach...
+Adding alias in WebkitGTK::WebInspector for emit-detach...
+Adding alias in WebkitGTK::WebInspector for get-attached-height...
+Adding alias in WebkitGTK::WebInspector for get-can-attach...
+Adding alias in WebkitGTK::WebInspector for get-inspected-uri...
+Adding alias in WebkitGTK::WebInspector for get-type...
+Adding alias in WebkitGTK::WebInspector for get-web-view...
+Adding alias in WebkitGTK::WebInspector for is-attached...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::WebResource ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WebResource.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.841
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.030
+    Stage mast       :   0.071
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::WebResource for WebResource...
+Stage parse      :   3.584
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WebResource for failed_with_tls_errors...
+Adding alias in WebkitGTK::WebResource for received_data...
+Adding alias in WebkitGTK::WebResource for sent_request...
+Adding alias in WebkitGTK::WebResource for get-data...
+Adding alias in WebkitGTK::WebResource for get-data-finish...
+Adding alias in WebkitGTK::WebResource for get-response...
+Adding alias in WebkitGTK::WebResource for response...
+Adding alias in WebkitGTK::WebResource for get-typ...
+Adding alias in WebkitGTK::WebResource for get-uri...
+Adding alias in WebkitGTK::WebResource for uri...
+Roles: ((Object) (WebResource))
+R: GLib::Roles::Object
+R: WebkitGTK::Roles::Signals::WebResource
+ === WebkitGTK::WebsiteData ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WebsiteData.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.662
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.056
+    Stage mbc        :   0.020
+Adding alias in WebkitGTK::WebsiteData for WebsteData...
+Stage parse      :   3.277
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WebsiteData for get-name...
+Adding alias in WebkitGTK::WebsiteData for name...
+Adding alias in WebkitGTK::WebsiteData for get-size...
+Adding alias in WebkitGTK::WebsiteData for size...
+Adding alias in WebkitGTK::WebsiteData for get-type...
+Adding alias in WebkitGTK::WebsiteData for get-types...
+Adding alias in WebkitGTK::WebsiteData for types...
+Adding alias in WebkitGTK::WebsiteData for upref...
+Adding alias in WebkitGTK::WebsiteData for downref...
+Roles: ()
+ === WebkitGTK::WindowProperties ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WindowProperties.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.830
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.059
+    Stage mbc        :   0.027
+Adding alias in WebkitGTK::WindowProperties for WindowProperties...
+Stage parse      :   4.459
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WindowProperties for WebKitWindowProperties...
+Adding alias in WebkitGTK::WindowProperties for get-fullscreen...
+Adding alias in WebkitGTK::WindowProperties for get-geometry...
+Adding alias in WebkitGTK::WindowProperties for get-locationbar-visible...
+Adding alias in WebkitGTK::WindowProperties for locationbar_visible...
+Adding alias in WebkitGTK::WindowProperties for locationbar-visible...
+Adding alias in WebkitGTK::WindowProperties for get-menubar-visible...
+Adding alias in WebkitGTK::WindowProperties for menubar_visible...
+Adding alias in WebkitGTK::WindowProperties for menubar-visible...
+Adding alias in WebkitGTK::WindowProperties for get-resizable...
+Adding alias in WebkitGTK::WindowProperties for resizeable...
+Adding alias in WebkitGTK::WindowProperties for get-scrollbars-visible...
+Adding alias in WebkitGTK::WindowProperties for scrollbars_visible...
+Adding alias in WebkitGTK::WindowProperties for scrollbars-visible...
+Adding alias in WebkitGTK::WindowProperties for get-statusbar-visible...
+Adding alias in WebkitGTK::WindowProperties for statusbar_visible...
+Adding alias in WebkitGTK::WindowProperties for statusbar-visible...
+Adding alias in WebkitGTK::WindowProperties for get-toolbar-visible...
+Adding alias in WebkitGTK::WindowProperties for toolbar_visible...
+Adding alias in WebkitGTK::WindowProperties for toolbar-visible...
+Adding alias in WebkitGTK::WindowProperties for get-type...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::JavaScript::Class ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Class.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.968
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.063
+    Stage mbc        :   0.007
+Adding alias in WebkitGTK::JavaScript::Class for JSSCClass...
+Stage parse      :   3.404
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WebkitGTK::JavaScript::Class for add-constructor-variadic...
+Adding alias in WebkitGTK::JavaScript::Class for add-constructor...
+Adding alias in WebkitGTK::JavaScript::Class for add-constructorv...
+Adding alias in WebkitGTK::JavaScript::Class for add-method-variadic...
+Adding alias in WebkitGTK::JavaScript::Class for add-method...
+Adding alias in WebkitGTK::JavaScript::Class for add-methodv...
+Adding alias in WebkitGTK::JavaScript::Class for add-property...
+Adding alias in WebkitGTK::JavaScript::Class for get-name...
+Adding alias in WebkitGTK::JavaScript::Class for name...
+Adding alias in WebkitGTK::JavaScript::Class for get-parent...
+Adding alias in WebkitGTK::JavaScript::Class for parent...
+Adding alias in WebkitGTK::JavaScript::Class for get-type...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::JavaScript::Exception ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Exception.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.057
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.007
+    Stage mast       :   0.059
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::JavaScript::Exception for JSCException...
+Stage parse      :   3.552
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::JavaScript::Exception for new-with-name...
+Adding alias in WebkitGTK::JavaScript::Exception for get-backtrace-string...
+Adding alias in WebkitGTK::JavaScript::Exception for backtrace_string...
+Adding alias in WebkitGTK::JavaScript::Exception for backtrace-string...
+Adding alias in WebkitGTK::JavaScript::Exception for get-column-number...
+Adding alias in WebkitGTK::JavaScript::Exception for column_number...
+Adding alias in WebkitGTK::JavaScript::Exception for column-number...
+Adding alias in WebkitGTK::JavaScript::Exception for get-line-number...
+Adding alias in WebkitGTK::JavaScript::Exception for line_number...
+Adding alias in WebkitGTK::JavaScript::Exception for line-number...
+Adding alias in WebkitGTK::JavaScript::Exception for get-message...
+Adding alias in WebkitGTK::JavaScript::Exception for message...
+Adding alias in WebkitGTK::JavaScript::Exception for get-name...
+Adding alias in WebkitGTK::JavaScript::Exception for name...
+Adding alias in WebkitGTK::JavaScript::Exception for get-source-uri...
+Adding alias in WebkitGTK::JavaScript::Exception for source_uri...
+Adding alias in WebkitGTK::JavaScript::Exception for source-uri...
+Adding alias in WebkitGTK::JavaScript::Exception for get-type...
+Adding alias in WebkitGTK::JavaScript::Exception for to-string...
+Adding alias in WebkitGTK::JavaScript::Exception for Str...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::Raw::ApplicationInfo ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/ApplicationInfo.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.618
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.024
+    Stage mast       :   0.077
+    Stage mbc        :   0.038
+Stage parse      :   4.258
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::AuthenticationRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/AuthenticationRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.100
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.099
+    Stage mbc        :   0.049
+Stage parse      :   4.759
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::AutomationSession ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/AutomationSession.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.069
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.063
+    Stage mbc        :   0.023
+Stage parse      :   3.709
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::BackForwardList ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/BackForwardList.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.903
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.079
+    Stage mbc        :   0.048
+Stage parse      :   4.578
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::BackForwardListItem ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/BackForwardListItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.099
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.012
+    Stage mast       :   0.090
+    Stage mbc        :   0.023
+Stage parse      :   3.727
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::ColorChooserRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/ColorChooserRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.365
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.069
+    Stage mbc        :   0.030
+Stage parse      :   3.974
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::ConsoleMessage ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/ConsoleMessage.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.624
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.075
+    Stage mbc        :   0.038
+Stage parse      :   4.246
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::ContextMenu ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/ContextMenu.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.842
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.097
+    Stage mbc        :   0.070
+Stage parse      :   5.537
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::ContextMenuItem ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/ContextMenuItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.040
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.086
+    Stage mbc        :   0.049
+Stage parse      :   4.686
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::CookieManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/CookieManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.148
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.025
+    Stage mast       :   0.090
+    Stage mbc        :   0.064
+Stage parse      :   4.847
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Credential ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Credential.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.600
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.070
+    Stage mbc        :   0.072
+Stage parse      :   4.253
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Download ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Download.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.213
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.084
+    Stage mbc        :   0.068
+Stage parse      :   4.890
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::EditorState ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/EditorState.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.489
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.031
+    Stage mast       :   0.072
+    Stage mbc        :   0.035
+Stage parse      :   4.112
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Error ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Error.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.461
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.070
+    Stage mbc        :   0.035
+Stage parse      :   4.094
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::FaviconDatabase ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/FaviconDatabase.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.369
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.021
+    Stage mast       :   0.067
+    Stage mbc        :   0.030
+Stage parse      :   3.990
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::FileChooserRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/FileChooserRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.374
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.076
+    Stage mbc        :   0.031
+Stage parse      :   3.987
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::FindController ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/FindController.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.936
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.081
+    Stage mbc        :   0.045
+Stage parse      :   4.628
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::FormSubmissionRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/FormSubmissionRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.874
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.025
+    Stage mast       :   0.062
+    Stage mbc        :   0.018
+Stage parse      :   3.448
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Frame ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Frame.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.180
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.068
+    Stage mbc        :   0.026
+Stage parse      :   3.712
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WebkitGTK::Raw::HitTestResult ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/HitTestResult.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.335
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.021
+    Stage mast       :   0.078
+    Stage mbc        :   0.060
+Stage parse      :   5.020
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::JavascriptResult ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/JavascriptResult.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.075
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.065
+    Stage mbc        :   0.022
+Stage parse      :   3.680
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::MimeInfo ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/MimeInfo.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.327
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.067
+    Stage mbc        :   0.031
+Stage parse      :   3.942
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::NativgationPolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/NativgationPolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.869
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.024
+    Stage mast       :   0.058
+    Stage mbc        :   0.019
+Stage parse      :   3.466
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::NavigationAction ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/NavigationAction.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.752
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.073
+    Stage mbc        :   0.046
+Stage parse      :   4.370
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::NavigationPolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/NavigationPolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.840
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.062
+    Stage mbc        :   0.020
+Stage parse      :   3.411
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::NetworkProxySettings ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/NetworkProxySettings.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.215
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.070
+    Stage mbc        :   0.026
+Stage parse      :   3.830
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Notification ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Notification.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.503
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.072
+    Stage mbc        :   0.035
+Stage parse      :   4.109
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::OptionMenu ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/OptionMenu.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.341
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.070
+    Stage mbc        :   0.029
+Stage parse      :   3.978
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::OptionMenuItem ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/OptionMenuItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.742
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.076
+    Stage mbc        :   0.042
+Stage parse      :   4.397
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::PermissionRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/PermissionRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.856
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.058
+    Stage mbc        :   0.019
+Stage parse      :   3.417
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Plugin ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Plugin.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.196
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.067
+    Stage mbc        :   0.027
+Stage parse      :   3.787
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::PolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/PolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.070
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.060
+    Stage mbc        :   0.024
+Stage parse      :   3.648
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::PrintCustomWidget ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/PrintCustomWidget.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.988
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.066
+    Stage mbc        :   0.024
+Stage parse      :   3.566
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::PrintOperation ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/PrintOperation.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.621
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.072
+    Stage mbc        :   0.040
+Stage parse      :   4.242
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::ResponsePolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/ResponsePolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.011
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.139
+    Stage mbc        :   0.023
+Stage parse      :   3.651
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::SecurityManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/SecurityManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.295
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.025
+    Stage mast       :   0.116
+    Stage mbc        :   0.057
+Stage parse      :   5.011
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::SecurityOrigin ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/SecurityOrigin.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.884
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.039
+    Stage mast       :   0.074
+    Stage mbc        :   0.046
+Stage parse      :   4.518
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Raw::Settings ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/Settings.pm6
+    Stage start      :   0.000
+    Stage parse      :  17.653
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.093
+    Stage mast       :   0.270
+    Stage mbc        :   0.489
+Stage parse      :  20.331
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::Roles::PermissionRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Roles/PermissionRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.520
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.039
+    Stage mbc        :   0.008
+Adding alias in WebkitGTK::Roles::PermissionRequest for WebKitPermissionRequest...
+Stage parse      :   3.078
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::SecurityManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/SecurityManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.281
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.083
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::SecurityManager for WebKitSecurityManager...
+Stage parse      :   3.902
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::SecurityManager for get-type...
+Adding alias in WebkitGTK::SecurityManager for register-uri-scheme-as-cors-enabled...
+Adding alias in WebkitGTK::SecurityManager for register-uri-scheme-as-display-isolated...
+Adding alias in WebkitGTK::SecurityManager for register-uri-scheme-as-empty-document...
+Adding alias in WebkitGTK::SecurityManager for register-uri-scheme-as-local...
+Adding alias in WebkitGTK::SecurityManager for register-uri-scheme-as-no-access...
+Adding alias in WebkitGTK::SecurityManager for register-uri-scheme-as-secure...
+Adding alias in WebkitGTK::SecurityManager for uri-scheme-is-cors-enabled...
+Adding alias in WebkitGTK::SecurityManager for uri-scheme-is-display-isolated...
+Adding alias in WebkitGTK::SecurityManager for uri-scheme-is-empty-document...
+Adding alias in WebkitGTK::SecurityManager for uri-scheme-is-local...
+Adding alias in WebkitGTK::SecurityManager for uri-scheme-is-no-access...
+Adding alias in WebkitGTK::SecurityManager for uri-scheme-is-secure...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::SecurityOrigin ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/SecurityOrigin.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.806
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.026
+    Stage mast       :   0.063
+    Stage mbc        :   0.015
+Adding alias in WebkitGTK::SecurityOrigin for SecurityOrigin...
+Stage parse      :   3.429
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::SecurityOrigin for new-for-uri...
+Adding alias in WebkitGTK::SecurityOrigin for get-host...
+Adding alias in WebkitGTK::SecurityOrigin for host...
+Adding alias in WebkitGTK::SecurityOrigin for get-port...
+Adding alias in WebkitGTK::SecurityOrigin for port...
+Adding alias in WebkitGTK::SecurityOrigin for get-protocol...
+Adding alias in WebkitGTK::SecurityOrigin for protocol...
+Adding alias in WebkitGTK::SecurityOrigin for get-type...
+Adding alias in WebkitGTK::SecurityOrigin for is-opaque...
+Adding alias in WebkitGTK::SecurityOrigin for upref...
+Adding alias in WebkitGTK::SecurityOrigin for to-string...
+Adding alias in WebkitGTK::SecurityOrigin for Str...
+Adding alias in WebkitGTK::SecurityOrigin for downref...
+Roles: ()
+ === WebkitGTK::Settings ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Settings.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.683
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.169
+    Stage mast       :   0.147
+    Stage mbc        :   0.015
+Adding alias in WebkitGTK::Settings for WebKitSettings...
+Stage parse      :   4.579
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.009
+Stage moar       :   0.000
+Adding alias in WebkitGTK::Settings for font-size-to-pixels...
+Adding alias in WebkitGTK::Settings for font-size-to-points...
+Adding alias in WebkitGTK::Settings for get-type...
+Adding alias in WebkitGTK::Settings for set-user-agent-with-application-details...
+Adding alias in WebkitGTK::Settings for allow-file-access-from-file-urls...
+Adding alias in WebkitGTK::Settings for allow-modal-dialogs...
+Adding alias in WebkitGTK::Settings for allow-universal-access-from-file-urls...
+Adding alias in WebkitGTK::Settings for auto-load-images...
+Adding alias in WebkitGTK::Settings for cursive-font-family...
+Adding alias in WebkitGTK::Settings for default-charset...
+Adding alias in WebkitGTK::Settings for default-font-family...
+Adding alias in WebkitGTK::Settings for default-font-size...
+Adding alias in WebkitGTK::Settings for default-monospace-font-size...
+Adding alias in WebkitGTK::Settings for draw-compositing-indicators...
+Adding alias in WebkitGTK::Settings for enable-accelerated-2d-canvas...
+Adding alias in WebkitGTK::Settings for enable-caret-browsing...
+Adding alias in WebkitGTK::Settings for enable-developer-extras...
+Adding alias in WebkitGTK::Settings for enable-dns-prefetching...
+Adding alias in WebkitGTK::Settings for enable-encrypted-media...
+Adding alias in WebkitGTK::Settings for enable-frame-flattening...
+Adding alias in WebkitGTK::Settings for enable-fullscreen...
+Adding alias in WebkitGTK::Settings for enable-html5-database...
+Adding alias in WebkitGTK::Settings for enable-html5-local-storage...
+Adding alias in WebkitGTK::Settings for enable-hyperlink-auditing...
+Adding alias in WebkitGTK::Settings for enable-java...
+Adding alias in WebkitGTK::Settings for enable-javascript...
+Adding alias in WebkitGTK::Settings for enable-media-capabilities...
+Adding alias in WebkitGTK::Settings for enable-media-stream...
+Adding alias in WebkitGTK::Settings for enable-mediasource...
+Adding alias in WebkitGTK::Settings for enable-offline-web-application-cache...
+Adding alias in WebkitGTK::Settings for enable-page-cache...
+Adding alias in WebkitGTK::Settings for enable-plugins...
+Adding alias in WebkitGTK::Settings for enable-resizable-text-areas...
+Adding alias in WebkitGTK::Settings for enable-site-specific-quirks...
+Adding alias in WebkitGTK::Settings for enable-smooth-scrolling...
+Adding alias in WebkitGTK::Settings for enable-spatial-navigation...
+Adding alias in WebkitGTK::Settings for enable-tabs-to-links...
+Adding alias in WebkitGTK::Settings for enable-webaudio...
+Adding alias in WebkitGTK::Settings for enable-webgl...
+Adding alias in WebkitGTK::Settings for enable-write-console-messages-to-stdout...
+Adding alias in WebkitGTK::Settings for enable-xss-auditor...
+Adding alias in WebkitGTK::Settings for fantasy-font-family...
+Adding alias in WebkitGTK::Settings for hardware-acceleration-policy...
+Adding alias in WebkitGTK::Settings for javascript-can-access-clipboard...
+Adding alias in WebkitGTK::Settings for javascript-can-open-windows-automatically...
+Adding alias in WebkitGTK::Settings for load-icons-ignoring-image-load-setting...
+Adding alias in WebkitGTK::Settings for media-playback-allows-inline...
+Adding alias in WebkitGTK::Settings for media-playback-requires-user-gesture...
+Adding alias in WebkitGTK::Settings for minimum-font-size...
+Adding alias in WebkitGTK::Settings for monospace-font-family...
+Adding alias in WebkitGTK::Settings for pictograph-font-family...
+Adding alias in WebkitGTK::Settings for print-backgrounds...
+Adding alias in WebkitGTK::Settings for sans-serif-font-family...
+Adding alias in WebkitGTK::Settings for serif-font-family...
+Adding alias in WebkitGTK::Settings for user-agent...
+Adding alias in WebkitGTK::Settings for zoom-text-only...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::ApplicationInfo ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/ApplicationInfo.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.477
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.074
+    Stage mbc        :   0.016
+Adding alias in WebkitGTK::ApplicationInfo for WebKitApplicationInfo...
+Stage parse      :   3.060
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::ApplicationInfo for get-type...
+Adding alias in WebkitGTK::ApplicationInfo for get-version...
+Adding alias in WebkitGTK::ApplicationInfo for upref...
+Adding alias in WebkitGTK::ApplicationInfo for set-version...
+Adding alias in WebkitGTK::ApplicationInfo for downref...
+Roles: ()
+ === WebkitGTK::AutomationSession ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/AutomationSession.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.322
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.034
+    Stage mast       :   0.059
+    Stage mbc        :   0.009
+Adding alias in WebkitGTK::AutomationSession for application-info...
+Stage parse      :   4.004
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::AutomationSession for create_web_view...
+Adding alias in WebkitGTK::AutomationSession for get-id...
+Adding alias in WebkitGTK::AutomationSession for get-type...
+Roles: ((Object) (AutomationSession))
+R: GLib::Roles::Object
+R: WebkitGTK::Roles::Signals::AutomationSession
+ === WebkitGTK::BackForwardListItem ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/BackForwardListItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.275
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.052
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::BackForwardListItem for WebKitBackForwardListItem...
+Stage parse      :   3.887
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::BackForwardListItem for webkit-back-forward-list-item-get-original-uri...
+Adding alias in WebkitGTK::BackForwardListItem for webkit-back-forward-list-item-get-title...
+Adding alias in WebkitGTK::BackForwardListItem for webkit-back-forward-list-item-get-type...
+Adding alias in WebkitGTK::BackForwardListItem for webkit-back-forward-list-item-get-uri...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::ColorChooserRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/ColorChooserRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.368
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.055
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::ColorChooserRequest for WebKitColorChooserRequest...
+Stage parse      :   3.993
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::ColorChooserRequest for get-element-rectangle...
+Adding alias in WebkitGTK::ColorChooserRequest for get-rgba...
+Adding alias in WebkitGTK::ColorChooserRequest for rgba...
+Adding alias in WebkitGTK::ColorChooserRequest for get-type...
+Adding alias in WebkitGTK::ColorChooserRequest for set-rgba...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::ConsoleMessage ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/ConsoleMessage.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.441
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.021
+    Stage mast       :   0.065
+    Stage mbc        :   0.017
+Adding alias in WebkitGTK::ConsoleMessage for WebKitConsoleMessage...
+Stage parse      :   3.034
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::ConsoleMessage for get-level...
+Adding alias in WebkitGTK::ConsoleMessage for get-line...
+Adding alias in WebkitGTK::ConsoleMessage for get-source...
+Adding alias in WebkitGTK::ConsoleMessage for get-source-id...
+Adding alias in WebkitGTK::ConsoleMessage for get-text...
+Adding alias in WebkitGTK::ConsoleMessage for get-type...
+Roles: ()
+ === WebkitGTK::ContextMenuItem ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/ContextMenuItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.702
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.085
+    Stage mbc        :   0.019
+Adding alias in WebkitGTK::ContextMenuItem for WebKitContextMenuItem...
+Stage parse      :   4.385
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::ContextMenuItem for ContextMenuItem...
+Adding alias in WebkitGTK::ContextMenuItem for new-from-gaction...
+Adding alias in WebkitGTK::ContextMenuItem for new-from-stock-action...
+Adding alias in WebkitGTK::ContextMenuItem for new-from-stock-action-with-label...
+Adding alias in WebkitGTK::ContextMenuItem for new-separator...
+Adding alias in WebkitGTK::ContextMenuItem for new-with-submenu...
+Adding alias in WebkitGTK::ContextMenuItem for get-gaction...
+Adding alias in WebkitGTK::ContextMenuItem for gaction...
+Adding alias in WebkitGTK::ContextMenuItem for get-stock-action...
+Adding alias in WebkitGTK::ContextMenuItem for stock_action...
+Adding alias in WebkitGTK::ContextMenuItem for stock-action...
+Adding alias in WebkitGTK::ContextMenuItem for get-type...
+Adding alias in WebkitGTK::ContextMenuItem for is-separator...
+Roles: ((Action))
+R: GIO::Roles::Action
+ === WebkitGTK::CookieManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/CookieManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.422
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.021
+    Stage mast       :   0.171
+    Stage mbc        :   0.029
+Adding alias in WebkitGTK::CookieManager for WebKitCookieManager...
+Stage parse      :   4.217
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::CookieManager for add-cookie...
+Adding alias in WebkitGTK::CookieManager for add-cookie-finish...
+Adding alias in WebkitGTK::CookieManager for delete-cookie...
+Adding alias in WebkitGTK::CookieManager for delete-cookie-finish...
+Adding alias in WebkitGTK::CookieManager for get-accept-policy...
+Adding alias in WebkitGTK::CookieManager for get-accept-policy-finish...
+Adding alias in WebkitGTK::CookieManager for accept_policy_finish...
+Adding alias in WebkitGTK::CookieManager for accept-policy-finish...
+Adding alias in WebkitGTK::CookieManager for get-cookies...
+Adding alias in WebkitGTK::CookieManager for get-cookies-finish...
+Adding alias in WebkitGTK::CookieManager for get-type...
+Adding alias in WebkitGTK::CookieManager for set-accept-policy...
+Adding alias in WebkitGTK::CookieManager for set-persistent-storage...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::Credential ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Credential.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.705
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.076
+    Stage mbc        :   0.023
+Adding alias in WebkitGTK::Credential for Credential...
+Stage parse      :   3.335
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::Credential for WebKitCredential...
+Adding alias in WebkitGTK::Credential for get-password...
+Adding alias in WebkitGTK::Credential for password...
+Adding alias in WebkitGTK::Credential for get-persistence...
+Adding alias in WebkitGTK::Credential for persistence...
+Adding alias in WebkitGTK::Credential for get-type...
+Adding alias in WebkitGTK::Credential for get-username...
+Adding alias in WebkitGTK::Credential for username...
+Adding alias in WebkitGTK::Credential for has-password...
+Roles: ()
+ === WebkitGTK::EditorState ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/EditorState.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.260
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.011
+    Stage mast       :   0.054
+    Stage mbc        :   0.011
+Adding alias in WebkitGTK::EditorState for WebKitEditorState...
+Stage parse      :   3.894
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::EditorState for get-type...
+Adding alias in WebkitGTK::EditorState for get-typing-attributes...
+Adding alias in WebkitGTK::EditorState for is-copy-available...
+Adding alias in WebkitGTK::EditorState for is-cut-available...
+Adding alias in WebkitGTK::EditorState for is-paste-available...
+Adding alias in WebkitGTK::EditorState for is-redo-available...
+Adding alias in WebkitGTK::EditorState for is-undo-available...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::Error ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Error.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.311
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.003
+    Stage mast       :   0.030
+    Stage mbc        :   0.001
+Stage parse      :   2.866
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WebkitGTK::FaviconDatabase ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/FaviconDatabase.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.362
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.093
+    Stage mbc        :   0.013
+Adding alias in WebkitGTK::FaviconDatabase for FaviconDatabase...
+Stage parse      :   4.060
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+Adding alias in WebkitGTK::FaviconDatabase for WebKitFaviconDatabase...
+Adding alias in WebkitGTK::FaviconDatabase for favicon_changed...
+Adding alias in WebkitGTK::FaviconDatabase for error-quark...
+Adding alias in WebkitGTK::FaviconDatabase for get-favicon...
+Adding alias in WebkitGTK::FaviconDatabase for get-favicon-finish...
+Adding alias in WebkitGTK::FaviconDatabase for get-favicon-uri...
+Adding alias in WebkitGTK::FaviconDatabase for get-type...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::FileChooserRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/FileChooserRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.278
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.009
+    Stage mast       :   0.084
+    Stage mbc        :   0.020
+Adding alias in WekkitGTK::FileChooserRequest for get-mime-types-filter...
+Stage parse      :   5.030
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WekkitGTK::FileChooserRequest for get-select-multiple...
+Adding alias in WekkitGTK::FileChooserRequest for get-type...
+Adding alias in WekkitGTK::FileChooserRequest for select-files...
+Adding alias in WekkitGTK::FileChooserRequest for get-selected-files...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::FindController ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/FindController.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.391
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.076
+    Stage mbc        :   0.012
+Adding alias in WebkitGTK::FindController for WebKitFindController...
+Stage parse      :   4.018
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.008
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::FindController for counted_matches...
+Adding alias in WebkitGTK::FindController for failed_to_find_text...
+Adding alias in WebkitGTK::FindController for found_text...
+Adding alias in WebkitGTK::FindController for count-matches...
+Adding alias in WebkitGTK::FindController for get-max-match-count...
+Adding alias in WebkitGTK::FindController for get-options...
+Adding alias in WebkitGTK::FindController for get-search-text...
+Adding alias in WebkitGTK::FindController for get-type...
+Adding alias in WebkitGTK::FindController for get-web-view...
+Adding alias in WebkitGTK::FindController for search-finish...
+Adding alias in WebkitGTK::FindController for search-next...
+Adding alias in WebkitGTK::FindController for search-previous...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::FormSubmissionRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/FormSubmissionRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.251
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.064
+    Stage mbc        :   0.019
+Adding alias in WebkitGTK::FormSubmissionRequest for get-type...
+Stage parse      :   3.879
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::FormSubmissionRequest for list-test-fields...
+Adding alias in WebkitGTK::FormSubmissionRequest for list-text-fields...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::HitTestResult ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/HitTestResult.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.181
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.075
+    Stage mbc        :   0.043
+Adding alias in WebkitGTK::HitTestResult for HitTestResult...
+Stage parse      :   4.851
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::HitTestResult for WebKitHitTestResult...
+Adding alias in WebkitGTK::HitTestResult for context-is-editable...
+Adding alias in WebkitGTK::HitTestResult for is_editable...
+Adding alias in WebkitGTK::HitTestResult for is-editable...
+Adding alias in WebkitGTK::HitTestResult for context-is-image...
+Adding alias in WebkitGTK::HitTestResult for is_image...
+Adding alias in WebkitGTK::HitTestResult for is-image...
+Adding alias in WebkitGTK::HitTestResult for context-is-link...
+Adding alias in WebkitGTK::HitTestResult for is_link...
+Adding alias in WebkitGTK::HitTestResult for is-link...
+Adding alias in WebkitGTK::HitTestResult for context-is-media...
+Adding alias in WebkitGTK::HitTestResult for is_media...
+Adding alias in WebkitGTK::HitTestResult for is-media...
+Adding alias in WebkitGTK::HitTestResult for context-is-scrollbar...
+Adding alias in WebkitGTK::HitTestResult for is_scrollbar...
+Adding alias in WebkitGTK::HitTestResult for is-scrollbar...
+Adding alias in WebkitGTK::HitTestResult for context-is-selection...
+Adding alias in WebkitGTK::HitTestResult for is_selection...
+Adding alias in WebkitGTK::HitTestResult for is-selection...
+Adding alias in WebkitGTK::HitTestResult for get-context...
+Adding alias in WebkitGTK::HitTestResult for context...
+Adding alias in WebkitGTK::HitTestResult for get-image-uri...
+Adding alias in WebkitGTK::HitTestResult for image_uri...
+Adding alias in WebkitGTK::HitTestResult for image-uri...
+Adding alias in WebkitGTK::HitTestResult for get-link-label...
+Adding alias in WebkitGTK::HitTestResult for link_label...
+Adding alias in WebkitGTK::HitTestResult for link-label...
+Adding alias in WebkitGTK::HitTestResult for get-link-title...
+Adding alias in WebkitGTK::HitTestResult for link_title...
+Adding alias in WebkitGTK::HitTestResult for link-title...
+Adding alias in WebkitGTK::HitTestResult for get-link-uri...
+Adding alias in WebkitGTK::HitTestResult for link_uri...
+Adding alias in WebkitGTK::HitTestResult for link-uri...
+Adding alias in WebkitGTK::HitTestResult for get-media-uri...
+Adding alias in WebkitGTK::HitTestResult for media_uri...
+Adding alias in WebkitGTK::HitTestResult for media-uri...
+Adding alias in WebkitGTK::HitTestResult for get-type...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::JavaScript::Context ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavaScript/Context.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.904
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.079
+    Stage mbc        :   0.008
+Adding alias in WebkitGTK::JavaScript::Context for JSCContext...
+Stage parse      :   3.449
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::JavaScript::Context for get-current...
+Adding alias in WebkitGTK::JavaScript::Context for current...
+Adding alias in WebkitGTK::JavaScript::Context for new-with-virtual-machine...
+Adding alias in WebkitGTK::JavaScript::Context for check-syntax...
+Adding alias in WebkitGTK::JavaScript::Context for clear-exception...
+Adding alias in WebkitGTK::JavaScript::Context for evaluate-in-object...
+Adding alias in WebkitGTK::JavaScript::Context for evaluate-with-source-uri...
+Adding alias in WebkitGTK::JavaScript::Context for get-exception...
+Adding alias in WebkitGTK::JavaScript::Context for exception...
+Adding alias in WebkitGTK::JavaScript::Context for get-global-object...
+Adding alias in WebkitGTK::JavaScript::Context for global_object...
+Adding alias in WebkitGTK::JavaScript::Context for global-object...
+Adding alias in WebkitGTK::JavaScript::Context for get-type...
+Adding alias in WebkitGTK::JavaScript::Context for get-value...
+Adding alias in WebkitGTK::JavaScript::Context for get-virtual-machine...
+Adding alias in WebkitGTK::JavaScript::Context for virtual_machine...
+Adding alias in WebkitGTK::JavaScript::Context for virtual-machine...
+Adding alias in WebkitGTK::JavaScript::Context for pop-exception-handler...
+Adding alias in WebkitGTK::JavaScript::Context for push-exception-handler...
+Adding alias in WebkitGTK::JavaScript::Context for register-class...
+Adding alias in WebkitGTK::JavaScript::Context for set-value...
+Adding alias in WebkitGTK::JavaScript::Context for throw-exception...
+Adding alias in WebkitGTK::JavaScript::Context for throw-with-name...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::JavascriptResult ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/JavascriptResult.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.587
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.056
+    Stage mbc        :   0.015
+Adding alias in WebkitGTK::JavascriptResult for JavascriptResult...
+Stage parse      :   3.223
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::JavascriptResult for WebKitJavascriptResult...
+Adding alias in WebkitGTK::JavascriptResult for get-js-value...
+Adding alias in WebkitGTK::JavascriptResult for get-type...
+Adding alias in WebkitGTK::JavascriptResult for upref...
+Adding alias in WebkitGTK::JavascriptResult for downref...
+Roles: ()
+ === WebkitGTK::MimeInfo ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/MimeInfo.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.528
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.052
+    Stage mbc        :   0.014
+Adding alias in WebkitGTK::MimeInfo for MinmeInfo...
+Stage parse      :   3.084
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::MimeInfo for WebKitMimeInfo...
+Adding alias in WebkitGTK::MimeInfo for get-description...
+Adding alias in WebkitGTK::MimeInfo for get-mime-type...
+Adding alias in WebkitGTK::MimeInfo for get-extensions...
+Adding alias in WebkitGTK::MimeInfo for get-type...
+Roles: ()
+ === WebkitGTK::NavigationAction ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/NavigationAction.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.950
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.070
+    Stage mbc        :   0.017
+Adding alias in WebkitGTK::NavigationAction for NavigationAction...
+Stage parse      :   3.670
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::NavigationAction for WebKitNavigationAction...
+Adding alias in WebkitGTK::NavigationAction for get-modifiers...
+Adding alias in WebkitGTK::NavigationAction for modifiers...
+Adding alias in WebkitGTK::NavigationAction for get-mouse-button...
+Adding alias in WebkitGTK::NavigationAction for mouse_button...
+Adding alias in WebkitGTK::NavigationAction for mouse-button...
+Adding alias in WebkitGTK::NavigationAction for get-navigation-type...
+Adding alias in WebkitGTK::NavigationAction for navigation_type...
+Adding alias in WebkitGTK::NavigationAction for navigation-type...
+Adding alias in WebkitGTK::NavigationAction for get-request...
+Adding alias in WebkitGTK::NavigationAction for request...
+Adding alias in WebkitGTK::NavigationAction for get-type...
+Adding alias in WebkitGTK::NavigationAction for is-redirect...
+Adding alias in WebkitGTK::NavigationAction for is-user-gesture...
+Roles: ()
+ === WebkitGTK::NetworkProxySettings ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/NetworkProxySettings.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.551
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.071
+    Stage mbc        :   0.014
+Adding alias in WebkitGTK::NetworkProxySettings for WebKitNetworkProxySettings...
+Stage parse      :   3.168
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::NetworkProxySettings for add-proxy-for-scheme...
+Adding alias in WebkitGTK::NetworkProxySettings for get-type...
+Roles: ()
+ === WebkitGTK::Notification ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Notification.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.607
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.144
+    Stage mbc        :   0.021
+Adding alias in WebkitGTK::Notification for WebKitNotification...
+Stage parse      :   4.343
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::Notification for emit_clicked...
+Adding alias in WebkitGTK::Notification for get-body...
+Adding alias in WebkitGTK::Notification for body...
+Adding alias in WebkitGTK::Notification for get-id...
+Adding alias in WebkitGTK::Notification for id...
+Adding alias in WebkitGTK::Notification for get-tag...
+Adding alias in WebkitGTK::Notification for tag...
+Adding alias in WebkitGTK::Notification for get-title...
+Adding alias in WebkitGTK::Notification for title...
+Adding alias in WebkitGTK::Notification for get-type...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::OptionMenuItem ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/OptionMenuItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.615
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.066
+    Stage mbc        :   0.009
+Adding alias in WebkitGTK::OptionMenuItem for OptionMenuItem...
+Stage parse      :   3.216
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::OptionMenuItem for WebKitOptionMenuItem...
+Adding alias in WebkitGTK::OptionMenuItem for get-label...
+Adding alias in WebkitGTK::OptionMenuItem for get-tooltip...
+Adding alias in WebkitGTK::OptionMenuItem for get-type...
+Adding alias in WebkitGTK::OptionMenuItem for is-enabled...
+Adding alias in WebkitGTK::OptionMenuItem for is-group-child...
+Adding alias in WebkitGTK::OptionMenuItem for is-group-label...
+Adding alias in WebkitGTK::OptionMenuItem for is-selected...
+Roles: ()
+ === WebkitGTK::Plugin ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Plugin.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.776
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.057
+    Stage mbc        :   0.023
+Adding alias in WebkitGTK::Plugin for Plugin...
+Stage parse      :   4.443
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::Plugin for WebKitPlugin...
+Adding alias in WebkitGTK::Plugin for get-description...
+Adding alias in WebkitGTK::Plugin for description...
+Adding alias in WebkitGTK::Plugin for get-mime-info-list...
+Adding alias in WebkitGTK::Plugin for mime_info_list...
+Adding alias in WebkitGTK::Plugin for mime-info-list...
+Adding alias in WebkitGTK::Plugin for get-name...
+Adding alias in WebkitGTK::Plugin for name...
+Adding alias in WebkitGTK::Plugin for get-path...
+Adding alias in WebkitGTK::Plugin for path...
+Adding alias in WebkitGTK::Plugin for get-type...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::PolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/PolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.335
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.053
+    Stage mbc        :   0.012
+Adding alias in WebkitGTK::PolicyDecision for PolicyDecision...
+Stage parse      :   3.962
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::PolicyDecision for WebKitPolicyDecision...
+Adding alias in WebkitGTK::PolicyDecision for get-type...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::PrintCustomWidget ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/PrintCustomWidget.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.805
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.169
+    Stage mbc        :   0.037
+Adding alias in WebkitGTK::PrintCustomWidget for PrintCustomWidget...
+Stage parse      :   7.174
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::PrintCustomWidget for WebKitPrintCustomWidget...
+Adding alias in WebkitGTK::PrintCustomWidget for get-title...
+Adding alias in WebkitGTK::PrintCustomWidget for title...
+Adding alias in WebkitGTK::PrintCustomWidget for get-type...
+Adding alias in WebkitGTK::PrintCustomWidget for get-widget...
+Adding alias in WebkitGTK::PrintCustomWidget for widget...
+Roles: ((Object) (PrintCustomWidget))
+R: GLib::Roles::Object
+R: WebkitGTK::Roles::Signals::PrintCustomWidget
+ === WebkitGTK::ResponsePolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/ResponsePolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.598
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.065
+    Stage mbc        :   0.010
+Adding alias in WebkitGTK::ResponsePolicyDecision for get-request...
+Stage parse      :   3.265
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::ResponsePolicyDecision for get-response...
+Adding alias in WebkitGTK::ResponsePolicyDecision for get-type...
+Adding alias in WebkitGTK::ResponsePolicyDecision for is-mime-type-supported...
+Roles: ()
+ === WebkitGTK::WebsiteDataManager ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WebsiteDataManager.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.111
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.091
+    Stage mbc        :   0.033
+Adding alias in WebkitGTK::WebsiteDataManager for DataManager...
+Stage parse      :   4.844
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WebsiteDataManager for WebKitWebsiteDataManager...
+Adding alias in WebkitGTK::WebsiteDataManager for new-ephemeral...
+Adding alias in WebkitGTK::WebsiteDataManager for clear-finish...
+Adding alias in WebkitGTK::WebsiteDataManager for fetch-finish...
+Adding alias in WebkitGTK::WebsiteDataManager for get-base-cache-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for base_cache_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for base-cache-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for get-base-data-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for base_data_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for base-data-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for get-cookie-manager...
+Adding alias in WebkitGTK::WebsiteDataManager for cookie_manager...
+Adding alias in WebkitGTK::WebsiteDataManager for cookie-manager...
+Adding alias in WebkitGTK::WebsiteDataManager for get-disk-cache-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for disk_cache_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for disk-cache-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for get-indexeddb-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for indexeddb_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for indexeddb-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for indexed_db_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for indexed-db-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for get-local-storage-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for local_storage_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for local-storage-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for get-offline-application-cache-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for offline_application_cache_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for offline-application-cache-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for get-type...
+Adding alias in WebkitGTK::WebsiteDataManager for get-websql-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for websql_directory...
+Adding alias in WebkitGTK::WebsiteDataManager for websql-directory...
+Adding alias in WebkitGTK::WebsiteDataManager for is-ephemeral...
+Adding alias in WebkitGTK::WebsiteDataManager for remove-finish...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::AuthenticationRequest ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/AuthenticationRequest.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.765
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.056
+    Stage mbc        :   0.030
+Adding alias in WebkitGTK::AuthenticationRequest for AuthenticationRequest...
+Stage parse      :   4.564
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::AuthenticationRequest for WebKitAuthenticationRequest...
+Adding alias in WebkitGTK::AuthenticationRequest for can-save-credentials...
+Adding alias in WebkitGTK::AuthenticationRequest for get-host...
+Adding alias in WebkitGTK::AuthenticationRequest for host...
+Adding alias in WebkitGTK::AuthenticationRequest for get-port...
+Adding alias in WebkitGTK::AuthenticationRequest for port...
+Adding alias in WebkitGTK::AuthenticationRequest for get-proposed-credential...
+Adding alias in WebkitGTK::AuthenticationRequest for proposed_credential...
+Adding alias in WebkitGTK::AuthenticationRequest for proposed-credential...
+Adding alias in WebkitGTK::AuthenticationRequest for get-realm...
+Adding alias in WebkitGTK::AuthenticationRequest for realm...
+Adding alias in WebkitGTK::AuthenticationRequest for get-scheme...
+Adding alias in WebkitGTK::AuthenticationRequest for scheme...
+Adding alias in WebkitGTK::AuthenticationRequest for get-type...
+Adding alias in WebkitGTK::AuthenticationRequest for is-for-proxy...
+Adding alias in WebkitGTK::AuthenticationRequest for is-retry...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WebkitGTK::BackForwardList ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/BackForwardList.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.154
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.027
+    Stage mast       :   0.111
+    Stage mbc        :   0.009
+Adding alias in WebkitGTK::BackForwardList for WebKitBackForwardList...
+Stage parse      :   3.876
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::BackForwardList for get-back-item...
+Adding alias in WebkitGTK::BackForwardList for get-back-list...
+Adding alias in WebkitGTK::BackForwardList for get-back-list-with-limit...
+Adding alias in WebkitGTK::BackForwardList for get-current-item...
+Adding alias in WebkitGTK::BackForwardList for get-forward-item...
+Adding alias in WebkitGTK::BackForwardList for get-forward-list...
+Adding alias in WebkitGTK::BackForwardList for get-forward-list-with-limit...
+Adding alias in WebkitGTK::BackForwardList for get-length...
+Adding alias in WebkitGTK::BackForwardList for get-nth-item...
+Adding alias in WebkitGTK::BackForwardList for get-type...
+Roles: ((Object) (BackForwardList))
+R: GLib::Roles::Object
+R: WebkitGTK::Roles::Signals::BackForwardList
+Roles: ((GLib::Roles::ListData[WebkitGTK::Raw::Types::WebKitBackForwardListItem]))
+R: GLib::Roles::ListData[WebkitGTK::Raw::Types::WebKitBackForwardListItem]
+ === WebkitGTK::ContextMenu ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/ContextMenu.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.441
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.076
+    Stage mbc        :   0.012
+Adding alias in WebkitGTK::ContextMenu for WebKitContextMenu...
+Stage parse      :   4.201
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::ContextMenu for new-with-items...
+Adding alias in WebkitGTK::ContextMenu for get-item-at-position...
+Adding alias in WebkitGTK::ContextMenu for get-items...
+Adding alias in WebkitGTK::ContextMenu for get-n-items...
+Adding alias in WebkitGTK::ContextMenu for elems...
+Adding alias in WebkitGTK::ContextMenu for get-type...
+Adding alias in WebkitGTK::ContextMenu for get-user-data...
+Adding alias in WebkitGTK::ContextMenu for move-item...
+Adding alias in WebkitGTK::ContextMenu for remove-all...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::Frame ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Frame.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.527
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.062
+    Stage mbc        :   0.010
+Adding alias in WebkitGTK::Frame for get-js-context...
+Stage parse      :   3.209
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::Frame for get-js-context-for-script-world...
+Adding alias in WebkitGTK::Frame for get-type...
+Adding alias in WebkitGTK::Frame for get-uri...
+Adding alias in WebkitGTK::Frame for is-main-frame...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::NavigationPolicyDecision ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/NavigationPolicyDecision.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.710
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.033
+    Stage mast       :   0.057
+    Stage mbc        :   0.014
+Adding alias in WebkitGTK::NavigationPolicyDecision for get-frame-name...
+Stage parse      :   3.401
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::NavigationPolicyDecision for frame_name...
+Adding alias in WebkitGTK::NavigationPolicyDecision for frame-name...
+Adding alias in WebkitGTK::NavigationPolicyDecision for get-navigation-action...
+Adding alias in WebkitGTK::NavigationPolicyDecision for navigation_action...
+Adding alias in WebkitGTK::NavigationPolicyDecision for navigation-action...
+Adding alias in WebkitGTK::NavigationPolicyDecision for get-type...
+Roles: ()
+ === WebkitGTK::OptionMenu ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/OptionMenu.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.408
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.055
+    Stage mbc        :   0.014
+Adding alias in WebkitGTK::OptionMenu for OptionMenu...
+Stage parse      :   4.033
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::OptionMenu for WebKitOptionMenu...
+Adding alias in WebkitGTK::OptionMenu for activate-item...
+Adding alias in WebkitGTK::OptionMenu for get-item...
+Adding alias in WebkitGTK::OptionMenu for get-n-items...
+Adding alias in WebkitGTK::OptionMenu for elems...
+Adding alias in WebkitGTK::OptionMenu for get-type...
+Adding alias in WebkitGTK::OptionMenu for select-item...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::WebContext ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WebContext.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.983
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.047
+    Stage mast       :   0.130
+    Stage mbc        :   0.009
+Adding alias in WebkitGTK::WebContext for WebKitWebContext...
+Stage parse      :   3.826
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.013
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WebContext for new-ephemeral...
+Adding alias in WebkitGTK::WebContext for new-with-website-data-manager...
+Adding alias in WebkitGTK::WebContext for get-default...
+Adding alias in WebkitGTK::WebContext for automation_started...
+Adding alias in WebkitGTK::WebContext for download_started...
+Adding alias in WebkitGTK::WebContext for initialize_notification_permissions...
+Adding alias in WebkitGTK::WebContext for initialize_web_extensions...
+Adding alias in WebkitGTK::WebContext for cache-model...
+Adding alias in WebkitGTK::WebContext for favicon-database-directory...
+Adding alias in WebkitGTK::WebContext for process-model...
+Adding alias in WebkitGTK::WebContext for spell-checking-enabled...
+Adding alias in WebkitGTK::WebContext for tls-errors-policy...
+Adding alias in WebkitGTK::WebContext for web-process-count-limit...
+Adding alias in WebkitGTK::WebContext for spell-checking-languages...
+Adding alias in WebkitGTK::WebContext for allow-tls-certificate-for-host...
+Adding alias in WebkitGTK::WebContext for clear-cache...
+Adding alias in WebkitGTK::WebContext for download-uri...
+Adding alias in WebkitGTK::WebContext for get-cookie-manager...
+Adding alias in WebkitGTK::WebContext for get-favicon-database...
+Adding alias in WebkitGTK::WebContext for get-plugins...
+Adding alias in WebkitGTK::WebContext for get-plugins-finish...
+Adding alias in WebkitGTK::WebContext for get-security-manager...
+Adding alias in WebkitGTK::WebContext for get-type...
+Adding alias in WebkitGTK::WebContext for get-website-data-manager...
+Adding alias in WebkitGTK::WebContext for perform-initialize-notification-permissions...
+Adding alias in WebkitGTK::WebContext for is-automation-allowed...
+Adding alias in WebkitGTK::WebContext for is-ephemeral...
+Adding alias in WebkitGTK::WebContext for prefetch-dns...
+Adding alias in WebkitGTK::WebContext for register-uri-scheme...
+Adding alias in WebkitGTK::WebContext for set-additional-plugins-directory...
+Adding alias in WebkitGTK::WebContext for set-automation-allowed...
+Adding alias in WebkitGTK::WebContext for set-network-proxy-settings...
+Adding alias in WebkitGTK::WebContext for set-web-extensions-directory...
+Adding alias in WebkitGTK::WebContext for set-web-extensions-initialization-user-data...
+Adding alias in WebkitGTK::WebContext for set-preferred-languages...
+Roles: ((Object) (WebContext))
+R: GLib::Roles::Object
+R: WebkitGTK::Roles::Signals::WebContext
+ === WebkitGTK::WebView ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/WebView.pm6
+    Stage start      :   0.000
+    Stage parse      :   6.046
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.122
+    Stage mast       :   0.282
+    Stage mbc        :   0.045
+Adding alias in WebkitGTK::WebView for WebView...
+Stage parse      :   8.968
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::WebView for WebKitWebView...
+Adding alias in WebkitGTK::WebView for new-with-context...
+Adding alias in WebkitGTK::WebView for new-with-related-view...
+Adding alias in WebkitGTK::WebView for new-with-settings...
+Adding alias in WebkitGTK::WebView for new-with-user-content-manager...
+Adding alias in WebkitGTK::WebView for custom-charset...
+Adding alias in WebkitGTK::WebView for zoom-level...
+Adding alias in WebkitGTK::WebView for context_menu...
+Adding alias in WebkitGTK::WebView for context_menu_dismissed...
+Adding alias in WebkitGTK::WebView for decide_policy...
+Adding alias in WebkitGTK::WebView for enter_fullscreen...
+Adding alias in WebkitGTK::WebView for insecure_content_detected...
+Adding alias in WebkitGTK::WebView for leave_fullscreen...
+Adding alias in WebkitGTK::WebView for load_changed...
+Adding alias in WebkitGTK::WebView for load_failed...
+Adding alias in WebkitGTK::WebView for load_failed_with_tls_errors...
+Adding alias in WebkitGTK::WebView for mouse_target_changed...
+Adding alias in WebkitGTK::WebView for permission_request...
+Adding alias in WebkitGTK::WebView for ready_to_show...
+Adding alias in WebkitGTK::WebView for resource_load_started...
+Adding alias in WebkitGTK::WebView for run_as_modal...
+Adding alias in WebkitGTK::WebView for run_color_chooser...
+Adding alias in WebkitGTK::WebView for run_file_chooser...
+Adding alias in WebkitGTK::WebView for script_dialog...
+Adding alias in WebkitGTK::WebView for show_notification...
+Adding alias in WebkitGTK::WebView for show_option_menu...
+Adding alias in WebkitGTK::WebView for submit_form...
+Adding alias in WebkitGTK::WebView for web_process_crashed...
+Adding alias in WebkitGTK::WebView for web_process_terminated...
+Adding alias in WebkitGTK::WebView for can-execute-editing-command...
+Adding alias in WebkitGTK::WebView for can-execute-editing-command-finish...
+Adding alias in WebkitGTK::WebView for can-go-back...
+Adding alias in WebkitGTK::WebView for can-go-forward...
+Adding alias in WebkitGTK::WebView for can-show-mime-type...
+Adding alias in WebkitGTK::WebView for download-uri...
+Adding alias in WebkitGTK::WebView for execute-editing-command...
+Adding alias in WebkitGTK::WebView for execute-editing-command-with-argument...
+Adding alias in WebkitGTK::WebView for get-back-forward-list...
+Adding alias in WebkitGTK::WebView for get-background-color...
+Adding alias in WebkitGTK::WebView for get-context...
+Adding alias in WebkitGTK::WebView for get-editor-state...
+Adding alias in WebkitGTK::WebView for get-estimated-load-progress...
+Adding alias in WebkitGTK::WebView for get-favicon...
+Adding alias in WebkitGTK::WebView for get-find-controller...
+Adding alias in WebkitGTK::WebView for get-inspector...
+Adding alias in WebkitGTK::WebView for get-main-resource...
+Adding alias in WebkitGTK::WebView for get-page-id...
+Adding alias in WebkitGTK::WebView for get-session-state...
+Adding alias in WebkitGTK::WebView for get-snapshot...
+Adding alias in WebkitGTK::WebView for get-snapshot-finish...
+Adding alias in WebkitGTK::WebView for get-title...
+Adding alias in WebkitGTK::WebView for title...
+Adding alias in WebkitGTK::WebView for get-tls-info...
+Adding alias in WebkitGTK::WebView for get-type...
+Adding alias in WebkitGTK::WebView for get-uri...
+Adding alias in WebkitGTK::WebView for uri...
+Adding alias in WebkitGTK::WebView for get-user-content-manager...
+Adding alias in WebkitGTK::WebView for get-website-data-manager...
+Adding alias in WebkitGTK::WebView for get-window-properties...
+Adding alias in WebkitGTK::WebView for go-back...
+Adding alias in WebkitGTK::WebView for go-forward...
+Adding alias in WebkitGTK::WebView for go-to-back-forward-list-item...
+Adding alias in WebkitGTK::WebView for is-controlled-by-automation...
+Adding alias in WebkitGTK::WebView for is-editable...
+Adding alias in WebkitGTK::WebView for is-ephemeral...
+Adding alias in WebkitGTK::WebView for is-loading...
+Adding alias in WebkitGTK::WebView for is-playing-audio...
+Adding alias in WebkitGTK::WebView for load-alternate-html...
+Adding alias in WebkitGTK::WebView for load-bytes...
+Adding alias in WebkitGTK::WebView for load-html...
+Adding alias in WebkitGTK::WebView for load-plain-text...
+Adding alias in WebkitGTK::WebView for load-request...
+Adding alias in WebkitGTK::WebView for load-uri...
+Adding alias in WebkitGTK::WebView for reload-bypass-cache...
+Adding alias in WebkitGTK::WebView for restore-session-state...
+Adding alias in WebkitGTK::WebView for run-javascript...
+Adding alias in WebkitGTK::WebView for run-javascript-finish...
+Adding alias in WebkitGTK::WebView for run-javascript-from-gresource...
+Adding alias in WebkitGTK::WebView for run-javascript-from-gresource-finish...
+Adding alias in WebkitGTK::WebView for run-javascript-in-world...
+Adding alias in WebkitGTK::WebView for run-javascript-in-world-finish...
+Adding alias in WebkitGTK::WebView for save-finish...
+Adding alias in WebkitGTK::WebView for save-to-file...
+Adding alias in WebkitGTK::WebView for save-to-file-finish...
+Adding alias in WebkitGTK::WebView for set-background-color...
+Adding alias in WebkitGTK::WebView for set-editable...
+Adding alias in WebkitGTK::WebView for stop-loading...
+Adding alias in WebkitGTK::WebView for try-close...
+Roles: ((WebView))
+R: WebkitGTK::Roles::Signals::WebView
+ === WebkitGTK::Download ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Download.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.632
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.187
+    Stage mbc        :   0.020
+Adding alias in WebkitGTK::Download for Download...
+Stage parse      :   6.451
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::Download for WebKitDownload...
+Adding alias in WebkitGTK::Download for allow-overwrite...
+Adding alias in WebkitGTK::Download for created_destination...
+Adding alias in WebkitGTK::Download for decide_destination...
+Adding alias in WebkitGTK::Download for received_data...
+Adding alias in WebkitGTK::Download for get-elapsed-time...
+Adding alias in WebkitGTK::Download for get-estimated-progress...
+Adding alias in WebkitGTK::Download for estimated_progress...
+Adding alias in WebkitGTK::Download for estimated-progress...
+Adding alias in WebkitGTK::Download for get-received-data-length...
+Adding alias in WebkitGTK::Download for get-request...
+Adding alias in WebkitGTK::Download for get-response...
+Adding alias in WebkitGTK::Download for response...
+Adding alias in WebkitGTK::Download for get-type...
+Adding alias in WebkitGTK::Download for get-web-view...
+Adding alias in WebkitGTK::Download for web_view...
+Adding alias in WebkitGTK::Download for web-view...
+Roles: ((Object))
+R: GLib::Roles::Object
+ === WebkitGTK::PrintOperation ===
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/PrintOperation.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.395
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.197
+    Stage mbc        :   0.021
+Adding alias in WebkitGTK::PrintOperation for PrintOperation...
+Stage parse      :   7.276
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WebkitGTK::PrintOperation for WebKitPrintOperation...
+Adding alias in WebkitGTK::PrintOperation for create_custom_widget...
+Adding alias in WebkitGTK::PrintOperation for page-setup...
+Adding alias in WebkitGTK::PrintOperation for print-settings...
+Adding alias in WebkitGTK::PrintOperation for get-type...
+Adding alias in WebkitGTK::PrintOperation for run-dialog...
+Roles: ((Object) (PrintOperation))
+R: GLib::Roles::Object
+R: WebkitGTK::Roles::Signals::PrintOperation
+
+real 638.53
+user 768.37
+sys 49.12
