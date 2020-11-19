@@ -17,17 +17,23 @@ class WebkitGTK::UserStyleSheet {
     self.unref;
   }
 
+  method WebkitGTK::Raw::Types::WebKitUserStyleSheet
+    is also<WebKitUserStyleSheet>
+  {
+    $!wuss;
+  }
+
   multi method new (WebKitUserStyleSheet $content, :$ref = True) {
     my $o = self.bless(:$content);
     $o.ref if $ref;
     $o;
   }
   multi method new (
-    Str $source,
+    Str   $source,
     Int() $frames,
     Int() $time,
-    @whitelist,
-    @blacklist,
+          @whitelist,
+          @blacklist,
   ) {
     samewith(
       $source,
@@ -38,9 +44,9 @@ class WebkitGTK::UserStyleSheet {
     );
   }
   multi method new (
-    Str $source,
-    Int() $frames,          # WebKitUserContentInjectedFrames injected_frames,
-    Int() $time,            # WebKitUserScriptInjectionTime   injection_time,
+    Str         $source,
+    Int()       $frames,          # WebKitUserContentInjectedFrames injected_frames,
+    Int()       $time,            # WebKitUserScriptInjectionTime   injection_time,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
@@ -65,8 +71,8 @@ class WebkitGTK::UserStyleSheet {
     Int() $frames,
     Int() $time,
     Str() $world_name,
-    @whitelist,
-    @blacklist
+          @whitelist,
+          @blacklist
   ) {
     samewith(
       $source,
@@ -77,10 +83,10 @@ class WebkitGTK::UserStyleSheet {
     );
   }
   multi method new_for_world (
-    Str() $source,
-    Int() $frames,          # WebKitUserContentInjectedFrames injected_frames,
-    Int() $time,            # WebKitUserScriptInjectionTime   injection_time,
-    Str $world_name,
+    Str()       $source,
+    Int()       $frames,          # WebKitUserContentInjectedFrames injected_frames,
+    Int()       $time,            # WebKitUserScriptInjectionTime   injection_time,
+    Str         $world_name,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
@@ -119,6 +125,12 @@ class WebkitGTK::UserScript {
     self.unref;
   }
 
+  method WebkitGTK::Raw::Types::WebKitUserScript
+    is also<WebKitUserScript>
+  {
+    $!wus;
+  }
+
   multi method new (WebKitUserScript $content, :$ref = True) {
     return Nil unless $content;
 
@@ -127,24 +139,24 @@ class WebkitGTK::UserScript {
     $o;
   }
   multi method new (
-    Str $source,
+    Str() $source,
     Int() $frames,
     Int() $time,
-    @whitelist,
-    @blacklist,
+          @whitelist = (),
+          @blacklist = (),
   ) {
     samewith(
       $source,
       $frames,
       $time,
-      ArrayToCArray(Str, @whitelist),
-      ArrayToCArray(Str, @blacklist)
+      @whitelist.elems ?? ArrayToCArray(Str, @whitelist, :zero) !! CArray[Str],
+      @blacklist.elems ?? ArrayToCArray(Str, @blacklist, :zero) !! CArray[Str]
     );
   }
   multi method new (
-    Str $source,
-    Int() $frames,          # WebKitUserContentInjectedFrames injected_frames,
-    Int() $time,            # WebKitUserScriptInjectionTime   injection_time,
+    Str()       $source,
+    Int()       $frames,          # WebKitUserContentInjectedFrames injected_frames,
+    Int()       $time,            # WebKitUserScriptInjectionTime   injection_time,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
@@ -168,22 +180,22 @@ class WebkitGTK::UserScript {
     Int() $frames,
     Int() $time,
     Str() $world_name,
-    @whitelist,
-    @blacklist,
+          @whitelist = (),
+          @blacklist = (),
   ) {
     samewith(
       $source,
       $frames,
       $time,
-      ArrayToCArray(Str, @whitelist),
-      ArrayToCArray(Str, @blacklist)
+      @whitelist.elems ?? ArrayToCArray(Str, @whitelist, :zero) !! CArray[Str],
+      @blacklist.elems ?? ArrayToCArray(Str, @blacklist, :zero) !! CArray[Str]
     );
   }
   multi method new_for_world (
-    Str() $source,
-    Int() $frames,          # WebKitUserContentInjectedFrames injected_frames,
-    Int() $time,            # WebKitUserScriptInjectionTime   injection_time,
-    Str $world_name,
+    Str()       $source,
+    Int()       $frames,          # WebKitUserContentInjectedFrames injected_frames,
+    Int()       $time,            # WebKitUserScriptInjectionTime   injection_time,
+    Str         $world_name,
     CArray[Str] $whitelist,
     CArray[Str] $blacklist
   ) {
