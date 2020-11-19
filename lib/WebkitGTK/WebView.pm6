@@ -2,6 +2,7 @@ use v6.c;
 
 use Method::Also;
 use NativeCall;
+use Cairo;
 
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebView;
@@ -466,19 +467,20 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method get_snapshot (
-    Int() $region,                        # WebKitSnapshotRegion $region,
-    Int() $options,                       # WebKitSnapshotOptions $options,
-    &callback,
-    gpointer $user_data = Pointer
+    Int()          $region,                        # WebKitSnapshotRegion $region,
+    Int()          $options,                       # WebKitSnapshotOptions $options,
+                   &callback,
+    gpointer       $user_data    = Pointer,
+    GCancellable() :$cancellable = GCancellable
   ) {
-    samewith($region, $options, GCancellable, &callback, $user_data);
+    samewith($region, $options, $cancellable, &callback, $user_data);
   }
   multi method get_snapshot (
-    Int() $region,                        # WebKitSnapshotRegion $region,
-    Int() $options,                       # WebKitSnapshotOptions $options,
+    Int()          $region,                # WebKitSnapshotRegion $region,
+    Int()          $options,               # WebKitSnapshotOptions $options,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
     my guint ($r, $o) = ($region, $options);
 
@@ -494,17 +496,20 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method get_snapshot_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror,
+                            :$raw    = False
   )
     is also<get-snapshot-finish>
   {
     clear_error;
-    my $rv = webkit_web_view_get_snapshot_finish($!wkv, $result, $error);
+    my $cs = webkit_web_view_get_snapshot_finish($!wkv, $result, $error);
     set_error($error);
 
-    # cairo_surface_t
-    $rv;
+    $cs ??
+      ( $raw ?? $cs !! Cairo::Surface.new($cs) )
+      !!
+      Nil;
   }
 
   method get_title
@@ -543,12 +548,16 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method get_user_content_manager (:$raw = False)
-    is also<get-user-content-manager>
+    is also<
+      get-user-content-manager
+      user_content_manager
+      user-content-manager
+    >
   {
     my $cm = webkit_web_view_get_user_content_manager($!wkv);
 
     $cm ??
-      ( $raw ?? $cm !! WebkitGTK::UserContentManager.new($cm) )
+      ( $raw ?? $cm !! WebkitGTK::UserContentManager.new($cm, :!ref) )
       !!
       Nil;
   }
@@ -854,19 +863,20 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method save_to_file (
-    GFile() $file,
-    Int() $save_mode,                   # WebKitSaveMode $save_mode,
-    &callback,
-    gpointer $user_data = Pointer
+    GFile()        $file,
+                   &callback,
+    gpointer       $user_data    = Pointer,
+    Int()          :$save_mode   = WEBKIT_SAVE_MODE_MHTML,  # WebKitSaveMode $save_mode,
+    GCancellable() :$cancellable = GCancellable
   ) {
     samewith($file, $save_mode, GCancellable, &callback, $user_data);
   }
   multi method save_to_file (
-    GFile() $file,
-    Int() $save_mode,                   # WebKitSaveMode $save_mode,
+    GFile()        $file,
+    Int()          $save_mode,                              # WebKitSaveMode $save_mode,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data    = Pointer
   ) {
     webkit_web_view_save_to_file(
       $!wkv,
@@ -879,7 +889,7 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method save_to_file_finish (
-    GAsyncResult() $result,
+    GAsyncResult()          $result,
     CArray[Pointer[GError]] $error = gerror
   )
     is also<save-to-file-finish>
