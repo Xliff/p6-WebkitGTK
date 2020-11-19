@@ -4,29 +4,54 @@ use Method::Also;
 use NativeCall;
 
 use WebkitGTK::Raw::Types;
-
 use WebkitGTK::Raw::UserContentManager;
 
+use GLib::Roles::Object;
 use WebkitGTK::Roles::Signals::UserContentManager;
 
+our subset WebKitUserContentManagerAncestry is export of Mu
+  where WebKitUserContentManager | GObject;
+
 class WebkitGTK::UserContentManager {
+  also does GLib::Roles::Object;
   also does WebkitGTK::Roles::Signals::UserContentManager;
 
   has WebKitUserContentManager $!wcm;
 
   submethod BUILD (:$manager) {
-    $!wcm = $manager;
+    self.setWebKitUserContentManager($manager) if $manager;
   }
 
-  method WebkitGTK::Raw::Definitions::WebKitUserContentManager
+  method setWebKitUserContentManager (WebKitUserContentManagerAncestry $_) {
+    my $to-parent;
+
+    $!wcm = do {
+      when WebKitUserContentManager {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(WebKitUserContentManager, $_);
+      }
+    }
+    self!setObject($to-parent);
+  }
+
+  method WebkitGTK::Raw::Types::WebKitUserContentManager
     is also<
       UserContentManager
       WebKitUserContentManager
     >
   { $!wcm }
 
-  multi method new (WebKitUserContentManager $manager) {
-    $manager ?? self.bless(:$manager) !! Nil;
+  multi method new (WebKitUserContentManager $manager, :$ref = True) {
+    return Nil unless $manager;
+
+    my $o = self.bless(:$manager);
+    $o.ref if $ref;
+    $o;
   }
   multi method new {
     my $manager = webkit_user_content_manager_new();
