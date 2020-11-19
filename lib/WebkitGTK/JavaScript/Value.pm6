@@ -4,7 +4,6 @@ use Method::Also;
 use NativeCall;
 
 use GLib::Raw::Types;
-use GLib::Roles::Signals::Generic;
 
 use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Value;
@@ -12,6 +11,7 @@ use WebkitGTK::JavaScript::Raw::Value;
 use WebkitGTK::JavaScript::Utils;
 
 use GLib::Roles::Object;
+use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::JavaScript::Value {
   also does GLib::Roles::Object;
@@ -28,11 +28,15 @@ class WebkitGTK::JavaScript::Value {
     is also<JSCValue>
   { $!jv }
 
-  method new(JSCValue $value) {
-    $value ?? self.bless(:$value) !! Nil;
+  method new (JSCValue $value, :$ref = True) {
+    return Nil unless $value;
+
+    my $o = self.bless(:$value);
+    $o.ref if $ref;
+    $o;
   }
 
-  method new_null(JSCContext() $c) is also<new-null> {
+  method new_null (JSCContext() $c) is also<new-null> {
     my $value = jsc_value_new_null($c);
 
     $value ?? self.bless(:$value) !! Nil;
