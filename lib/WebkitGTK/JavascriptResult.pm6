@@ -27,11 +27,18 @@ class WebkitGTK::JavascriptResult {
     $result ?? self.bless(:$result) !! Nil;
   }
 
-  method get_js_value (:$raw = False) is also<get-js-value> {
+  method get_js_value (:$raw = False)
+    is also<
+      get-js-value
+      js_value
+      js-value
+      value
+    >
+  {
     my $val = webkit_javascript_result_get_js_value($!wjr);
 
     $val ??
-      ( $raw ?? $val !! WebkitGTK::JavaScript::Value.new($val) )
+      ( $raw ?? $val !! WebkitGTK::JavaScript::Value.new($val, :!ref) )
       !!
       Nil;
   }
