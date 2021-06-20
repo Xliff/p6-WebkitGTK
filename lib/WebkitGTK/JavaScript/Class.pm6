@@ -3,9 +3,8 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GLib::Raw::Definitions;
-use GLib::Raw::Enums;
-use GLib::Raw::Subs;
+use GLib::Raw::Types;
+
 use WebkitGTK::JavaScript::Raw::Class;
 use WebkitGTK::JavaScript::Raw::Types;
 
