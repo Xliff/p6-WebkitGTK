@@ -3,6 +3,7 @@ use v6.c;
 use Method::Also;
 
 use GLib::Raw::Types;
+
 use WebkitGTK::JavaScript::Raw::Types;
 use WebkitGTK::JavaScript::Raw::Exception;
 
