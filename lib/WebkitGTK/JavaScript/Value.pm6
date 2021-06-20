@@ -11,7 +11,6 @@ use WebkitGTK::JavaScript::Raw::Value;
 use WebkitGTK::JavaScript::Utils;
 
 use GLib::Roles::Object;
-use GLib::Roles::Signals::Generic;
 
 class WebkitGTK::JavaScript::Value {
   also does GLib::Roles::Object;
