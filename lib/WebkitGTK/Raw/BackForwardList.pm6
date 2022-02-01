@@ -24,7 +24,8 @@ sub webkit_back_forward_list_get_back_list (
   { * }
 
 sub webkit_back_forward_list_get_back_list_with_limit (
-  WebKitBackForwardList $back_forward_list, guint $limit
+  WebKitBackForwardList $back_forward_list,
+  guint                 $limit
 )
   returns GList
   is native(webkit)
@@ -56,7 +57,8 @@ sub webkit_back_forward_list_get_forward_list (
   { * }
 
 sub webkit_back_forward_list_get_forward_list_with_limit (
-  WebKitBackForwardList $back_forward_list, guint $limit
+  WebKitBackForwardList $back_forward_list,
+  guint                 $limit
 )
   returns GList
   is native(webkit)
@@ -72,7 +74,8 @@ sub webkit_back_forward_list_get_length (
   { * }
 
 sub webkit_back_forward_list_get_nth_item (
-  WebKitBackForwardList $back_forward_list, gint $index
+  WebKitBackForwardList $back_forward_list,
+  guint                 $index
 )
   returns WebKitBackForwardListItem
   is native(webkit)
