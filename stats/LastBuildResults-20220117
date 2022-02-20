@@ -1,20 +1,20 @@
 Dependency Generation
 =====================
-real 1.81
-user 2.28
-sys 0.09
+real 1.95
+user 2.54
+sys 0.08
  === Cairo === (1/178)
 Stage start      :   0.000
-Stage parse      :   1.474
+Stage parse      :   1.667
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.003
-Stage mbc        :   0.001
+Stage optimize   :   0.009
+Stage mast       :   0.004
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GDK::RGBA === (2/178)
 Stage start      :   0.000
-Stage parse      :   1.783
+Stage parse      :   1.935
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -23,79 +23,79 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Definitions === (3/178)
 Stage start      :   0.000
-Stage parse      :   1.593
+Stage parse      :   1.724
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GDK::Raw::Enums === (4/178)
 Stage start      :   0.000
-Stage parse      :   1.591
+Stage parse      :   1.653
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.003
-Stage mast       :   0.005
-Stage mbc        :   0.002
+Stage optimize   :   0.004
+Stage mast       :   0.006
+Stage mbc        :   0.003
 Stage moar       :   0.000
  === GDK::Raw::Exports === (5/178)
 Stage start      :   0.000
-Stage parse      :   1.330
+Stage parse      :   1.390
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.010
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Structs === (6/178)
 Stage start      :   0.000
-Stage parse      :   1.619
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GDK::Raw::Subs === (7/178)
-Stage start      :   0.000
-Stage parse      :   1.619
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GIO::DBus::Raw::Types === (8/178)
-Stage start      :   0.000
-Stage parse      :   1.901
+Stage parse      :   1.654
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
 Stage mbc        :   0.002
 Stage moar       :   0.000
+ === GDK::Raw::Subs === (7/178)
+Stage start      :   0.000
+Stage parse      :   1.630
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GIO::DBus::Raw::Types === (8/178)
+Stage start      :   0.000
+Stage parse      :   1.865
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.002
+Stage moar       :   0.000
  === GIO::InputStream === (9/178)
 Stage start      :   0.000
-Stage parse      :   2.169
+Stage parse      :   2.195
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.013
+Stage mast       :   0.001
 Stage mbc        :   0.003
 Stage moar       :   0.000
  === GIO::Raw::Definitions === (10/178)
 Stage start      :   0.000
-Stage parse      :   1.548
+Stage parse      :   1.545
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.009
+Stage mast       :   0.003
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Enums === (11/178)
 Stage start      :   0.000
-Stage parse      :   1.596
+Stage parse      :   1.592
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.003
@@ -104,43 +104,43 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Exports === (12/178)
 Stage start      :   0.000
-Stage parse      :   1.317
+Stage parse      :   1.364
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.009
+Stage mast       :   0.006
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Quarks === (13/178)
 Stage start      :   0.000
-Stage parse      :   1.842
+Stage parse      :   1.836
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Structs === (14/178)
 Stage start      :   0.000
-Stage parse      :   1.815
+Stage parse      :   1.857
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Subs === (15/178)
 Stage start      :   0.000
-Stage parse      :   1.790
+Stage parse      :   1.807
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
+Stage optimize   :   0.001
 Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Roles::Action === (16/178)
 Stage start      :   0.000
-Stage parse      :   2.270
+Stage parse      :   2.258
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -149,34 +149,34 @@ Stage mbc        :   0.003
 Stage moar       :   0.000
  === GLib::GList === (17/178)
 Stage start      :   0.000
-Stage parse      :   1.792
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.002
-Stage moar       :   0.000
- === GLib::Raw::Definitions === (18/178)
-Stage start      :   0.000
-Stage parse      :   1.559
+Stage parse      :   1.821
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.007
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Raw::Definitions === (18/178)
+Stage start      :   0.000
+Stage parse      :   1.549
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GLib::Raw::Enums === (19/178)
 Stage start      :   0.000
-Stage parse      :   1.644
+Stage parse      :   1.620
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.005
 Stage mast       :   0.006
-Stage mbc        :   0.003
+Stage mbc        :   0.004
 Stage moar       :   0.000
  === GLib::Raw::Exceptions === (20/178)
 Stage start      :   0.000
-Stage parse      :   1.349
+Stage parse      :   1.288
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -185,7 +185,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Exports === (21/178)
 Stage start      :   0.000
-Stage parse      :   1.408
+Stage parse      :   1.371
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -194,7 +194,7 @@ Stage mbc        :   0.000
 Stage moar       :   0.000
  === GLib::Raw::Object === (22/178)
 Stage start      :   0.000
-Stage parse      :   1.641
+Stage parse      :   1.642
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -203,16 +203,16 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::ReturnedValue === (23/178)
 Stage start      :   0.000
-Stage parse      :   1.351
+Stage parse      :   1.284
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage optimize   :   0.004
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Struct_Subs === (24/178)
 Stage start      :   0.000
-Stage parse      :   1.581
+Stage parse      :   1.544
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -221,16 +221,16 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Structs === (25/178)
 Stage start      :   0.000
-Stage parse      :   1.772
+Stage parse      :   1.752
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage mast       :   0.002
 Stage mbc        :   0.002
 Stage moar       :   0.000
  === GLib::Raw::Subs === (26/178)
 Stage start      :   0.000
-Stage parse      :   1.745
+Stage parse      :   1.720
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -239,16 +239,16 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Types === (27/178)
 Stage start      :   0.000
-Stage parse      :   1.788
+Stage parse      :   1.778
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.004
-Stage mast       :   0.007
-Stage mbc        :   0.003
+Stage optimize   :   0.005
+Stage mast       :   0.008
+Stage mbc        :   0.004
 Stage moar       :   0.000
  === GLib::Roles::ListData === (28/178)
 Stage start      :   0.000
-Stage parse      :   1.797
+Stage parse      :   1.768
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -257,52 +257,52 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::Object === (29/178)
 Stage start      :   0.000
-Stage parse      :   1.999
+Stage parse      :   1.920
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GLib::Roles::Pointers === (30/178)
+Stage start      :   0.000
+Stage parse      :   1.522
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Signals::Generic === (31/178)
+Stage start      :   0.000
+Stage parse      :   1.793
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Roles::StaticClass === (32/178)
+Stage start      :   0.000
+Stage parse      :   1.812
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
 Stage mbc        :   0.002
 Stage moar       :   0.000
- === GLib::Roles::Pointers === (30/178)
+ === GTK::Container === (33/178)
 Stage start      :   0.000
-Stage parse      :   1.562
+Stage parse      :   3.697
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.001
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GLib::Roles::Signals::Generic === (31/178)
-Stage start      :   0.000
-Stage parse      :   1.789
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.002
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GLib::Roles::StaticClass === (32/178)
-Stage start      :   0.000
-Stage parse      :   1.751
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GTK::Container === (33/178)
-Stage start      :   0.000
-Stage parse      :   3.594
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
 Stage mast       :   0.001
 Stage mbc        :   0.008
 Stage moar       :   0.000
  === GTK::FileFilter === (34/178)
 Stage start      :   0.000
-Stage parse      :   2.604
+Stage parse      :   2.920
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -311,7 +311,7 @@ Stage mbc        :   0.004
 Stage moar       :   0.000
  === GTK::PageSetup === (35/178)
 Stage start      :   0.000
-Stage parse      :   2.528
+Stage parse      :   2.836
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -320,52 +320,52 @@ Stage mbc        :   0.004
 Stage moar       :   0.000
  === GTK::PrintSettings === (36/178)
 Stage start      :   0.000
-Stage parse      :   2.668
+Stage parse      :   2.868
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
+Stage optimize   :   0.001
 Stage mast       :   0.001
-Stage mbc        :   0.003
+Stage mbc        :   0.006
 Stage moar       :   0.000
  === GTK::Raw::Definitions === (37/178)
 Stage start      :   0.000
-Stage parse      :   1.568
+Stage parse      :   1.693
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.003
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Raw::Enums === (38/178)
 Stage start      :   0.000
-Stage parse      :   1.591
+Stage parse      :   1.715
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.004
-Stage mast       :   0.006
-Stage mbc        :   0.003
+Stage optimize   :   0.005
+Stage mast       :   0.007
+Stage mbc        :   0.004
 Stage moar       :   0.000
  === GTK::Raw::Exports === (39/178)
 Stage start      :   0.000
-Stage parse      :   1.332
+Stage parse      :   1.456
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.010
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GTK::Raw::Requisition === (40/178)
 Stage start      :   0.000
-Stage parse      :   1.992
+Stage parse      :   2.113
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
+Stage optimize   :   0.001
 Stage mast       :   0.002
 Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Raw::Structs === (41/178)
 Stage start      :   0.000
-Stage parse      :   1.894
+Stage parse      :   2.104
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -374,119 +374,119 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Raw::Subs === (42/178)
 Stage start      :   0.000
-Stage parse      :   1.568
+Stage parse      :   1.746
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Widget === (43/178)
 Stage start      :   0.000
-Stage parse      :   3.568
+Stage parse      :   3.833
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
 Stage mast       :   0.001
-Stage mbc        :   0.005
+Stage mbc        :   0.006
 Stage moar       :   0.000
  === Method::Also === (44/178)
 Stage start      :   0.000
-Stage parse      :   1.307
+Stage parse      :   1.442
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage optimize   :   0.004
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === NativeCall === (45/178)
 Stage start      :   0.000
-Stage parse      :   1.496
+Stage parse      :   1.614
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage mast       :   0.003
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Definitions === (46/178)
 Stage start      :   0.000
-Stage parse      :   1.618
+Stage parse      :   1.656
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === Pango::Raw::Enums === (47/178)
 Stage start      :   0.000
-Stage parse      :   1.645
+Stage parse      :   1.681
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === Pango::Raw::Exports === (48/178)
 Stage start      :   0.000
-Stage parse      :   1.362
+Stage parse      :   1.397
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Structs === (49/178)
 Stage start      :   0.000
-Stage parse      :   1.824
+Stage parse      :   1.832
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === Pango::Raw::Subs === (50/178)
 Stage start      :   0.000
-Stage parse      :   1.845
+Stage parse      :   1.891
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === WebkitGTK::Compat::Types === (51/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Compat/Types.pm6
     Stage start      :   0.000
-    Stage parse      :   1.554
+    Stage parse      :   1.564
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.001
-    Stage mast       :   0.015
+    Stage mast       :   0.007
     Stage mbc        :   0.001
-Stage parse      :   3.022
+Stage parse      :   3.023
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.007
-Stage mbc        :   0.006
+Stage mast       :   0.011
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::JavaScript::Raw::Types === (52/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/Types.pm6
     Stage start      :   0.000
-    Stage parse      :   1.618
+    Stage parse      :   1.692
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.003
-    Stage mast       :   0.016
-    Stage mbc        :   0.002
-Stage parse      :   3.072
+    Stage mast       :   0.010
+    Stage mbc        :   0.003
+Stage parse      :   3.218
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.013
+Stage mast       :   0.012
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::JavaScript::Raw::Enums === (53/178)
@@ -494,17 +494,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/Enums.pm6
     Stage start      :   0.000
-    Stage parse      :   1.721
+    Stage parse      :   1.703
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.005
-    Stage mast       :   0.010
-    Stage mbc        :   0.003
-Stage parse      :   3.186
+    Stage mast       :   0.011
+    Stage mbc        :   0.006
+Stage parse      :   3.228
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.012
+Stage optimize   :   0.007
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::JavaScript::Raw::Class === (54/178)
@@ -512,16 +512,16 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/Class.pm6
     Stage start      :   0.000
-    Stage parse      :   1.846
+    Stage parse      :   1.927
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.007
-    Stage mast       :   0.015
-    Stage mbc        :   0.004
-Stage parse      :   3.316
+    Stage optimize   :   0.008
+    Stage mast       :   0.018
+    Stage mbc        :   0.030
+Stage parse      :   3.541
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.007
+Stage optimize   :   0.002
 Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
@@ -530,13 +530,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/Context.pm6
     Stage start      :   0.000
-    Stage parse      :   2.049
+    Stage parse      :   2.187
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.023
-    Stage mbc        :   0.008
-Stage parse      :   3.556
+    Stage optimize   :   0.015
+    Stage mast       :   0.028
+    Stage mbc        :   0.024
+Stage parse      :   3.916
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -548,13 +548,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/Exception.pm6
     Stage start      :   0.000
-    Stage parse      :   1.868
+    Stage parse      :   2.053
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.007
-    Stage mast       :   0.022
-    Stage mbc        :   0.005
-Stage parse      :   3.390
+    Stage mast       :   0.017
+    Stage mbc        :   0.015
+Stage parse      :   3.764
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -566,13 +566,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/VM.pm6
     Stage start      :   0.000
-    Stage parse      :   1.609
-    Stage syntaxcheck:   0.019
+    Stage parse      :   1.741
+    Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.002
-    Stage mast       :   0.008
-    Stage mbc        :   0.002
-Stage parse      :   3.073
+    Stage mast       :   0.009
+    Stage mbc        :   0.003
+Stage parse      :   3.373
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -584,17 +584,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Raw/Value.pm6
     Stage start      :   0.000
-    Stage parse      :   2.869
+    Stage parse      :   3.246
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.023
-    Stage mast       :   0.043
-    Stage mbc        :   0.029
-Stage parse      :   4.515
+    Stage optimize   :   0.026
+    Stage mast       :   0.055
+    Stage mbc        :   0.086
+Stage parse      :   5.144
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.016
+Stage optimize   :   0.003
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::JavaScript::Utils === (59/178)
@@ -602,17 +602,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Utils.pm6
     Stage start      :   0.000
-    Stage parse      :   1.743
+    Stage parse      :   1.939
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.014
-    Stage mast       :   0.015
+    Stage optimize   :   0.009
+    Stage mast       :   0.019
     Stage mbc        :   0.002
-Stage parse      :   3.210
+Stage parse      :   3.685
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.012
+Stage optimize   :   0.007
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::JavaScript::VM === (60/178)
@@ -620,13 +620,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/VM.pm6
     Stage start      :   0.000
-    Stage parse      :   1.628
+    Stage parse      :   1.795
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.004
-    Stage mast       :   0.012
+    Stage optimize   :   0.005
+    Stage mast       :   0.014
     Stage mbc        :   0.002
-Stage parse      :   3.089
+Stage parse      :   3.478
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -638,36 +638,36 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Value.pm6
     Stage start      :   0.000
-    Stage parse      :   2.549
+    Stage parse      :   2.886
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.044
-    Stage mast       :   0.140
-    Stage mbc        :   0.007
+    Stage optimize   :   0.074
+    Stage mast       :   0.113
+    Stage mbc        :   0.009
 R: GLib::Roles::Object
-Stage parse      :   4.341
+Stage parse      :   4.919
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::Exports === (62/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Exports.pm6
     Stage start      :   0.000
-    Stage parse      :   0.163
+    Stage parse      :   0.166
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.003
     Stage mast       :   0.005
-    Stage mbc        :   0.001
-Stage parse      :   1.613
+    Stage mbc        :   0.002
+Stage parse      :   1.815
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::Definitions === (63/178)
@@ -675,106 +675,106 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Definitions.pm6
     Stage start      :   0.000
-    Stage parse      :   1.753
+    Stage parse      :   2.040
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.009
-    Stage mast       :   0.028
-    Stage mbc        :   0.002
-Stage parse      :   3.243
+    Stage optimize   :   0.010
+    Stage mast       :   0.023
+    Stage mbc        :   0.004
+Stage parse      :   3.697
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.013
-Stage mbc        :   0.001
+Stage optimize   :   0.008
+Stage mast       :   0.007
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === WebkitGTK::Raw::Enums === (64/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Enums.pm6
     Stage start      :   0.000
-    Stage parse      :   2.253
+    Stage parse      :   2.632
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.040
-    Stage mbc        :   0.019
-Stage parse      :   3.831
+    Stage optimize   :   0.026
+    Stage mast       :   0.049
+    Stage mbc        :   0.046
+Stage parse      :   4.417
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.003
-Stage mast       :   0.008
-Stage mbc        :   0.002
+Stage optimize   :   0.004
+Stage mast       :   0.009
+Stage mbc        :   0.003
 Stage moar       :   0.000
  === WebkitGTK::Raw::Types === (65/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Types.pm6
     Stage start      :   0.000
-    Stage parse      :   3.223
+    Stage parse      :   3.546
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.003
-    Stage mast       :   0.023
-    Stage mbc        :   0.004
-Stage parse      :   4.972
+    Stage optimize   :   0.004
+    Stage mast       :   0.029
+    Stage mbc        :   0.006
+Stage parse      :   5.497
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.015
-Stage mast       :   0.053
-Stage mbc        :   0.011
+Stage optimize   :   0.021
+Stage mast       :   0.042
+Stage mbc        :   0.026
 Stage moar       :   0.000
  === WebkitGTK::Raw::URIRequest === (66/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/URIRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.160
+    Stage parse      :   2.508
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.024
-    Stage mbc        :   0.014
-Stage parse      :   3.862
+    Stage optimize   :   0.024
+    Stage mast       :   0.028
+    Stage mbc        :   0.047
+Stage parse      :   4.473
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::URIResponse === (67/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/URIResponse.pm6
     Stage start      :   0.000
-    Stage parse      :   2.197
+    Stage parse      :   2.522
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.023
-    Stage mast       :   0.020
-    Stage mbc        :   0.020
-Stage parse      :   3.904
+    Stage optimize   :   0.026
+    Stage mast       :   0.036
+    Stage mbc        :   0.051
+Stage parse      :   4.601
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::URISchemeRequest === (68/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/URISchemeRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.220
+    Stage parse      :   2.489
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.022
-    Stage mbc        :   0.020
-Stage parse      :   3.914
+    Stage optimize   :   0.023
+    Stage mast       :   0.027
+    Stage mbc        :   0.054
+Stage parse      :   4.408
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
+Stage optimize   :   0.003
 Stage mast       :   0.004
 Stage mbc        :   0.001
 Stage moar       :   0.000
@@ -783,31 +783,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/UserContent.pm6
     Stage start      :   0.000
-    Stage parse      :   2.319
+    Stage parse      :   2.613
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.091
-    Stage mast       :   0.030
-    Stage mbc        :   0.025
-Stage parse      :   4.093
+    Stage optimize   :   0.025
+    Stage mast       :   0.039
+    Stage mbc        :   0.065
+Stage parse      :   4.579
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::UserContentManager === (70/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/UserContentManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.299
+    Stage parse      :   2.804
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.024
-    Stage mbc        :   0.025
-Stage parse      :   4.004
+    Stage optimize   :   0.025
+    Stage mast       :   0.032
+    Stage mbc        :   0.069
+Stage parse      :   4.698
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -819,13 +819,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Version.pm6
     Stage start      :   0.000
-    Stage parse      :   2.073
+    Stage parse      :   2.032
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.034
-    Stage mbc        :   0.012
-Stage parse      :   3.772
+    Stage optimize   :   0.018
+    Stage mast       :   0.032
+    Stage mbc        :   0.024
+Stage parse      :   3.813
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -837,13 +837,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WebContext.pm6
     Stage start      :   0.000
-    Stage parse      :   3.710
+    Stage parse      :   3.895
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.034
+    Stage optimize   :   0.035
     Stage mast       :   0.049
-    Stage mbc        :   0.080
-Stage parse      :   5.571
+    Stage mbc        :   0.221
+Stage parse      :   5.899
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -855,13 +855,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WebInspector.pm6
     Stage start      :   0.000
-    Stage parse      :   2.284
+    Stage parse      :   2.366
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.024
-    Stage mbc        :   0.022
-Stage parse      :   4.031
+    Stage optimize   :   0.028
+    Stage mast       :   0.028
+    Stage mbc        :   0.066
+Stage parse      :   4.147
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -873,13 +873,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WebResource.pm6
     Stage start      :   0.000
-    Stage parse      :   2.119
+    Stage parse      :   2.078
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.036
-    Stage mbc        :   0.016
-Stage parse      :   3.836
+    Stage optimize   :   0.027
+    Stage mast       :   0.035
+    Stage mbc        :   0.036
+Stage parse      :   3.789
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -891,17 +891,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WebView.pm6
     Stage start      :   0.000
-    Stage parse      :   5.694
+    Stage parse      :   5.981
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.050
-    Stage mast       :   0.069
-    Stage mbc        :   0.119
-Stage parse      :   7.663
+    Stage mast       :   0.165
+    Stage mbc        :   0.354
+Stage parse      :   8.275
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.005
+Stage mast       :   0.012
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::WebsiteData === (76/178)
@@ -909,31 +909,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WebsiteData.pm6
     Stage start      :   0.000
-    Stage parse      :   2.162
+    Stage parse      :   2.196
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.021
-    Stage mbc        :   0.018
-Stage parse      :   3.864
+    Stage optimize   :   0.022
+    Stage mast       :   0.023
+    Stage mbc        :   0.042
+Stage parse      :   3.911
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.001
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === WebkitGTK::Raw::WebsiteDataManager === (77/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WebsiteDataManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.730
+    Stage parse      :   2.830
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.035
-    Stage mbc        :   0.039
-Stage parse      :   4.482
+    Stage optimize   :   0.029
+    Stage mast       :   0.036
+    Stage mbc        :   0.102
+Stage parse      :   4.676
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -945,31 +945,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/WindowProperties.pm6
     Stage start      :   0.000
-    Stage parse      :   2.269
+    Stage parse      :   2.320
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.021
-    Stage mbc        :   0.021
-Stage parse      :   4.001
+    Stage optimize   :   0.027
+    Stage mast       :   0.028
+    Stage mbc        :   0.061
+Stage parse      :   4.075
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Roles::Signals::AutomationSession === (79/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/AutomationSession.pm6
     Stage start      :   0.000
-    Stage parse      :   2.054
+    Stage parse      :   2.111
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.026
-    Stage mbc        :   0.012
-Stage parse      :   3.743
+    Stage optimize   :   0.031
+    Stage mast       :   0.037
+    Stage mbc        :   0.025
+Stage parse      :   3.824
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -981,13 +981,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/BackForwardList.pm6
     Stage start      :   0.000
-    Stage parse      :   2.068
+    Stage parse      :   2.115
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.030
-    Stage mbc        :   0.012
-Stage parse      :   3.781
+    Stage optimize   :   0.031
+    Stage mast       :   0.026
+    Stage mbc        :   0.034
+Stage parse      :   3.846
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -999,13 +999,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/Download.pm6
     Stage start      :   0.000
-    Stage parse      :   2.722
+    Stage parse      :   2.803
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.047
-    Stage mbc        :   0.017
-Stage parse      :   4.475
+    Stage optimize   :   0.027
+    Stage mast       :   0.048
+    Stage mbc        :   0.035
+Stage parse      :   4.578
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1017,13 +1017,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/PrintCustomWidget.pm6
     Stage start      :   0.000
-    Stage parse      :   2.508
+    Stage parse      :   2.522
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.039
-    Stage mbc        :   0.012
-Stage parse      :   4.240
+    Stage optimize   :   0.026
+    Stage mast       :   0.042
+    Stage mbc        :   0.023
+Stage parse      :   4.236
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1035,31 +1035,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/PrintOperation.pm6
     Stage start      :   0.000
-    Stage parse      :   2.711
+    Stage parse      :   2.696
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.046
-    Stage mbc        :   0.017
-Stage parse      :   4.445
+    Stage optimize   :   0.029
+    Stage mast       :   0.053
+    Stage mbc        :   0.034
+Stage parse      :   4.466
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Roles::Signals::UserContentManager === (84/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/UserContentManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.084
+    Stage parse      :   2.065
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.037
-    Stage mbc        :   0.012
-Stage parse      :   3.764
+    Stage optimize   :   0.032
+    Stage mast       :   0.026
+    Stage mbc        :   0.033
+Stage parse      :   3.828
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1071,13 +1071,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/WebContext.pm6
     Stage start      :   0.000
-    Stage parse      :   2.210
+    Stage parse      :   2.233
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.042
-    Stage mbc        :   0.013
-Stage parse      :   3.945
+    Stage optimize   :   0.029
+    Stage mast       :   0.039
+    Stage mbc        :   0.036
+Stage parse      :   4.063
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1089,13 +1089,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/WebResource.pm6
     Stage start      :   0.000
-    Stage parse      :   2.189
+    Stage parse      :   2.236
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.035
-    Stage mbc        :   0.013
-Stage parse      :   3.902
+    Stage optimize   :   0.030
+    Stage mast       :   0.043
+    Stage mbc        :   0.038
+Stage parse      :   4.006
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1107,13 +1107,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/Signals/WebView.pm6
     Stage start      :   0.000
-    Stage parse      :   4.422
+    Stage parse      :   4.787
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.072
-    Stage mast       :   0.187
-    Stage mbc        :   0.074
-Stage parse      :   6.417
+    Stage optimize   :   0.082
+    Stage mast       :   0.102
+    Stage mbc        :   0.177
+Stage parse      :   6.886
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1125,14 +1125,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/URIRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.694
+    Stage parse      :   2.825
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.030
-    Stage mbc        :   0.010
+    Stage optimize   :   0.029
+    Stage mast       :   0.039
+    Stage mbc        :   0.015
 R: GLib::Roles::Object
-Stage parse      :   4.465
+Stage parse      :   4.713
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1144,14 +1144,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/URIResponse.pm6
     Stage start      :   0.000
-    Stage parse      :   3.025
+    Stage parse      :   3.298
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.029
-    Stage mbc        :   0.020
+    Stage optimize   :   0.023
+    Stage mast       :   0.031
+    Stage mbc        :   0.047
 R: GLib::Roles::Object
-Stage parse      :   4.818
+Stage parse      :   5.195
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1163,13 +1163,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/URISchemeRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.228
+    Stage parse      :   2.193
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.028
-    Stage mbc        :   0.011
-Stage parse      :   3.938
+    Stage optimize   :   0.025
+    Stage mast       :   0.033
+    Stage mbc        :   0.027
+Stage parse      :   3.929
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1181,13 +1181,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/UserContent.pm6
     Stage start      :   0.000
-    Stage parse      :   2.053
+    Stage parse      :   2.057
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.042
-    Stage mast       :   0.081
-    Stage mbc        :   0.011
-Stage parse      :   3.819
+    Stage optimize   :   0.043
+    Stage mast       :   0.090
+    Stage mbc        :   0.016
+Stage parse      :   3.887
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1199,14 +1199,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/UserContentManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.941
+    Stage parse      :   3.048
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.032
-    Stage mast       :   0.039
-    Stage mbc        :   0.011
+    Stage mast       :   0.041
+    Stage mbc        :   0.017
 R: GLib::Roles::Object
-Stage parse      :   4.708
+Stage parse      :   4.896
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1219,13 +1219,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Version.pm6
     Stage start      :   0.000
-    Stage parse      :   1.655
+    Stage parse      :   1.626
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.008
     Stage mast       :   0.017
     Stage mbc        :   0.001
-Stage parse      :   3.329
+Stage parse      :   3.293
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1237,19 +1237,19 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/WebInspector.pm6
     Stage start      :   0.000
-    Stage parse      :   2.801
+    Stage parse      :   2.866
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.033
-    Stage mbc        :   0.011
+    Stage optimize   :   0.023
+    Stage mast       :   0.038
+    Stage mbc        :   0.017
 R: GLib::Roles::Object
-Stage parse      :   4.561
+Stage parse      :   4.664
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.005
-Stage mbc        :   0.001
+Stage mast       :   0.004
+Stage mbc        :   0.000
 Stage moar       :   0.000
 R: GLib::Roles::Signals::Generic
  === WebkitGTK::WebResource === (95/178)
@@ -1257,14 +1257,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/WebResource.pm6
     Stage start      :   0.000
-    Stage parse      :   2.417
+    Stage parse      :   2.368
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.032
-    Stage mast       :   0.038
-    Stage mbc        :   0.011
+    Stage optimize   :   0.037
+    Stage mast       :   0.047
+    Stage mbc        :   0.021
 R: GLib::Roles::Object
-Stage parse      :   4.225
+Stage parse      :   4.182
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1277,13 +1277,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/WebsiteData.pm6
     Stage start      :   0.000
-    Stage parse      :   1.988
+    Stage parse      :   2.026
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.024
-    Stage mbc        :   0.008
-Stage parse      :   3.676
+    Stage optimize   :   0.024
+    Stage mast       :   0.027
+    Stage mbc        :   0.026
+Stage parse      :   3.822
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1295,14 +1295,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/WindowProperties.pm6
     Stage start      :   0.000
-    Stage parse      :   3.131
+    Stage parse      :   3.361
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.032
-    Stage mbc        :   0.021
+    Stage optimize   :   0.026
+    Stage mast       :   0.029
+    Stage mbc        :   0.049
 R: GLib::Roles::Object
-Stage parse      :   4.929
+Stage parse      :   5.231
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1314,14 +1314,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Class.pm6
     Stage start      :   0.000
-    Stage parse      :   2.476
+    Stage parse      :   2.540
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.027
-    Stage mast       :   0.030
-    Stage mbc        :   0.015
+    Stage mast       :   0.033
+    Stage mbc        :   0.016
 R: GLib::Roles::Object
-Stage parse      :   4.131
+Stage parse      :   4.257
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1333,36 +1333,36 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Exception.pm6
     Stage start      :   0.000
-    Stage parse      :   2.454
+    Stage parse      :   2.734
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.023
-    Stage mbc        :   0.010
+    Stage optimize   :   0.022
+    Stage mast       :   0.027
+    Stage mbc        :   0.022
 R: GLib::Roles::Object
-Stage parse      :   4.107
+Stage parse      :   4.561
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::ApplicationInfo === (100/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/ApplicationInfo.pm6
     Stage start      :   0.000
-    Stage parse      :   2.297
+    Stage parse      :   2.569
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.018
-    Stage mast       :   0.027
-    Stage mbc        :   0.020
-Stage parse      :   4.023
+    Stage optimize   :   0.020
+    Stage mast       :   0.031
+    Stage mbc        :   0.060
+Stage parse      :   4.540
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::AuthenticationRequest === (101/178)
@@ -1370,17 +1370,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/AuthenticationRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.363
+    Stage parse      :   2.689
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.085
-    Stage mast       :   0.022
-    Stage mbc        :   0.028
-Stage parse      :   4.138
+    Stage optimize   :   0.021
+    Stage mast       :   0.035
+    Stage mbc        :   0.095
+Stage parse      :   4.657
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::AutomationSession === (102/178)
@@ -1388,31 +1388,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/AutomationSession.pm6
     Stage start      :   0.000
-    Stage parse      :   2.066
+    Stage parse      :   2.365
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.018
-    Stage mbc        :   0.014
-Stage parse      :   3.756
+    Stage optimize   :   0.038
+    Stage mast       :   0.025
+    Stage mbc        :   0.032
+Stage parse      :   4.303
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::BackForwardList === (103/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/BackForwardList.pm6
     Stage start      :   0.000
-    Stage parse      :   2.326
+    Stage parse      :   2.609
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.029
-    Stage mbc        :   0.026
-Stage parse      :   4.044
+    Stage optimize   :   0.029
+    Stage mast       :   0.032
+    Stage mbc        :   0.067
+Stage parse      :   4.567
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1424,49 +1424,49 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/BackForwardListItem.pm6
     Stage start      :   0.000
-    Stage parse      :   2.057
+    Stage parse      :   2.261
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.018
-    Stage mbc        :   0.014
-Stage parse      :   3.759
+    Stage optimize   :   0.035
+    Stage mast       :   0.023
+    Stage mbc        :   0.034
+Stage parse      :   4.211
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::ColorChooserRequest === (105/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/ColorChooserRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.134
+    Stage parse      :   2.454
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.093
-    Stage mbc        :   0.015
-Stage parse      :   3.897
+    Stage optimize   :   0.024
+    Stage mast       :   0.027
+    Stage mbc        :   0.046
+Stage parse      :   4.407
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::ConsoleMessage === (106/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/ConsoleMessage.pm6
     Stage start      :   0.000
-    Stage parse      :   2.195
+    Stage parse      :   2.506
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
+    Stage optimize   :   0.023
     Stage mast       :   0.041
-    Stage mbc        :   0.021
-Stage parse      :   3.929
+    Stage mbc        :   0.057
+Stage parse      :   4.465
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1478,13 +1478,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/ContextMenu.pm6
     Stage start      :   0.000
-    Stage parse      :   2.655
+    Stage parse      :   2.984
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.040
-    Stage mbc        :   0.036
-Stage parse      :   4.419
+    Stage optimize   :   0.116
+    Stage mast       :   0.035
+    Stage mbc        :   0.104
+Stage parse      :   5.093
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1496,17 +1496,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/ContextMenuItem.pm6
     Stage start      :   0.000
-    Stage parse      :   2.438
+    Stage parse      :   2.606
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.023
-    Stage mbc        :   0.026
-Stage parse      :   4.159
+    Stage optimize   :   0.028
+    Stage mast       :   0.029
+    Stage mbc        :   0.066
+Stage parse      :   4.582
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::CookieManager === (109/178)
@@ -1514,35 +1514,35 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/CookieManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.509
+    Stage parse      :   2.760
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.026
-    Stage mast       :   0.030
-    Stage mbc        :   0.029
-Stage parse      :   4.239
+    Stage mast       :   0.107
+    Stage mbc        :   0.081
+Stage parse      :   4.806
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::Credential === (110/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Credential.pm6
     Stage start      :   0.000
-    Stage parse      :   2.227
+    Stage parse      :   2.589
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.025
-    Stage mbc        :   0.018
-Stage parse      :   3.913
+    Stage optimize   :   0.024
+    Stage mast       :   0.031
+    Stage mbc        :   0.052
+Stage parse      :   4.519
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::Download === (111/178)
@@ -1550,49 +1550,49 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Download.pm6
     Stage start      :   0.000
-    Stage parse      :   2.388
+    Stage parse      :   2.771
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.095
-    Stage mast       :   0.027
-    Stage mbc        :   0.027
-Stage parse      :   4.168
+    Stage optimize   :   0.026
+    Stage mast       :   0.034
+    Stage mbc        :   0.086
+Stage parse      :   4.794
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::EditorState === (112/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/EditorState.pm6
     Stage start      :   0.000
-    Stage parse      :   2.206
+    Stage parse      :   2.517
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.024
-    Stage mbc        :   0.017
-Stage parse      :   3.907
+    Stage optimize   :   0.023
+    Stage mast       :   0.027
+    Stage mbc        :   0.054
+Stage parse      :   4.475
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::Error === (113/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Error.pm6
     Stage start      :   0.000
-    Stage parse      :   2.150
+    Stage parse      :   2.474
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.033
-    Stage mast       :   0.019
-    Stage mbc        :   0.017
-Stage parse      :   3.834
+    Stage optimize   :   0.022
+    Stage mast       :   0.024
+    Stage mbc        :   0.050
+Stage parse      :   4.348
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1604,31 +1604,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/FaviconDatabase.pm6
     Stage start      :   0.000
-    Stage parse      :   2.204
+    Stage parse      :   2.263
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.022
-    Stage mbc        :   0.018
-Stage parse      :   3.942
+    Stage optimize   :   0.025
+    Stage mast       :   0.023
+    Stage mbc        :   0.046
+Stage parse      :   4.029
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::FileChooserRequest === (115/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/FileChooserRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.150
+    Stage parse      :   2.238
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.032
-    Stage mast       :   0.019
-    Stage mbc        :   0.014
-Stage parse      :   3.823
+    Stage optimize   :   0.024
+    Stage mast       :   0.024
+    Stage mbc        :   0.043
+Stage parse      :   4.004
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1640,13 +1640,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/FindController.pm6
     Stage start      :   0.000
-    Stage parse      :   2.380
+    Stage parse      :   2.478
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.029
-    Stage mbc        :   0.026
-Stage parse      :   4.103
+    Stage optimize   :   0.023
+    Stage mast       :   0.030
+    Stage mbc        :   0.057
+Stage parse      :   4.289
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1658,13 +1658,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/FormSubmissionRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.003
+    Stage parse      :   2.056
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.035
-    Stage mbc        :   0.012
-Stage parse      :   3.744
+    Stage optimize   :   0.018
+    Stage mast       :   0.036
+    Stage mbc        :   0.023
+Stage parse      :   3.753
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1676,31 +1676,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Frame.pm6
     Stage start      :   0.000
-    Stage parse      :   2.154
+    Stage parse      :   2.200
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.032
-    Stage mast       :   0.025
-    Stage mbc        :   0.016
-Stage parse      :   3.876
+    Stage optimize   :   0.036
+    Stage mast       :   0.035
+    Stage mbc        :   0.035
+Stage parse      :   3.959
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::HitTestResult === (119/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/HitTestResult.pm6
     Stage start      :   0.000
-    Stage parse      :   2.487
+    Stage parse      :   2.866
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.018
-    Stage mast       :   0.027
-    Stage mbc        :   0.029
-Stage parse      :   4.231
+    Stage optimize   :   0.025
+    Stage mast       :   0.033
+    Stage mbc        :   0.089
+Stage parse      :   4.806
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1712,13 +1712,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/JavascriptResult.pm6
     Stage start      :   0.000
-    Stage parse      :   2.122
+    Stage parse      :   2.330
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.018
-    Stage mbc        :   0.011
-Stage parse      :   3.856
+    Stage optimize   :   0.023
+    Stage mast       :   0.038
+    Stage mbc        :   0.034
+Stage parse      :   4.264
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1730,31 +1730,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/MimeInfo.pm6
     Stage start      :   0.000
-    Stage parse      :   2.156
+    Stage parse      :   2.425
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.020
-    Stage mbc        :   0.018
-Stage parse      :   3.883
+    Stage optimize   :   0.030
+    Stage mast       :   0.026
+    Stage mbc        :   0.046
+Stage parse      :   4.401
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::NativgationPolicyDecision === (122/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/NativgationPolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.012
+    Stage parse      :   2.135
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.020
-    Stage mast       :   0.034
-    Stage mbc        :   0.012
-Stage parse      :   3.707
+    Stage mast       :   0.036
+    Stage mbc        :   0.026
+Stage parse      :   4.020
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1766,13 +1766,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/NavigationAction.pm6
     Stage start      :   0.000
-    Stage parse      :   2.289
+    Stage parse      :   2.439
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.091
-    Stage mast       :   0.021
-    Stage mbc        :   0.025
-Stage parse      :   4.062
+    Stage optimize   :   0.026
+    Stage mast       :   0.026
+    Stage mbc        :   0.062
+Stage parse      :   4.255
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1784,13 +1784,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/NavigationPolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.028
+    Stage parse      :   2.066
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.020
-    Stage mast       :   0.032
-    Stage mbc        :   0.012
-Stage parse      :   3.731
+    Stage mast       :   0.034
+    Stage mbc        :   0.025
+Stage parse      :   3.863
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1802,13 +1802,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/NetworkProxySettings.pm6
     Stage start      :   0.000
-    Stage parse      :   2.093
+    Stage parse      :   2.178
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
+    Stage optimize   :   0.021
     Stage mast       :   0.034
-    Stage mbc        :   0.015
-Stage parse      :   3.782
+    Stage mbc        :   0.035
+Stage parse      :   3.968
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1820,13 +1820,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Notification.pm6
     Stage start      :   0.000
-    Stage parse      :   2.195
+    Stage parse      :   2.232
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.032
-    Stage mbc        :   0.019
-Stage parse      :   3.892
+    Stage optimize   :   0.021
+    Stage mast       :   0.023
+    Stage mbc        :   0.047
+Stage parse      :   3.986
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1838,49 +1838,49 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/OptionMenu.pm6
     Stage start      :   0.000
-    Stage parse      :   2.162
+    Stage parse      :   2.227
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.021
-    Stage mbc        :   0.018
-Stage parse      :   3.839
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
-Stage moar       :   0.000
- === WebkitGTK::Raw::OptionMenuItem === (128/178)
-Stage start      :   0.000
-
-    precomp lib/WebkitGTK/Raw/OptionMenuItem.pm6
-    Stage start      :   0.000
-    Stage parse      :   2.298
-    Stage syntaxcheck:   0.000
-    Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.023
-    Stage mbc        :   0.024
-Stage parse      :   4.032
+    Stage optimize   :   0.023
+    Stage mast       :   0.049
+    Stage mbc        :   0.041
+Stage parse      :   3.998
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
 Stage mbc        :   0.001
 Stage moar       :   0.000
+ === WebkitGTK::Raw::OptionMenuItem === (128/178)
+Stage start      :   0.000
+
+    precomp lib/WebkitGTK/Raw/OptionMenuItem.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.314
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.027
+    Stage mast       :   0.024
+    Stage mbc        :   0.060
+Stage parse      :   4.103
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
+Stage moar       :   0.000
  === WebkitGTK::Raw::PermissionRequest === (129/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/PermissionRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.033
+    Stage parse      :   2.028
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.033
-    Stage mbc        :   0.008
-Stage parse      :   3.733
+    Stage optimize   :   0.021
+    Stage mast       :   0.034
+    Stage mbc        :   0.025
+Stage parse      :   3.750
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1892,49 +1892,49 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Plugin.pm6
     Stage start      :   0.000
-    Stage parse      :   2.075
+    Stage parse      :   2.100
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.025
-    Stage mbc        :   0.015
-Stage parse      :   3.773
+    Stage optimize   :   0.026
+    Stage mast       :   0.032
+    Stage mbc        :   0.035
+Stage parse      :   3.859
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.001
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === WebkitGTK::Raw::PolicyDecision === (131/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/PolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.080
+    Stage parse      :   2.066
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
+    Stage optimize   :   0.022
     Stage mast       :   0.022
-    Stage mbc        :   0.022
-Stage parse      :   3.786
+    Stage mbc        :   0.031
+Stage parse      :   3.791
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.001
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === WebkitGTK::Raw::PrintCustomWidget === (132/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/PrintCustomWidget.pm6
     Stage start      :   0.000
-    Stage parse      :   2.066
+    Stage parse      :   2.060
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.018
-    Stage mbc        :   0.015
-Stage parse      :   3.742
+    Stage optimize   :   0.032
+    Stage mast       :   0.023
+    Stage mbc        :   0.030
+Stage parse      :   3.819
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1946,13 +1946,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/PrintOperation.pm6
     Stage start      :   0.000
-    Stage parse      :   2.253
+    Stage parse      :   2.261
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.023
-    Stage mbc        :   0.022
-Stage parse      :   3.975
+    Stage optimize   :   0.020
+    Stage mast       :   0.028
+    Stage mbc        :   0.052
+Stage parse      :   3.999
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1964,13 +1964,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/ResponsePolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.056
+    Stage parse      :   2.066
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.032
-    Stage mast       :   0.018
-    Stage mbc        :   0.014
-Stage parse      :   3.754
+    Stage optimize   :   0.033
+    Stage mast       :   0.023
+    Stage mbc        :   0.029
+Stage parse      :   3.781
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -1982,31 +1982,31 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/SecurityManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.526
+    Stage parse      :   2.485
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.026
-    Stage mbc        :   0.032
-Stage parse      :   4.257
+    Stage optimize   :   0.022
+    Stage mast       :   0.035
+    Stage mbc        :   0.076
+Stage parse      :   4.297
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Raw::SecurityOrigin === (136/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/SecurityOrigin.pm6
     Stage start      :   0.000
-    Stage parse      :   2.349
+    Stage parse      :   2.419
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.028
-    Stage mbc        :   0.026
-Stage parse      :   4.078
+    Stage optimize   :   0.025
+    Stage mast       :   0.029
+    Stage mbc        :   0.064
+Stage parse      :   4.198
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2018,17 +2018,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Raw/Settings.pm6
     Stage start      :   0.000
-    Stage parse      :   6.590
+    Stage parse      :   7.669
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.060
-    Stage mast       :   0.102
-    Stage mbc        :   0.222
-Stage parse      :   8.764
+    Stage optimize   :   0.084
+    Stage mast       :   0.091
+    Stage mbc        :   0.619
+Stage parse      :  10.279
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.003
-Stage mast       :   0.014
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Roles::PermissionRequest === (138/178)
@@ -2036,13 +2036,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Roles/PermissionRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   1.920
+    Stage parse      :   1.875
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.023
-    Stage mast       :   0.016
-    Stage mbc        :   0.015
-Stage parse      :   3.610
+    Stage mast       :   0.017
+    Stage mbc        :   0.020
+Stage parse      :   3.572
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2054,14 +2054,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/SecurityManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.732
+    Stage parse      :   2.775
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.053
-    Stage mbc        :   0.013
+    Stage optimize   :   0.029
+    Stage mast       :   0.033
+    Stage mbc        :   0.033
 R: GLib::Roles::Object
-Stage parse      :   4.523
+Stage parse      :   4.563
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2073,13 +2073,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/SecurityOrigin.pm6
     Stage start      :   0.000
-    Stage parse      :   2.231
+    Stage parse      :   2.202
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.034
-    Stage mbc        :   0.011
-Stage parse      :   3.937
+    Stage optimize   :   0.030
+    Stage mast       :   0.036
+    Stage mbc        :   0.030
+Stage parse      :   3.973
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2091,14 +2091,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Settings.pm6
     Stage start      :   0.000
-    Stage parse      :   3.232
+    Stage parse      :   3.188
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.092
+    Stage optimize   :   0.168
     Stage mast       :   0.179
-    Stage mbc        :   0.014
+    Stage mbc        :   0.019
 R: GLib::Roles::Object
-Stage parse      :   5.248
+Stage parse      :   5.314
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2110,13 +2110,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/ApplicationInfo.pm6
     Stage start      :   0.000
-    Stage parse      :   1.852
+    Stage parse      :   1.865
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.032
-    Stage mast       :   0.048
-    Stage mbc        :   0.017
-Stage parse      :   3.593
+    Stage optimize   :   0.031
+    Stage mast       :   0.075
+    Stage mbc        :   0.015
+Stage parse      :   3.693
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2128,14 +2128,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/AutomationSession.pm6
     Stage start      :   0.000
-    Stage parse      :   2.884
+    Stage parse      :   2.952
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.035
-    Stage mbc        :   0.009
+    Stage optimize   :   0.028
+    Stage mast       :   0.034
+    Stage mbc        :   0.015
 R: GLib::Roles::Object
-Stage parse      :   4.691
+Stage parse      :   4.768
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2148,14 +2148,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/BackForwardListItem.pm6
     Stage start      :   0.000
-    Stage parse      :   2.717
+    Stage parse      :   3.075
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
+    Stage optimize   :   0.027
     Stage mast       :   0.029
-    Stage mbc        :   0.010
+    Stage mbc        :   0.016
 R: GLib::Roles::Object
-Stage parse      :   4.505
+Stage parse      :   5.042
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2167,14 +2167,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/ColorChooserRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.760
+    Stage parse      :   3.100
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.027
-    Stage mbc        :   0.016
+    Stage optimize   :   0.022
+    Stage mast       :   0.038
+    Stage mbc        :   0.019
 R: GLib::Roles::Object
-Stage parse      :   4.571
+Stage parse      :   5.029
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2187,13 +2187,13 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/ConsoleMessage.pm6
     Stage start      :   0.000
-    Stage parse      :   1.861
+    Stage parse      :   2.053
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.035
-    Stage mast       :   0.038
-    Stage mbc        :   0.017
-Stage parse      :   3.570
+    Stage optimize   :   0.026
+    Stage mast       :   0.051
+    Stage mbc        :   0.022
+Stage parse      :   3.937
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2205,38 +2205,38 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/ContextMenuItem.pm6
     Stage start      :   0.000
-    Stage parse      :   3.495
+    Stage parse      :   3.912
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.041
-    Stage mbc        :   0.019
+    Stage optimize   :   0.027
+    Stage mast       :   0.044
+    Stage mbc        :   0.034
 R: GIO::Roles::Action
-Stage parse      :   5.363
+Stage parse      :   6.042
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::CookieManager === (148/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/CookieManager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.879
+    Stage parse      :   3.498
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.036
-    Stage mast       :   0.044
-    Stage mbc        :   0.105
+    Stage optimize   :   0.046
+    Stage mast       :   0.078
+    Stage mbc        :   0.024
 R: GLib::Roles::Object
-Stage parse      :   4.800
+Stage parse      :   5.700
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: GLib::Roles::Signals::Generic
  === WebkitGTK::Credential === (149/178)
@@ -2244,74 +2244,74 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Credential.pm6
     Stage start      :   0.000
-    Stage parse      :   1.946
+    Stage parse      :   2.408
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.031
-    Stage mbc        :   0.010
-Stage parse      :   3.683
+    Stage optimize   :   0.037
+    Stage mast       :   0.042
+    Stage mbc        :   0.040
+Stage parse      :   4.677
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::EditorState === (150/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/EditorState.pm6
     Stage start      :   0.000
-    Stage parse      :   2.740
+    Stage parse      :   3.326
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.030
-    Stage mbc        :   0.010
+    Stage optimize   :   0.032
+    Stage mast       :   0.038
+    Stage mbc        :   0.018
 R: GLib::Roles::Object
-Stage parse      :   4.524
+Stage parse      :   5.463
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Error === (151/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Error.pm6
     Stage start      :   0.000
-    Stage parse      :   1.626
+    Stage parse      :   1.897
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.008
-    Stage mast       :   0.016
+    Stage optimize   :   0.009
+    Stage mast       :   0.021
     Stage mbc        :   0.001
-Stage parse      :   3.278
+Stage parse      :   3.934
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::FaviconDatabase === (152/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/FaviconDatabase.pm6
     Stage start      :   0.000
-    Stage parse      :   2.785
+    Stage parse      :   3.213
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.035
-    Stage mbc        :   0.011
+    Stage optimize   :   0.034
+    Stage mast       :   0.037
+    Stage mbc        :   0.038
 R: GLib::Roles::Object
-Stage parse      :   4.570
+Stage parse      :   5.315
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: GLib::Roles::Signals::Generic
  === WebkitGTK::FileChooserRequest === (153/178)
@@ -2319,38 +2319,38 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/FileChooserRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   3.942
+    Stage parse      :   4.521
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.044
-    Stage mbc        :   0.018
+    Stage optimize   :   0.024
+    Stage mast       :   0.059
+    Stage mbc        :   0.019
 R: GLib::Roles::Object
-Stage parse      :   5.846
+Stage parse      :   6.653
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::FindController === (154/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/FindController.pm6
     Stage start      :   0.000
-    Stage parse      :   2.735
+    Stage parse      :   3.191
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.038
-    Stage mbc        :   0.011
+    Stage optimize   :   0.039
+    Stage mast       :   0.040
+    Stage mbc        :   0.017
 R: GLib::Roles::Object
-Stage parse      :   4.531
+Stage parse      :   5.361
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: GLib::Roles::Signals::Generic
  === WebkitGTK::FormSubmissionRequest === (155/178)
@@ -2358,52 +2358,52 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/FormSubmissionRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   2.761
+    Stage parse      :   3.484
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.033
-    Stage mbc        :   0.011
+    Stage optimize   :   0.030
+    Stage mast       :   0.038
+    Stage mbc        :   0.017
 R: GLib::Roles::Object
-Stage parse      :   4.535
+Stage parse      :   5.657
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::HitTestResult === (156/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/HitTestResult.pm6
     Stage start      :   0.000
-    Stage parse      :   3.372
+    Stage parse      :   4.344
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.035
-    Stage mbc        :   0.031
+    Stage optimize   :   0.038
+    Stage mast       :   0.046
+    Stage mbc        :   0.093
 R: GLib::Roles::Object
-Stage parse      :   5.201
+Stage parse      :   6.598
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::JavaScript::Context === (157/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavaScript/Context.pm6
     Stage start      :   0.000
-    Stage parse      :   2.443
+    Stage parse      :   3.022
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.036
-    Stage mast       :   0.056
-    Stage mbc        :   0.007
+    Stage optimize   :   0.052
+    Stage mast       :   0.065
+    Stage mbc        :   0.016
 R: GLib::Roles::Object
-Stage parse      :   4.170
+Stage parse      :   5.077
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2415,17 +2415,17 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/JavascriptResult.pm6
     Stage start      :   0.000
-    Stage parse      :   2.044
+    Stage parse      :   2.495
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.023
-    Stage mbc        :   0.010
-Stage parse      :   3.844
+    Stage optimize   :   0.035
+    Stage mast       :   0.026
+    Stage mbc        :   0.023
+Stage parse      :   4.585
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.005
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === WebkitGTK::MimeInfo === (159/178)
@@ -2433,49 +2433,49 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/MimeInfo.pm6
     Stage start      :   0.000
-    Stage parse      :   1.852
+    Stage parse      :   2.073
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.029
-    Stage mast       :   0.022
-    Stage mbc        :   0.013
-Stage parse      :   3.558
+    Stage mast       :   0.030
+    Stage mbc        :   0.017
+Stage parse      :   3.911
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::NavigationAction === (160/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/NavigationAction.pm6
     Stage start      :   0.000
-    Stage parse      :   2.362
+    Stage parse      :   2.549
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.028
-    Stage mbc        :   0.013
-Stage parse      :   4.138
+    Stage optimize   :   0.033
+    Stage mast       :   0.034
+    Stage mbc        :   0.041
+Stage parse      :   4.499
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::NetworkProxySettings === (161/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/NetworkProxySettings.pm6
     Stage start      :   0.000
-    Stage parse      :   2.012
+    Stage parse      :   2.056
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.042
-    Stage mbc        :   0.011
-Stage parse      :   3.729
+    Stage optimize   :   0.027
+    Stage mast       :   0.046
+    Stage mbc        :   0.016
+Stage parse      :   3.858
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2487,14 +2487,14 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/Notification.pm6
     Stage start      :   0.000
-    Stage parse      :   2.919
+    Stage parse      :   3.455
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.025
-    Stage mbc        :   0.016
+    Stage optimize   :   0.037
+    Stage mast       :   0.033
+    Stage mbc        :   0.036
 R: GLib::Roles::Object
-Stage parse      :   4.700
+Stage parse      :   5.488
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2507,75 +2507,75 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/OptionMenuItem.pm6
     Stage start      :   0.000
-    Stage parse      :   2.089
+    Stage parse      :   2.411
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.032
-    Stage mbc        :   0.017
-Stage parse      :   3.797
+    Stage optimize   :   0.039
+    Stage mast       :   0.036
+    Stage mbc        :   0.025
+Stage parse      :   4.521
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Plugin === (164/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Plugin.pm6
     Stage start      :   0.000
-    Stage parse      :   3.107
+    Stage parse      :   3.762
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.027
-    Stage mbc        :   0.021
+    Stage optimize   :   0.034
+    Stage mast       :   0.039
+    Stage mbc        :   0.043
 R: GLib::Roles::Object
-Stage parse      :   4.910
+Stage parse      :   5.980
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.006
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::PolicyDecision === (165/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/PolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.771
+    Stage parse      :   3.617
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.019
-    Stage mast       :   0.027
-    Stage mbc        :   0.011
+    Stage optimize   :   0.027
+    Stage mast       :   0.036
+    Stage mbc        :   0.021
 R: GLib::Roles::Object
-Stage parse      :   4.556
+Stage parse      :   5.756
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::PrintCustomWidget === (166/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/PrintCustomWidget.pm6
     Stage start      :   0.000
-    Stage parse      :   5.482
+    Stage parse      :   6.886
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.032
-    Stage mast       :   0.092
-    Stage mbc        :   0.028
+    Stage optimize   :   0.024
+    Stage mast       :   0.116
+    Stage mbc        :   0.044
 R: GLib::Roles::Object
-Stage parse      :   7.892
+Stage parse      :  10.098
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: WebkitGTK::Roles::Signals::PrintCustomWidget
  === WebkitGTK::ResponsePolicyDecision === (167/178)
@@ -2583,56 +2583,56 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/ResponsePolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.116
+    Stage parse      :   2.746
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.031
-    Stage mast       :   0.052
-    Stage mbc        :   0.017
-Stage parse      :   3.959
+    Stage optimize   :   0.035
+    Stage mast       :   0.074
+    Stage mbc        :   0.016
+Stage parse      :   5.015
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::WebsiteDataManager === (168/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/WebsiteDataManager.pm6
     Stage start      :   0.000
-    Stage parse      :   3.407
+    Stage parse      :   4.056
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.039
-    Stage mast       :   0.070
-    Stage mbc        :   0.025
+    Stage optimize   :   0.052
+    Stage mast       :   0.075
+    Stage mbc        :   0.081
 R: GLib::Roles::Object
-Stage parse      :   5.273
+Stage parse      :   6.515
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::AuthenticationRequest === (169/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/AuthenticationRequest.pm6
     Stage start      :   0.000
-    Stage parse      :   3.099
+    Stage parse      :   3.581
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.038
-    Stage mast       :   0.114
-    Stage mbc        :   0.020
+    Stage optimize   :   0.044
+    Stage mast       :   0.038
+    Stage mbc        :   0.043
 R: GLib::Roles::Object
-Stage parse      :   5.003
+Stage parse      :   5.970
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: GLib::Roles::Signals::Generic
  === WebkitGTK::BackForwardList === (170/178)
@@ -2640,19 +2640,19 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/BackForwardList.pm6
     Stage start      :   0.000
-    Stage parse      :   2.767
+    Stage parse      :   3.403
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.039
-    Stage mast       :   0.046
-    Stage mbc        :   0.010
+    Stage optimize   :   0.047
+    Stage mast       :   0.072
+    Stage mbc        :   0.012
 R: GLib::Roles::Object
-Stage parse      :   4.600
+Stage parse      :   5.584
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: WebkitGTK::Roles::Signals::BackForwardList
 R: GLib::Roles::ListData[WebkitGTK::Raw::Types::WebKitBackForwardListItem]
@@ -2661,70 +2661,70 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/ContextMenu.pm6
     Stage start      :   0.000
-    Stage parse      :   2.154
+    Stage parse      :   2.465
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.038
-    Stage mast       :   0.049
-    Stage mbc        :   0.017
+    Stage optimize   :   0.049
+    Stage mast       :   0.060
+    Stage mbc        :   0.028
 R: GLib::Roles::Object
-Stage parse      :   4.068
+Stage parse      :   4.785
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Frame === (172/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Frame.pm6
     Stage start      :   0.000
-    Stage parse      :   1.953
+    Stage parse      :   2.147
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.023
-    Stage mast       :   0.057
-    Stage mbc        :   0.017
+    Stage optimize   :   0.030
+    Stage mast       :   0.087
+    Stage mbc        :   0.023
 R: GLib::Roles::Object
-Stage parse      :   3.798
+Stage parse      :   4.259
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::NavigationPolicyDecision === (173/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/NavigationPolicyDecision.pm6
     Stage start      :   0.000
-    Stage parse      :   2.138
+    Stage parse      :   2.516
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.028
-    Stage mast       :   0.030
-    Stage mbc        :   0.012
-Stage parse      :   3.944
+    Stage optimize   :   0.032
+    Stage mast       :   0.039
+    Stage mbc        :   0.027
+Stage parse      :   4.676
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::OptionMenu === (174/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/OptionMenu.pm6
     Stage start      :   0.000
-    Stage parse      :   2.923
+    Stage parse      :   3.480
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.027
-    Stage mast       :   0.027
-    Stage mbc        :   0.016
+    Stage optimize   :   0.028
+    Stage mast       :   0.031
+    Stage mbc        :   0.025
 R: GLib::Roles::Object
-Stage parse      :   4.725
+Stage parse      :   5.525
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -2736,19 +2736,19 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/WebContext.pm6
     Stage start      :   0.000
-    Stage parse      :   2.674
+    Stage parse      :   3.096
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.061
-    Stage mast       :   0.106
-    Stage mbc        :   0.010
+    Stage optimize   :   0.064
+    Stage mast       :   0.155
+    Stage mbc        :   0.014
 R: GLib::Roles::Object
-Stage parse      :   4.663
+Stage parse      :   5.315
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: WebkitGTK::Roles::Signals::WebContext
  === WebkitGTK::WebView === (176/178)
@@ -2756,60 +2756,60 @@ Stage start      :   0.000
 
     precomp lib/WebkitGTK/WebView.pm6
     Stage start      :   0.000
-    Stage parse      :   7.187
+    Stage parse      :   8.357
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.082
-    Stage mast       :   0.186
-    Stage mbc        :   0.035
+    Stage optimize   :   0.215
+    Stage mast       :   0.224
+    Stage mbc        :   0.059
 R: WebkitGTK::Roles::Signals::WebView
-Stage parse      :  10.131
+Stage parse      :  11.945
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::Download === (177/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/Download.pm6
     Stage start      :   0.000
-    Stage parse      :   4.089
+    Stage parse      :   4.861
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.143
-    Stage mbc        :   0.016
+    Stage optimize   :   0.037
+    Stage mast       :   0.152
+    Stage mbc        :   0.113
 R: GLib::Roles::Object
-Stage parse      :   7.003
+Stage parse      :   8.285
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WebkitGTK::PrintOperation === (178/178)
 Stage start      :   0.000
 
     precomp lib/WebkitGTK/PrintOperation.pm6
     Stage start      :   0.000
-    Stage parse      :   5.084
+    Stage parse      :   5.897
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.038
-    Stage mast       :   0.116
-    Stage mbc        :   0.017
+    Stage optimize   :   0.036
+    Stage mast       :   0.152
+    Stage mbc        :   0.032
 R: GLib::Roles::Object
-Stage parse      :   8.000
+Stage parse      :   9.442
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: WebkitGTK::Roles::Signals::PrintOperation
 
-real 683.66
-user 807.58
-sys 59.66
+real 746.41
+user 874.27
+sys 59.16
