@@ -20,6 +20,7 @@ need GLib::Raw::Structs;
 need GLib::Raw::Struct_Subs;
 need GLib::Raw::Subs;
 need GLib::Roles::Pointers;
+need GLib::Roles::Implementor;
 need Pango::Raw::Definitions;
 need Pango::Raw::Enums;
 need Pango::Raw::Structs;
