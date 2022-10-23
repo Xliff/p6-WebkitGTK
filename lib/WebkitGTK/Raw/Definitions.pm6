@@ -9,7 +9,7 @@ unit package WebkitGTK::Raw::Types;
 constant webkit is export = 'webkit2gtk-4.0',v37;
 
 # Number of times compilations have been forced.
-my constant forced = 36;
+my constant forced = 95;
 
 constant WebKitURISchemeRequestCallback is export := Pointer;
 
@@ -24,6 +24,7 @@ class WebKitContextMenu              is repr<CPointer> is export does GLib::Role
 class WebKitContextMenuItem          is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitCookieManager            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitCredential               is repr<CPointer> is export does GLib::Roles::Pointers { }
+class WebKitDOMDocument              is repr<CPointer> is export does GLib::Roles::Pointers { } # DEPRECATED
 class WebKitDOMObject                is repr<CPointer> is export does GLib::Roles::Pointers { } # DEPRECATED
 class WebKitDownload                 is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitEditorState              is repr<CPointer> is export does GLib::Roles::Pointers { }
@@ -56,10 +57,13 @@ class WebKitURIRequest               is repr<CPointer> is export does GLib::Role
 class WebKitURIResponse              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitURISchemeRequest         is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitUserContentManager       is repr<CPointer> is export does GLib::Roles::Pointers { }
+class WebKitUserMessage              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitUserScript               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitUserStyleSheet           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitWebContext               is repr<CPointer> is export does GLib::Roles::Pointers { }
+class WebKitWebEditor                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitWebInspector             is repr<CPointer> is export does GLib::Roles::Pointers { }
+class WebKitWebPage                  is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitWebResource              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitWebsiteData              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class WebKitWebsiteDataManager       is repr<CPointer> is export does GLib::Roles::Pointers { }
