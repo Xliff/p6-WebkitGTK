@@ -1,3 +1,7 @@
 prefix=WebkitGTK
 modules=WebkitGTK::Raw::Types,GTK::Raw::Types,GTK::Compat::Types
 backups=backup,bitbucket
+has-widgets=True
+lib=webkit
+hfile-prefix=WEBKIT_DEPRECATED:G_BEGIN_DECLS:G_END_DECLS
+include-directory=/usr/include/webkitgtk-4.0
