@@ -15,11 +15,14 @@ $ export P6_GTK_HOME=/path/to/projects
 Switch to that directory and clone both p6-GtkPlus and p6-WebkitGTK
 
 ```
+$ git clone https://github.com/Xliff/p6-GLib.git
+$ git clone https://github.com/Xliff/p6-GIO.git
 $ git clone https://github.com/Xliff/p6-Pango.git
+$ git clone https://github.com/Xliff/p6-GDK.git
 $ git clone https://github.com/Xliff/p6-GtkPlus.git
 $ git clone https://github.com/Xliff/p6-WebkitGTK.git
-$ cd p6-GtkPlus
-$ zef install --deps-only .
+$ cd p6-GLib
+$ ./install-prereqs.sh
 ```
 
 [Optional] To build all of WebkitGTK and the required GTK modules, you can change to the p6-WebkitGTK directory and do:
