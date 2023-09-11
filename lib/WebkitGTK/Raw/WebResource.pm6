@@ -9,24 +9,29 @@ unit package WebkitGTK::Raw::WebResource;
 
 sub webkit_web_resource_get_data (
   WebKitWebResource $resource,
-  GCancellable $cancellable,
-  &callback (GObject, GAsyncResult, Pointer),
-  gpointer $user_data
+  GCancellable      $cancellable,
+                    &callback (
+                      GObject,
+                      GAsyncResult,
+                      gsize         is rw,
+                      Pointer
+                    ),
+  gpointer          $user_data
 )
   is native(webkit)
   is export
   { * }
 
 sub webkit_web_resource_get_data_finish (
-  WebKitWebResource $resource,
-  GAsyncResult $result,
-  gsize $length is rw,
+  WebKitWebResource       $resource,
+  GAsyncResult            $result,
+  gsize                   $length is rw,
   CArray[Pointer[GError]] $error
 )
   returns CArray[uint8]
-  is native(webkit)
-  is export
-  { * }
+  is      native(webkit)
+  is      export
+{ * }
 
 sub webkit_web_resource_get_response (WebKitWebResource $resource)
   returns WebKitURIResponse

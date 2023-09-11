@@ -66,17 +66,17 @@ class WebkitGTK::WebResource {
   { * }
 
   multi method get_data (
-    GAsyncReadyCallback $callback,
-    gpointer $user_data       = Pointer,
+             &callback,
+    gpointer $user_data = Pointer,
   ) {
-    samewith(GCancellable, $callback, $user_data);
+    samewith(GCancellable, &callback, $user_data);
   }
   multi method get_data (
     GCancellable() $cancellable,
-    GAsyncReadyCallback $callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
-    webkit_web_resource_get_data($!wr, $cancellable, $callback, $user_data);
+    webkit_web_resource_get_data($!wr, $cancellable, &callback, $user_data);
   }
 
   proto method get_data_finish (|)
@@ -85,16 +85,20 @@ class WebkitGTK::WebResource {
 
   # Length is provided since this may be a region in memory...
   multi method get_data_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror,
+    GAsyncResult()           $result,
+    CArray[Pointer[GError]]  $error    = gerror,
+                            :$str      = True,
+                            :$encoding = 'utf8'
   ) {
-    samewith($result, $, $error, :all);
+    samewith($result, $, $error, :all, :$str, :$encoding);
   }
   multi method get_data_finish (
-    GAsyncResult() $result,
-    $length is rw,
-    CArray[Pointer[GError]] $error = gerror,
-    :$all = False
+    GAsyncResult()           $result,
+                             $length  is rw,
+    CArray[Pointer[GError]]  $error          = gerror,
+                            :$all            = False,
+                            :$str            = True,
+                            :$encoding       = 'utf8'
   ) {
     my gsize $l = 0;
 
@@ -102,8 +106,9 @@ class WebkitGTK::WebResource {
     my $d = webkit_web_resource_get_data_finish($!wr, $result, $l, $error);
     set_error($error);
     $length = $l;
-
+    
     return Nil unless $d;
+    $d = Buf.new( $d[^$l] ).decode($encoding) if $str;
     $all.not ?? $d !! ($d, $length)
   }
 

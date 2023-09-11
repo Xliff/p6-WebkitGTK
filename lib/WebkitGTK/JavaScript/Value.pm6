@@ -105,12 +105,12 @@ class WebkitGTK::JavaScript::Value {
   }
 
   method new_function_variadic (
-    JSCContext() $c,
-    Str() $name,
-    GCallback $callback,
-    gpointer $user_data,
+    JSCContext()   $c,
+    Str()          $name,
+    GCallback      $callback,
+    gpointer       $user_data,
     GDestroyNotify $destroy_notify,
-    GType $return_type
+    GType          $return_type
   )
     is also<new-function-variadic>
   {
@@ -131,13 +131,13 @@ class WebkitGTK::JavaScript::Value {
   { * }
 
   multi method new_functionv (
-    JSCContect() $c,
-    Str() $name,
-    GCallback $callback,
-    gpointer $user_data,
+    JSCContect()   $c,
+    Str()          $name,
+    GCallback      $callback,
+    gpointer       $user_data,
     GDestroyNotify $destroy_notify,
-    GType $return_type,
-    @parameter_types
+    GType          $return_type,
+                   @parameter_types
   ) {
     samewith(
       $c,
@@ -151,14 +151,14 @@ class WebkitGTK::JavaScript::Value {
     )
   }
   multi method new_functionv (
-    JSCContect() $c,
-    Str() $name,
-    GCallback $callback,
-    gpointer $user_data,
+    JSCContect()   $c,
+    Str()          $name,
+    GCallback      $callback,
+    gpointer       $user_data,
     GDestroyNotify $destroy_notify,
-    GType $return_type,
-    Int() $n_parameters,
-    CArray[GType] $parameter_types
+    GType          $return_type,
+    Int()          $n_parameters,
+    CArray[GType]  $parameter_types
   ) {
     my guint $np = $n_parameters;
     my $value = jsc_value_new_functionv(
@@ -183,7 +183,7 @@ class WebkitGTK::JavaScript::Value {
     samewith(@parameters.elems, paramsToCArray(@parameters) );
   }
   multi method constructor_callv (
-    Int() $n_parameters,
+    Int()            $n_parameters,
     CArray[JSCValue] $parameters
   ) {
     my guint $np = $n_parameters;
@@ -199,7 +199,7 @@ class WebkitGTK::JavaScript::Value {
     samewith(@parameters.elems, paramsToCArray(@parameters) );
   }
   multi method function_callv (
-    Int() $n_parameters,
+    Int()            $n_parameters,
     CArray[JSCValue] $parameters
   ) {
     my guint $np = $n_parameters;
@@ -259,13 +259,13 @@ class WebkitGTK::JavaScript::Value {
   }
 
   method object_define_property_accessor (
-    Str() $property_name,
-    Int() $flags,               # JSCValuePropertyFlags $flags,
-    GType $property_type,
-    GCallback $getter,
-    GCallback $setter,
-    gpointer $user_data            = gpointer,
-    GDestroyNotify $destroy_notify = GDestroyNotify
+    Str()          $property_name,
+    Int()          $flags,               # JSCValuePropertyFlags $flags,
+    GType          $property_type,
+    GCallback      $getter,
+    GCallback      $setter,
+    gpointer       $user_data       = gpointer,
+    GDestroyNotify $destroy_notify  = GDestroyNotify
   )
     is also<object-define-property-accessor>
   {
@@ -284,8 +284,8 @@ class WebkitGTK::JavaScript::Value {
   }
 
   method object_define_property_data (
-    Str() $property_name,
-    Int() $flags,               # JSCValuePropertyFlags $flags,
+    Str()      $property_name,
+    Int()      $flags,               # JSCValuePropertyFlags $flags,
     JSCValue() $property_value
   )
     is also<object-define-property-data>
@@ -331,8 +331,8 @@ class WebkitGTK::JavaScript::Value {
     samewith( $name, @parameters.elems, paramsToCArray(@parameters) );
   }
   multi method object_invoke_methodv (
-    Str() $name,
-    Int() $n_parameters,
+    Str()            $name,
+    Int()            $n_parameters,
     CArray[JSCValue] $parameters
   ) {
     my guint $np = $n_parameters;
