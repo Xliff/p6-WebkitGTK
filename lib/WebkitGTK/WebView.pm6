@@ -4,6 +4,7 @@ use Method::Also;
 use NativeCall;
 use Cairo;
 
+use SOUP::Raw::Enums;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::WebView;
 
@@ -12,11 +13,11 @@ use GIO::InputStream;
 use GTK::Container;
 use WebkitGTK::BackForwardList;
 use WebkitGTK::FindController;
-use WebkitGTK::WebInspector;
 use WebkitGTK::JavascriptResult;
 use WebkitGTK::Settings;
 use WebkitGTK::UserContentManager;
 use WebkitGTK::WebContext;
+use WebkitGTK::WebInspector;
 use WebkitGTK::WebResource;
 use WebkitGTK::WebsiteDataManager;
 use WebkitGTK::WindowProperties;
@@ -221,7 +222,7 @@ class WebkitGTK::WebView is GTK::Container {
   # Is originally:
   # WebKitWebView, guint (WebKitLoadEvent), gchar, GError, gpointer --> gboolean
   method load-failed is also<load_failed> {
-    self.connect-load-event($!wkv);
+    self.connect-load-failed($!wkv);
   }
 
   # Is originally:
@@ -319,17 +320,17 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method can_execute_editing_command (
-    Str() $command,
-    &callback,
+    Str()    $command,
+             &callback,
     gpointer $user_data = gpointer
   ) {
     samewith($command, GCancellable, &callback, $user_data);
   }
   multi method can_execute_editing_command (
-    Str() $command,
+    Str()          $command,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = gpointer
+                   &callback,
+    gpointer       $user_data = gpointer
   ) {
     webkit_web_view_can_execute_editing_command(
       $!wkv,
@@ -341,8 +342,8 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method can_execute_editing_command_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror
   )
     is also<can-execute-editing-command-finish>
   {
@@ -467,10 +468,10 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method get_snapshot (
-    Int()          $region,                        # WebKitSnapshotRegion $region,
-    Int()          $options,                       # WebKitSnapshotOptions $options,
-                   &callback,
-    gpointer       $user_data    = Pointer,
+    Int()           $region,                        # WebKitSnapshotRegion $region,
+    Int()           $options,                       # WebKitSnapshotOptions $options,
+                    &callback,
+    gpointer        $user_data   = Pointer,
     GCancellable() :$cancellable = GCancellable
   ) {
     samewith($region, $options, $cancellable, &callback, $user_data);
@@ -496,9 +497,9 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method get_snapshot_finish (
-    GAsyncResult()          $result,
-    CArray[Pointer[GError]] $error   = gerror,
-                            :$raw    = False
+    GAsyncResult()           $result,
+    CArray[Pointer[GError]]  $error   = gerror,
+                            :$raw     = False
   )
     is also<get-snapshot-finish>
   {
@@ -523,7 +524,7 @@ class WebkitGTK::WebView is GTK::Container {
 
   method get_tls_info (
     GTlsCertificate() $certificate,
-    Int() $errors                         # GTlsCertificateFlags $errors
+    Int()             $errors                         # GTlsCertificateFlags $errors
   )
     is also<get-tls-info>
   {
@@ -563,12 +564,16 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method get_website_data_manager (:$raw = False)
-    is also<get-website-data-manager>
+    is also<
+      get-website-data-manager
+      website_data_manager
+      website-data-manager
+    >
   {
     my $dm = webkit_web_view_get_website_data_manager($!wkv);
 
     $dm ??
-      ( $raw ?? $dm !! WebkitGDK::WebsiteDataManager.new($dm) )
+      ( $raw ?? $dm !! WebkitGTK::WebsiteDataManager.new($dm) )
       !!
       Nil;
   }
@@ -635,9 +640,9 @@ class WebkitGTK::WebView is GTK::Container {
 
   method load_bytes (
     GBytes() $bytes,
-    Str() $mime_type,
-    Str() $encoding,
-    Str() $base_uri
+    Str()    $mime_type,
+    Str()    $encoding,
+    Str()    $base_uri
   )
     is also<load-bytes>
   {
@@ -671,6 +676,23 @@ class WebkitGTK::WebView is GTK::Container {
     webkit_web_view_load_uri($!wkv, $uri);
   }
 
+  method makePersistent (
+    :location(:cookie_location(:$cookie-location)) is copy,
+    :policy(:cookie_policy(:$cookie-policy))       is copy
+  )
+    is also<
+      make_persistent
+      make-persistent
+    >
+  {
+    $cookie-location //= $*HOME.add('.webkit-gtk').add('cookies.txt').absolute;
+    $cookie-policy   //= SOUP_COOKIE_JAR_ACCEPT_ALWAYS;
+
+    my $cm = self.website-data-manager.cookie-manager;
+    $cm.set-persistent-storage($cookie-location);
+    $cm.set-accept-policy($cookie-policy);
+  }
+
   method reload {
     webkit_web_view_reload($!wkv);
   }
@@ -679,9 +701,7 @@ class WebkitGTK::WebView is GTK::Container {
     webkit_web_view_reload_bypass_cache($!wkv);
   }
 
-  method restore_session_state (
-    WebKitWebViewSessionState() $state
-  )
+  method restore_session_state (WebKitWebViewSessionState() $state)
     is also<restore-session-state>
   {
     webkit_web_view_restore_session_state($!wkv, $state);
@@ -692,17 +712,17 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method run_javascript (
-    Str() $script,
-    &callback,
+    Str()    $script,
+             &callback,
     gpointer $user_data = Pointer
   ) {
     samewith($script, GCancellable, &callback, $user_data);
   }
   multi method run_javascript (
-    Str() $script,
+    Str()          $script,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data    = Pointer
   ) {
     webkit_web_view_run_javascript(
       $!wkv,
@@ -714,9 +734,9 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method run_javascript_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror,
-    :$raw = False
+    GAsyncResult()           $result,
+    CArray[Pointer[GError]]  $error   = gerror,
+                            :$raw     = False
   )
     is also<run-javascript-finish>
   {
@@ -737,17 +757,17 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method run_javascript_from_gresource (
-    Str() $resource,
-    &callback,
+    Str()    $resource,
+             &callback,
     gpointer $user_data = Pointer
   ) {
     samewith($resource, GCancellable, &callback, $user_data);
   }
   multi method run_javascript_from_gresource (
-    Str() $resource,
+    Str()          $resource,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
     webkit_web_view_run_javascript_from_gresource(
       $!wkv, $resource, $cancellable, &callback, $user_data
@@ -755,9 +775,9 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method run_javascript_from_gresource_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror,
-    :$raw = False
+    GAsyncResult()           $result,
+    CArray[Pointer[GError]]  $error   = gerror,
+                            :$raw     = False
   )
     is also<run-javascript-from-gresource-finish>
   {
@@ -780,19 +800,19 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method run_javascript_in_world (
-    Str() $script,
-    Str() $world_name,
-    &callback,
-    gpointer $user_data = Pointer
+    Str()    $script,
+    Str()    $world_name,
+             &callback,
+    gpointer $user_data   = Pointer
   ) {
     samewith($script, $world_name, GCancellable, &callback, $user_data);
   }
   multi method run_javascript_in_world (
-    Str() $script,
-    Str() $world_name,
+    Str()          $script,
+    Str()          $world_name,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
     webkit_web_view_run_javascript_in_world(
       $!wkv,
@@ -805,15 +825,17 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method run_javascript_in_world_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror,
-    :$raw = False
+    GAsyncResult()           $result,
+    CArray[Pointer[GError]]  $error   = gerror,
+                            :$raw     = False
   )
     is also<run-javascript-in-world-finish>
   {
     clear_error;
     my $js_result = webkit_web_view_run_javascript_in_world_finish(
-      $!wkv, $result, $error
+      $!wkv,
+      $result,
+      $error
     );
     set_error($error);
 
@@ -825,16 +847,16 @@ class WebkitGTK::WebView is GTK::Container {
 
   multi method save (
     WebKitSaveMode $save_mode,
-    &callback,
-    gpointer $user_data = gpointer
+                   &callback,
+    gpointer       $user_data   = gpointer
   ) {
     samewith($save_mode, GCancellable, &callback, $user_data);
   }
   multi method save (
-    Int() $save_mode,
+    Int()          $save_mode,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = gpointer
+                   &callback,
+    gpointer       $user_data = gpointer
   ) {
     my WebKitSaveMode $sm = $save_mode;
 
@@ -842,9 +864,9 @@ class WebkitGTK::WebView is GTK::Container {
   }
 
   method save_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror,
-    :$raw = False
+    GAsyncResult()           $result,
+    CArray[Pointer[GError]]  $error   = gerror,
+                            :$raw     = False
   )
     is also<save-finish>
   {
@@ -863,9 +885,9 @@ class WebkitGTK::WebView is GTK::Container {
   { * }
 
   multi method save_to_file (
-    GFile()        $file,
-                   &callback,
-    gpointer       $user_data    = Pointer,
+    GFile()         $file,
+                    &callback,
+    gpointer        $user_data   = Pointer,
     Int()          :$save_mode   = WEBKIT_SAVE_MODE_MHTML,  # WebKitSaveMode $save_mode,
     GCancellable() :$cancellable = GCancellable
   ) {

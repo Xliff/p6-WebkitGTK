@@ -43,7 +43,7 @@ sub get_story_title($wv) {
   );
 }
 
-$a.activate.tap({
+$a.activate.tap: SUB {
   my $wv = WebkitGTK::WebView.new;
 
   # A lot more work when integrating with JavaScript.
@@ -55,6 +55,6 @@ $a.activate.tap({
   $a.window.add($wv);
   $a.window.title = 'Perl6 Browser';
   $a.window.show_all;
-});
+}
 
 $a.run;

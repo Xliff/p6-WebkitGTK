@@ -39,16 +39,19 @@ sub stop {
   $wv.stop_loading if $wv.is_loading;
 }
 
-sub fwd {
-  $wv.go_forward if $wv.can_go_forward;
+sub back-forward-check {
   $b<Fwd>.sensitive = $wv.can_go_forward;
   $b<Back>.sensitive = $wv.can_go_back;
+}
+
+sub fwd {
+  $wv.go_forward if $wv.can_go_forward;
+  back-forward-check;
 };
 
 sub back {
   $wv.go_back if $wv.can_go_back;
-  $b<Back>.sensitive = $wv.can_go_back;
-  $b<Fwd>.sensitive = $wv.can_go_forward;
+  back-forward-check;
 }
 
 sub handle_loading($s, *@a) {
@@ -68,13 +71,16 @@ sub handle_loading($s, *@a) {
       $s.pop($last_s);
       $last_s = Nil;
       %cids{$_}:delete for %cids.keys;
-      $b<Back>.sensitive = $wv.can_go_back;
-      $b<Fwd>.sensitive = $wv.can_go_forward;
+      back-forward-check
+      my $r = $wv.get-main-resource;
+      $r.get-data(-> *@a {
+        say $r.get-data-finished( @a[1] );
+      });
     }
   }
 }
 
-$a.activate.tap({
+$a.activate.tap( -> *@a {
   my $s = GTK::Statusbar.new;
 
   $b<Back>.sensitive = $b<Fwd>.sensitive = False;
@@ -82,12 +88,12 @@ $a.activate.tap({
   $wv.mouse-target-changed.tap(-> *@a { update_statusbar($s, |@a) });
   $wv.load-changed.tap(        -> *@a {   handle_loading($s, |@a) });
 
-  $b<MainWin>.destroy-signal.tap({ $a.exit });
+  $b<MainWin>.destroy-signal.tap(-> *@a { $a.quit });
 
-  $b<URIEntry>.activate.tap({ load() });
-  $b<Back>.clicked.tap(     { back() });
-  $b<Fwd>.clicked.tap(      { fwd()  });
-  $b<Stop>.clicked.tap(     { stop() });
+  $b<URIEntry>.activate.tap(-> *@a { load() });
+  $b<Back>.clicked.tap(     -> *@a { back() });
+  $b<Fwd>.clicked.tap(      -> *@a { fwd()  });
+  $b<Stop>.clicked.tap(     -> *@a { stop() });
 
   $b<MainWin>.set_size_request(640, 480);
   $b<MainWinBox>.pack_start($wv, True, True);

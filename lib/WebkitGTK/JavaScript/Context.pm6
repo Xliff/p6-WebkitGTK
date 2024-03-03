@@ -98,8 +98,8 @@ class WebkitGTK::JavaScript::Context {
   }
 
   method evaluate (Str() $code, Int() $length, :$raw = False) {
-    my guint $l = $length;
-    my $v = jsc_context_evaluate($!jsc, $code, $l);
+    my guint    $l = $length;
+    my JSCValue $v = jsc_context_evaluate($!jsc, $code, $l);
 
     $v ??
       ( $raw ?? $v !! WebkitGTK::JavaScript::Value.new($v) )
@@ -111,13 +111,13 @@ class WebkitGTK::JavaScript::Context {
   { * }
 
   multi method evaluate_in_object (
-    Str() $code,
-    Int() $length,
-    gpointer $object_instance,
-    JSCClass() $object_class,
-    Str() $uri,
-    Int() $line_number,
-    :$raw = False
+    Str()       $code,
+    Int()       $length,
+    gpointer    $object_instance,
+    JSCClass()  $object_class,
+    Str()       $uri,
+    Int()       $line_number,
+               :$raw = False
   ) {
     samewith(
       $code,
@@ -132,15 +132,15 @@ class WebkitGTK::JavaScript::Context {
     );
   }
   multi method evaluate_in_object (
-    Str() $code,
-    Int() $length,
-    gpointer $object_instance,
-    JSCClass() $object_class,
-    Str() $uri,
-    Int() $line_number,
-    $object is rw,
-    :$all = False,
-    :$raw = False
+    Str()       $code,
+    Int()       $length,
+    gpointer    $object_instance,
+    JSCClass()  $object_class,
+    Str()       $uri,
+    Int()       $line_number,
+                $object           is rw,
+               :$all                     = False,
+               :$raw                     = False
   )
     is also<evaluate-in-object>
   {
@@ -174,11 +174,11 @@ class WebkitGTK::JavaScript::Context {
   }
 
   method evaluate_with_source_uri (
-    Str() $code,
-    Int() $length,
-    Str() $uri,
-    Int() $line_number,
-    :$raw = False
+    Str()  $code,
+    Int()  $length,
+    Str()  $uri,
+    Int()  $line_number,
+          :$raw = False
   )
     is also<evaluate-with-source-uri>
   {
@@ -251,8 +251,8 @@ class WebkitGTK::JavaScript::Context {
 
   method push_exception_handler (
     JSCExceptionHandler $handler,
-    gpointer $user_data            = Pointer,
-    GDestroyNotify $destroy_notify = Pointer
+    gpointer            $user_data      = Pointer,
+    GDestroyNotify      $destroy_notify = Pointer
   )
     is also<push-exception-handler>
   {
@@ -262,10 +262,10 @@ class WebkitGTK::JavaScript::Context {
   }
 
   method register_class (
-    Str() $name,
-    JSCClass() $parent_class,
+    Str()            $name,
+    JSCClass()       $parent_class,
     JSCClassVTable() $vtable,
-    GDestroyNotify $destroy_notify = Pointer
+    GDestroyNotify   $destroy_notify = Pointer
   )
     is also<register-class>
   {

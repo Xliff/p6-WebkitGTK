@@ -29,7 +29,8 @@ role WebkitGTK::Roles::Signals::WebView {
 
           my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $ar, $ud, $r] );
-          $r.r;
+          $r.val .= Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -56,7 +57,8 @@ role WebkitGTK::Roles::Signals::WebView {
 
           my $r = GLib::Raw::ReturnedValue;
           $s.emit( [self, $m, $e, $tr, $ud, $r] );
-          $r.r;
+          $r.val .= Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -67,7 +69,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitNavigationAction, gpointer --> WebKitWebView (GtkWidget)
-  method create (
+  method connect-create (
     $obj,
     $signal = 'create',
     &handler?
@@ -81,9 +83,11 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $na, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.WebKitWebView
+            if $r.val !~~ WebKitWebView && $r.val.^can('WebKitWebView');
+          $r.val;
         },
         Pointer, 0
       );
@@ -94,7 +98,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitPolicyDecision, guint (WebKitPolicyDecisionType), gpointer
-  method decide-policy (
+  method connect-decide-policy (
     $obj,
     $signal = 'decide-policy',
     &handler?
@@ -119,7 +123,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, guint (WebKitLoadEvent), gchar, GError, gpointer --> gboolean
-  method load-failed (
+  method connect-load-failed (
     $obj,
     $signal = 'load-failed',
     &handler?
@@ -128,14 +132,16 @@ role WebkitGTK::Roles::Signals::WebView {
     %!signals-wv{$signal} //= do {
       my $s = Supplier.new;
       $hid = g-connect-load-failed($obj, $signal,
-        -> $, $le, $f, $e, $ud --> gboolean {
+        -> $, $le is copy, $f, $e, $ud --> gboolean {
           CATCH {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          $le = WebKitLoadEventEnum($le);
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $le, $f, $e, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -146,7 +152,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, gchar, GTlsCertificate, GTlsCertificateFlags, gpointer --> gboolean
-  method load-failed-with-tls-errors (
+  method connect-load-failed-with-tls-errors (
     $obj,
     $signal = 'load-failed',
     &handler?
@@ -160,9 +166,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $f, $c, $e, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -173,7 +180,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
-  method connect-mouse-target (
+  method connect-connect-mouse-target (
     $obj,
     $signal = 'mouse-target-changed',
     &handler?
@@ -198,7 +205,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
-  method connect-permission-request (
+  method connect-connect-permission-request (
     $obj,
     $signal = 'permission-request',
     &handler?
@@ -212,9 +219,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $pr, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -225,7 +233,7 @@ role WebkitGTK::Roles::Signals::WebView {
   }
 
   # WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
-  method connect-print (
+  method connect-connect-print (
     $obj,
     $signal = 'print',
     &handler?
@@ -239,9 +247,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $po, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -291,9 +300,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $cc, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -318,9 +328,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $fc, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -345,9 +356,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $sd, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -372,9 +384,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $n, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -399,9 +412,10 @@ role WebkitGTK::Roles::Signals::WebView {
             default { note($_) }
           }
 
-          my $r = GLib::Raw::ReturnedValue;
+          my $r = GLib::Raw::ReturnedValue.new;
           $s.emit( [self, $om, $e, $rect, $ud, $r] );
-          $r.r;
+          $r.val = $r.val.Int if $r.val !~~ Int && $r.val.^can('Int');
+          $r.val
         },
         Pointer, 0
       );
@@ -440,207 +454,233 @@ role WebkitGTK::Roles::Signals::WebView {
 
 sub g-connect-authenticate(
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitAuthenticationRequest, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitAuthenticationRequest, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitContextMenu, GdkEvent, WebKitHitTestResult, gpointer --> gboolean
 sub g-connect-context-menu(
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitContextMenu, GdkEvent, WebKitHitTestResult, Pointer --> gboolean),
+  Str     $name,
+          &handler (
+            Pointer,
+            WebKitContextMenu,
+            GdkEvent,
+            WebKitHitTestResult,
+            Pointer
+            --> gboolean
+          ),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitHitTestResult, guint, gpointer --> void
 sub g-connect-mouse-target(
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitHitTestResult, guint, Pointer),
+  Str     $name,
+          &handler (Pointer, WebKitHitTestResult, guint, Pointer),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitNavigationAction, gpointer --> WebKitWebView (GtkWidget)
 sub g-connect-create (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitNavigationAction, Pointer --> WebKitWebView),
+  Str     $name,
+          &handler (
+            Pointer,
+            WebKitNavigationAction,
+            Pointer
+            --> WebKitWebView
+          ),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitPolicyDecision, guint (WebKitPolicyDecisionType), gpointer
 sub g-connect-decide-policy (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitPolicyDecision, guint, Pointer),
+  Str     $name,
+          &handler (Pointer, WebKitPolicyDecision, guint, Pointer),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
-# WebKitWebView, guint (WebKitLoadEvent), gchar, GError, gpointer --> gboolean
+# WebKitWebView, guin$r.val;t (WebKitLoadEvent), gchar, GError, gpointer --> gboolean
 sub g-connect-load-failed (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, guint, Str, GError, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, guint, Str, GError, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32   $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, gchar, GTlsCertificate, guint (GTlsCertificateFlags), gpointer --> gboolean
 sub g-connect-load-failed-with-tls-errors (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, Str, GTlsCertificate, guint, Pointer --> gboolean),
+  Str     $name,
+          &handler (
+            Pointer,
+            Str,
+            GTlsCertificate,
+            guint,
+            Pointer
+            --> gboolean
+          ),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
   { * }
 
 # WebKitWebView, WebKitPermissionRequest, gpointer -> gboolean
 sub g-connect-permission-request (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitPermissionRequest, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitPermissionRequest, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
   is native('gobject-2.0')
   is symbol('g_signal_connect_object')
-  { * }
+{ * }
 
 # WebKitWebView, WebKitPrintOperation, gpointer --> gboolean
 sub g-connect-print (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitPrintOperation, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitPrintOperation, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitWebResource, WebKitURIRequest, gpointer --> void
 sub g-connect-resource-load-started (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitWebResource, WebKitURIRequest, Pointer),
+  Str     $name,
+          &handler (Pointer, WebKitWebResource, WebKitURIRequest, Pointer),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
   { * }
 
 # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
 sub g-connect-color-chooser (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitColorChooserRequest, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitColorChooserRequest, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
   is native('gobject-2.0')
   is symbol('g_signal_connect_object')
-  { * }
+{ * }
 
 # WebKitWebView, WebKitColorChooserRequest, gpointer --> gboolean
 sub g-connect-file-chooser (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitFileChooserRequest, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitFileChooserRequest, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
   { * }
 
 # WebKitWebView, WebKitScriptDialog, gpointer --> gboolean
 sub g-connect-script-dialog (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitScriptDialog, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitScriptDialog, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitNotification, gpointer --> gboolean
 sub g-connect-show-notification (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitNotification, Pointer --> gboolean),
+  Str     $name,
+          &handler (Pointer, WebKitNotification, Pointer --> gboolean),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitOptionMenu, GdkEvent, GdkRectangle, gpointer --> gboolean
 sub g-connect-show-option-menu (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitOptionMenu, GdkEvent, GdkRectangle, Pointer --> gboolean),
+  Str     $name,
+          &handler (
+            Pointer,
+            WebKitOptionMenu,
+            GdkEvent,
+            GdkRectangle,
+            Pointer
+            --> gboolean
+          ),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # WebKitWebView, WebKitFormSubmissionRequest, gpointer --> void
 sub g-connect-form-submission-request (
   Pointer $app,
-  Str $name,
-  &handler (Pointer, WebKitFormSubmissionRequest, Pointer),
+  Str     $name,
+          &handler (Pointer, WebKitFormSubmissionRequest, Pointer),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }

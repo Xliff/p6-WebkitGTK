@@ -7,7 +7,7 @@ unit package WebkitGTK::JavaScript::Raw::Types;
 constant jsc is export = 'javascriptcoregtk-4.0',v18;
 
 # Number of times compilation has been forced
-my constant forced = 35;
+my constant forced = 222;
 
 class JSCClassVTable      is repr("CPointer") is export does GLib::Roles::Pointers { }
 class JSCContext          is repr("CPointer") is export does GLib::Roles::Pointers { }

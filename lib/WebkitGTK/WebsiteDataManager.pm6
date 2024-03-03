@@ -9,6 +9,8 @@ use WebkitGTK::Raw::WebsiteDataManager;
 use GLib::Roles::Object;
 use WebkitGTK::CookieManager;
 
+use GLib::Roles::Implementor;
+
 my @valid-options = <
   base-cache-directory
   base-data-dictionary
@@ -17,24 +19,52 @@ my @valid-options = <
   is-ephemeral
   local-storage-directory
   offline-application-cache-directory
-  websql-directory
+  wwebsql-directory
 >;
+
+our subset WebKitWebsiteDataManagerAncestry is export of Mu
+  where WebKitWebsiteDataManager | GObject;
 
 class WebkitGTK::WebsiteDataManager {
   also does GLib::Roles::Object;
 
-  has WebKitWebsiteDataManager $!wwdm;
+  has WebKitWebsiteDataManager $!wwdm is implementor;
 
-  submethod BUILD (:$manager) {
-    self!setObject($!wwdm = $manager);
+  submethod BUILD ( :manager(:$webkit-manager) ) {
+    self.setWebKitWebsiteDataManager($webkit-manager) if $webkit-manager
   }
 
-  method WebkitGTK::Raw::Definitions::WebKitWebsiteDataManager
+  method setWebKitWebsiteDataManager (WebKitWebsiteDataManagerAncestry $_) {
+    my $to-parent;
+
+    $!wwdm = do {
+      when WebKitWebsiteDataManager {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(WebKitWebsiteDataManager, $_);
+      }
+    }
+    self!setObject($to-parent);
+  }
+
+  method GData::Raw::Definitions::WebKitWebsiteDataManager
     is also<
       DataManager
       WebKitWebsiteDataManager
     >
   { $!wwdm }
+
+  multi method new ($webkit-manager where * ~~ WebKitWebsiteDataManagerAncestry , :$ref = True) {
+    return unless $webkit-manager;
+
+    my $o = self.bless( :$webkit-manager );
+    $o.ref if $ref;
+    $o;
+  }
 
   multi method new (%dirs) {
     samewith(|%dirs);
@@ -59,29 +89,29 @@ class WebkitGTK::WebsiteDataManager {
        Str
     );
 
-    self.bless($manager);
+    self.bless( :$manager );
   }
 
   method new_ephemeral is also<new-ephemeral> {
     my $manager = webkit_website_data_manager_new_ephemeral();
 
-    $manager ?? self.bless(:$manager) !! Nil;
+    $manager ?? self.bless( :$manager ) !! Nil;
   }
 
   multi method clear (
-    Int() $types,
+    Int()     $types,
     GTimeSpan $timespan,
-    &callback,
-    gpointer $user_data = gpointer
+              &callback,
+    gpointer  $user_data = gpointer
   ) {
     samewith($types, $timespan, GCancellable, &callback, $user_data);
   }
   multi method clear (
-    Int() $types,
-    GTimeSpan $timespan,
+    Int()          $types,
+    GTimeSpan      $timespan,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = gpointer
+                   &callback,
+    gpointer       $user_data = gpointer
   ) {
     my guint $t = $types;
 
@@ -96,8 +126,8 @@ class WebkitGTK::WebsiteDataManager {
   }
 
   method clear_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror
   )
     is also<clear-finish>
   {
@@ -112,17 +142,17 @@ class WebkitGTK::WebsiteDataManager {
   }
 
   multi method fetch (
-    Int() $types,
-    &callback,
+    Int()    $types,
+             &callback,
     gpointer $user_data
   ) {
     samewith($types, GCancellable, &callback, $user_data);
   }
   multi method fetch (
-    Int() $types,
+    Int()          $types,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data
+                   &callback,
+    gpointer       $user_data
   ) {
     my guint $t = $types;
 
@@ -136,8 +166,8 @@ class WebkitGTK::WebsiteDataManager {
   }
 
   method fetch_finish (
-    GAsyncResult $result,
-    CArray[Pointer[GError]] $error = gerror
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror
   )
     is also<fetch-finish>
   {
@@ -256,19 +286,19 @@ class WebkitGTK::WebsiteDataManager {
   }
 
   multi method remove (
-    Int() $types,
-    GList() $website_data,
-    &callback,
+    Int()    $types,
+    GList()  $website_data,
+             &callback,
     gpointer $user_data = gpointer
   ) {
     samewith($types, $website_data, GCancellable, &callback, $user_data);
   }
   multi method remove (
-    Int() $types,
-    GList() $website_data,
+    Int()          $types,
+    GList()        $website_data,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = gpointer
+                   &callback,
+    gpointer       $user_data     = gpointer
   ) {
     my WebKitWebsiteDataTypes $t = $types;
 
@@ -283,8 +313,8 @@ class WebkitGTK::WebsiteDataManager {
   }
 
   method remove_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror
   )
     is also<remove-finish>
   {

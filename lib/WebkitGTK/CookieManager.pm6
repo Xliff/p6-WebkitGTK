@@ -7,27 +7,51 @@ use WebkitGTK::Compat::Types;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::CookieManager;
 
+use GLib::Roles::Implementor;
 use GLib::Roles::Object;
-use GLib::Roles::Signals::Generic;
+
+our subset WebKitCookieManagerAncestry is export of Mu
+  where WebKitCookieManager | GObject;
 
 class WebkitGTK::CookieManager {
   also does GLib::Roles::Object;
-  also does GLib::Roles::Signals::Generic;
 
-  has WebKitCookieManager $!wcm;
+  has WebKitCookieManager $!wcm is implementor;
 
-  submethod BUILD (:$manager) {
-    $!wcm = $manager;
-
-    self.roleInit-Object;
+  submethod BUILD ( :$webkit-manager ) {
+    self.setWebKitCookieManager($webkit-manager) if $webkit-manager
   }
 
-  method WebkitGTK::Raw::Definitions::WebKitCookieManager
+  method setWebKitCookieManager (WebKitCookieManagerAncestry $_) {
+    my $to-parent;
+
+    $!wcm = do {
+      when WebKitCookieManager {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(WebKitCookieManager, $_);
+      }
+    }
+    self!setObject($to-parent);
+  }
+
+  method GData::Raw::Definitions::WebKitCookieManager
     is also<WebKitCookieManager>
   { $!wcm }
 
-  method new (WebKitCookieManager $manager) {
-    $manager ?? self.bless(:$manager) !! Nil;
+  multi method new (
+     $webkit-manager where * ~~ WebKitCookieManagerAncestry,
+    :$ref                                                    = True
+  ) {
+    return unless $webkit-manager;
+
+    my $o = self.bless( :$webkit-manager );
+    $o.ref if $ref;
+    $o;
   }
 
   method changed {
@@ -39,17 +63,17 @@ class WebkitGTK::CookieManager {
   { * }
 
   multi method add_cookie(
-    SoupCookie $cookie,
-    &callback,
-    gpointer $user_data = Pointer
+    SoupCookie() $cookie,
+                 &callback,
+    gpointer     $user_data = Pointer
   ) {
     samewith($cookie, GCancellable, &callback, $user_data);
   }
   multi method add_cookie (
-    SoupCookie $cookie,
+    SoupCookie()   $cookie,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
     webkit_cookie_manager_add_cookie(
       $!wcm,
@@ -61,8 +85,8 @@ class WebkitGTK::CookieManager {
   }
 
   method add_cookie_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror;
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror;
   )
     is also<add-cookie-finish>
   {
@@ -77,17 +101,17 @@ class WebkitGTK::CookieManager {
   { * }
 
   multi method delete_cookie(
-    SoupCookie $cookie,
-    &callback,
-    gpointer $user_data = Pointer
+    SoupCookie() $cookie,
+                 &callback,
+    gpointer     $user_data = Pointer
   ) {
     samewith($cookie, GCancellable, &callback, $user_data);
   }
   multi method delete_cookie (
-    SoupCookie $cookie,
+    SoupCookie()   $cookie,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
     webkit_cookie_manager_delete_cookie(
       $!wcm,
@@ -99,8 +123,8 @@ class WebkitGTK::CookieManager {
   }
 
   method delete_cookie_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror;
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror;
   )
     is also<delete-cookie-finish>
   {
@@ -119,15 +143,15 @@ class WebkitGTK::CookieManager {
   { * }
 
   multi method get_accept_policy(
-    &callback,
+             &callback,
     gpointer $user_data = Pointer
   ) {
     samewith(GCancellable, &callback, $user_data);
   }
   multi method get_accept_policy (
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data = Pointer
   ) {
     webkit_cookie_manager_get_accept_policy(
       $!wcm,
@@ -138,8 +162,8 @@ class WebkitGTK::CookieManager {
   }
 
   method get_accept_policy_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror;
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror;
   )
     is also<
       get-accept-policy-finish
@@ -160,17 +184,17 @@ class WebkitGTK::CookieManager {
   { * }
 
   multi method get_cookies (
-    Str() $uri,
-    &callback,
+    Str()    $uri,
+             &callback,
     gpointer $user_data = Pointer
   ) {
     samewith($uri, GCancellable, &callback, $user_data);
   }
   multi method get_cookies (
-    Str() $uri,
+    Str()          $uri,
     GCancellable() $cancellable,
-    &callback,
-    gpointer $user_data = Pointer
+                   &callback,
+    gpointer       $user_data    = Pointer
   ) {
     webkit_cookie_manager_get_cookies(
       $!wcm,
@@ -182,14 +206,16 @@ class WebkitGTK::CookieManager {
   }
 
   method get_cookies_finish (
-    GAsyncResult() $result,
-    CArray[Pointer[GError]] $error = gerror
+    GAsyncResult()          $result,
+    CArray[Pointer[GError]] $error   = gerror
   )
     is also<get-cookies-finish>
   {
     clear_error;
     my $rc = webkit_cookie_manager_get_cookies_finish(
-      $!wcm, $result, $error
+      $!wcm,
+      $result,
+      $error
     );
     set_error($error);
     $rc;
@@ -207,9 +233,15 @@ class WebkitGTK::CookieManager {
     webkit_cookie_manager_set_accept_policy($!wcm, $p);
   }
 
-  method set_persistent_storage (
+  multi method set_persistent_storage (|)
+  { * }
+
+  multi method set_persistent_storage (Str() $filename, :$sqlite is required) {
+    samewith($filename, WEBKIT_COOKIE_PERSISTENT_STORAGE_SQLITE);
+  }
+  multi method set_persistent_storage (
     Str() $filename,
-    Int() $storage                # WebKitCookiePersistentStorage $storage
+    Int() $storage   = WEBKIT_COOKIE_PERSISTENT_STORAGE_TEXT
   )
     is also<set-persistent-storage>
   {
