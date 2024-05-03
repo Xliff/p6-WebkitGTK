@@ -25,29 +25,20 @@ use WebkitGTK::WindowProperties;
 use WebkitGTK::Roles::Signals::WebView;
 
 our subset WebKitWebViewAncestry is export
-  where WebKitWebView | ContainerAncestry;
+  where WebKitWebView | GtkContainerAncestry;
 
 class WebkitGTK::WebView is GTK::Container {
   also does WebkitGTK::Roles::Signals::WebView;
 
   has WebKitWebView $!wkv is implementor;
 
-  method bless(*%attrinit) {
-    my $o = self.CREATE.BUILDALL(Empty, %attrinit);
-    $o.setType($o.^name);
-    $o;
-  }
-
-  submethod BUILD (:$view) {
-    given $view {
-      when WebKitWebViewAncestry { self.setWebKitWebView($_) }
-      when WebkitGTK::WebView    { }
-      default                    { }
-    }
+  submethod BUILD ( :$webkit-view ) {
+    self.setWebKitWebView($webkit-view) if $webkit-view
   }
 
   method setWebKitWebView (WebKitWebViewAncestry $_) {
     my $to-parent;
+
     $!wkv = do {
       when WebKitWebView {
         $to-parent = cast(GtkContainer, $_);
@@ -59,52 +50,55 @@ class WebkitGTK::WebView is GTK::Container {
         cast(WebKitWebView, $_);
       }
     }
-    self.setContainer($to-parent);
+    self.setGtkContainer($to-parent);
     self.ADD-PREFIX('WebkitGTK::');
   }
 
   method WebkitGTK::Raw::Definitions::WebKitWebView
-    is also<
-      WebView
-      WebKitWebView
-    >
+    is also<WebKitWebView>
   { $!wkv }
 
-  multi method new (WebKitWebView $view, :$ref = True) {
-    return Nil unless $view;
+  multi method new (
+    $webkit-view where * ~~ WebKitWebViewAncestry,
 
-    my $o = self.bless(:$view);
+    :$ref = True
+  ) {
+    return unless $webkit-view;
+
+    my $o = self.bless( :$webkit-view );
     $o.ref if $ref;
     $o;
   }
-  multi method new {
-    my $view = webkit_web_view_new();
+  multi method new ( *%a ) {
+    my $webkit-view = webkit_web_view_new();
 
-    $view ?? self.bless(:$view) !! Nil;
+    my $o = $webkit-view ?? self.bless( :$webkit-view ) !! Nil;
+    $o.setAttributes(%a) if $o && +%a;
+    $o;
   }
 
   method new_with_context (WebKitWebContext() $context)
     is also<new-with-context>
   {
-    my $view = webkit_web_view_new_with_context($context);
+    my $webkit-view = webkit_web_view_new_with_context($context);
 
-    $view ?? self.bless(:$view) !! Nil;
+    $webkit-view ?? self.bless( :$webkit-view ) !! Nil;
   }
 
   method new_with_related_view (WebKitWebView() $other-view)
     is also<new-with-related-view>
   {
-    my $view = webkit_web_view_new_with_related_view($other-view);
+    my $webkit-view = webkit_web_view_new_with_related_view($other-view);
 
-    $view ?? self.bless(:$view) !! Nil;
+    $webkit-view ?? self.bless( :$webkit-view ) !! Nil;
   }
 
   method new_with_settings (WebKitSettings() $settings)
     is also<new-with-settings>
   {
-    my $view = webkit_web_view_new_with_settings($settings);
+    my $webkit-view = webkit_web_view_new_with_settings($settings);
 
-    $view ?? self.bless(:$view) !! Nil;
+    $webkit-view ?? self.bless( :$webkit-view ) !! Nil;
   }
 
   method new_with_user_content_manager (
@@ -112,11 +106,11 @@ class WebkitGTK::WebView is GTK::Container {
   )
     is also<new-with-user-content-manager>
   {
-    my $view = webkit_web_view_new_with_user_content_manager(
+    my $webkit-view = webkit_web_view_new_with_user_content_manager(
       $user_content_manager
     );
 
-    $view ?? self.bless(:$view) !! Nil;
+    $webkit-view ?? self.bless( :$webkit-view ) !! Nil;
   }
 
   method custom_charset is rw is also<custom-charset> {
@@ -157,6 +151,12 @@ class WebkitGTK::WebView is GTK::Container {
         webkit_web_view_set_zoom_level($!wkv, $zl);
       }
     );
+  }
+
+  method background-color ( :$raw = False ) is rw is also<background_color> {
+    Proxy.new:
+      FETCH => -> $     { self.get_background_color( :$raw ) },
+      STORE => -> $, \v { self.set_background_color(v)       }
   }
 
   # Is originally:
@@ -657,7 +657,7 @@ class WebkitGTK::WebView is GTK::Container {
 
   method load_html (
     Str() $content,
-    Str() $base_uri
+    Str() $base_uri = Str
   )
     is also<load-html>
   {
