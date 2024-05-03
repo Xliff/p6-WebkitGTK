@@ -6,8 +6,12 @@ use NativeCall;
 use WebkitGTK::Raw::Types;
 use WebkitGTK::Raw::UserContent;
 
+use GLib::Roles::Implementor;
+
 class WebkitGTK::UserStyleSheet {
-  has WebKitUserStyleSheet $!wuss;
+  also does GLib::Roles::Implementor;
+
+  has WebKitUserStyleSheet $!wuss is implementor;
 
   submethod BUILD (:$content) {
     $!wuss = $content;
@@ -23,10 +27,28 @@ class WebkitGTK::UserStyleSheet {
     $!wuss;
   }
 
+  proto method new (|)
+  { * }
+  
   multi method new (WebKitUserStyleSheet $content, :$ref = True) {
     my $o = self.bless(:$content);
     $o.ref if $ref;
     $o;
+  }
+  multi method new (
+    Str    $source,
+    Int() :$frames    = WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES,
+    Int() :$time      = WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_END,
+          :@whitelist = (),
+          :@blacklist = (),
+  ) {
+    samewith(
+      $source,
+      $frames,
+      $time,
+      @whitelist,
+      @blacklist
+    );
   }
   multi method new (
     Str   $source,
@@ -115,7 +137,9 @@ class WebkitGTK::UserStyleSheet {
 }
 
 class WebkitGTK::UserScript {
-  has WebKitUserScript $!wus;
+  also does GLib::Roles::Implementor;
+
+  has WebKitUserScript $!wus is implementor;
 
   submethod BUILD (:$content) {
     $!wus = $content;
@@ -137,6 +161,21 @@ class WebkitGTK::UserScript {
     my $o = self.bless(:$content);
     $o.ref if $ref;
     $o;
+  }
+  multi method new (
+    Str()  $source,
+    Int() :$frames    = WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES,
+    Int() :$time      = WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_END,
+          :@whitelist = (),
+          :@blacklist = (),
+  ) {
+    samewith(
+      $source,
+      $frames,
+      $time,
+      @whitelist.elems ?? ArrayToCArray(Str, @whitelist, :zero) !! CArray[Str],
+      @blacklist.elems ?? ArrayToCArray(Str, @blacklist, :zero) !! CArray[Str]
+    );
   }
   multi method new (
     Str() $source,
@@ -175,6 +214,22 @@ class WebkitGTK::UserScript {
   proto method new_for_world (|)
     is also<new-for-world>
   { * }
+  multi method new_for_world (
+    Str() $source,
+    Str() $world_name,
+    Int() :$frames     = WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES,
+    Int() :$time       = WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_END,
+          :@whitelist  = (),
+          :@blacklist  = (),
+  ) {
+    samewith(
+      $source,
+      $frames,
+      $time,
+      @whitelist.elems ?? ArrayToCArray(Str, @whitelist, :zero) !! CArray[Str],
+      @blacklist.elems ?? ArrayToCArray(Str, @blacklist, :zero) !! CArray[Str]
+    );
+  }
   multi method new_for_world (
     Str() $source,
     Int() $frames,
