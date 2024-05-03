@@ -7,28 +7,59 @@ use WebkitGTK::Raw::Settings;
 
 use GLib::Roles::Object;
 
+our subset WebKitSettingsAncestry is export of Mu
+  where WebKitSettings | GObject;
+
 class WebkitGTK::Settings {
   also does GLib::Roles::Object;
 
   has WebKitSettings $!ws is implementor;
 
-  submethod BUILD (:$settings) {
-    $!ws = $settings;
+  submethod BUILD ( :$webkit-settings ) {
+    self.setWebKitSettings($webkit-settings) if $webkit-settings
+  }
 
-    self.roleInit-Object;
+  method setWebKitSettings (WebKitSettingsAncestry $_) {
+    my $to-parent;
+
+    $!ws = do {
+      when WebKitSettings {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(WebKitSettings, $_);
+      }
+    }
+    self!setObject($to-parent);
   }
 
   method WebkitGTK::Raw::Definitions::WebKitSettings
     is also<WebKitSettings>
   { $!ws }
-
-  multi method new (WebKitSettings :$settings) {
-    $settings ?? self.bless(:$settings) !! Nil;
+  method WebkitGTK::Raw::Types::WebKitSettings {
+    self.WebKitSettings
   }
-  multi method new {
-    my $settings = webkit_settings_new();
 
-    $settings ?? self.bless(:$settings) !! Nil;
+  multi method new (
+    $webkit-settings where * ~~ WebKitSettingsAncestry,
+
+    :$ref = True
+  ) {
+    return unless $webkit-settings;
+
+    my $o = self.bless( :$webkit-settings );
+    $o.ref if $ref;
+    $o;
+  }
+  multi method new ( *%a ) {
+    my $webkit-settings = webkit_settings_new();
+
+    my $o = $webkit-settings ?? self.bless( :$webkit-settings ) !! Nil;
+    $o.setAttributes(%a) if $o && +%a;
+    $o;
   }
 
   method font_size_to_pixels is also<font-size-to-pixels> {
